@@ -1,5 +1,5 @@
-<!-- ---
+---
 home: true
-actionText: 快速上手 →
-actionLink: /guide/install/install
---- -->
+actionText: blog
+actionLink: /guide/foo
+---
