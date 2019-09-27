@@ -15,7 +15,7 @@ module.exports = {
             ['./guide/we.md', '小程序'],
             ['./guide/electron.md', 'Electron'],
             ['./guide/cooperation.md', '协作的实现'],
-            ['./guide/code.md', '那些年读过的源码'],
+            // ['./guide/code.md', '那些年读过的源码'],
         ],
         sidebarDepth: 3,
         displayAllHeaders: true // 默认值：false
