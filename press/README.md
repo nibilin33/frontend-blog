@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: 开始 →
-actionLink: /guide/foo
+actionLink: /guide/solution
 features:
 - title: A Blog
   details: 专注写作前端博客，记录日常所得。
