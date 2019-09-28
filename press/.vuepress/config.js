@@ -12,7 +12,7 @@ module.exports = {
             ['./guide/knowledge.md', 'Need to Know'],
             ['./guide/promto.md', '那些年做过的优化'],
             ['./guide/component.md', '组件说明'],
-            ['./guide/me.md', '小程序'],
+            ['./guide/min-routine.md', '小程序'],
             ['./guide/electron.md', 'Electron'],
             ['./guide/cooperation.md', '协作的实现'],
             ['./guide/me.md', 'README'],
