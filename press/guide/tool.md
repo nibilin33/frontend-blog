@@ -1,3 +1,7 @@
+## 环境准备
+1.Anaconda:python 版本和第三方库管理  
+2.[安装步骤](https://docs.anaconda.com/anaconda/install/) https://docs.anaconda.com/anaconda/install/  
+3.[使用说明](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html) https://docs.conda.io/projects/conda/en/latest/user-guide/index.html
 ## 国际化
 ## 项目发布
 ## 代码生成
