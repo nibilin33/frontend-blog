@@ -3,7 +3,7 @@
 ## Typescript 运用 
 1.interface  
 2.enum  
-3.class  
+3.class,extends   
 4.namespace  
-5.decorators (装饰者模式+切面编程)  
+5.decorators (装饰者模式+切面编程,reflect-metadata)  
 6.generics (通用函数的考虑)  
