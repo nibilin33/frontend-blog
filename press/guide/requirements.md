@@ -20,11 +20,7 @@
                                                                    返回数据管理。从后端返回的数据里，构建出前端所需要的结果。当需要调用多个 API 时，可以在 usecase 里做这样的工作。
                                                                    输入参数管理。   
 >>>|---- pbx-get.ts                            // 用例，构建在核心实体之上，并实现应用程序的整个业务逻辑。 
-               
-├── features         // 公共的业务组件    
-├── presentation  // 业务逻辑页面  
-├── pages            // 公共页面     
-└── shared          // 共享目录     
+
  
 #### 文件名文件结构 
    1.文件名全部为小写或包含-  
@@ -47,8 +43,43 @@ css 采用BEM命名规则
 
 ## Typescript 运用 
 1.interface  
+使用接口来确保类拥有的指定结构，或者约束对象。  
+接口好比一个协议，当我们签署它的时候，必须遵守他的规则。  
+原来：  
+现在：  
+   
 2.enum  
 3.class,extends   
 4.namespace  
-5.decorators (装饰者模式+切面编程,reflect-metadata)  
+命名空间，又称内部模块，用于组织一些具有某些内在联系的特性和对象，使代码结构更清晰。 
+例子：
+````
+namespace app {
+  export namespace models {
+     export calss UserModel {
+     }
+  }
+}
+let user = new app.models.UserModel();
+````
+原来：  
+现在：  
+5.decorators (装饰者模式+切面编程,reflect-metadata) 
+装饰器用来为元素添加一些额外的逻辑或者元数据。
+装饰器：类，属性，方法，参数  
+类装饰器：接受一个类构造函数作为参数的函数  
+方法装饰器：  
 6.generics (通用函数的考虑)  
+7.泛型T ，允许使用的时候定义类型
+例子：
+````
+geEntities<T>(url:string):void{
+  axois.get(url)
+    .then() {
+      //todo
+    }
+}
+geEntities<User>("/api/users"):void{
+
+}
+````
