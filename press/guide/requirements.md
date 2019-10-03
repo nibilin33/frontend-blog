@@ -1,25 +1,11 @@
 ## 介绍
-   这份文档仅供统一项目编码风格
-## 目录即分层 
+   这份文档仅供统一项目编码风格  
 #### 基本概念
-实体（Entities），实体用于封装企业范围的业务规则。实体可以是拥有方法的对象，也可以是数据结构和函数的集合。如果没有企业，只是单个应用，那么实体就是应用里的业务对象。这些对象封装了最通用和高层的业务规则，极少会受到外部变化的影响。任何操作层面的改动都不会影响到这一层。  
-用例（Use Cases），用例是特定于应用的业务逻辑，一般用来完成用户的某个操作。用例协调数据流向或者流出实体层，并且在此过程中通过执行实体的业务规则来达成用例的目标。用例层的改动不会影响到内部的实体层，同时也不会受外层的改动影响，比如数据库、UI 和框架的变动。只有而且应当应用的操作发生变化的时候，用例层的代码才随之修改。  
-接口适配器（Interface Adapters）。接口适配器层的主要作用是转换数据，数据从最适合内部用例层和实体层的结构转换成适合外层（比如数据持久化框架）的结构。反之，来自于外部服务的数据也会在这层转换为内层需要的结构。  
-#### 具体实践  
-├── core          // 核心代码，包含基本服务和基础代码  
-├── domain        // 业务层代码  
->|── pbx   // 某一具体的业务    
->> ├── model  
->>> |── pbx-entity.ts                         // 数据实体，简单的数据模型，用来表示核心的业务逻辑  
->>>>    |── pbx-model.ts                         // 核心业务模型  
-                           
->> ├── repository    
->>> ├── pbx-mapper.ts                      // 映射层，用于核心实体层映射，或映射到核心实体层。即进行模型转换  
-    
->> |── usecases                                     // 业务逻辑处理。在数据传给后端之前，对一些必要的内容进行处理。
-                                                                   返回数据管理。从后端返回的数据里，构建出前端所需要的结果。当需要调用多个 API 时，可以在 usecase 里做这样的工作。
-                                                                   输入参数管理。   
->>>|---- pbx-get.ts                            // 用例，构建在核心实体之上，并实现应用程序的整个业务逻辑。 
+**实体（Entities）**，实体用于封装企业范围的业务规则。实体可以是拥有方法的对象，也可以是数据结构和函数的集合。如果没有企业，只是单个应用，那么实体就是应用里的业务对象。这些对象封装了最通用和高层的业务规则，极少会受到外部变化的影响。任何操作层面的改动都不会影响到这一层。  
+**用例（Use Cases）**，用例是特定于应用的业务逻辑，一般用来完成用户的某个操作。用例协调数据流向或者流出实体层，并且在此过程中通过执行实体的业务规则来达成用例的目标。用例层的改动不会影响到内部的实体层，同时也不会受外层的改动影响，比如数据库、UI 和框架的变动。只有而且应当应用的操作发生变化的时候，用例层的代码才随之修改。  
+**接口适配器（Interface Adapters）**。接口适配器层的主要作用是转换数据，数据从最适合内部用例层和实体层的结构转换成适合外层（比如数据持久化框架）的结构。反之，来自于外部服务的数据也会在这层转换为内层需要的结构。  
+#### 目录即分层的具体实践  
+
 
  
 #### 文件名文件结构 
@@ -28,12 +14,12 @@
    3.script的
 
 #### 命名规则
-css 采用BEM命名规则
-例：
-.ListCard 块，高层次组件
-.ListCard__title 元素
-.ListCard--feature 修饰符，表示不同状态
-#### 注释
+css 采用BEM命名规则  
+例：  
+.ListCard 块，高层次组件  
+.ListCard__title 元素  
+.ListCard--feature 修饰符，表示不同状态  
+#### 代码的注释
 #### 项目README
 - 运行命令
 - 线上的示例或者最后的运行环境
@@ -64,13 +50,47 @@ let user = new app.models.UserModel();
 ````
 原来：  
 现在：  
-5.decorators (装饰者模式+切面编程,reflect-metadata) 
+5.decorators (装饰者模式+切面编程,reflect-metadata)    
+面向切面编程主要用于抽离与核心业务逻辑无关的功能，如日志统计、埋点、异常处理等等，  
+可以提高业务模块功能的纯净度与被分离模块的复用性。    
 装饰器用来为元素添加一些额外的逻辑或者元数据。
 装饰器：类，属性，方法，参数  
 类装饰器：接受一个类构造函数作为参数的函数  
-方法装饰器：  
-6.generics (通用函数的考虑)  
-7.泛型T ，允许使用的时候定义类型
+方法装饰器：接受属性的对象，属性名和一个可选的参数  
+属性装饰器： 接受属性的对象和属性的属性名  
+参数装饰器： 接受被装饰参数的方法的对象，方法的名字和参数在参数列表中的索引。  
+reflect-metadata：反射元数据API  
+元数据是指程序本身的信息数据，元数据存储在程序集中;
+反射就是在运行时动态获取一个对象的一切信息：方法/属性等等。
+````
+import 'reflect-metadata'
+let meta = function (target: any, propertyKey: string) {
+  // 获取成员类型
+  let type = Reflect.getMetadata('design:type', target, propertyKey)
+  // 获取成员参数类型
+  let paramtypes = Reflect.getMetadata('design:paramtypes', target, propertyKey)
+  // 获取成员返回类型
+  let returntype = Reflect.getMetadata('design:returntype', target, propertyKey)
+  // 获取所有元数据 key (由 TypeScript 注入)
+  let keys = Reflect.getMetadataKeys(target, propertyKey)
+  console.log(keys) // [ 'design:returntype', 'design:paramtypes', 'design:type' ]
+  // 成员类型
+  console.log(type) // Function
+  // 参数类型
+  console.log(paramtypes) // [String]
+  // 成员返回类型
+  console.log(returntype) // String
+}
+class User {
+  // 使用这个装饰器就可以反射出成员详细信息
+  @meta
+  say (myName: string): string {
+    return `hello, ${myName}`
+  }
+}
+````
+  
+6.泛型T ，允许使用的时候定义类型(通用函数的考虑)  
 例子：
 ````
 geEntities<T>(url:string):void{
