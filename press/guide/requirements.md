@@ -41,9 +41,6 @@ interface ChinaMobileList {
     [phone: string]: ChinaMobile
 }
 ````
-原来：  
-现在：  
-   
 2.enum  
 3.class,extends   
 4.namespace  
@@ -58,8 +55,7 @@ namespace app {
 }
 let user = new app.models.UserModel();
 ````
-原来：  
-现在：  
+ 
 5.decorators (装饰者模式+切面编程,reflect-metadata)    
 面向切面编程主要用于抽离与核心业务逻辑无关的功能，如日志统计、埋点、异常处理等等，  
 可以提高业务模块功能的纯净度与被分离模块的复用性。    
