@@ -19,3 +19,15 @@
                                                                    返回数据管理。从后端返回的数据里，构建出前端所需要的结果。当需要调用多个 API 时，可以在 usecase 里做这样的工作。
                                                                    输入参数管理。   
 >>>|---- pbx-get.ts                            // 用例，构建在核心实体之上，并实现应用程序的整个业务逻辑。 
+
+<style>
+body{
+  --bcColor: blue;
+}
+</style>
+<style scoped>
+.title{
+  color:var(--bcColor);
+}
+</style>
+document.body.style.setProperty('--bcColor',v);
