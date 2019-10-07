@@ -15,12 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="requirements.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="requirements.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/press/guide/requirements.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-532">
-                <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+              <first_editor relative-caret-position="177">
+                <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -41,12 +41,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="solution.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="solution.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/press/guide/solution.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="277">
-                <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+              <first_editor relative-caret-position="201">
+                <caret line="73" column="33" lean-forward="false" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -165,8 +165,8 @@
         <option value="$PROJECT_DIR$/press/.vuepress/config.js" />
         <option value="$PROJECT_DIR$/press/guide/knowledge.md" />
         <option value="$PROJECT_DIR$/press/guide/code.md" />
-        <option value="$PROJECT_DIR$/press/guide/requirements.md" />
         <option value="$PROJECT_DIR$/press/guide/solution.md" />
+        <option value="$PROJECT_DIR$/press/guide/requirements.md" />
       </list>
     </option>
   </component>
@@ -851,12 +851,12 @@
       <workItem from="1570260083817" duration="1196000" />
       <workItem from="1570321821471" duration="1467000" />
       <workItem from="1570326332322" duration="48000" />
-      <workItem from="1570326427783" duration="11720000" />
+      <workItem from="1570326427783" duration="14492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53965000" />
+    <option name="totallyTimeSpent" value="56737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1378,22 +1378,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/press/guide/requirements.md">
+    <entry file="file://$PROJECT_DIR$/press/guide/solution.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-532">
-            <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <first_editor relative-caret-position="201">
+            <caret line="73" column="33" lean-forward="false" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/press/guide/solution.md">
+    <entry file="file://$PROJECT_DIR$/press/guide/requirements.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="277">
-            <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+          <first_editor relative-caret-position="177">
+            <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
             <folding />
           </first_editor>
           <second_editor />
