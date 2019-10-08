@@ -17,7 +17,8 @@
 
 1.文件名全部为小写或包含-  
 2.单文件组件的顶级元素的顺序 template,script,style  
-3.script 的
+3.script 的顺序
+
 
 #### 命名规则
 
@@ -70,9 +71,17 @@ interface ChinaMobileList {
 2.enum  
 旧版：  
 ```
+const typeMach = {
+    image: 'browse_original_image',
+    file: 'down_file'
+}
 ```
 改版：  
 ```
+enum typeMach {
+    image = 'browse_original_image',
+    file = 'down_file'
+}  
 ```
 
 3.class,extends  
