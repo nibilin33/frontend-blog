@@ -42,12 +42,14 @@ document.body.style.setProperty('--bgColor','red');
 body{
   --bgColor: blue;
 } 
-使用:
+使用:  
+```
 <style lang="scss" scoped>
 .title{
   color:var(--bgColor);
 }
 </style>
+```
 #### 注释
 
 尽量利用函数名称，参数或者返回值自身就足够传达信息。  
