@@ -16,8 +16,8 @@
 #### 文件名文件结构
 
 1.文件名全部为小写或包含-  
- 2.单文件组件的顶级元素的顺序 template,script,style  
- 3.script 的
+2.单文件组件的顶级元素的顺序 template,script,style  
+3.script 的
 
 #### 命名规则
 
@@ -68,7 +68,20 @@ interface ChinaMobileList {
 ```
 
 2.enum  
+旧版：  
+```
+```
+改版：  
+```
+```
+
 3.class,extends  
+旧版：  
+```
+```
+改版：  
+```
+```
 4.namespace  
 命名空间，又称内部模块，用于组织一些具有某些内在联系的特性和对象，使代码结构更清晰。
 
