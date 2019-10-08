@@ -11,8 +11,10 @@
 #### 目录即分层的具体实践
 
 ![目录即分层的具体实践](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/目录即分层.png)  
-具体业务包含自己的适配器和实体的目录  
-.vue 做为视图，里面的方法只负责调用实体和适配器中的方法
+- 具体业务包含自己的适配器和实体的目录   
+- 实体的目录包含简单的数据模型，核心的业务逻辑  
+- 适配器做一些数据的转换        
+- .vue 做为用例层，编写用户行为的一些方法      
 
 #### 文件名文件结构
 
@@ -333,11 +335,13 @@ interface UserBehavior{
 }
 
 export function Log(value:UserBehavior) {
-    value.date = new Date();
-    value.version = navigator.platform;
-    return function (target: any, name: string, descriptor: PropertyDescriptor) {
-        value.module = name;
-    };
+  return function (target: any, name: string, descriptor: PropertyDescriptor) {
+    Object.assign(value, {
+        date: new Date(),
+        version: navigator.platform,
+        module: name,
+    })
+  };
 }
 import { Log } from '@/utils/log';
 export class noticeAPI {
