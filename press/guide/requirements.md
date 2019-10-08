@@ -9,16 +9,16 @@
 **接口适配器（Interface Adapters）** ，接口适配器层的主要作用是转换数据，数据从最适合内部用例层和实体层的结构转换成适合外层（比如数据持久化框架）的结构。反之，来自于外部服务的数据也会在这层转换为内层需要的结构。
 
 #### 目录即分层的具体实践
+
 ![目录即分层的具体实践](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/目录即分层.png)  
 具体业务包含自己的适配器和实体的目录  
-.vue做为视图，里面的方法只负责调用实体和适配器中的方法  
+.vue 做为视图，里面的方法只负责调用实体和适配器中的方法
 
 #### 文件名文件结构
 
 1.文件名全部为小写或包含-  
 2.单文件组件的顶级元素的顺序 template,script,style  
 3.script 的顺序
-
 
 #### 命名规则
 
@@ -69,194 +69,202 @@ interface ChinaMobileList {
 ```
 
 2.enum  
-旧版：  
+旧版：
+
 ```
 const typeMach = {
     image: 'browse_original_image',
     file: 'down_file'
 }
 ```
-改版：  
+
+改版：
+
 ```
 enum typeMach {
     image = 'browse_original_image',
     file = 'down_file'
-}  
+}
 ```
 
 3.class,extends  
-旧版：  
+旧版：
+
 ```
+
 ```
-改版：  
+
+改版：
+
 ```
+
 ```
+
 4.namespace  
 命名空间，又称内部模块，用于组织一些具有某些内在联系的特性和对象，使代码结构更清晰。
 
 ```
-namespace app {
-  export namespace models {
-     export calss UserModel {
-     }
-  }
+单例模式  
+namespace Singleton {
+  export function someMethod() {}
 }
-let user = new app.models.UserModel();
+Singleton.someMethod();
 ```
+
 <details>
   <summary>旧版代码，点击查看详细</summary>
   <pre>
   <code>
-         authLogin() {
-            let path = this.$route.path;
-            path = path.split('/ume')[1]
-            switch (path) {
-                case '/extension':
-                    let platformExtension = new PlatformApi(function() {
-                        return new Promise((resolve, reject) => {
-                            resolve({
-                                data: {
-                                    clientId: 'web-extension'
-                                }
-                            })
-                        })
-                    }, extensionLogin);
-                    platformExtension.setRequestTimeOut(3000);
-                    platformExtension.login(this.$route.query.code).then(token => {
-                        this.refreshToken('extension');
-                        this.setUserId(token.userId);
-                        this.$router.push({ path: '/ume/web_extension' });
-                    }).catch((error) => {
-                        this.$router.push({ path: '/pcError/error', query: { type: 'web-extension', path: path, code: this.$route.query.code } })
-                    });
-                    break;
-                case '/notice':
-                    let platformNotice = new PlatformApi(application, login);
-                    platformNotice.consoleLog("notice logining");
-                    platformNotice.setRequestTimeOut(3000);
-                    platformNotice.login(this.$route.query.code).then(token => {
-                        sessionStorage.setItem('notice', JSON.stringify(token));
-                        this.refreshToken('notice');
-                        this.setUserId(token.userId);
-                        platformNotice.consoleLog("notice login success:" + JSON.stringify(token));
-                        this.handleNotice();
-                    }).catch((error) => {
-                        platformNotice.consoleLog("notice login fail");
-                        this.$router.push({ path: '/pcError/error', query: { type: 'yealink-bulletin', path: path, code: this.$route.query.code } })
-                    });
-                    break;
-                case '/meeting':
-                    let platformMeeting = new PlatformApi(getApplication, umeLogin);
-                    platformMeeting.consoleLog("meeting logining");
-                    platformMeeting.setRequestTimeOut(3000);
-                    platformMeeting.login(this.$route.query.code).then(res => {
-                        platformMeeting.consoleLog("meeting login success" + JSON.stringify(res));
-                        if (res.personal === null || typeof res.personal === "undefined") {
-                            this.$router.push({ path: '/pcError/error', query: { type: 'yealink-conference', path: path, code: this.$route.query.code } })
-                        } else {
-                            sessionStorage.personal = JSON.stringify({ personal: res.personal });
-                            this.refreshToken('meeting');
-                            this.handleReservation();
-                        }
-                    }).catch(res => {
-                        platformMeeting.consoleLog("meeting login fail");
-                        this.$router.push({ path: '/pcError/error', query: { type: 'yealink-conference', path: path, code: this.$route.query.code } })
-                        //this.$router.push('/uc/login')
-                    });
-                    break;
-                case '/vote':
-                    let platformNoticeVote = new PlatformApi(applicationVote, loginVote);
-                    platformNoticeVote.consoleLog("vote logining");
-                    platformNoticeVote.setRequestTimeOut(3000);
-                    platformNoticeVote.login(this.$route.query.code).then(token => {
-                        sessionStorage.setItem('vote', JSON.stringify(token));
-                        this.refreshToken('vote');
-                        this.setUserId(token.userId);
-                        platformNoticeVote.consoleLog("vote login success:" + JSON.stringify(token));
-                        this.deleteLoading();
-                        console.log("votelist--------")
-                        if (this.$route.query.groupId) {
-                            this.$router.push({ path: '/vote/poll', query: { groupId: this.$route.query.groupId } });
-                        } else {
-                            this.$router.push({ path: '/vote/list', query: { id: this.$route.query.id } });
-                        }
-                    }).catch((error) => {
-                        platformNoticeVote.consoleLog("vote login failed");
-                        this.$router.push({ path: '/pcError/error', query: { type: 'yealink-vote', path: path, code: this.$route.query.code } })
-                    });
-                    break;
-                case '/changePwd':
-                    let platformPwd = new PlatformApi(function() {
-                        return new Promise((resolve, reject) => {
-                            resolve({
-                                data: {
-                                    clientId: 'yealink-pwdChange'
-                                }
-                            })
-                        })
-                    }, pwdLogin);
-                    platformPwd.setRequestTimeOut(3000);
-                    platformPwd.login(this.$route.query.code).then(token => {
-                        this.$router.push({ path: '/changePassword', query: { fullJid: token.bareJid } });
-                    }).catch((error) => {
-                        this.$router.push({ path: '/pcError/error' })
-                    });
-                    break;
-                case '/questionnaire':
-                    let platQuestion = new PlatformApi(applicationQuestion, questionLogin);
-                    platQuestion.setRequestTimeOut(3000);
-                    platQuestion.login(this.$route.query.code).then(token => {
-                        sessionStorage.setItem('questionnaire', JSON.stringify(token));
-                        this.refreshToken('questionnaire');
-                        this.setUserId(token.userId);
-                        platQuestion.consoleLog("questionnaire login success:" + JSON.stringify(token));
-                        this.$router.push({ path: '/question/list', query: { id: this.$route.query.id } });
-                    }).catch((error) => {
-                        platQuestion.consoleLog("questionnaire login failed");
-                        this.$router.push({ path: '/pcError/error', query: { type: 'yealink-questionnaire', path: path, code: this.$route.query.code } })
-                    });
-                    break;
-                case '/forward':
-                    let platformForward = new PlatformApi(applicationForward, forwardLogin);
-                    platformForward.consoleLog("forward logining");
-                    platformForward.setRequestTimeOut(3000);
-                    platformForward.login(this.$route.query.code).then(token => {
-                        sessionStorage.setItem('forward', JSON.stringify(token));
-                        this.refreshToken('forward');
-                        this.setUserId(token.userId);
-                        platformForward.consoleLog("forward login success:" + JSON.stringify(token));
-                        this.deleteLoading();
-                        this.$router.push({ path: '/self/forward', query: { id: this.$route.query.id } });
-                    }).catch((error) => {
-                        platformForward.consoleLog("forward login failed");
-                        this.$router.push({ path: '/pcError/error', query: { type: 'yealink-forward', path: path, code: this.$route.query.code } })
-                    });
-                    break;
-                case '/imessage':
-                    let platformIM = new PlatformApi(function() {
-                        return new Promise((resolve, reject) => {
-                            resolve({
-                                data: {
-                                    clientId: 'yealink-smsgateway'
-                                }
-                            })
-                        })
-                    }, imLogin);
-                    platformIM.setRequestTimeOut(3000);
-                    platformIM.login(this.$route.query.code).then(token => {
-                        sessionStorage.setItem('imessage', JSON.stringify(token));
-                        this.refreshToken('imessage');
-                        this.$router.push({ path: '/ume/self/imessage'});
-                    }).catch((error) => {
-                        this.$router.push({ path: '/pcError/error' })
-                    });
-                    break;
-                default:
-                    console.error('type error');
-                    break;
+authLogin() {
+let path = this.$route.path;
+path = path.split('/ume')[1]
+switch (path) {
+    case '/extension':
+        let platformExtension = new PlatformApi(function() {
+            return new Promise((resolve, reject) => {
+                resolve({
+                    data: {
+                        clientId: 'web-extension'
+                    }
+                })
+            })
+        }, extensionLogin);
+        platformExtension.setRequestTimeOut(3000);
+        platformExtension.login(this.$route.query.code).then(token => {
+            this.refreshToken('extension');
+            this.setUserId(token.userId);
+            this.$router.push({ path: '/ume/web_extension' });
+        }).catch((error) => {
+            this.$router.push({ path: '/pcError/error', query: { type: 'web-extension', path: path, code: this.$route.query.code } })
+        });
+        break;
+    case '/notice':
+        let platformNotice = new PlatformApi(application, login);
+        platformNotice.consoleLog("notice logining");
+        platformNotice.setRequestTimeOut(3000);
+        platformNotice.login(this.$route.query.code).then(token => {
+            sessionStorage.setItem('notice', JSON.stringify(token));
+            this.refreshToken('notice');
+            this.setUserId(token.userId);
+            platformNotice.consoleLog("notice login success:" + JSON.stringify(token));
+            this.handleNotice();
+        }).catch((error) => {
+            platformNotice.consoleLog("notice login fail");
+            this.$router.push({ path: '/pcError/error', query: { type: 'yealink-bulletin', path: path, code: this.$route.query.code } })
+        });
+        break;
+    case '/meeting':
+        let platformMeeting = new PlatformApi(getApplication, umeLogin);
+        platformMeeting.consoleLog("meeting logining");
+        platformMeeting.setRequestTimeOut(3000);
+        platformMeeting.login(this.$route.query.code).then(res => {
+            platformMeeting.consoleLog("meeting login success" + JSON.stringify(res));
+            if (res.personal === null || typeof res.personal === "undefined") {
+                this.$router.push({ path: '/pcError/error', query: { type: 'yealink-conference', path: path, code: this.$route.query.code } })
+            } else {
+                sessionStorage.personal = JSON.stringify({ personal: res.personal });
+                this.refreshToken('meeting');
+                this.handleReservation();
             }
-        }
+        }).catch(res => {
+            platformMeeting.consoleLog("meeting login fail");
+            this.$router.push({ path: '/pcError/error', query: { type: 'yealink-conference', path: path, code: this.$route.query.code } })
+            //this.$router.push('/uc/login')
+        });
+        break;
+    case '/vote':
+        let platformNoticeVote = new PlatformApi(applicationVote, loginVote);
+        platformNoticeVote.consoleLog("vote logining");
+        platformNoticeVote.setRequestTimeOut(3000);
+        platformNoticeVote.login(this.$route.query.code).then(token => {
+            sessionStorage.setItem('vote', JSON.stringify(token));
+            this.refreshToken('vote');
+            this.setUserId(token.userId);
+            platformNoticeVote.consoleLog("vote login success:" + JSON.stringify(token));
+            this.deleteLoading();
+            console.log("votelist--------")
+            if (this.$route.query.groupId) {
+                this.$router.push({ path: '/vote/poll', query: { groupId: this.$route.query.groupId } });
+            } else {
+                this.$router.push({ path: '/vote/list', query: { id: this.$route.query.id } });
+            }
+        }).catch((error) => {
+            platformNoticeVote.consoleLog("vote login failed");
+            this.$router.push({ path: '/pcError/error', query: { type: 'yealink-vote', path: path, code: this.$route.query.code } })
+        });
+        break;
+    case '/changePwd':
+        let platformPwd = new PlatformApi(function() {
+            return new Promise((resolve, reject) => {
+                resolve({
+                    data: {
+                        clientId: 'yealink-pwdChange'
+                    }
+                })
+            })
+        }, pwdLogin);
+        platformPwd.setRequestTimeOut(3000);
+        platformPwd.login(this.$route.query.code).then(token => {
+            this.$router.push({ path: '/changePassword', query: { fullJid: token.bareJid } });
+        }).catch((error) => {
+            this.$router.push({ path: '/pcError/error' })
+        });
+        break;
+    case '/questionnaire':
+        let platQuestion = new PlatformApi(applicationQuestion, questionLogin);
+        platQuestion.setRequestTimeOut(3000);
+        platQuestion.login(this.$route.query.code).then(token => {
+            sessionStorage.setItem('questionnaire', JSON.stringify(token));
+            this.refreshToken('questionnaire');
+            this.setUserId(token.userId);
+            platQuestion.consoleLog("questionnaire login success:" + JSON.stringify(token));
+            this.$router.push({ path: '/question/list', query: { id: this.$route.query.id } });
+        }).catch((error) => {
+            platQuestion.consoleLog("questionnaire login failed");
+            this.$router.push({ path: '/pcError/error', query: { type: 'yealink-questionnaire', path: path, code: this.$route.query.code } })
+        });
+        break;
+    case '/forward':
+        let platformForward = new PlatformApi(applicationForward, forwardLogin);
+        platformForward.consoleLog("forward logining");
+        platformForward.setRequestTimeOut(3000);
+        platformForward.login(this.$route.query.code).then(token => {
+            sessionStorage.setItem('forward', JSON.stringify(token));
+            this.refreshToken('forward');
+            this.setUserId(token.userId);
+            platformForward.consoleLog("forward login success:" + JSON.stringify(token));
+            this.deleteLoading();
+            this.$router.push({ path: '/self/forward', query: { id: this.$route.query.id } });
+        }).catch((error) => {
+            platformForward.consoleLog("forward login failed");
+            this.$router.push({ path: '/pcError/error', query: { type: 'yealink-forward', path: path, code: this.$route.query.code } })
+        });
+        break;
+    case '/imessage':
+        let platformIM = new PlatformApi(function() {
+            return new Promise((resolve, reject) => {
+                resolve({
+                    data: {
+                        clientId: 'yealink-smsgateway'
+                    }
+                })
+            })
+        }, imLogin);
+        platformIM.setRequestTimeOut(3000);
+        platformIM.login(this.$route.query.code).then(token => {
+            sessionStorage.setItem('imessage', JSON.stringify(token));
+            this.refreshToken('imessage');
+            this.$router.push({ path: '/ume/self/imessage'});
+        }).catch((error) => {
+            this.$router.push({ path: '/pcError/error' })
+        });
+        break;
+    default:
+        console.error('type error');
+        break;
+}
     }
+}
   </code> 
     </pre>
 </details>
@@ -265,12 +273,12 @@ let user = new app.models.UserModel();
  利用策略者模式消除switch,if，利用namespace组织登录相关模块
  <pre>
  <code>
-        authLogin() {
-            const value = this.$route.path;
-            const code =  this.$route.query.code;
-            const instance = StrategyLogin.getLoginInstance(value);
-            instance.login(code);
-        },
+  authLogin() {
+      const value = this.$route.path;
+      const code =  this.$route.query.code;
+      const instance = StrategyLogin.getLoginInstance(value);
+      instance.login(code);
+  },
  </code>
 <code>
 import * as app from '@/views/login/entity';
@@ -281,7 +289,6 @@ class StrategyLogin {
 }
 export default StrategyLogin;
  </code>
-
  <code>
 import {noticeAPI} from './notice';
 export namespace login {
@@ -292,8 +299,13 @@ export namespace login {
  </pre>
 </details>
 
-
-5.decorators (装饰者模式+切面编程,reflect-metadata)    
+5.decorators (装饰者模式+切面编程,reflect-metadata)  
+```
+tsconfig.json
+compilerOptions:{
+"experimentalDecorators": true
+}
+```
 面向切面编程主要用于抽离与核心业务逻辑无关的功能，如日志统计、埋点、异常处理等等，  
 可以提高业务模块功能的纯净度与被分离模块的复用性。  
 装饰器用来为元素添加一些额外的逻辑或者元数据。
@@ -304,9 +316,57 @@ export namespace login {
 参数装饰器： 接受被装饰参数的方法的对象，方法的名字和参数在参数列表中的索引。  
 reflect-metadata：反射元数据 API  
 元数据是指程序本身的信息数据，元数据存储在程序集中;
-反射就是在运行时动态获取一个对象的一切信息：方法/属性等等。 
+反射就是在运行时动态获取一个对象的一切信息：方法/属性等等。
+例子：       
+埋点    
+```
+/**
+ * @interface UserBehavior
+ * eventProperty：事件属性，事件描述
+ */
+interface UserBehavior{
+  module?: string,
+  eventName: string,
+  eventProperty: string,
+  version?: string,
+  date?: Date
+}
 
-
+export function Log(value:UserBehavior) {
+    value.date = new Date();
+    value.version = navigator.platform;
+    return function (target: any, name: string, descriptor: PropertyDescriptor) {
+        value.module = name;
+    };
+}
+import { Log } from '@/utils/log';
+export class noticeAPI {
+    @Log({eventName: 'notice-login',eventProperty: '用户登录'})
+    login(code:string) {
+        apiLogin(code);
+    }
+}
+```
+参数的提交的各种处理，校验也可以用这种方式    
+```
+import "reflect-metadata";
+export function format(target: any, name: string|symbol, descriptor: PropertyDescriptor) {
+    const savedValue = descriptor.value;
+    // 如果多个参数表 （...args:any[]）
+    descriptor.value = (args:string) =>{
+        console.log(args,"before");
+        args = 'dddd';
+        return Reflect.apply(savedValue,target,[args]);
+    }
+}
+import { format } from '@/views/login/adapters/transform-params';
+export class voteAPI {
+    @format
+    login(code:string) {
+        console.log(code,"after");//此时after的值为'ddd'
+    }
+}
+```
 6.泛型 T ，允许使用的时候定义类型(通用函数的考虑)  
 例子：
 
