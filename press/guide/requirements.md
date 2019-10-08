@@ -24,12 +24,30 @@
 
 #### 命名规则
 
-css 采用 BEM 命名规则  
+- css 采用 BEM 命名规则  
 例：  
-.ListCard 块，高层次组件  
-.ListCard\_\_title 元素  
-.ListCard--feature 修饰符，表示不同状态
+.listCard 块，高层次组件  
+.listCard\_\_title 元素  
+.listCard--feature 修饰符，表示不同状态    
 
+- script 采用驼峰  
+
+#### 样式变量  
+样式中有需要颜色的地方，统一定义到body下面。  
+给多彩提供脚本直接在当前替换能力。   
+```
+document.body.style.setProperty('--bgColor','red'); 
+```     
+例：  
+body{
+  --bgColor: blue;
+} 
+使用:
+<style lang="scss" scoped>
+.title{
+  color:var(--bgColor);
+}
+</style>
 #### 注释
 
 尽量利用函数名称，参数或者返回值自身就足够传达信息。  
