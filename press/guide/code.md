@@ -1,33 +1,4 @@
 ## Vue
 ## JQuery
 ## Webpack
-## Typescript
-1.剩余参数语法
-（...foo: number[]）: number
 
-├── core          // 核心代码，包含基本服务和基础代码  
-├── domain        // 业务层代码  
->|── pbx   // 某一具体的业务    
->> ├── model  
->>> |── pbx-entity.ts                         // 数据实体，简单的数据模型，用来表示核心的业务逻辑  
->>>> |── pbx-model.ts                         // 核心业务模型  
-                           
->> ├── repository    
->>> ├── pbx-mapper.ts                      // 映射层，用于核心实体层映射，或映射到核心实体层。即进行模型转换  
-    
->> |── usecases                                     // 业务逻辑处理。在数据传给后端之前，对一些必要的内容进行处理。
-                                                                   返回数据管理。从后端返回的数据里，构建出前端所需要的结果。当需要调用多个 API 时，可以在 usecase 里做这样的工作。
-                                                                   输入参数管理。   
->>>|---- pbx-get.ts                            // 用例，构建在核心实体之上，并实现应用程序的整个业务逻辑。 
-
-<style>
-body{
-  --bcColor: blue;
-}
-</style>
-<style scoped>
-.title{
-  color:var(--bcColor);
-}
-</style>
-document.body.style.setProperty('--bcColor',v);

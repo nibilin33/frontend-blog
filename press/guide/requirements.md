@@ -42,7 +42,7 @@ document.body.style.setProperty('--bgColor','red');
 body{
   --bgColor: blue;
 } 
-使用:  
+使用:    
 ```
 <style lang="scss" scoped>
 .title{
