@@ -31,6 +31,8 @@
 .listCard--feature 修饰符，表示不同状态    
 
 - script 采用驼峰  
+类的命名:首字母必须采用大写的形式  
+变量的命名：首字母小写  
 
 #### 样式变量  
 样式中有需要颜色的地方，统一定义到body下面。  
@@ -110,17 +112,153 @@ enum typeMach {
 ```
 
 3.class,extends  
-旧版：
+<details>
+<summary>旧版代码，点击查看详细</summary>
+<code> 
+export const network = { 
+
+        post(url, data, loading = false, warn = true) {  
+            service.loading = service.loading||loading;  
+            service.warn = warn;  
+            return Promise.resolve(  
+                service.post(url, {  
+                    data  
+                })  
+            )  
+        },
+
+    get(url, data, loading = false, warn = true) {
+        service.loading = service.loading||loading;
+        service.warn = warn;
+        return Promise.resolve(
+            service.get(url + (IS_IE_BROWSER ? `?T=${ new Date().getTime()}` : ''), {
+                params: data ? data : {}
+            })
+        )
+    },
+
+    delete(url, data, loading = true, warn = true) {
+        service.loading = loading;
+        service.warn = warn;
+        return Promise.resolve(
+            service.delete(url, {
+                params:data
+            })
+        )
+    },
+
+    put(url, data, loading = true, warn = true) {
+        service.loading = loading;
+        service.warn = warn;
+        return Promise.resolve(
+            service.put(url, {
+                data
+            })
+        )
+    },
+
+    patch(url, data, loading = true, warn = true) {
+        service.loading = loading;
+        service.warn = warn;
+        return Promise.resolve(
+            service.patch(url, {
+                data
+            })
+        )
+    }};  
+    export default network;  
+</code>
+
+</details>
+
+
+<details>
+<summary>改版代码，点击查看详细</summary>
 
 ```
+  import axios from 'axios';
+  const CancelToken = axios.CancelToken;
+  const instance = axios.create({
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      transformRequest: [function (data) {
+          return JSON.stringify(data);
+      }],
+  });
 
+  /**
+  *
+  *
+  * @class Axios
+  * @extends {AxiosInstance}
+  * @description 阻止重复提交，错误处理，等待效果，过期处理
+  */
+
+  interface customConfig {
+      url:string,
+      data?: any,
+      isLoading?: boolean
+      error?: string
+  }
+  class Axios {
+      private pedding: Object
+      constructor() {
+          this.pedding = {};
+          this.intercepteRequest();
+          this.intercepteResponse();
+      }
+
+      post(params:customConfig) {
+          return instance.post(params.url,{data:params.data});
+      }
+
+      get(params:customConfig) {
+          return instance.get(params.url,
+              { params: params.data? params.data : {} });
+      }
+
+      delete(params:customConfig) {
+          return instance.delete(params.url,
+              { params: params.data? params.data : {} });
+      }
+
+      put(params:customConfig) {
+          return instance.put(params.url,{data:params.data});
+      }
+
+      patch(params:customConfig) {
+          return instance.patch(params.url,{data:params.data});
+      }
+
+      cancel() {
+          const source = CancelToken.source();
+          source.cancel('Operation canceled by the user');
+      }
+
+      intercepteRequest(options?:any) {
+          instance.interceptors.request.use((config) => {
+              // do something with the request data
+              console.log('Request was sent',config);
+              return config;
+            }, (error) => {
+              return Promise.reject(error);
+            });
+      }
+
+      intercepteResponse(options?:any) {
+          instance.interceptors.response.use((response) => {
+              // do something with the response data
+              console.log('Response was received');
+              return response;
+          }, (error) => {
+              return Promise.reject(error);
+          }); 
+      }
+  }
+  export default Axios;
 ```
-
-改版：
-
-```
-
-```
+</details>
 
 4.namespace  
 命名空间，又称内部模块，用于组织一些具有某些内在联系的特性和对象，使代码结构更清晰。
@@ -312,9 +450,9 @@ class StrategyLogin {
 export default StrategyLogin;
  </code>
  <code>
-import {noticeAPI} from './notice';
+import {NoticeAPI} from './notice';
 export namespace login {
-    export class notice extends noticeAPI{
+    export class Notice extends NoticeAPI{
     }
 }
  </code>
@@ -364,7 +502,7 @@ export function Log(value:UserBehavior) {
   };
 }
 import { Log } from '@/utils/log';
-export class noticeAPI {
+export class NoticeAPI {
     @Log({eventName: 'notice-login',eventProperty: '用户登录'})
     login(code:string) {
         apiLogin(code);
@@ -384,7 +522,7 @@ export function format(target: any, name: string|symbol, descriptor: PropertyDes
     }
 }
 import { format } from '@/views/login/adapters/transform-params';
-export class voteAPI {
+export class VoteAPI {
     @format
     login(code:string) {
         console.log(code,"after");//此时after的值为'ddd'

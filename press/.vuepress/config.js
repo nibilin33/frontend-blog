@@ -8,7 +8,7 @@ module.exports = {
             ['./guide/solution.md', '解决方案'],
             ['./guide/requirements.md', '代码实践'],
             ['./guide/tool.md', '工具说明'], 
-            ['./guide/foo', 'WebView'],
+            ['./guide/webview.md', 'WebView'],
             ['./guide/knowledge.md', 'Need to Know'],
             ['./guide/promto.md', '那些年做过的优化'],
             ['./guide/component.md', '组件说明'],
