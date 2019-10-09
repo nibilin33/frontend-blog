@@ -189,9 +189,6 @@ export const network = {
 
   /**
   *
-  *
-  * @class Axios
-  * @extends {AxiosInstance}
   * @description 阻止重复提交，错误处理，等待效果，过期处理
   */
 
