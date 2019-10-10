@@ -20,7 +20,39 @@
 
 1.文件名全部为小写或包含-  
 2.单文件组件的顶级元素的顺序 template,script,style  
-3.script 的顺序
+3.有需要的生命周期按照被调用的顺序书写  
+- beforeCreate
+- created
+- beforeMount
+- mounted
+- beforeUpdate
+- updated
+- activated
+- deactivated
+- beforeDestroy
+- destroyed
+```
+<template>
+</template>
+<script lang="ts">
+export default {
+  data() {
+    return {
+    };
+  },
+  watch: {
+  },
+  created() {
+  },
+  beforeDestroy() {
+  },
+  methods: {
+  }
+};
+</script>
+<style lang="scss">
+</style>
+```
 
 #### 命名规则
 
