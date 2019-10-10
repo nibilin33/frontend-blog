@@ -14,6 +14,7 @@ PWA 能做到原生应用的体验不是靠特指某一项技术，而是经过�
 >PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 PWA Checklist 查看现有的特征。
 
 具体的可以查看 [https://lavas.baidu.com/pwa/README](https://lavas.baidu.com/pwa/README)   
+或者 [PWA 应用实战](https://lavas-project.github.io/pwa-book/)  
 **想法**  
 PWA请求一次后资源都缓存在本地了，可以利用这个特点，在终端启动的时候先请求  
 往后所有资源都可以在缓存里面拿，当资源需要更新的时候，Service Worker 也提供  
