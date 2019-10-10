@@ -4,7 +4,7 @@ module.exports = {
     description: 'Just playing around',
     base: '/frontend-blog/',
     head: [
-        ['link', { rel: "icon", href: "favicon.ico" }]
+        ['link', { rel: "shortcut icon", href: "./favicon.ico" ,type:"image/x-icon"}]
     ],
     themeConfig: {
         sidebar: [
