@@ -7,7 +7,7 @@
     <meta name="description" content="Just playing around">
     
     
-    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.a990ccfd.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/17.ceefffb3.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.f64f1324.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.2bb81e5e.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.627e756e.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.4efc8abe.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.4a41ed46.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.dab08ff2.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.a9614356.js"><link rel="prefetch" href="/frontend-blog/assets/js/18.b3db43d0.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.b39a13b9.js"><link rel="prefetch" href="/frontend-blog/assets/js/20.da84cdb7.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.10fa5dc6.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.89f2c322.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.6256fdff.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.66a9039b.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.2e530270.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.2c7f10ae.js">
+    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.32b7a67c.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/17.7dc6c35e.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.17d896b3.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.2bb81e5e.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.627e756e.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.6236683b.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.6be3e7dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.2453b576.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.b8579caf.js"><link rel="prefetch" href="/frontend-blog/assets/js/18.19ab3563.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.3e6412a2.js"><link rel="prefetch" href="/frontend-blog/assets/js/20.c261783b.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.cd2e134c.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.89f2c322.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.6256fdff.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.ccd1a150.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.8adc8107.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.c830bc5c.js">
     <link rel="stylesheet" href="/frontend-blog/assets/css/0.styles.151d4383.css">
   </head>
   <body>
@@ -29,10 +29,11 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 在ajax请求方面，如果webview能够拦截请求，需要判断是请求资源还是接口请求。<br>
 如果是接口请求，需要加上服务器地址。<br>
 如果无法拦截，就需要向终端获取服务器地址。</p> <p><strong>方案三：</strong><br>
+前提：本地已经下载好资源。<br>
 用file协议直接打开index.html，前端路由模式需要改成hash。<br>
 在ajax请求方面同方案二。<br>
 本地更新策略采用定时请求版本情况，发现版本变更，下载资源包替换。<br>
-这个大概由原来无感知更新变成感知更新。</p> <h2 id="大数据量情况的性能问题"><a href="#大数据量情况的性能问题" aria-hidden="true" class="header-anchor">#</a> 大数据量情况的性能问题</h2> <h2 id="内存泄漏问题"><a href="#内存泄漏问题" aria-hidden="true" class="header-anchor">#</a> 内存泄漏问题</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+这个大概由原来无感知更新变成有感知更新。</p> <h2 id="大数据量情况的性能问题"><a href="#大数据量情况的性能问题" aria-hidden="true" class="header-anchor">#</a> 大数据量情况的性能问题</h2> <h2 id="内存泄漏问题"><a href="#内存泄漏问题" aria-hidden="true" class="header-anchor">#</a> 内存泄漏问题</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/frontend-blog/guide/knowledge.html" class="prev">
           Need to Know
@@ -41,6 +42,6 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
         </a>
         →
       </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/frontend-blog/assets/js/app.a990ccfd.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/17.ceefffb3.js" defer></script>
+    <script src="/frontend-blog/assets/js/app.32b7a67c.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/17.7dc6c35e.js" defer></script>
   </body>
 </html>
