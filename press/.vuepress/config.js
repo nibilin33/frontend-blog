@@ -3,6 +3,9 @@ module.exports = {
     title: 'FrontEnd blog',
     description: 'Just playing around',
     base: '/frontend-blog/',
+    head: [
+        ['link', { rel: "icon", href: "favicon.ico" }]
+    ],
     themeConfig: {
         sidebar: [
             ['./guide/solution.md', '解决方案'],
