@@ -445,6 +445,18 @@ class StrategyLogin {
     }
 }
 export default StrategyLogin;
+上面这种写法会报类型错误，于是改成下面这种写法
+import { login }from '@/views/login/entity';
+class StrategyLogin {
+  static getLoginInstance(type:any) {
+    const allInstance = Object.values(login);
+    let curentInstance = allInstance.findIndex((it)=>{
+        return it.toString().toLowerCase().indexOf(type) > -1;
+    });
+    return new allInstance[curentInstance]();
+  }
+}
+export default StrategyLogin;
  </code>
  <code>
 import {NoticeAPI} from './notice';
