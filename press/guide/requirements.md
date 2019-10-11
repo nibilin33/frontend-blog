@@ -105,7 +105,50 @@ body{
 **糟糕的代码的注释，不如花时间清洁代码。如果编程语言足够有表达里，就不那么需要注释**  
 eg:
 ```
-
+// Async edge case fix requires storing an event listener's attach timestamp.
+let _getNow: () => number = Date.now
+这段代码第一反应让人觉得没有必要，但加了上面的解释，达到认同。  
+```
+```
+这段代码从命名完全看不出想做什么，为什么这么做，作者的解释，让阅读代码者更快地理解。    
+function createInvoker(
+  initialValue: any,
+  instance: ComponentInternalInstance | null
+) {
+  const invoker: Invoker = (e: Event) => {
+    // async edge case #6566: inner click event triggers patch, event handler
+    // attached to outer element during patch, and triggered again. This
+    // happens because browsers fire microtask ticks between event propagation.
+    // the solution is simple: we save the timestamp when a handler is attached,
+    // and the handler would only fire if the event passed to it was fired
+    // AFTER it was attached.
+    if (e.timeStamp >= invoker.lastUpdated - 1) {
+      const args = [e]
+      const value = invoker.value
+      if (isArray(value)) {
+        for (let i = 0; i < value.length; i++) {
+          callWithAsyncErrorHandling(
+            value[i],
+            instance,
+            ErrorCodes.NATIVE_EVENT_HANDLER,
+            args
+          )
+        }
+      } else {
+        callWithAsyncErrorHandling(
+          value,
+          instance,
+          ErrorCodes.NATIVE_EVENT_HANDLER,
+          args
+        )
+      }
+    }
+  }
+  invoker.value = initialValue
+  initialValue.invoker = invoker
+  invoker.lastUpdated = getNow()
+  return invoker
+}
 ```
 #### 函数
 
