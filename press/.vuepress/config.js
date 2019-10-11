@@ -20,8 +20,8 @@ module.exports = {
             ['./guide/pwa.md', 'PWA实践'],
             ['./guide/electron.md', 'Electron'],
             ['./guide/cooperation.md', '协作的实现'],
-            ['./guide/me.md', 'README'],
             ['./guide/interview.md', '解题'],
+            ['./guide/me.md', 'README'],
         ],
         sidebarDepth: 3,
         displayAllHeaders: true // 默认值：false
