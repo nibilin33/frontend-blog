@@ -10,7 +10,7 @@
 
 #### 目录即分层的具体实践
 
-![目录即分层的具体实践](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/目录即分层.png)  
+![目录即分层的具体实践](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/目录即分层3.png)  
 - 具体业务包含自己的适配器和实体的目录   
 - 实体的目录包含简单的数据模型，核心的业务逻辑  
 - 适配器做一些数据的转换        
