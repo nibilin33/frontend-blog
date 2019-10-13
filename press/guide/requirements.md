@@ -622,7 +622,7 @@ reflect-metadata：反射元数据 API
 元数据是指程序本身的信息数据，元数据存储在程序集中;
 反射就是在运行时动态获取一个对象的一切信息：方法/属性等等。  
 eg：       
-埋点    
+埋点   (google 分析？) 
 ```
 /**
  * @interface UserBehavior
@@ -633,15 +633,26 @@ interface UserBehavior{
   eventName: string,
   eventProperty: string,
   version?: string,
-  date?: Date
+  date?: Date,
+  dns?:string,
+  connect?:string,
+  ttfb?:string,
+  basePage?:string,
+  frontEnd?:string
 }
 
 export function Log(value:UserBehavior) {
   return function (target: any, name: string, descriptor: PropertyDescriptor) {
+    const timing = window.performance.timing;
     Object.assign(value, {
         date: new Date(),
         version: navigator.platform,
         module: name,
+        dns: timing.domainLookupEnd - timing.domainLookupStart,
+        connect: timing.connectEnd - timing.connectStart,
+        ttfb: timing.responseStart - timing.connectEnd,
+        basePage: timing-responseEnd - timing.responseStart,
+        frontEnd: timing.loadEventStart - timing.responseEnd
     })
   };
 }

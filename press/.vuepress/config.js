@@ -13,7 +13,7 @@ module.exports = {
             ['./guide/tool.md', '工具说明'], 
             ['./guide/webview.md', 'WebView'],
             ['./guide/knowledge.md', 'Need to Know'],
-            ['./guide/promto.md', '那些年做过的优化'],
+            ['./guide/promto.md', '那些年让人难受的BUG'],
             ['./guide/component.md', '组件说明'],
             ['./guide/code.md', '源码学习'],
             ['./guide/min-routine.md', '小程序'],
