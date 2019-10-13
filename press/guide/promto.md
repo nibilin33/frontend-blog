@@ -69,7 +69,54 @@ webkit并不会绘制一个很大的层来存储一个很大的页面，
 ## NGINX 502问题，node 的锅？！  
 对于一个没有服务器任何相关经验的人类，  
 接收到这样的一个结论，感受到巨大的恶意。  
-叕一次踏上自证清白的道路。  
+叕一次踏上自证清白的道路。    
+觉得node扛不住，那就来吧。  
+1.简单的node服务
+```
+const express = require('express');
+const path = require('path');
+const app = express();
+const http =  require("http");
+const log4js = require('log4js');
+log4js.configure({
+    appenders: [
+        { type: 'console', category: 'log' }
+    ]
+});
+const logger = log4js.getLogger('app');
+logger.setLevel('INFO');
+app.use(log4js.connectLogger(logger));
+app.use(express.static(path.join(__dirname,'docs')));
+app.use(function(request, response) {
+    try {
+        response.sendFile(path.resolve('docs/index.html'));
+    }catch (e) {
+        console.error(e.toString());
+    }
+});
+http.createServer(app).listen(3000);
+```
+2.Locust—python压力测试工具  
+安装：pip install locustio
+简单的locustio脚本  
+```
+# coding: utf-8
+from locust import HttpLocust, TaskSet, task  
+class MyTaskSet(TaskSet):
+    @task(2)
+    def index(self):
+        self.client.get("***1")
+
+    @task(1)
+    def about(self):
+        self.client.get("***2")
+
+class MyLocust(HttpLocust):
+    task_set = MyTaskSet
+    min_wait = 5000
+    max_wait = 15000
+```
+
 
 ## 大数据量情况的性能问题 
 ### 可以用上的工具
