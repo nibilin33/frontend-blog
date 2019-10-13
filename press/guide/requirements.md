@@ -96,7 +96,8 @@ eg：
 
 #### 样式变量  
 样式中有需要颜色的地方，统一定义到body下面。  
-给多彩提供脚本直接在当前替换能力。   
+给多彩提供脚本直接在当前替换能力。  
+兼容性问题：css-vars-ponyfill  
 ```
 document.body.style.setProperty('--bgColor','red'); 
 ```     
