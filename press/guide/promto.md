@@ -106,20 +106,18 @@ http.createServer(app).listen(3000, '0.0.0.0', function () {
 # coding: utf-8
 from locust import HttpLocust, TaskSet, task  
 class MyTaskSet(TaskSet):
-    @task(2)
-    def index(self):
-        self.client.get("***1")
-
     @task(1)
-    def about(self):
-        self.client.get("***2")
+    def index(self):
+        self.client.get("/ume/extension")
 
 class MyLocust(HttpLocust):
     task_set = MyTaskSet
     min_wait = 5000
     max_wait = 15000
 ```
-
+跑起来  
+[本地执行文件](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png)  
+[图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png)  
 
 ## 大数据量情况的性能问题 
 ### 可以用上的工具
