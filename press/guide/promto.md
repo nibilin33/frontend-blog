@@ -116,8 +116,11 @@ class MyLocust(HttpLocust):
     max_wait = 15000
 ```
 跑起来  
-[本地执行文件](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png)  
-[图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png)  
+locust -f locustTest.py --host=http://    
+访问 localhost:8089 开始模拟并发  
+![本地执行文件](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png)  
+![图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png)  
+**结论**
 
 ## 大数据量情况的性能问题 
 ### 可以用上的工具
