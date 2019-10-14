@@ -99,6 +99,7 @@ http.createServer(app).listen(3000, '0.0.0.0', function () {
 });
 ```
 2.Locust—python压力测试工具  
+[使用文档](https://docs.locust.io/en/stable/what-is-locust.html)  
 安装：pip install locustio
 简单的locustio脚本  
 ```

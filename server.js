@@ -12,7 +12,8 @@ log4js.configure({
 });
 const logger = log4js.getLogger('cheese');
 app.use(log4js.connectLogger(logger));
-app.use(express.static(path.join(__dirname,'docs')));
+app.use('/frontend-blog', express.static(path.join(__dirname,'docs')));
+// app.use(express.static(path.join(__dirname,'docs')));
 app.use(function(request, response) {
     try {
         response.sendFile(path.resolve('docs/index.html'));
