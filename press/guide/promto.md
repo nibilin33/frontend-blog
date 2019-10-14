@@ -32,10 +32,51 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 前提：本地已经下载好资源。  
 用file协议直接打开index.html，前端路由模式需要改成hash。  
 在ajax请求方面，如果webview能够拦截请求，需要判断是请求资源还是接口请求。   
+在图片资源全部变成base64, base64-inline-loader         
+{
+test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+use: 'base64-inline-loader?limit=1000&name=[name].[ext]'
+}
 如果是接口请求，需要加上服务器地址。      
 如果无法拦截，就需要向终端获取服务器地址。  
 本地更新策略采用定时请求版本情况，发现版本变更，下载资源包替换。   
-这个大概由原来无感知更新变成有感知更新。    
+这个大概由原来无感知更新变成有感知更新。   
+```
+  打包方式的修改  
+ "buildLocal": "cross-env ROOTPATH=./ node build/build.js -n pc && node build/themeExtract.js -p ./"  
+ 把全局变量注入  
+new webpack.DefinePlugin({
+    'process.env': env,
+    'ROOTPATH': !!process.env.ROOTPATH
+})
+
+webpack.base.conf.js  
+    const imgLoader = !!process.env.ROOTPATH ?  
+    {
+        test: /\.(jpe?g|png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        use: 'base64-inline-loader?limit=10000&name=[name].[ext]'
+    }: {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+            limit: 10,
+            name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        }
+    };
+    const fontLoader = !!process.env.ROOTPATH ?
+    {} :{
+        test: /\.(woff2?|eot|ttf|otf|swf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+            limit: 10000,
+            name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+        }
+    };  
+------------------------------------
+     const PATH = process.env.ROOTPATH ? process.env.ROOTPATH : '/ume/';
+     assetsPublicPath: PATH
+     
+``` 
 ## Android的webview概率触摸白屏
 网上看到的一个类似的解释：  
 webkit在绘制页面时会将结构分为各种层，   
