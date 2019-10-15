@@ -172,8 +172,9 @@ locust -f locustTest.py --host=http://
 访问 localhost:8089 开始模拟并发  
 ![本地执行文件](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png)  
 ![图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png)  
-**结论**
-
+**结论**  
+直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。   
+到此，问题转交。  
 ## 大数据量情况的性能问题 
 ### 可以用上的工具
 - css 压力测试(css stress test)

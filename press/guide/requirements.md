@@ -36,14 +36,111 @@
 - .vue 做为用例层，编写用户行为的一些方法，其余的都只负责调用ts文件的方法。    
 这边与TS的整合，.vue 文件不使用vue-class-component来达到class的写法，保留之前的写法。   
 因为这种写法本身觉得绕了很多弯，是2.x为TS的支持补丁方式。3.0会更好地支持，至于  
-如何更好地支持，都必然能向下兼容。从业务的支撑以及需要来考虑变化。这一层变化目前上面的结构还是可以容许的。   
+如何更好地支持，都必然能向下兼容。（3.0兼容性仅到IE11。）
+从业务的支撑以及需要来考虑变化。这一层变化目前上面的结构还是可以容许的。   
 另一方面的考虑，.vue文件基本是用户的行为结果，这边应该做到最大容忍，不管是乱来的输入还是不合常理的行为结果。 
 以及之前封装好的组件在当前可以保持原状，也能少踩一些坑。     
-做到对外是弱类型，对内是强类型。      
+做到对外是弱类型，对内是强类型。    
+  
 eg:  
 ```
+.vue文件
+<template>
+    <div>
+        <button
+        v-for="(it,index) in loginType"
+        :key="index"
+        @click="setLoginType(it)">
+        {{it}}</button>
+        <p>&nbsp;</p>
+         用户名：
+         <input v-model="userForm.username"/>
+         密码：
+         <input v-model="userForm.code"/>
+         <button @click="submit">提交</button>
+    </div>
+</template>
+<script>
+import StrategyLogin from './adapters/login';
+import Axios from '@/api/request';
+import { PbxAPI, user } from './entity/pbx';
+
+export default {
+  data() {
+    return {
+      loginType: ['notice', 'vote'],
+      result: {},
+      isShow: false,
+      userForm: user,
+    };
+  },
+  created() {
+  },
+  methods: {
+    submit() {
+      // 只负责接口调用
+      new PbxAPI(this.userForm).tramsfrom().submit();
+    },
+    setLoginType(value) {
+      const instance = StrategyLogin.getLoginInstance(value);
+      instance.login('12121212');
+    },
+  },
+};
+</script>
 ``` 
 
+
+```
+entity 文件  
+import { transformToServer } from '../adapters/pbx';
+
+export interface userData {
+    username:string
+    code:string
+}
+
+export const user :userData = { username: '', code: '' };
+
+export class PbxAPI {
+    private user: userData
+
+    constructor(params: userData = user) {
+      this.user = params;
+    }
+
+    get params() {
+      return this.user;
+    }
+
+    tramsfrom() {
+      this.user = transformToServer(this.user);
+      return this;
+    }
+
+    submit() {
+      console.log(this.user, 'submit');
+    }
+}
+```
+
+```
+adapters 文件  
+
+
+export const transformToServer = (data:any) => {
+// 如果提交的数据需要格式化,比如页面的交互数据为[{id:xx,name:xxx}],提交只需要[id,id,id]
+  console.log(data);
+  return data;
+}
+
+export const transformToUse = (data:any) => {
+  // 拿到服务器数据做处理后给页面使用
+  console.log(data);
+  return data;
+};
+
+```
 #### 文件名文件结构
 
 1.文件名全部为小写或包含-  
@@ -248,6 +345,14 @@ enum typeMach {
 ```
 
 3.class,extends  
+在 .jsx 文件里，泛型可能会被当做 jsx 标签
+```
+const toArray = <T>(element: T) => [element]; // Error in .jsx file.  
+```
+修改方式
+```
+const toArray = <T extends {}>(element: T) => [element]; // No errors.  
+```
 <details>
 <summary>旧版代码，点击查看详细</summary>
 <code> 
@@ -699,7 +804,20 @@ geEntities<User>("/api/users"):void{
 
 }
 ```
-
+7.Omit
+有时候我们需要复用一个类型，  
+但是又不需要此类型内的全部属性，  
+因此需要剔除某些属性 -- Omit
+```
+interface User {
+    username: string
+    id: number
+    token: string
+    avatar: string
+    role: string
+}
+type UserWithoutToken = Omit<User, 'token'>
+```
 ## 常用的设计模式
 
 
