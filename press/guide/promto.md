@@ -29,7 +29,18 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 如果存在不一致，先使用远程的。并且需要下载资源包进行替换。    
 
 **方案三：**  
-前提：本地已经下载好资源。  
+前提：本地已经下载好资源。node需要支持跨域请求
+```
+    app.use("*", function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header(
+          "Access-Control-Allow-Headers",
+          "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , Origin"
+        );
+        res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
+        next();
+    });
+```  
 用file协议直接打开index.html，前端路由模式需要改成hash。  
 在ajax请求方面，如果webview能够拦截请求，需要判断是请求资源还是接口请求。   
 在图片资源全部变成base64, base64-inline-loader         
