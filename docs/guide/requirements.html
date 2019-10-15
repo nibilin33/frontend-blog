@@ -7,7 +7,7 @@
     <meta name="description" content="Just playing around">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     
-    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.0e087870.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/20.39b9afed.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.1be41730.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.ecd1efa7.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.5ca815ba.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.a239c4b0.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.e537b31f.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.fdbc2219.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.997e8590.js"><link rel="prefetch" href="/frontend-blog/assets/js/17.636d9456.js"><link rel="prefetch" href="/frontend-blog/assets/js/18.391fca12.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.8c3e429f.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.626d14e2.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.92fa7fb2.js"><link rel="prefetch" href="/frontend-blog/assets/js/23.bcfc5608.js"><link rel="prefetch" href="/frontend-blog/assets/js/24.66316254.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.25403e59.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.9f272357.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.7c8719d9.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.0b19c632.js">
+    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.b9634c43.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/20.489e59e2.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.611d38e4.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.dbe8923f.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.97142148.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.32162a6b.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.e537b31f.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.dab08ff2.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.a9614356.js"><link rel="prefetch" href="/frontend-blog/assets/js/17.13ceb67a.js"><link rel="prefetch" href="/frontend-blog/assets/js/18.ca14dc70.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.953758da.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.04cffff1.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.92fa7fb2.js"><link rel="prefetch" href="/frontend-blog/assets/js/23.186331d5.js"><link rel="prefetch" href="/frontend-blog/assets/js/24.66316254.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.25403e59.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.24dc54d3.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.c6b4ef29.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.f113234f.js">
     <link rel="stylesheet" href="/frontend-blog/assets/css/0.styles.151d4383.css">
   </head>
   <body>
@@ -30,11 +30,10 @@
 index.vue</p></blockquote></blockquote></blockquote> <ul><li>具体业务包含自己的适配器,实体,单元测试的目录</li> <li>实体的目录包含简单的数据模型，核心的业务逻辑</li> <li>适配器做一些数据的转换</li> <li>.vue 做为用例层，编写用户行为的一些方法，其余的都只负责调用ts文件的方法。<br>
 这边与TS的整合，.vue 文件不使用vue-class-component来达到class的写法，保留之前的写法。<br>
 因为这种写法本身觉得绕了很多弯，是2.x为TS的支持补丁方式。3.0会更好地支持，至于<br>
-如何更好地支持，都必然能向下兼容。（3.0兼容性仅到IE11。）
+如何更好地支持，都必然能向下兼容。（3.0兼容性到IE11。）
 从业务的支撑以及需要来考虑变化。这一层变化目前上面的结构还是可以容许的。<br>
 另一方面的考虑，.vue文件基本是用户的行为结果，这边应该做到最大容忍，不管是乱来的输入还是不合常理的行为结果。
-以及之前封装好的组件在当前可以保持原状，也能少踩一些坑。<br>
-做到对外是弱类型，对内是强类型。</li></ul> <p>eg:</p> <div class="language- extra-class"><pre class="language-text"><code>.vue文件
+以及之前封装好的组件在当前可以保持原状，也能少踩一些坑。</li></ul> <p>eg:</p> <div class="language- extra-class"><pre class="language-text"><code>.vue文件
 &lt;template&gt;
     &lt;div&gt;
         &lt;button
@@ -68,7 +67,7 @@ export default {
   },
   methods: {
     submit() {
-      // 只负责接口调用
+      // 只负责接口调用，函数式编程的味道？？
       new PbxAPI(this.userForm).tramsfrom().submit();
     },
     setLoginType(value) {
@@ -667,6 +666,6 @@ type UserWithoutToken = Omit&lt;User, 'token'&gt;
         </a>
         →
       </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/frontend-blog/assets/js/app.0e087870.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/20.39b9afed.js" defer></script>
+    <script src="/frontend-blog/assets/js/app.b9634c43.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/20.489e59e2.js" defer></script>
   </body>
 </html>
