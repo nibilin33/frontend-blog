@@ -375,7 +375,7 @@ function createInvoker(
 - 正向测试： 当前置条件满足时，验证代码的结果确实符合预期。  
 - 反向测试： 当前置条件或输入不符合要求时，代码能优雅地进行处理。  
 - 异常测试： 代码在应该抛出异常的地方正确地抛出异常。  
-
+[jest官网](https://jestjs.io/docs/en/getting-started)
 ```
 import { PbxAPI } from '../entity/pbx';
 import { transformToUse } from '../adapters/pbx';
