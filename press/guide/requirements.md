@@ -35,13 +35,15 @@
 - 适配器做一些数据的转换        
 - .vue 做为用例层，编写用户行为的一些方法，其余的都只负责调用ts文件的方法。    
 这边与TS的整合，.vue 文件不使用vue-class-component来达到class的写法，保留之前的写法。   
-因为这种写法本身觉得绕了很多弯，是2.x为TS的支持补丁方式。3.0会更好地支持，至于  
-如何更好地支持，都必然能向下兼容。（3.0兼容性到IE11。）
+因为这种写法本身觉得绕了很多弯，是2.x为TS的支持补丁方式(vue-class-component.js 通过gzip 有3.8KB，
+源文件大小 11KB。vue-property-decorator.js 通过gzip 有2.4KB ，源文件大小9KB)。3.0会更好地支持，  
+至于  如何更好地支持，都必然能向下兼容。（3.0兼容性到IE11。）
 从业务的支撑以及需要来考虑变化。这一层变化目前上面的结构还是可以容许的。   
 另一方面的考虑，.vue文件基本是用户的行为结果，这边应该做到最大容忍，不管是乱来的输入还是不合常理的行为结果。 
 以及之前封装好的组件在当前可以保持原状，也能少踩一些坑。     
 
-eg:  
+
+planA:    
 ```
 .vue文件
 <template>
@@ -61,23 +63,32 @@ eg:
 </template>
 <script>
 import StrategyLogin from './adapters/login';
-import Axios from '@/api/request';
-import { PbxAPI, user } from './entity/pbx';
-
+import PlatformApi from '@/lib/PlatformApi';
+import { PbxAPI } from './entity/pbx';
+import { getLoginConfig } from '@/api/pbx';
+import { transformToUse } from './adapters/pbx';
 export default {
   data() {
     return {
       loginType: ['notice', 'vote'],
       result: {},
       isShow: false,
-      userForm: user,
+      userForm: new PbxAPI().params,
     };
   },
   created() {
+    this.init();
   },
   methods: {
+    init() {
+      getLoginConfig()
+      .then((res)=> {
+          this.userForm = new PbxAPI(transformToUse(res)).params;
+          console.log(this.userForm);
+      });
+    },
     submit() {
-      // 只负责接口调用，函数式编程的味道？？
+      // 只负责接口调用
       new PbxAPI(this.userForm).tramsfrom().submit();
     },
     setLoginType(value) {
@@ -98,9 +109,11 @@ export interface userData {
     username:string
     code:string
 }
-
-export const user :userData = { username: '', code: '' };
-
+let user :userData = { username: '', code: '' };
+export const getUser = () => {
+  return Object.create(user);
+}
+// 一个实体，考虑，它应该拥有哪些属性，它拿这些属性能干什么  
 export class PbxAPI {
     private user: userData
 
@@ -121,6 +134,8 @@ export class PbxAPI {
       console.log(this.user, 'submit');
     }
 }
+
+
 ```
 
 ```
@@ -140,6 +155,61 @@ export const transformToUse = (data:any) => {
 };
 
 ```
+planB:  
+```
+.vue
+<template>
+    <div>
+        <button
+        v-for="(it,index) in loginType"
+        :key="index"
+        @click="setLoginType(it)">
+        {{it}}</button>
+        <p>&nbsp;</p>
+         用户名：
+         <input v-model="userForm.username"/>
+         密码：
+         <input v-model="userForm.code"/>
+         <button @click="submit">提交</button>
+    </div>
+</template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import StrategyLogin from './adapters/login';
+import PlatformApi from '@/lib/PlatformApi';
+import { PbxAPI,userData } from './entity/pbx';
+import { getLoginConfig } from '@/api/pbx';
+import { transformToUse } from './adapters/pbx'
+export default class Login extends Vue {
+    isShow: boolean = false
+    userForm: userData = { username: '', code: '' }
+    loginType: Array<string> = ['Notice', 'Vote']
+    result:Object = {}
+    created() {
+        this.init();
+    }
+    init() {
+      getLoginConfig()
+      .then((res)=> {
+          //即使我在construct 定义了userData的接口，后端数据进来如果没有做任何过滤，  
+          //里面有什么属性依然什么值都能进去，类型不符都不会有什么问题，  
+          //那么依然需要适配器在每个进入实体数据时候做处理。
+          this.userForm = new PbxAPI(res).params;
+          console.log(this.userForm);
+      });
+    }
+    submit() {
+      // 只负责接口调用
+      new PbxAPI(this.userForm).tramsfrom().submit();
+    }
+    setLoginType(value:string) {
+      const instance = StrategyLogin.getLoginInstance(value);
+      instance.login('12121212');
+    }
+}
+</script>
+```
+    
 #### 文件名文件结构
 
 1.文件名全部为小写或包含-  
@@ -294,7 +364,11 @@ function createInvoker(
 - 确定各个对象能对其他对象进行的操作  
 - 确定对象的哪些部分对其他对象可见，哪些部分而已是public，哪些是private  
 - 定义每个对象的公开接口,即向其他对象暴露的数据及方法  
-## 测试驱动开发  
+## 测试驱动开发的具体实践  
+- 1.先编写伪代码，只有方法名以及流程    
+- 2.编写测试用例，描述功能点    
+- 3.交叉编写模块测试用例    
+- 4.具体逻辑开发  
 先编写测试，我们就能设身处地从代码使用者的角度考虑问题。  
 这种方式确保我们设计的每一个函数都由一系列测试驱动。  
 编写验证可考虑的类型：  
