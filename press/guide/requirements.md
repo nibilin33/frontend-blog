@@ -10,7 +10,7 @@
 
 #### 目录即分层的具体实践
 
-![目录即分层的具体实践](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/目录即分层3.png)  
+![目录即分层的具体实践](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/目录即分层.png)  
 >---- example  
 >---- mock  
 >---- public  
@@ -28,7 +28,8 @@
 >>>---- login  
 >>>---- \_\_tests\_\_  
 >>>---- adapters  
->>>---- entity   
+>>>---- entity  
+>>>---- interface 
 >>>index.vue  
 - 具体业务包含自己的适配器,实体,单元测试的目录     
 - 实体的目录包含简单的数据模型，核心的业务逻辑  
@@ -100,26 +101,22 @@ export default {
 
 ```
 entity 文件  
-import { transformToServer } from '../adapters/pbx';
+// 一个实体考虑它拥有哪些属性，数据，拿着这些能做什么
+import { 
+  transformToServer,
+  transformToUse,
+ } from '../adapters/pbx';
+import {userData} from '../interface/pbx';
 
-export interface userData {
-    username:string
-    code:string
-}
-let user :userData = { username: '', code: '' };
-export const getUser = () => {
-  return Object.create(user);
-}
-// 一个实体，考虑，它应该拥有哪些属性，它拿这些属性能干什么  
 export class PbxAPI {
-    private user: userData
+    private user: userData = { username: '', code: '' }
 
-    constructor(params: userData = user) {
-      this.user = params;
+    constructor(value:userData) {
+      this.user = transformToUse(value);
     }
-
+    
     get params() {
-      return this.user;
+      return Object.create(this.user);
     }
 
     tramsfrom() {
@@ -131,7 +128,6 @@ export class PbxAPI {
       console.log(this.user, 'submit');
     }
 }
-
 
 ```
 
@@ -173,7 +169,6 @@ planB:
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import StrategyLogin from './adapters/login';
-import PlatformApi from '@/lib/PlatformApi';
 import { PbxAPI,userData } from './entity/pbx';
 import { getLoginConfig } from '@/api/pbx';
 import { transformToUse } from './adapters/pbx'
@@ -207,8 +202,10 @@ export default class Login extends Vue {
 </script>
 ```
 1.业务逻辑剥离的.vue，剩下一些什么？控制显隐，文案切换，渲染？对于最大核心只有渲染模板的功能，  
-是否需要多那么几KB的代码量。  
-2.vue文件lang=ts？ 统一。          
+是否需要多那么绕。  
+2.vue文件lang=ts？ 统一。   
+jsx  Duplicate declaration "h"
+其他 any/@ts-ignore       
 #### 文件名文件结构
 
 1.文件名全部为小写或包含-  
