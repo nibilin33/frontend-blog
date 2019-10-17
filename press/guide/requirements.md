@@ -134,6 +134,7 @@ export class PbxAPI {
 ```
 adapters 文件  
 
+import {userDataKeys} from '../interface/pbx';
 
 export const transformToServer = (data:any) => {
 // 如果提交的数据需要格式化,比如页面的交互数据为[{id:xx,name:xxx}],提交只需要[id,id,id]
@@ -143,10 +144,21 @@ export const transformToServer = (data:any) => {
 
 export const transformToUse = (data:any) => {
   // 拿到服务器数据做处理后给页面使用
+  // 比如：依据userDataKeys进行辅助
   console.log(data);
   return data;
 };
 
+
+```
+```
+interface 文件
+import { keys } from 'ts-transformer-keys';
+export interface userData {
+    username:string
+    code:string
+}
+export const userDataKeys = keys<userData>();
 ```
 planB:  
 ```
