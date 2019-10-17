@@ -207,9 +207,8 @@ export default class Login extends Vue {
 </script>
 ```
 1.业务逻辑剥离的.vue，剩下一些什么？控制显隐，文案切换，渲染？对于最大核心只有渲染模板的功能，  
-string，number，boolean类型，是否需要多那么几KB的代码量。  
-2.vue文件lang=ts？    
-遇到问题，急迫的情况下，补救措施基本等于any和@ts-ignore。          
+是否需要多那么几KB的代码量。  
+2.vue文件lang=ts？ 统一。          
 #### 文件名文件结构
 
 1.文件名全部为小写或包含-  
