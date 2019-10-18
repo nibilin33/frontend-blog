@@ -7,7 +7,7 @@
     <meta name="description" content="Just playing around">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     
-    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.1851849a.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/20.7c375e95.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.c642b9f3.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.7d3512d4.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.97142148.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.62806d1c.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.03154df8.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.e98ee71f.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.851e8fc4.js"><link rel="prefetch" href="/frontend-blog/assets/js/17.840f5150.js"><link rel="prefetch" href="/frontend-blog/assets/js/18.0665e876.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.aeb20820.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.ed02f3dd.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.cb3e5e3e.js"><link rel="prefetch" href="/frontend-blog/assets/js/23.bcfc5608.js"><link rel="prefetch" href="/frontend-blog/assets/js/24.66316254.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.d6b437ed.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.9f272357.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.769d845e.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.f113234f.js">
+    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.63a6a69e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/20.429cbaeb.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.7273b00c.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.ecd1efa7.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.bb4c5fdc.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.1be002a6.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.a24d1b5c.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.65c6d065.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.a9614356.js"><link rel="prefetch" href="/frontend-blog/assets/js/17.13ceb67a.js"><link rel="prefetch" href="/frontend-blog/assets/js/18.8e4faaa3.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.af785455.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.a11c352e.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.cb3e5e3e.js"><link rel="prefetch" href="/frontend-blog/assets/js/23.bcfc5608.js"><link rel="prefetch" href="/frontend-blog/assets/js/24.66316254.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.d6b437ed.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.d2e20dbd.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.b0e3440b.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.8d7c2782.js">
     <link rel="stylesheet" href="/frontend-blog/assets/css/0.styles.151d4383.css">
   </head>
   <body>
@@ -27,14 +27,13 @@
 ---- __tests__<br>
 ---- adapters<br>
 ---- entity<br>
----- interface
+---- interface<br>
 index.vue</p></blockquote></blockquote></blockquote> <ul><li>具体业务包含自己的适配器,实体,单元测试的目录</li> <li>实体的目录包含简单的数据模型，核心的业务逻辑</li> <li>适配器做一些数据的转换</li> <li>.vue 做为用例层，编写用户行为的一些方法，其余的都只负责调用ts文件的方法。<br>
 这边与TS的整合，.vue 文件不使用vue-class-component来达到class的写法，保留之前的写法。<br>
 因为这种写法本身觉得绕了很多弯，是2.x为TS的支持补丁方式.目前来说，ts + vue 当然可用，<br>
-但是依然相当多的问题，没法如丝般顺滑的相互配合。对于他们完全打算通过 vue3 去彻底解决于 ts 共用的的问题，<br>
-不打算优化一下 2.x 当前存在的问题，那vue文件我就不是很想用。(vue-class-component.js 通过gzip 有3.8KB，
-源文件大小 11KB。vue-property-decorator.js 通过gzip 有2.4KB ，源文件大小9KB)。3.0会更好地支持，<br>
-至于如何更好地支持，都必然能向下兼容。（3.0兼容性到IE11。）</li></ul> <p>planA:</p> <div class="language- extra-class"><pre class="language-text"><code>.vue文件
+但是依然相当多的问题，没法如丝般顺滑的相互配合。尤大大他们完全打算通过 vue3 去彻底解决于 ts 共用的的问题，<br>
+不打算优化一下 2.x 当前存在的问题，那当下来说，vue文件我就不是很想用。(vue-class-component.js 通过gzip 有3.8KB，
+源文件大小 11KB。vue-property-decorator.js 通过gzip 有2.4KB ，源文件大小9KB)（3.0兼容性到IE11。废弃支持class）</li></ul> <p>planA:</p> <div class="language- extra-class"><pre class="language-text"><code>.vue文件
 &lt;template&gt;
     &lt;div&gt;
         &lt;button
@@ -191,9 +190,7 @@ export default class Login extends Vue {
     }
 }
 &lt;/script&gt;
-</code></pre></div><p>1.业务逻辑剥离的.vue，剩下一些什么？控制显隐，文案切换，渲染？对于最大核心只有渲染模板的功能，<br>
-是否需要多那么绕。<br>
-2.vue文件lang=ts？<br>
+</code></pre></div><p>.vue文件lang=ts未解决的问题？<br>
 jsx  Duplicate declaration &quot;h&quot;<br>
 其他 any/@ts-ignore</p> <h4 id="文件名文件结构"><a href="#文件名文件结构" aria-hidden="true" class="header-anchor">#</a> 文件名文件结构</h4> <p>1.文件名全部为小写或包含-<br>
 2.单文件组件的顶级元素的顺序 template,script,style<br>
@@ -749,6 +746,6 @@ type UserWithoutToken = Omit&lt;User, 'token'&gt;
         </a>
         →
       </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/frontend-blog/assets/js/app.1851849a.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/20.7c375e95.js" defer></script>
+    <script src="/frontend-blog/assets/js/app.63a6a69e.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/20.429cbaeb.js" defer></script>
   </body>
 </html>

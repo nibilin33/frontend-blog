@@ -7,7 +7,7 @@
     <meta name="description" content="Just playing around">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     
-    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.1851849a.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/18.0665e876.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.c642b9f3.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.7d3512d4.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.97142148.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.62806d1c.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.03154df8.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.e98ee71f.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.851e8fc4.js"><link rel="prefetch" href="/frontend-blog/assets/js/17.840f5150.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.aeb20820.js"><link rel="prefetch" href="/frontend-blog/assets/js/20.7c375e95.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.ed02f3dd.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.cb3e5e3e.js"><link rel="prefetch" href="/frontend-blog/assets/js/23.bcfc5608.js"><link rel="prefetch" href="/frontend-blog/assets/js/24.66316254.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.d6b437ed.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.9f272357.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.769d845e.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.f113234f.js">
+    <link rel="preload" href="/frontend-blog/assets/css/0.styles.151d4383.css" as="style"><link rel="preload" href="/frontend-blog/assets/js/app.63a6a69e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/2.54c9865e.js" as="script"><link rel="preload" href="/frontend-blog/assets/js/18.8e4faaa3.js" as="script"><link rel="prefetch" href="/frontend-blog/assets/js/10.7273b00c.js"><link rel="prefetch" href="/frontend-blog/assets/js/11.ecd1efa7.js"><link rel="prefetch" href="/frontend-blog/assets/js/12.bb4c5fdc.js"><link rel="prefetch" href="/frontend-blog/assets/js/13.1be002a6.js"><link rel="prefetch" href="/frontend-blog/assets/js/14.a24d1b5c.js"><link rel="prefetch" href="/frontend-blog/assets/js/15.65c6d065.js"><link rel="prefetch" href="/frontend-blog/assets/js/16.a9614356.js"><link rel="prefetch" href="/frontend-blog/assets/js/17.13ceb67a.js"><link rel="prefetch" href="/frontend-blog/assets/js/19.af785455.js"><link rel="prefetch" href="/frontend-blog/assets/js/20.429cbaeb.js"><link rel="prefetch" href="/frontend-blog/assets/js/21.a11c352e.js"><link rel="prefetch" href="/frontend-blog/assets/js/22.cb3e5e3e.js"><link rel="prefetch" href="/frontend-blog/assets/js/23.bcfc5608.js"><link rel="prefetch" href="/frontend-blog/assets/js/24.66316254.js"><link rel="prefetch" href="/frontend-blog/assets/js/3.06a4bb47.js"><link rel="prefetch" href="/frontend-blog/assets/js/4.a8b11700.js"><link rel="prefetch" href="/frontend-blog/assets/js/5.8b2d28dc.js"><link rel="prefetch" href="/frontend-blog/assets/js/6.d6b437ed.js"><link rel="prefetch" href="/frontend-blog/assets/js/7.d2e20dbd.js"><link rel="prefetch" href="/frontend-blog/assets/js/8.b0e3440b.js"><link rel="prefetch" href="/frontend-blog/assets/js/9.8d7c2782.js">
     <link rel="stylesheet" href="/frontend-blog/assets/css/0.styles.151d4383.css">
   </head>
   <body>
@@ -105,7 +105,9 @@ webkit并不会绘制一个很大的层来存储一个很大的页面，<br>
 6、任何在已知层上覆盖的内容</p> <p><strong>所以解决方案就是Android开启硬件加速</strong></p> <h2 id="nginx-502问题，node-的锅？！"><a href="#nginx-502问题，node-的锅？！" aria-hidden="true" class="header-anchor">#</a> NGINX 502问题，node 的锅？！</h2> <p>对于一个没有服务器任何相关经验的人类，<br>
 接收到这样的一个结论，感受到巨大的恶意。<br>
 叕一次踏上自证清白的道路。<br>
-觉得node扛不住，那就来吧。<br>
+过程：<br>
+我分析NG日志，发现NG在尝试连接node服务，被拒绝了。<br>
+便决定压测。<br>
 1.简单的node服务</p> <div class="language- extra-class"><pre class="language-text"><code>const express = require('express');
 const path = require('path');
 const app = express();
@@ -146,8 +148,12 @@ class MyLocust(HttpLocust):
 </code></pre></div><p>跑起来<br>
 locust -f locustTest.py --host=http://<br>
 访问 localhost:8089 开始模拟并发<br> <img src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png" alt="本地执行文件"><br> <img src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png" alt="图形界面"><br> <strong>结论</strong><br>
-直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。<br>
-到此，问题转交。</p> <h2 id="大数据量情况的性能问题"><a href="#大数据量情况的性能问题" aria-hidden="true" class="header-anchor">#</a> 大数据量情况的性能问题</h2> <h3 id="可以用上的工具"><a href="#可以用上的工具" aria-hidden="true" class="header-anchor">#</a> 可以用上的工具</h3> <ul><li>css 压力测试(css stress test)</li> <li>css 性能分析器（the css profilers are coming）</li> <li>css lint</li> <li>dom monster</li></ul> <h3 id="ui性能关注点"><a href="#ui性能关注点" aria-hidden="true" class="header-anchor">#</a> UI性能关注点</h3> <ul><li>大量元素应用border-radius会拖慢页面</li> <li>调整移动设备的viewport标签可以减少渲染时间</li> <li>旧版webkit boxshandows 在滚动和渲染会有延迟问题</li> <li>css 径向渐变在某些浏览器会有渲染问题，特别是Android</li> <li>避免使用IE css 滤镜，会有性能问题</li> <li>使用硬件加速css动画替代javascript动画</li></ul> <h2 id="内存泄漏问题"><a href="#内存泄漏问题" aria-hidden="true" class="header-anchor">#</a> 内存泄漏问题</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+请求html，直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。<br>
+最后排查到后端代码出现端口占用的问题。<br>
+因为单个HTML文件输出的大小不是很大，决定加上资源文件做并发压测。<br>
+结果发现隐藏的bug，资源文件在并发400的时候有1%的情况输出失败，而<br>
+这个情况确实在线上也遇到过，但后面以网络问题搪塞过去了┌(。Д。)┐，<br>
+至于怎么解决，TODO......</p> <h2 id="大数据量情况的性能问题"><a href="#大数据量情况的性能问题" aria-hidden="true" class="header-anchor">#</a> 大数据量情况的性能问题</h2> <h3 id="可以用上的工具"><a href="#可以用上的工具" aria-hidden="true" class="header-anchor">#</a> 可以用上的工具</h3> <ul><li>css 压力测试(css stress test)</li> <li>css 性能分析器（the css profilers are coming）</li> <li>css lint</li> <li>dom monster</li></ul> <h3 id="ui性能关注点"><a href="#ui性能关注点" aria-hidden="true" class="header-anchor">#</a> UI性能关注点</h3> <ul><li>大量元素应用border-radius会拖慢页面</li> <li>调整移动设备的viewport标签可以减少渲染时间</li> <li>旧版webkit boxshandows 在滚动和渲染会有延迟问题</li> <li>css 径向渐变在某些浏览器会有渲染问题，特别是Android</li> <li>避免使用IE css 滤镜，会有性能问题</li> <li>使用硬件加速css动画替代javascript动画</li></ul> <h2 id="内存泄漏问题"><a href="#内存泄漏问题" aria-hidden="true" class="header-anchor">#</a> 内存泄漏问题</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/frontend-blog/guide/knowledge.html" class="prev">
           Need to Know
@@ -156,6 +162,6 @@ locust -f locustTest.py --host=http://<br>
         </a>
         →
       </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/frontend-blog/assets/js/app.1851849a.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/18.0665e876.js" defer></script>
+    <script src="/frontend-blog/assets/js/app.63a6a69e.js" defer></script><script src="/frontend-blog/assets/js/2.54c9865e.js" defer></script><script src="/frontend-blog/assets/js/18.8e4faaa3.js" defer></script>
   </body>
 </html>

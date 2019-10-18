@@ -121,8 +121,10 @@ webkit并不会绘制一个很大的层来存储一个很大的页面，
 ## NGINX 502问题，node 的锅？！  
 对于一个没有服务器任何相关经验的人类，  
 接收到这样的一个结论，感受到巨大的恶意。  
-叕一次踏上自证清白的道路。    
-觉得node扛不住，那就来吧。  
+叕一次踏上自证清白的道路。   
+过程：    
+我分析NG日志，发现NG在尝试连接node服务，被拒绝了。  
+便决定压测。  
 1.简单的node服务
 ```
 const express = require('express');
@@ -173,8 +175,12 @@ locust -f locustTest.py --host=http://
 ![本地执行文件](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png)  
 ![图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png)  
 **结论**  
-直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。   
-到此，问题转交。  
+请求html，直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。   
+最后排查到后端代码出现端口占用的问题。  
+因为单个HTML文件输出的大小不是很大，决定加上资源文件做并发压测。  
+结果发现隐藏的bug，资源文件在并发400的时候有1%的情况输出失败，而  
+这个情况确实在线上也遇到过，但后面以网络问题搪塞过去了┌(。Д。)┐，  
+至于怎么解决，TODO......  
 ## 大数据量情况的性能问题 
 ### 可以用上的工具
 - css 压力测试(css stress test)
