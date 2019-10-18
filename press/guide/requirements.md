@@ -144,7 +144,7 @@ export const transformToServer = (data:any) => {
 
 export const transformToUse = (data:any) => {
   // 拿到服务器数据做处理后给页面使用
-  // 比如：依据userDataKeys进行复制
+  // 比如：依据userDataKeys进行赋值
   console.log(data);
   return data;
 };
