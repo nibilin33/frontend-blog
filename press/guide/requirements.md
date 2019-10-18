@@ -38,7 +38,7 @@
 这边与TS的整合，.vue 文件不使用vue-class-component来达到class的写法，保留之前的写法。   
 因为这种写法本身觉得绕了很多弯，是2.x为TS的支持补丁方式.目前来说，ts + vue 当然可用，  
 但是依然相当多的问题，没法如丝般顺滑的相互配合。对于他们完全打算通过 vue3 去彻底解决于 ts 共用的的问题，  
-不打算优化一下 2.x 当前存在的问题，我就不是很想用。(vue-class-component.js 通过gzip 有3.8KB，
+不打算优化一下 2.x 当前存在的问题，vue文件我就不是很想用。(vue-class-component.js 通过gzip 有3.8KB，
 源文件大小 11KB。vue-property-decorator.js 通过gzip 有2.4KB ，源文件大小9KB)。3.0会更好地支持，  
 至于如何更好地支持，都必然能向下兼容。（3.0兼容性到IE11。）    
 
