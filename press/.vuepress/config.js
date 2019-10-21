@@ -18,7 +18,6 @@ module.exports = {
             ['./guide/nginx.md', 'Nginx'],
             ['./guide/code.md', '源码学习'],
             ['./guide/min-routine.md', '小程序'],
-            ['./guide/pwa.md', 'PWA实践'],
             ['./guide/electron.md', 'Electron'],
             ['./guide/cooperation.md', '协作的实现'],
             ['./guide/interview.md', '面试&解题'],
