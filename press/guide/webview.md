@@ -17,6 +17,18 @@ if (window.initData) {
 移动端存在特殊的view，展示web页面控件。
 具体的可以看[https://blog.csdn.net/carson_ho/article/details/64904691](https://blog.csdn.net/carson_ho/article/details/64904691)理解   
 具体实现可以看项目中MobilePlatform.js这个文件
+## H5 多个webview 通信  
+1.  
+```
+localStorage.setItem('message', 'hello');
+window.onstorage = evt => {
+    console.log(evt);
+}
+```
+2.  
+postMessage 方法  
+window.addEventListener('message');  
+
 ## 移动端认证流程
 1.内部项目：拿着应用ID向终端获取code，我们通过code向服务器换取token以及用户信息  
 2.工作台（集成第三方应用），所有信息都通过clientId向服务器获取重定向地址然后直接跳转  
