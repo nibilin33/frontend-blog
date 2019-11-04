@@ -304,6 +304,23 @@ this.$style['meeting-layout']
 template 中   
 $style['meeting-layout']    
 ```
+在.tsx 文件中使用，需要先全局定义        
+```
+declare module "*.scss" {
+  const content: any;
+  export default content;
+}
+```
+```
+import css from "./button.scss";
+render() {
+    return (
+      <div class={css.button}>
+      </div>
+    );
+  }
+```
+
 
 - script 采用驼峰  
 类的命名:首字母必须采用大写的形式  
