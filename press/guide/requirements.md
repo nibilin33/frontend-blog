@@ -284,6 +284,26 @@ _   单下划线：单下划线用来描述一个块或者块的子元素的一�
 为了避免创建三个不同的块，最好是在块上加修饰符。    
 这个修饰符应该有个名字（比如：size ）和值（ small，normal 或者 big ）。     
 
+#### CSS Module   
+vue.config.js   
+```
+    css: {
+        modules: true,
+    },
+```
+开启了css module 配置，可以这么使用  
+``` 
+<style lang="scss" module scoped>
+.meeting-layout{
+  font-size:24px;
+  color: red;
+}
+</style>
+script 中   
+this.$style['meeting-layout']   
+template 中   
+$style['meeting-layout']    
+```
 
 - script 采用驼峰  
 类的命名:首字母必须采用大写的形式  
