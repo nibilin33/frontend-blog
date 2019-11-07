@@ -8,7 +8,7 @@ features:
 - title: For Me
   details: O(∩_∩)O nibilin33@gmail.com
 - title: For Interview
-  details: (O_o)??
+  details: https://nibilin33.github.io/nibilin/
 footer: Copyright © 2019-present
 
 ---
