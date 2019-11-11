@@ -133,7 +133,7 @@ if __name__ == '__main__':
         for itera in packageConfig:
             if packageConfig[itera]['upload']:
                 package(packageConfig[itera]['local'], packageConfig[itera]['remote'],itera,packageConfig[itera]['nextVersionPath'])
-        # sendMail()
+        sendMail()
     except Exception, err:
         print(traceback.format_exc())
 
