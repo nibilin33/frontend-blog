@@ -23,7 +23,7 @@
 > 2. 执行打包命令    
 > 3. 下载包到本地，本地中转到目标打包目录    
 > 4. 发送邮件     
-
+pip install pywin32 
 <details>
 <summary>Show Me The Code</summary>
 
@@ -98,6 +98,18 @@ def sendMail():
         r = requests.post('http://ume.yealink.com:9999/api/v1/external/conferenceMail/send/async', json=payload)
         print r.status_code
 
+def sendOutLook():
+    outlook = win32.Dispatch('Outlook.Application')
+    mail_item = outlook.CreateItem(0) # 0: olMailItem
+    mail_item.Recipients.Add('gaojd@yealink.com')
+    mail_item.BodyFormat = 2          # 2: Html format
+    myfile = codecs.open('mail.html', 'r',encoding='utf8')
+    # mail.Attachments.Add(mail_path, 1, 1, "myFile") 附件添加方式
+    data = myfile.read()
+    myfile.close()
+    mail_item.HTMLBody = data
+    mail_item.Subject = u'【信通院】【uc2.2】web_uc 23.253.3.1，web_ume 23.253.3.1'
+    mail_item.Send()
 
 def package(local, remote, filename, nextVersion):
     ssh = paramiko.SSHClient()
