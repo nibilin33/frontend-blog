@@ -53,7 +53,14 @@ packageConfig = {
         'nextVersionPath': '\\\\gitlab.yealink.com\uc_module\web_ume\\23.253.0.21',
     }
 }
-desktop = os.path.expanduser("~/Desktop")
+# 中文要注意编码，u
+mailConfig = {
+    'receivers':['gaojd@yealink.com'],
+    'subject':u'【信通院】【uc2.2】web_uc 23.253.3.1，web_ume 23.253.3.1',
+    'mailContentPath':'mail.html', # 邮件模板路径
+    # eg:{'mail_path':'J:/python-anaconda/translate.json','file_name':'translate.json'}
+    'attachments':[]
+}
 
 
 def __get_all_files_in_local_dir(local_dir):
@@ -84,31 +91,20 @@ def sftp_put_dir(local_dir, remote_dir, sftp, ssh):
         sftp.put(x, remote_filename)
 
 
-def sendMail():
-    with open('mail.html', 'r') as myfile:
-        data = myfile.read()
-        print data
-        payload = {
-            "receiver": [
-                "nibl@yealink.com"
-            ],
-            "content": data,
-            "subject": "text"
-        }
-        r = requests.post('http://ume.yealink.com:9999/api/v1/external/conferenceMail/send/async', json=payload)
-        print r.status_code
-
 def sendOutLook():
     outlook = win32.Dispatch('Outlook.Application')
     mail_item = outlook.CreateItem(0) # 0: olMailItem
-    mail_item.Recipients.Add('gaojd@yealink.com')
+    for recipers in mailConfig['receivers']:
+        mail_item.Recipients.Add(recipers)
     mail_item.BodyFormat = 2          # 2: Html format
-    myfile = codecs.open('mail.html', 'r',encoding='utf8')
-    # mail.Attachments.Add(mail_path, 1, 1, "myFile") 附件添加方式
+    myfile = codecs.open(mailConfig['mailContentPath'], 'r',encoding='utf8')
+    for attr in mailConfig['attachments']:
+        print attr
+        mail_item.Attachments.Add(attr['mail_path'], 1, 1, attr['file_name'])
     data = myfile.read()
     myfile.close()
     mail_item.HTMLBody = data
-    mail_item.Subject = u'【信通院】【uc2.2】web_uc 23.253.3.1，web_ume 23.253.3.1'
+    mail_item.Subject = mailConfig['subject']
     mail_item.Send()
 
 def package(local, remote, filename, nextVersion):
@@ -145,7 +141,7 @@ if __name__ == '__main__':
         for itera in packageConfig:
             if packageConfig[itera]['upload']:
                 package(packageConfig[itera]['local'], packageConfig[itera]['remote'],itera,packageConfig[itera]['nextVersionPath'])
-        sendMail()
+        sendOutLook()
     except Exception, err:
         print(traceback.format_exc())
 
