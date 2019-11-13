@@ -150,7 +150,7 @@ if __name__ == '__main__':
 </details>
 
 2. 使用说明  
-
+安装依赖pip install paramiko,pip install pywin32
 **详细看show me the code 的注释说明**
 
 ## 代码生成
