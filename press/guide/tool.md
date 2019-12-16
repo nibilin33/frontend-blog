@@ -13,6 +13,11 @@
 ## 国际化 
 
 1. 实现思路  
+1.1）新项目开发利用python脚本替换中文为$t      
+1.2）重构或者迭代项目利用vscode国际化插件替换已有的国际化        
+[vscode 插件开发](https://code.visualstudio.com/api/get-started/your-first-extension)     
+[vscode 参考](https://github.com/antfu/i18n-ally)   
+**详细看show me the code 的注释说明**   
 2. 使用说明
 
 ## 项目发布
