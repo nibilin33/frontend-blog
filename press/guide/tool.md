@@ -165,6 +165,13 @@ if __name__ == '__main__':
 
 ## 自动化测试
 
-1. 实现思路  
-2. 使用说明
+方法一      
+1. Selenium IDE 
+Selenium IDE是Firefox浏览器的一个插件，依附于Firefox浏览器。    
+[FireFox 插件](https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/)
+[Chrome 插件] 
+
+方法二      
+1. WebdriverIO  
+[文档地址](https://webdriver.io/docs/api.html)  
 
