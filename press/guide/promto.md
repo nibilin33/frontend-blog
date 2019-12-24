@@ -88,6 +88,48 @@ webpack.base.conf.js
      assetsPublicPath: PATH
      
 ``` 
+### 全流程瓶颈分析  
+**1.常用命令**  
+查看系统：cat /proc/version     
+查看系统版本： cat /etc/os-release      
+查看进程： ps   
+**2.数据分析搜集并且图形化**    
+[nmon](http://nmon.sourceforge.net/pmwiki.php)      
+1）tar -zxvf nmon16e_mpginc.tar.gz  
+2）拷贝并重命名 cp nmon_x86_64_centos /usr/local/bin/nmon   
+3）授权 chmod 777 nmon
+4）root 可执行 ln -s /usr/bin/nmon /usr/sbin/nmon 
+5) nmon -f -t -s 30 -c 10 -m /home/
+6) 通过sort命令可以将nmon结果文件转换为csv文件 sort -A LS-HDP-MH-VM-173-188_161108_1412.nmon> LS-HDP-MH-VM-173-188_161108_1412.csv
+7) nmon_analyser（生成性能报告的免费工具）
+<details>
+<summary>nmon 参数意思</summary>
+[报表参数详解](https://blog.csdn.net/qq_39720249/article/details/84325837)  
+-f     电子表格输出格式[注意：默认-s300 -c288]   输出文件是{hostname} _YYYYMMDD_HHMM.nmon   
+-F    {filename},与-f相同，但用户提供的文件名   
+-c   {number}快照数     
+-d    请求磁盘服务和等待时间（DISKSERV和DISKWAIT）      
+-i    {percent}在使用少于此数量的CPU时忽略进程生成TOP部分 - 对减少数据量很有用      
+-g   {filename}包含磁盘组定义的文件     
+-l    {dpl}每张纸的hdisk数 - 默认为150，最大为250.      
+-m   {dir} NMON在保存文件之前更改为此目录       
+-r    {runname}进入电子表格文件[默认主机名]     
+-s    {秒}快照之间的间隔        
+-x    容量规划（1天时间，每15分钟监控一次= -fdt -s900 -c96）        
+-t    包括输出中的顶级进程  
+-T    as -t plus在UARG部分保存命令行参数    
+-A    包括异步I / O（PROCAIO）部分的数据     
+-D    防止生成DISK部分（在磁盘组时有用）正在使用，因为有太多的硬盘要处理）      
+-E    停止生成ESS部分（磁盘组时需要）正在使用因为有太多的vpath要处理）      
+-J    防止生成JFS部分（防止Excel错误当你有超过255个文件系统）   
+-L    包括LARGEPAGE部分     
+-N    包括NFS部分       
+-S    包括带子类的WLM部分       
+-W    包括没有子类的WLM部分     
+-Y    包括SUMMARY部分（非常有效的替代-t if不需要PID级别数据）       
+</details>
+
+**3.结论**
 ## Android的webview概率触摸白屏
 网上看到的一个类似的解释：  
 webkit在绘制页面时会将结构分为各种层，   
@@ -178,9 +220,7 @@ locust -f locustTest.py --host=http://
 请求html，直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。   
 最后排查到后端代码出现端口占用的问题。  
 因为单个HTML文件输出的大小不是很大，决定加上资源文件做并发压测。  
-结果发现隐藏的bug，资源文件在并发400的时候有1%的情况输出失败，而  
-这个情况确实在线上也遇到过，但后面以网络问题搪塞过去了┌(。Д。)┐，  
-至于怎么解决，TODO......  
+结果发现隐藏的bug，资源文件在并发400的时候有1%的情况输出失败。  
 ## 大数据量情况的性能问题 
 ### 可以用上的工具
 - css 压力测试(css stress test)
