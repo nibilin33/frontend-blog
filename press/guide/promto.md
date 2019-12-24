@@ -96,12 +96,12 @@ webpack.base.conf.js
 **2.数据分析搜集并且图形化**    
 [nmon](http://nmon.sourceforge.net/pmwiki.php)      
 1）tar -zxvf nmon16e_mpginc.tar.gz  
-2）拷贝并重命名 cp nmon_x86_64_centos /usr/local/bin/nmon   
+2）拷贝并重命名 cp nmon_x86_64_centos /usr/bin/nmon   
 3）授权 chmod 777 nmon
 4）root 可执行 ln -s /usr/bin/nmon /usr/sbin/nmon 
 5) nmon -f -t -s 30 -c 10 -m /home/
 6) 通过sort命令可以将nmon结果文件转换为csv文件 sort -A LS-HDP-MH-VM-173-188_161108_1412.nmon> LS-HDP-MH-VM-173-188_161108_1412.csv
-7) nmon_analyser（生成性能报告的免费工具）
+7) nmon_analyser（生成性能报告）
 <details>
 <summary>nmon 参数意思</summary>
 [报表参数详解](https://blog.csdn.net/qq_39720249/article/details/84325837)  
