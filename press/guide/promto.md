@@ -303,11 +303,11 @@ new Date('2019/01/01T10:00') 在Firefox上有问题
 > 5.慢  
 #### 第一版：内存泄漏
 问题代码
-![dd](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/book.png)
+![问题代码](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/book.png)
 循环引用导致无法GC  
 解决代码
 #### 第一段解决代码的灵感来自 《垃圾回收算法手册》这本书
-![dd](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/wrongcode.png)
+![垃圾回收算法手册](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/wrongcode.png)
 
 #### 第二版：性能提升 --- 最小化原则
 - [x] 废弃JQ --(180KB+30KB)你如果非常需要dom操作的工具时候，就要想到，庞大的东西必然有人会去简化，我们可以参考zepto去实现一版更小的工具类$
