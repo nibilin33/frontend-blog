@@ -252,7 +252,7 @@ locust -f locustTest.py --host=http://
 突然想到，vue3用proxy替代之前的Object.defineProperty....(～￣(OO)￣)ブ    
 <details>
 <summary>Show Me The Code</summary>
-```
+
 import {
     isFunction,
 } from 'lodash';
@@ -282,7 +282,7 @@ export default function createDefensiveObject(data) {
     return new CustomProxy(data);
 }
 
-```
+
 </details>
 
 #### Date   
@@ -294,4 +294,50 @@ new Date('2019/01/01T10:00') 在Firefox上有问题
 设定height为具体某个值，在Firefox上显示是设定值*2   
 解决：tr上overflow:hidden，并且设定高度 
 
-## 内存泄漏问题  
+## 优化组织架构    
+#### 难受的历史
+> 1.大数据量情况页面切换两下浏览器崩溃了    
+> 2.默认勾选容易费时太长奔溃    
+> 3.渲染压力太大    
+> 4.内存只增不减    
+> 5.慢  
+#### 第一版：内存泄漏
+问题代码
+![dd](http://10.83.4.2:8060/static/a52d3ee039ab4c9193fb6a07fe3d80a4.png)
+循环引用导致无法GC  
+解决代码
+#### 第一段解决代码的灵感来自 《垃圾回收算法手册》这本书
+![dd](http://10.83.4.2:8060/static/4fac9eb14ec141bd843be3beec291066.png)
+
+#### 第二版：性能提升 --- 最小化原则
+- [x] 废弃JQ --(180KB+30KB)你如果非常需要dom操作的工具时候，就要想到，庞大的东西必然有人会去简化，我们可以参考zepto去实现一版更小的工具类$
+- [x] 大数据量展示 -- clusterize.js(7KB)(只展示可视区间的节点)
+####人生要有一种信念，没有你~~做不到~~找不到，只有你想不到
+你能想到的优化点，基本都有人实现过了，不用从头造轮子，把期望目标转成关键词搜索 https://github.com/cheton/infinite-tree
+#### Edge(记录UI响应)
+修改前,初始化需要4,241.812 ms     
+修改后，1,421.073 ms 
+#### Chrome
+修改前 784.133ms    
+修改后 90.811ms 
+旧版树 471.270ms    
+
+<details>
+<summary>Show Me The Code</summary>
+只有一个目的，去掉双向绑定，由这个对象做所有树对象的内存管理，手动去垃圾回收    
+当然去掉双向绑定还有一个方法，Object.freeze(),这代表这个数据你不能做任何操作，只能查看。    
+
+```
+class nbTree {  
+constructor() { 
+    this.nbTree = {};   
+}   
+}   
+export default new nbTree();    
+```
+</details>
+
+
+#### 利用好console
+- [x] 占用内存 ---- console.memory
+- [x] 花费时间 ---- console.profile(),console.profileEnd()
