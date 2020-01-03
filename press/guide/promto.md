@@ -29,6 +29,15 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 如果存在不一致，先使用远程的。并且需要下载资源包进行替换。    
 
 **方案三：**  
+资源包有NG做目录映射    
+```
+location /web_zip/xx {  
+root /usr/local/xxx; 
+autoindex on;   
+expires 12h;    
+proxy_store on；    
+}
+```
 前提：本地已经下载好资源。node需要支持跨域请求
 ```
     app.use("*", function(req, res, next) {
@@ -236,4 +245,53 @@ locust -f locustTest.py --host=http://
 - css 径向渐变在某些浏览器会有渲染问题，特别是Android
 - 避免使用IE css 滤镜，会有性能问题  
 - 使用硬件加速css动画替代javascript动画  
+### 作死的兼容性问题
+#### Proxy
+开发的时候确定了不考虑IE，结果遇到功能复用，用iframe做隔离，确定会遇上爱情....(～￣(OO)￣)ブ      
+这是一个开发了两周，每天1000行的功能,试过polyfill依旧有问题，怎么办....     
+突然想到，vue3用proxy替代之前的Object.defineProperty....(～￣(OO)￣)ブ    
+<details>
+<summary>Show Me The Code</summary>
+```
+import {
+    isFunction,
+} from 'lodash';
+import {
+    firstLetterUpperCase,
+} from '@/utils/tools';
+
+class CustomProxy {
+    params = {}
+
+    constructor(data) {
+        Object.keys(data).forEach((name) => {
+            Object.defineProperty(this.params, name, {
+                enumerable: true,
+                configurable: true,
+                get: () => data[name],
+                set: (newValue) => {
+                    isFunction(data[`set${firstLetterUpperCase(name)}`])
+                    && data[`set${firstLetterUpperCase(name)}`](newValue);
+                    data[name] = newValue;
+                },
+            });
+        });
+    }
+}
+export default function createDefensiveObject(data) {
+    return new CustomProxy(data);
+}
+
+```
+</details>
+
+#### Date   
+new Date('2019-01-01 10:00') 这种方式在除了ie都行   
+ie 要用new Date('2019-01-01T10:00')     
+new Date('2019/01/01T10:00') 在Firefox上有问题      
+
+#### display:table-cell     
+设定height为具体某个值，在Firefox上显示是设定值*2   
+解决：tr上overflow:hidden，并且设定高度 
+
 ## 内存泄漏问题  
