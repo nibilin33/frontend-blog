@@ -245,8 +245,8 @@ locust -f locustTest.py --host=http://
 - css 径向渐变在某些浏览器会有渲染问题，特别是Android
 - 避免使用IE css 滤镜，会有性能问题  
 - 使用硬件加速css动画替代javascript动画  
-### 作死的兼容性问题
-#### Proxy
+## 作死的兼容性问题
+### Proxy
 开发的时候确定了不考虑IE，结果遇到功能复用，用iframe做隔离，确定会遇上爱情....(～￣(OO)￣)ブ      
 这是一个开发了两周，每天1000行的功能,试过polyfill依旧有问题，怎么办....     
 突然想到，vue3用proxy替代之前的Object.defineProperty....(～￣(OO)￣)ブ    
@@ -285,12 +285,12 @@ export default function createDefensiveObject(data) {
 
 </details>
 
-#### Date   
+### Date   
 new Date('2019-01-01 10:00') 这种方式在除了ie都行   
 ie 要用new Date('2019-01-01T10:00')     
 new Date('2019/01/01T10:00') 在Firefox上有问题      
 
-#### display:table-cell     
+### display:table-cell     
 设定height为具体某个值，在Firefox上显示是设定值*2   
 解决：tr上overflow:hidden，并且设定高度 
 
