@@ -1,2 +1,29 @@
 ## Linux操作系统    
-## webkit技术内幕   
+## Webkit技术内幕   
+主流的演染引擎包括 Trident 、 Gecko 和 webkit，它们分别是 IE 、火狐和 Chrome 的内核。   
+一个渲染引擎包括：HTML解释器， CSS解释器， 布局，Javascript引擎。   
+渲染过程：输入到 HTML 解释器， HTML 解释器在解释它后构建成一棵 DOM 树，     
+如果遇到 Javascript 代码则交给 Javascript 引擎去处理；  
+如果网贞中包含 CSS ，则交给 CSS 解释器去解释。  
+当 OOM 建立的时候，渲染引擎接收来自 CSS 解释器的样式信息，构建一个新的内部绘图模型。    
+该模型由布局模块计算模型内部各个元素的位置和大小信息，最后由绘图模块完成从该模型到图像的绘制。      
+### HTML(hypertext markup language) 
+HTML5 包括10大类别：  
+类别|内容|
+--|:--:|  
+|离线（offline）| Application cache , Local slorage , Indexed DB ，在线／离线|  
+|存储（storage）|Application cache , Local storage , Indexcd DB 等|     
+|连接（connectivity）|  Web Sockets , Server-sent 事件|     
+|文件访问（file access）|File API , File System , Filewriter , ProgressEvents|      
+|语义（semantics）|各种新的元素，包括 Media , structural ，国际化，Link relation ，属性， form 类型， microdata 等方面|
+|音频和视频（audio/video）|HTMLS Video , Web Audio , WebRTC, Video track 等|        
+|3D和图形（3D/graphics）|Canvas ZD , 3D CSS 变换， WebGL , SVG 等|      
+|展示（presentation）|css3 2D/ 3D 变换,转换（ transition ) , webFonts 等|
+|性能（performance）|web worker , HTTP caching 等|  
+|其他（Nuts and bolts）|触控和鼠标， Shadow DooM , css masking 等|    
+
+
+## 内容分发网络原理与实践(CDN)   
+## web安全深度剖析  
+## 深入理解Nginx    
+ 
