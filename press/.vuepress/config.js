@@ -16,7 +16,7 @@ module.exports = {
             ['./guide/knowledge.md', 'Need to Know'],
             ['./guide/promto.md', '那些年让人难受的BUG'],
             ['./guide/component.md', '组件说明'],
-            ['./guide/code.md', '源码学习'],
+            ['./guide/code.md', '渗透测试'],
             ['./guide/min-routine.md', '小程序'],
             ['./guide/electron.md', 'Electron'],
             ['./guide/cooperation.md', '协作的实现'],
