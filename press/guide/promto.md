@@ -38,6 +38,9 @@ expires 12h;
 proxy_store on；    
 }
 ```
+验证资源包完整性：
+linux : md5sum      
+windows: certutil -hashfile 文件名  MD5     
 前提：本地已经下载好资源。node需要支持跨域请求
 ```
     app.use("*", function(req, res, next) {
