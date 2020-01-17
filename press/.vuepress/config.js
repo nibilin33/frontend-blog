@@ -20,7 +20,7 @@ module.exports = {
             ['./guide/min-routine.md', '小程序'],
             ['./guide/electron.md', 'Electron'],
             ['./guide/cooperation.md', '协作的实现'],
-            // ['./guide/interview.md', '面试&解题'],
+            ['./guide/interview.md', '解题'],
             ['./guide/me.md', 'README'],
         ],
         sidebarDepth: 3,
