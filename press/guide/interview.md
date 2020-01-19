@@ -299,7 +299,7 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
  * 
  
  */
- ## 二维数组中的查找    
+ ### 二维数组中的查找    
 /*
  * @lc app=leetcode.cn id=74 lang=javascript
  *
@@ -342,6 +342,7 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
  * @return {boolean}
  */
  方法一：
+
 ``` 
  var searchMatrix = function(matrix, target) {
     var rows = matrix.length;
@@ -364,21 +365,50 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
     return false;
 };
  ```
+
 136/136 cases passed (160 ms)   
 Your runtime beats 6.44 % of javascript submissions   
 Your memory usage beats 5.25 % of javascript submissions (44.8 MB)    
-(ˇˍˇ)好慢，继续尝试...
+(ˇˍˇ)好慢，继续尝试... 
 方法二：
-```
+
+``` 
 var searchMatrix = function(matrix, target) {
     if (!matrix || matrix.length === 0) {
         return false;
     }
-    return `,${matrix.toString()},`.match(`,${target},`)!==null;    
+    return `,${matrix.toString()},` .match( `,${target},` )!==null;    
 };
 ```
+
 136/136 cases passed (76 ms)        
 Your runtime beats 20.92 % of javascript submissions        
 Your memory usage beats 5.25 % of javascript submissions (37.5 MB)      
-(ˇˍˇ)额.....    
+(ˇˍˇ)额... ..
 方法三：
+
+``` 
+var searchMatrix = function(matrix, target) {
+    var rows = matrix.length;
+    var columns = rows > 0 ? matrix[0].length: 0;
+    if(!columns||!rows) {
+        return false;
+    }
+    var left =0,right = rows * columns -1;
+    while(left<=right) {
+        var mid = left + Math.floor((right - left)/2);
+        var x = Math.floor(mid/columns);
+        if(matrix[x][mid%columns] > target) {
+            right = mid - 1;
+        }else if(matrix[x][mid%columns] < target) {
+            left = mid + 1;
+        }else{
+            return true;
+        }
+    }
+    return false;
+};
+```
+136/136 cases passed (60 ms)    
+Your runtime beats 91.48 % of javascript submissions    
+Your memory usage beats 29.32 % of javascript submissions (34.8 MB)   
