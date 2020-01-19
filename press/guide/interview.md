@@ -266,6 +266,7 @@ Your runtime beats 94.63 % of javascript submissions
 Your memory usage beats 44.68 % of javascript submissions (36.8 MB) 
 
 ### 不相交的线  
+
 /*
  * 我们在两条独立的水平线上按给定的顺序写下 A 和 B 中的整数。
  * 
@@ -277,7 +278,7 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
  * 
  * 示例 1：
  * 
- * 输入：A = [1,4,2], B = [1,2,4]
+ * 输入：A = [1, 4, 2], B = [1, 2, 4]
  * 输出：2
  * 解释：
  * 我们可以画出两条不交叉的线，如上图所示。
@@ -285,16 +286,99 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
  * 
  * 示例 2：
  * 
- * 输入：A = [2,5,1,2,5], B = [10,5,2,1,5,2]
+ * 输入：A = [2, 5, 1, 2, 5], B = [10, 5, 2, 1, 5, 2]
  * 输出：3
  * 
  * 
  * 示例 3：
  * 
- * 输入：A = [1,3,7,1,7,5], B = [1,9,2,5,1]
+ * 输入：A = [1, 3, 7, 1, 7, 5], B = [1, 9, 2, 5, 1]
  * 输出：2
  * 
  * 
  * 
  
  */
+ ## 二维数组中的查找    
+/*
+ * @lc app=leetcode.cn id=74 lang=javascript
+ *
+ * [74] 搜索二维矩阵
+ * 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
+ * 
+ * 每行中的整数从左到右按升序排列。
+ * 每行的第一个整数大于前一行的最后一个整数。
+ * 
+ * 
+ * 示例 1:
+ * 
+ * 输入:
+ * matrix = [
+ * ⁠ [1, 3, 5, 7], 
+ * ⁠ [10, 11, 16, 20], 
+ * ⁠ [23, 30, 34, 50]
+ * ]
+ * target = 3
+ * 输出: true
+ * 
+ * 
+ * 示例 2:
+ * 
+ * 输入:
+ * matrix = [
+ * ⁠ [1, 3, 5, 7], 
+ * ⁠ [10, 11, 16, 20], 
+ * ⁠ [23, 30, 34, 50]
+ * ]
+ * target = 13
+ * 输出: false
+ * 
+ */
+
+// @lc code=start
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+ 方法一：
+``` 
+ var searchMatrix = function(matrix, target) {
+    var rows = matrix.length;
+    var columns = rows > 0 ? matrix[0].length: 0;
+    if(!columns||!rows) {
+        return false;
+    }
+    var row = 0;
+    var column = columns -1;
+    while(row<rows && column >= 0) {
+        if(matrix[row][column] === target) {
+            return true;
+        }
+        if(matrix[row][column] > target) {
+            column--;
+        }else {
+            row++;
+        }
+    }
+    return false;
+};
+ ```
+136/136 cases passed (160 ms)   
+Your runtime beats 6.44 % of javascript submissions   
+Your memory usage beats 5.25 % of javascript submissions (44.8 MB)    
+(ˇˍˇ)好慢，继续尝试...
+方法二：
+```
+var searchMatrix = function(matrix, target) {
+    if (!matrix || matrix.length === 0) {
+        return false;
+    }
+    return `,${matrix.toString()},`.match(`,${target},`)!==null;    
+};
+```
+136/136 cases passed (76 ms)        
+Your runtime beats 20.92 % of javascript submissions        
+Your memory usage beats 5.25 % of javascript submissions (37.5 MB)      
+(ˇˍˇ)额.....    
+方法三：
