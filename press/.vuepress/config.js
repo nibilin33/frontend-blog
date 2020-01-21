@@ -1,6 +1,6 @@
 
 module.exports = {
-    title: 'nibl blog',
+    title: 'Nibl Blog',
     description: 'Just playing around',
     base: '/frontend-blog/',
     head: [
