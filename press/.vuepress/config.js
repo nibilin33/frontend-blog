@@ -32,7 +32,15 @@ module.exports = {
                 link: '/guide/comment.md'}
         ],
     },
-    plugins:['flowchart', [
+    plugins:['flowchart','demo-code', 
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'details',
+        before: info => `<details class="custom-block details">`,
+        after: '</details>',
+      },
+    ],[
         'vuepress-plugin-comment',
         {
           choosen: 'valine', 
@@ -43,6 +51,7 @@ module.exports = {
             appKey: 'SXR99ldnbUDDFITs3h62K9OH',
             placeholder: '来了就说点什么吧~~~',
             recordIP:true,
+            
           }
         }
       ]

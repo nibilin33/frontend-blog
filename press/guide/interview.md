@@ -12,6 +12,8 @@
 
 [前端面试与进阶指南](https://www.cxymsg.com)  
 
+
+
 ## 解题
 
 ### 子域名访问计数
@@ -64,6 +66,7 @@
  /
 
 第一次提交
+::: details 
 
 ``` 
 var subdomainVisits = function(cpdomains) {
@@ -87,12 +90,13 @@ var subdomainVisits = function(cpdomains) {
   });
 };
 ```
+::: 
 
 52/52 cases passed (92 ms)              
 Your runtime beats 68.04 % of javascript submissions            
 Your memory usage beats 28.39 % of javascript submissions (39.3 MB)             
 第二次提交
-
+::: details 
 ``` 
 var subdomainVisits = function(cpdomains) {
   var split_result = {};
@@ -116,6 +120,7 @@ var subdomainVisits = function(cpdomains) {
   });
 };
 ```
+:::
 
 52/52 cases passed (84 ms)              
 Your runtime beats 88.66 % of javascript submissions            
@@ -150,7 +155,7 @@ Your memory usage beats 64.2 % of javascript submissions (38.9 MB)
   n 是非负整数，且不会超过输入数组的大小。
  /
  
-
+::: details 
 ``` 
  var canPlaceFlowers = function(flowerbed, n) {
     var canFlowers = false;                                                                                                                            
@@ -169,39 +174,10 @@ Your memory usage beats 64.2 % of javascript submissions (38.9 MB)
     return canFlowers;
 };
  ```
-
+::: 
 123/123 cases passed (84 ms)            
 Your runtime beats 46.2 % of javascript submissions             
 Your memory usage beats 57.35 % of javascript submissions (36.6 MB)             
-
-### 在LR字符串中交换相邻字符
-
-/
-  [777] 在LR字符串中交换相邻字符
-  在一个由 'L' , 'R' 和 'X'
-  三个字符组成的字符串（例如"RXXLRXRXL"）中进行移动操作。一次移动操作指用一个"LX"替换一个"XL"，或者用一个"XR"替换一个"RX"。现给定起始字符串start和结束字符串end，请编写代码，当且仅当存在一系列移动操作使得start可以转换成end时，
-  返回True。
-  
-  示例 :
-  
-  输入: start = "RXXLRXRXL", end = "XRLXXRRLX"
-  输出: True
-  解释:
-  我们可以通过以下几步将start转换成end:
-  RXXLRXRXL ->
-  XRXLRXRXL ->
-  XRLXRXRXL ->
-  XRLXXRRXL ->
-  XRLXXRRLX
-  
-  
-  注意:
-  
-  
-  1 <= len(start) = len(end) <= 10000。
-  start和end中的字符串仅限于'L', 'R'和'X'。
-  
- /
 
  ### 二分查找
  /
@@ -244,7 +220,7 @@ nums.indexOf(target)
 Your runtime beats 6.85 % of javascript submissions   
 Your memory usage beats 44.47 % of javascript submissions (36.8 MB)   
 老实用二分法：    
-
+::: details
 ``` 
 var search = function(nums, target) {
     var start = 0;
@@ -263,45 +239,12 @@ var search = function(nums, target) {
     return -1;
 };
 ```
+:::
 
 46/46 cases passed (64 ms)  
 Your runtime beats 94.63 % of javascript submissions  
 Your memory usage beats 44.68 % of javascript submissions (36.8 MB) 
 
-### 不相交的线  
-
-/
-  我们在两条独立的水平线上按给定的顺序写下 A 和 B 中的整数。
-  
-  现在，我们可以绘制一些连接两个数字 A[i] 和 B[j] 的直线，只要 A[i] == B[j]，且我们绘制的直线不与任何其他连线（非水平线）相交。
-  
-  以这种方法绘制线条，并返回我们可以绘制的最大连线数。
-  
-  
-  
-  示例 1：
-  
-  输入：A = [1, 4, 2], B = [1, 2, 4]
-  输出：2
-  解释：
-  我们可以画出两条不交叉的线，如上图所示。
-  我们无法画出第三条不相交的直线，因为从 A[1]=4 到 B[2]=4 的直线将与从 A[2]=2 到 B[1]=2 的直线相交。
-  
-  示例 2：
-  
-  输入：A = [2, 5, 1, 2, 5], B = [10, 5, 2, 1, 5, 2]
-  输出：3
-  
-  
-  示例 3：
-  
-  输入：A = [1, 3, 7, 1, 7, 5], B = [1, 9, 2, 5, 1]
-  输出：2
-  
-  
-  
- 
- /
  ### 二维数组中的查找    
 /
   @lc app=leetcode.cn id=74 lang=javascript
@@ -345,7 +288,7 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
   @return {boolean}
  /
  方法一：
-
+::: details
 ``` 
  var searchMatrix = function(matrix, target) {
     var rows = matrix.length;
@@ -368,6 +311,7 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
     return false;
 };
  ```
+:::
 
 136/136 cases passed (160 ms)   
 Your runtime beats 6.44 % of javascript submissions   
@@ -389,7 +333,7 @@ Your runtime beats 20.92 % of javascript submissions
 Your memory usage beats 5.25 % of javascript submissions (37.5 MB)      
 (ˇˍˇ)额... ..
 方法三：
-
+::: details 
 ``` 
 var searchMatrix = function(matrix, target) {
     var rows = matrix.length;
@@ -412,6 +356,7 @@ var searchMatrix = function(matrix, target) {
     return false;
 };
 ```
+::: 
 
 136/136 cases passed (60 ms)    
 Your runtime beats 91.48 % of javascript submissions    
@@ -432,7 +377,7 @@ Your memory usage beats 29.32 % of javascript submissions (34.8 MB)
 
 输出:   
 [2, 3]   
-
+::: details 
 ``` 
 分析：如果没有重复，排序后数字i在位置i上     
 抽屉原理1：把n+1个元素放入n个集合内，必定有一个集合至少含有两个或两个以上元素。     
@@ -462,6 +407,8 @@ var findDuplicates = function(nums) {
     return Array.from(new Set(result));
 };
 ```
+:::
+
 
 28/28 cases passed (132 ms)     
 Your runtime beats 63 % of javascript submissions       
@@ -489,7 +436,8 @@ Your memory usage beats 30.12 % of javascript submissions (45.4 MB)
 你不需要考虑数组中超出新长度后面的元素。
 ::: tip
 思路：相同数字向前移动覆盖
-:::   
+:::  
+::: details  
 ``` 
 
 var removeDuplicates = function(nums) {
@@ -511,11 +459,11 @@ var removeDuplicates = function(nums) {
     return nums.length;
 };
 ```
-
+::: 
 166/166 cases passed (76 ms)            
 Your runtime beats 89.09 % of javascript submissions        
 Your memory usage beats 34.32 % of javascript submissions (35.9 MB)     
-
+::: details code
 ``` 
 var removeDuplicates = function(nums) {
     let i=0,j=1;
@@ -530,4 +478,15 @@ var removeDuplicates = function(nums) {
     nums.length-=j-i-1
 };
 ```
+::: 
+
+
+### 链表    
+1. 合并有序链表    
+::: details code
+dddd
+::: 
+
+2. 对链表进行插入排序         
+
 
