@@ -484,9 +484,198 @@ var removeDuplicates = function(nums) {
 ### 链表    
 1. 合并有序链表    
 ::: details code
-dddd
+```js
+var mergeTwoLists = function(l1, l2) {
+    if (!l1) {
+        return l2;
+    }
+    if (!l2) {
+        return l1;
+    }
+    if(l1.val < l2.val) {
+        l1.next = mergeTwoLists(l1.next, l2);
+        return l1;
+    } else {
+        l2.next = mergeTwoLists(l1, l2.next);
+        return l2;
+    }
+};
+```
 ::: 
 
-2. 对链表进行插入排序         
+2. 对链表进行插入排序     
+::: details 
+```js
+var insertionSortList = function(head) {
+    if(!head) return head;
+    var preHead = new ListNode(-Infinity);
+    var curr = head;
+    // 找下一个插入的位置
+    var pre = preHead;
+    var next = null;
+    while(curr){
+        next = curr.next;
+        while(pre.next && pre.next.val < curr.val){
+            pre = pre.next;
+        }
+        curr.next = pre.next;
+        pre.next = curr;
+        pre = preHead;
+        curr = next;
+    }
+    return preHead.next;
+};
+```
+:::    
+3. 旋转链表         
+给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。      
+思路：      
+链表倒置，移动的几位放到链表头，未移动的放到链表尾巴           
+::: details
+```js
+var rotateRight = function(head, k) {
+    if(!head) return head;
+    if(k<0) return null;
+    var first = head;
+    var preHead = head;
+    var pre = head;
+    var count = 0;
+    while(head) {
+        count++;
+        head = head.next;
+    }
+    k = k > count? k%count:k;
+    if(k == 0 || k === count) {
+        return first;
+    }
+    k = count - k;
+    head = first;
+    while(head && head.next) {
+        if(k === 1){
+            pre = head;
+        }
+        head = head.next;
+        k--;
+    }
+    preHead = pre.next;
+    pre.next = null;
+    head.next = first;
+    return preHead;
+    
+};
+```
+231/231 cases passed (80 ms)    
+Your runtime beats 48.61 % of javascript submissions    
+Your memory usage beats 87.75 % of javascript submissions (35.4 MB) 
+:::
+
+4. 分隔链表  
+给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。  
+你应当保留两个分区中每个节点的初始相对位置。    
+思路：
+拿两个空链表装比较的结果，最后拼接起来      
+::: details
+```js
+var partition = function(head, x) {
+    var left = new ListNode(0);
+    var right = new ListNode(0);
+    var preHead = left;
+    var preRight = right;
+    while(head) {
+        var next = head.next;
+        head.next = null;
+        if(head.val >= x) {
+            right.next = head;
+            right = right.next;
+        }else{
+            left.next = head;
+            left = left.next;
+        }
+        head = next;
+    };
+    left.next = preRight.next;
+    return preHead.next;
+};
+```
+166/166 cases passed (72 ms)    
+Your runtime beats 59.94 % of javascript submissions    
+Your memory usage beats 57.43 % of javascript submissions (34.1 MB)
+```js
+var partition = function(head, x) {
+    var left = new ListNode(0);
+    var right = new ListNode(0);
+    var preHead = left;
+    var preRight = right;
+    while(head) {
+        if(head.val >= x) {
+            right.next = head;
+            right = right.next;
+        }else{
+            left.next = head;
+            left = left.next;
+        }
+        head = head.next;
+    };
+    right.next = null;
+    left.next = preRight.next;
+    return preHead.next;
+};
+```
+166/166 cases passed (56 ms)        
+Your runtime beats 99.04 % of javascript submissions    
+Your memory usage beats 49.51 % of javascript submissions (34.1 MB) 
+::: 
+5. 二叉树展开为链表         
+将当前节点的右子树放到左子树的最右边的节点上        
+::: details
+递归本质是一个栈结构        
+```js
+var flatten = function(root) {
+    if(!root) return;
+    flatten(root.left);
+    flatten(root.right);
+    if(root.left){
+        var left = root.left;
+        var right = root.right;
+        root.right = left;
+        while(left.right) {
+            left = left.right;
+        }
+        left.right = right;
+        root.left = null;
+    }
+};
+```
+:::
+6. 删除链表的倒数第N个节点      
+给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。     
+思路： 快慢指针 
+::: details
+```js
+var removeNthFromEnd = function(head, n) {
+    var preHead = new ListNode(0);
+    preHead.next = head;
+    var before = preHead;
+    var tail = preHead;
+    var index = 0;
+    while(tail) {
+        tail = tail.next;
+        if(index>n) {
+            before = before.next;
+        }
+        index++;
+    }
+    before.next = before.next.next;
+    return preHead.next;
+};
+```
+:::
+
+### 二叉树      
+1. 从前序与中序遍历序列构造二叉树       
+::: details 
+
+:::
+
 
 
