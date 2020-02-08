@@ -50,7 +50,7 @@ DocumentOrShadowRoot
 组合器：>>> (formerly /deep/)*  
 3. HTML templates（HTML模板）： template 和 slot 元素
 
-### CSS 解释器
+### CSS 解释器  
 1. 盒模型       
 
 ## 内容分发网络原理与实践(CDN)   
