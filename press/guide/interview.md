@@ -11,56 +11,26 @@
 ## 面试题  
 
 [前端面试与进阶指南](https://www.cxymsg.com)  
+[javascript问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md)
+[HTML问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/html-questions.md)
+[CSS问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
+[技术面试手册](https://yangshun.github.io/tech-interview-handbook/algorithms/array)
 
 ## 解题
-
-### 子域名访问计数
+### 数组
+#### 1.子域名访问计数
 /
   @lc app=leetcode.cn id=811 lang=javascript
  
   [811] 子域名访问计数
-        
-  一个网站域名，如"discuss.leetcode.com"，包含了多个子域名。作为顶级域名，常用的有"com"，下一级则有"leetcode.com"，最低的一级为"discuss.leetcode.com"。当我们访问域名"discuss.leetcode.com"时，也同时访问了其父域名"leetcode.com"以及顶级域名
-  "com"。
- 
-  给定一个带访问次数和域名的组合，要求分别计算每个域名被访问的次数。其格式为访问次数+空格+地址，例如："9001
-  discuss.leetcode.com"。
- 
   接下来会给出一组访问次数和域名组合的列表cpdomains 。要求解析出所有域名的访问次数，输出格式和输入格式相同，不限定先后顺序。
- 
- 
   示例 1:
   输入:
   ["9001 discuss.leetcode.com"]
   输出:
   ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]
   说明:
- 
   例子中仅包含一个网站域名："discuss.leetcode.com"。按照前文假设，子域名"leetcode.com"和"com"都会被访问，所以它们都被访问了9001次。
- 
- 
- 
-  示例 2
-  输入:
-  ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-  输出:
-  ["901 mail.com", "50 yahoo.com", "900 google.mail.com", "5 wiki.org", "5 org", "1
-  intel.mail.com", "951 com"]
-  说明:
-  按照假设，会访问"google.mail.com" 900次，"yahoo.com" 50次，"intel.mail.com"
-  1次，"wiki.org" 5次。
-  而对于父域名，会访问"mail.com" 900+1 = 901次，"com" 900 + 50 + 1 = 951次，和 "org" 5 次。
- 
- 
-  注意事项：
- 
- 
-  cpdomains 的长度小于 100。
-  每个域名的长度小于100。
-  每个域名地址包含一个或两个"."符号。
-  输入中任意一个域名的访问次数都小于10000。
- 
- 
  /
 
 第一次提交
@@ -124,7 +94,7 @@ var subdomainVisits = function(cpdomains) {
 Your runtime beats 88.66 % of javascript submissions            
 Your memory usage beats 64.2 % of javascript submissions (38.9 MB)              
 
-### 种花问题
+#### 2.种花问题
 
 /
   @lc app=leetcode.cn id=605 lang=javascript
@@ -176,8 +146,8 @@ Your memory usage beats 64.2 % of javascript submissions (38.9 MB)
 123/123 cases passed (84 ms)            
 Your runtime beats 46.2 % of javascript submissions             
 Your memory usage beats 57.35 % of javascript submissions (36.6 MB)             
-
- ### 二分查找
+### 排序和搜索
+#### 1.二分查找
  /
   @lc app=leetcode.cn id=704 lang=javascript
   给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的
@@ -195,18 +165,10 @@ Your memory usage beats 57.35 % of javascript submissions (36.6 MB)
   输入: nums = [-1, 0, 3, 5, 9, 12], target = 2
   输出: -1
   解释: 2 不存在 nums 中因此返回 -1
-  
-  
-  
-  
   提示：
-  
-  
   你可以假设 nums 中的所有元素是不重复的。
   n 将在 [1, 10000]之间。
   nums 的每个元素都将在 [-9999, 9999]之间。
-  
-  
  /
 第一反应=-=：     
 
@@ -243,7 +205,7 @@ var search = function(nums, target) {
 Your runtime beats 94.63 % of javascript submissions  
 Your memory usage beats 44.68 % of javascript submissions (36.8 MB) 
 
- ### 二维数组中的查找    
+ #### 2.二维数组中的查找    
 /
   @lc app=leetcode.cn id=74 lang=javascript
  
@@ -360,7 +322,7 @@ var searchMatrix = function(matrix, target) {
 Your runtime beats 91.48 % of javascript submissions    
 Your memory usage beats 29.32 % of javascript submissions (34.8 MB)   
 
-### 数组中重复的数据 
+#### 3.数组中重复的数据 
 
 给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。  
 
@@ -412,7 +374,7 @@ var findDuplicates = function(nums) {
 Your runtime beats 63 % of javascript submissions       
 Your memory usage beats 30.12 % of javascript submissions (45.4 MB)     
 
-### 删除排序数组中的重复项 II       
+#### 4.删除排序数组中的重复项 II       
 
 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。
 

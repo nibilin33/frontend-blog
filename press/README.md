@@ -1,5 +1,6 @@
 ---
 home: true
+heroImage: /nibl.jpg
 actionText: 开始 →
 actionLink: /guide/solution
 features:

@@ -1,10 +1,10 @@
 
 module.exports = {
     title: 'Nibl Blog',
-    description: 'Just playing around',
+    description: '记录所得',
     base: '/frontend-blog/',
     head: [
-        ['link', { rel: "shortcut icon", href: "./favicon.ico" ,type:"image/x-icon"}]
+        ['link', { rel: "shortcut icon", href: "./cat_32.ico" ,type:"image/x-icon"}]
     ],
     themeConfig: {
         sidebar: [
