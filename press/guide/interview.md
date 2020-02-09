@@ -16,7 +16,7 @@
 [技术面试手册](https://yangshun.github.io/tech-interview-handbook/algorithms/array)     
 
 ## 解题     
-
+推荐[tech-interview-handbook/algorithms](https://yangshun.github.io/tech-interview-handbook/algorithms)     
 ### 数组
 
 #### 1. 子域名访问计数
@@ -381,7 +381,11 @@ var removeDuplicates = function(nums) {
 ```
 
 ::: 
-
+### 二进制      
+#### 1.计数位数
+[counting-bits](https://leetcode.com/problems/counting-bits/)       
+#### 2.缺少号码
+[Missing Number](https://leetcode.com/problems/missing-number/)     
 ### 链表    
 
 1. 合并有序链表    
@@ -603,4 +607,9 @@ var removeNthFromEnd = function(head, n) {
 ::: details 
 
 :::
+
+### 动态规划    
+### 图      
+### 字符串      
+
 
