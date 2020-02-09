@@ -7,7 +7,6 @@
 达成的效果以及最后的总结与沉淀
 :::   
 
-
 ## 面试题  
 
 [前端面试与进阶指南](https://www.cxymsg.com)  
@@ -16,24 +15,15 @@
 [CSS问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)     
 [技术面试手册](https://yangshun.github.io/tech-interview-handbook/algorithms/array)     
 
-## 解题
-### 数组
-#### 1.子域名访问计数
-/
-  @lc app=leetcode.cn id=811 lang=javascript
- 
-  [811] 子域名访问计数
-  接下来会给出一组访问次数和域名组合的列表cpdomains 。要求解析出所有域名的访问次数，输出格式和输入格式相同，不限定先后顺序。
-  示例 1:
-  输入:
-  ["9001 discuss.leetcode.com"]
-  输出:
-  ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]
-  说明:
-  例子中仅包含一个网站域名："discuss.leetcode.com"。按照前文假设，子域名"leetcode.com"和"com"都会被访问，所以它们都被访问了9001次。
- /
+## 解题     
 
-第一次提交
+### 数组
+
+#### 1. 子域名访问计数
+
+[子域名访问计数](https://leetcode-cn.com/problems/subdomain-visit-count/)       
+
+第一次提交      
 ::: details 
 
 ``` 
@@ -58,6 +48,7 @@ var subdomainVisits = function(cpdomains) {
   });
 };
 ```
+
 ::: 
 
 52/52 cases passed (92 ms)              
@@ -65,6 +56,7 @@ Your runtime beats 68.04 % of javascript submissions
 Your memory usage beats 28.39 % of javascript submissions (39.3 MB)             
 第二次提交
 ::: details 
+
 ``` 
 var subdomainVisits = function(cpdomains) {
   var split_result = {};
@@ -88,42 +80,18 @@ var subdomainVisits = function(cpdomains) {
   });
 };
 ```
+
 :::
 
 52/52 cases passed (84 ms)              
 Your runtime beats 88.66 % of javascript submissions            
 Your memory usage beats 64.2 % of javascript submissions (38.9 MB)              
 
-#### 2.种花问题
+#### 2. 种花问题
 
-/
-  @lc app=leetcode.cn id=605 lang=javascript
- 
-  [605] 种花问题
-  假设你有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花卉不能种植在相邻的地块上，它们会争夺水源，两者都会死去。
-  
-  给定一个花坛（表示为一个数组包含0和1，其中0表示没种植花，1表示种植了花），和一个数 n 。能否在不打破种植规则的情况下种入 n
-  朵花？能则返回True，不能则返回False。
-  
-  示例 1:
-  输入: flowerbed = [1, 0, 0, 0, 1], n = 1
-  输出: True
-  
-  示例 2:
-  
-  输入: flowerbed = [1, 0, 0, 0, 1], n = 2
-  输出: False
-  
-  
-  注意:
-  
-  
-  数组内已种好的花不会违反种植规则。
-  输入的数组长度范围为 [1, 20000]。
-  n 是非负整数，且不会超过输入数组的大小。
- /
- 
+[种花问题](https://leetcode-cn.com/problems/can-place-flowers/) 
 ::: details 
+
 ``` 
  var canPlaceFlowers = function(flowerbed, n) {
     var canFlowers = false;                                                                                                                            
@@ -142,36 +110,36 @@ Your memory usage beats 64.2 % of javascript submissions (38.9 MB)
     return canFlowers;
 };
  ```
+
 ::: 
 123/123 cases passed (84 ms)            
 Your runtime beats 46.2 % of javascript submissions             
 Your memory usage beats 57.35 % of javascript submissions (36.6 MB)         
 
+#### 4. 三数之和
 
-### 排序和搜索  
-#### 1.二分查找
- /
-  @lc app=leetcode.cn id=704 lang=javascript
-  给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的
-  target，如果目标值存在返回下标，否则返回 -1。
-   
-  示例 1:
-  
-  输入: nums = [-1, 0, 3, 5, 9, 12], target = 9
-  输出: 4
-  解释: 9 出现在 nums 中并且下标为 4
-  
-  
-  示例 2:
-  
-  输入: nums = [-1, 0, 3, 5, 9, 12], target = 2
-  输出: -1
-  解释: 2 不存在 nums 中因此返回 -1
-  提示：
-  你可以假设 nums 中的所有元素是不重复的。
-  n 将在 [1, 10000]之间。
-  nums 的每个元素都将在 [-9999, 9999]之间。
- /
+[三数之和](https://leetcode-cn.com/problems/3sum/)    
+
+#### 5. 买卖股票的最佳时间
+
+[买卖股票的最佳时间](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+#### 6. 包含重复项
+
+[包含重复项](https://leetcode.com/problems/contains-duplicate/) 
+
+#### 7. 阵列除自身的乘积 
+
+[阵列除自身的乘积](https://leetcode.com/problems/product-of-array-except-self/)
+
+#### 8. 装满水的容器
+
+[装满水的容器](https://leetcode.com/problems/container-with-most-water/)    
+
+### 排序和搜索          
+
+#### 1. 二分查找
+[二分查找](https://leetcode-cn.com/problems/binary-search/)     
 第一反应=-=：     
 
 ``` 
@@ -180,9 +148,10 @@ nums.indexOf(target)
 
 46/46 cases passed (104 ms)   
 Your runtime beats 6.85 % of javascript submissions   
-Your memory usage beats 44.47 % of javascript submissions (36.8 MB)   
-老实用二分法：    
+Your memory usage beats 44.47 % of javascript submissions (36.8 MB)     
+老实用二分法：         
 ::: details
+
 ``` 
 var search = function(nums, target) {
     var start = 0;
@@ -201,56 +170,19 @@ var search = function(nums, target) {
     return -1;
 };
 ```
+
 :::
 
 46/46 cases passed (64 ms)  
 Your runtime beats 94.63 % of javascript submissions  
 Your memory usage beats 44.68 % of javascript submissions (36.8 MB) 
 
- #### 2.二维数组中的查找    
-/
-  @lc app=leetcode.cn id=74 lang=javascript
- 
-  [74] 搜索二维矩阵
-  编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
-  
-  每行中的整数从左到右按升序排列。
-  每行的第一个整数大于前一行的最后一个整数。
-  
-  
-  示例 1:
-  
-  输入:
-  matrix = [
-  ⁠ [1, 3, 5, 7], 
-  ⁠ [10, 11, 16, 20], 
-  ⁠ [23, 30, 34, 50]
-  ]
-  target = 3
-  输出: true
-  
-  
-  示例 2:
-  
-  输入:
-  matrix = [
-  ⁠ [1, 3, 5, 7], 
-  ⁠ [10, 11, 16, 20], 
-  ⁠ [23, 30, 34, 50]
-  ]
-  target = 13
-  输出: false
-  
- /
+#### 2. 二维数组中的查找   
 
-// @lc code=start
-/
-  @param {number[][]} matrix
-  @param {number} target
-  @return {boolean}
- /
- 方法一：
+ [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/) 
+ 方法一：       
 ::: details
+
 ``` 
  var searchMatrix = function(matrix, target) {
     var rows = matrix.length;
@@ -273,6 +205,7 @@ Your memory usage beats 44.68 % of javascript submissions (36.8 MB)
     return false;
 };
  ```
+
 :::
 
 136/136 cases passed (160 ms)   
@@ -296,6 +229,7 @@ Your memory usage beats 5.25 % of javascript submissions (37.5 MB)
 (ˇˍˇ)额... ..
 方法三：
 ::: details 
+
 ``` 
 var searchMatrix = function(matrix, target) {
     var rows = matrix.length;
@@ -318,13 +252,14 @@ var searchMatrix = function(matrix, target) {
     return false;
 };
 ```
+
 ::: 
 
 136/136 cases passed (60 ms)    
 Your runtime beats 91.48 % of javascript submissions    
 Your memory usage beats 29.32 % of javascript submissions (34.8 MB)   
 
-#### 3.数组中重复的数据 
+#### 3. 数组中重复的数据 
 
 给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。  
 
@@ -340,6 +275,7 @@ Your memory usage beats 29.32 % of javascript submissions (34.8 MB)
 输出:   
 [2, 3]   
 ::: details 
+
 ``` 
 分析：如果没有重复，排序后数字i在位置i上     
 抽屉原理1：把n+1个元素放入n个集合内，必定有一个集合至少含有两个或两个以上元素。     
@@ -369,14 +305,14 @@ var findDuplicates = function(nums) {
     return Array.from(new Set(result));
 };
 ```
-:::
 
+:::
 
 28/28 cases passed (132 ms)     
 Your runtime beats 63 % of javascript submissions       
 Your memory usage beats 30.12 % of javascript submissions (45.4 MB)     
 
-#### 4.删除排序数组中的重复项 II       
+#### 4. 删除排序数组中的重复项 II       
 
 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。
 
@@ -400,6 +336,7 @@ Your memory usage beats 30.12 % of javascript submissions (45.4 MB)
 思路：相同数字向前移动覆盖
 :::  
 ::: details  
+
 ``` 
 
 var removeDuplicates = function(nums) {
@@ -421,11 +358,13 @@ var removeDuplicates = function(nums) {
     return nums.length;
 };
 ```
+
 ::: 
 166/166 cases passed (76 ms)            
 Your runtime beats 89.09 % of javascript submissions        
 Your memory usage beats 34.32 % of javascript submissions (35.9 MB)     
 ::: details code
+
 ``` 
 var removeDuplicates = function(nums) {
     let i=0,j=1;
@@ -440,13 +379,16 @@ var removeDuplicates = function(nums) {
     nums.length-=j-i-1
 };
 ```
+
 ::: 
 
-
 ### 链表    
+
 1. 合并有序链表    
+
 ::: details code
-```js
+
+``` js
 var mergeTwoLists = function(l1, l2) {
     if (!l1) {
         return l2;
@@ -454,7 +396,7 @@ var mergeTwoLists = function(l1, l2) {
     if (!l2) {
         return l1;
     }
-    if(l1.val < l2.val) {
+    if (l1.val < l2.val) {
         l1.next = mergeTwoLists(l1.next, l2);
         return l1;
     } else {
@@ -463,21 +405,24 @@ var mergeTwoLists = function(l1, l2) {
     }
 };
 ```
+
 ::: 
 
 2. 对链表进行插入排序     
+
 ::: details 
-```js
+
+``` js
 var insertionSortList = function(head) {
-    if(!head) return head;
+    if (!head) return head;
     var preHead = new ListNode(-Infinity);
     var curr = head;
     // 找下一个插入的位置
     var pre = preHead;
     var next = null;
-    while(curr){
+    while (curr) {
         next = curr.next;
-        while(pre.next && pre.next.val < curr.val){
+        while (pre.next && pre.next.val < curr.val) {
             pre = pre.next;
         }
         curr.next = pre.next;
@@ -488,32 +433,36 @@ var insertionSortList = function(head) {
     return preHead.next;
 };
 ```
+
 :::    
+
 3. 旋转链表         
+
 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。      
 思路：      
 链表倒置，移动的几位放到链表头，未移动的放到链表尾巴           
 ::: details
-```js
+
+``` js
 var rotateRight = function(head, k) {
-    if(!head) return head;
-    if(k<0) return null;
+    if (!head) return head;
+    if (k < 0) return null;
     var first = head;
     var preHead = head;
     var pre = head;
     var count = 0;
-    while(head) {
+    while (head) {
         count++;
         head = head.next;
     }
-    k = k > count? k%count:k;
-    if(k == 0 || k === count) {
+    k = k > count ? k % count : k;
+    if (k == 0 || k === count) {
         return first;
     }
     k = count - k;
     head = first;
-    while(head && head.next) {
-        if(k === 1){
+    while (head && head.next) {
+        if (k === 1) {
             pre = head;
         }
         head = head.next;
@@ -523,33 +472,36 @@ var rotateRight = function(head, k) {
     pre.next = null;
     head.next = first;
     return preHead;
-    
+
 };
 ```
+
 231/231 cases passed (80 ms)    
 Your runtime beats 48.61 % of javascript submissions    
 Your memory usage beats 87.75 % of javascript submissions (35.4 MB) 
 :::
 
 4. 分隔链表  
+
 给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。  
 你应当保留两个分区中每个节点的初始相对位置。    
 思路：
 拿两个空链表装比较的结果，最后拼接起来      
 ::: details
-```js
+
+``` js
 var partition = function(head, x) {
     var left = new ListNode(0);
     var right = new ListNode(0);
     var preHead = left;
     var preRight = right;
-    while(head) {
+    while (head) {
         var next = head.next;
         head.next = null;
-        if(head.val >= x) {
+        if (head.val >= x) {
             right.next = head;
             right = right.next;
-        }else{
+        } else {
             left.next = head;
             left = left.next;
         }
@@ -559,20 +511,22 @@ var partition = function(head, x) {
     return preHead.next;
 };
 ```
+
 166/166 cases passed (72 ms)    
 Your runtime beats 59.94 % of javascript submissions    
 Your memory usage beats 57.43 % of javascript submissions (34.1 MB)
-```js
+
+``` js
 var partition = function(head, x) {
     var left = new ListNode(0);
     var right = new ListNode(0);
     var preHead = left;
     var preRight = right;
-    while(head) {
-        if(head.val >= x) {
+    while (head) {
+        if (head.val >= x) {
             right.next = head;
             right = right.next;
-        }else{
+        } else {
             left.next = head;
             left = left.next;
         }
@@ -583,24 +537,28 @@ var partition = function(head, x) {
     return preHead.next;
 };
 ```
+
 166/166 cases passed (56 ms)        
 Your runtime beats 99.04 % of javascript submissions    
 Your memory usage beats 49.51 % of javascript submissions (34.1 MB) 
 ::: 
+
 5. 二叉树展开为链表         
+
 将当前节点的右子树放到左子树的最右边的节点上        
 ::: details
 递归本质是一个栈结构        
-```js
+
+``` js
 var flatten = function(root) {
-    if(!root) return;
+    if (!root) return;
     flatten(root.left);
     flatten(root.right);
-    if(root.left){
+    if (root.left) {
         var left = root.left;
         var right = root.right;
         root.right = left;
-        while(left.right) {
+        while (left.right) {
             left = left.right;
         }
         left.right = right;
@@ -608,21 +566,25 @@ var flatten = function(root) {
     }
 };
 ```
+
 :::
+
 6. 删除链表的倒数第N个节点      
+
 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。     
 思路： 快慢指针 
 ::: details
-```js
+
+``` js
 var removeNthFromEnd = function(head, n) {
     var preHead = new ListNode(0);
     preHead.next = head;
     var before = preHead;
     var tail = preHead;
     var index = 0;
-    while(tail) {
+    while (tail) {
         tail = tail.next;
-        if(index>n) {
+        if (index > n) {
             before = before.next;
         }
         index++;
@@ -631,13 +593,14 @@ var removeNthFromEnd = function(head, n) {
     return preHead.next;
 };
 ```
+
 :::
 
 ### 二叉树      
+
 1. 从前序与中序遍历序列构造二叉树       
+
 ::: details 
 
 :::
-
-
 
