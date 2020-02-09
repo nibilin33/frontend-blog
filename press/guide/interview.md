@@ -145,8 +145,10 @@ Your memory usage beats 64.2 % of javascript submissions (38.9 MB)
 ::: 
 123/123 cases passed (84 ms)            
 Your runtime beats 46.2 % of javascript submissions             
-Your memory usage beats 57.35 % of javascript submissions (36.6 MB)             
-### 排序和搜索
+Your memory usage beats 57.35 % of javascript submissions (36.6 MB)         
+
+
+### 排序和搜索  
 #### 1.二分查找
  /
   @lc app=leetcode.cn id=704 lang=javascript
