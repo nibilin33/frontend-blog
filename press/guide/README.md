@@ -10,6 +10,10 @@ st=>start: Start
 e=>end: End
 st->e
 @flowend  
+🙉
+🔞
+<span class="emoj">🔞</span>
+<span class="emoj">🙉</span>
 
 
    
