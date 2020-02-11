@@ -29,6 +29,7 @@
     "vuepress-plugin-flowchart": "^1.4.3"
   },
   "devDependencies": {
+    "markdown-it-emoji": "^1.4.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "vuepress-plugin-container": "^2.1.2",

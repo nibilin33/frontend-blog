@@ -974,11 +974,93 @@ type UserWithoutToken = Omit<User, 'token'>
 2.不用后端配合       
 思路：              
 利用国际key在当前模块相对唯一，用脚本依据源码生成一份Map文件，并把   
-把flag(目录+国际key+标签)打到元素上，去管理页面元素。       
+把flag(目录+国际key+标签)生成自定义节点，去管理页面元素。       
 提供管理界面操作页面元素，更新Map文件之后重新执行打包运行，生成定制的代码。     
-如果不是简单的元素有无差异，而是功能上的不同，提供差异模块替换的可选。      
-Show Me The Code        
+如果不是简单的元素有无差异，而是功能上的不同，提供差异模块替换的可选。     
+
+在使用webcomponet之前需要先安装     
 ```
+npm install babel-plugin-transform-custom-element-classes
+.babelrc
+"plugins": [
+    "transform-runtime",
+    "transform-custom-element-classes"
+],
+```
+```js
+class CustomClose extends HTMLElement {
+    triple=null;
+    constructor() {
+        super();
+        this.addEventListener('click', e => {
+          if(e.target.className === 'ripple') {
+            this.parentElement.removeChild(this);
+            this.triple = null;
+          }
+        });
+        this.addEventListener('mouseover',e=>{
+            this.toggleRipple();
+        });
+      }
+      toggleRipple() {
+        if(this.triple) {
+            return;
+        }
+        let div = document.createElement('div');
+        div.classList.add('ripple');
+        div.innerHTML = 'x';
+        this.triple = div;
+        this.appendChild(this.triple);
+      }
+}
+
+window.customElements.define('nb-close', CustomClose);
+
+```
+```html
+<style>
+nb-close{
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+.ripple{
+    border: 1px solid red;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    line-height: 12px;
+    color:red;
+    text-align: center;
+    border-radius: 50%;
+}
+</style>
+```
+自定义loader，用于去正则匹配生成节点         
+```js
+module.exports = function (source) {
+    try {
+        let result = source.match(/\<template\>[\s\S]*\<\/template\>/gmi).map((it)=>{
+            return it.replace(/(\{\{\$t\(.*\)\}\})/g,'<nb-close>$1</nb-close>');
+        }).join('');
+       return source.replace(/\<template\>([\s\S]*)\<\/template\>/gmi,result);
+    } catch (error) {
+        return source;
+    }
+}
+webpack 的配置修改      
+      {
+        test: /\.vue$/,
+        use:[
+          {
+            loader: 'vue-loader',
+            options: vueLoaderConfig
+          }, {
+            loader: path.resolve(__dirname, './loader.js')
+          }
+        ]
+        
+      },
 ```
 ## 领域驱动设计       
 首先DDD，无关技术，而是理解，发现业务价值。     
