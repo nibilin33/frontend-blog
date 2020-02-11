@@ -1,14 +1,3 @@
-## 组织架构     
-原来做法：ztree 再封装  
-接触过Clusterize.js，借鉴这个思路：可视区间展示。   
-因为clusterize是处理扁平结构，那主要的任务就是把树结构扁平化。   
-写了一个简易版的扁平树的展示。
-::: details
-<ClientOnly>
-<nb-tree/>
-</ClientOnly> 
-
-``` js
 class Node {
     id = null;
     name = null;
@@ -30,51 +19,43 @@ export class Tree {
     lookup = {};
     rows = [];
     constructor(data) {
-        for (let i = 0; i < data.length; i++) {
+        for(let i=0;i<data.length;i++) {
             let _item = data[i];
             let id = _item.id;
             let parentId = _item.parentId;
             let item = new Node(data[i]);
-            if (this.lookup[id]) {
+            if(this.lookup[id]) {
                 this.lookup[id].update(data[i]);
-            } else {
-                this.lookup[id] = item;
+            }else {
+              this.lookup[id] = item;
             }
-            if (!parentId) {
+            if(!parentId) {
                 this.root.push(this.lookup[id]);
-            } else {
-                if (this.lookup[parentId]) {
+            }else{
+                if(this.lookup[parentId]) {
                     this.lookup[parentId].children.push(this.lookup[id]);
-                } else {
+                }else{
                     this.lookup[parentId] = new Node({});
                 }
             }
         }
     }
-    flatternChildren(parent, nodes) {
-        if (!nodes.length) {
+    flatternChildren(parent,nodes) {
+        if(!nodes.length) {
             return;
         }
-        nodes.forEach((item) => {
+        nodes.forEach((item)=>{
             item.level = parent.level + item.level + 1;
             this.rows.push(item);
-            this.flatternChildren(item, item.children);
+            this.flatternChildren(item,item.children);
         })
     }
     flattern() {
-        for (let i = 0; i < this.root.length; i++) {
+        for( let i=0; i< this.root.length;i++) {
             let node = this.root[i];
             this.rows.push(node);
-            this.flatternChildren(node, node.children);
+            this.flatternChildren(node,node.children);
         }
         return this.rows;
     }
 }
-```
-
-:::
-
-## 会议预约
-
-## 日程表   
-
