@@ -22,31 +22,47 @@ st->e
 8js基本数据类型     
 9typeof去判断数据类型时返回值有哪些     
 10说说事件代理利用的原理是什么      
-11阻止冒泡的函数是什么      
+11阻止冒泡的函数是什么    
+stopPropagation     
 12cookie有哪些特征      
 13假设访问了A.com存了一个cookie，在另一个页面用ajax向A的域名的发请求的话，会携带cookie吗        
-14cookie的其他解决方案（很方，没想过）      
-15localstorage存数据的格式是什么        
+14cookie的其他解决方案
+https://junyiseo.com/php/757.html      
+15localstorage存数据的格式是什么 
+localStorage存储数据的格式都是以字符串的形式来存储的           
 16怎样将一个数组存入localstorage        
-17storage有哪些存储方法     
-18html5的一些新的特性       
-19假设两台电脑之间同步画板怎么实现      
+17storage有哪些存储方法    
+读取属性
+getItem 
+18html5的一些新的特性 
+
+19假设两台电脑之间同步画板怎么实现     
+
 20es6用的比较多的有哪些     
 21promise的两个方法，具体实现       
+
 22箭头函数      
-23es6不能在有的浏览器中执行，编译过程是怎样的       
-24如果一个页面要做性能优化，从哪方面考察，从哪些地方优化        
+
+
+23es6不能在有的浏览器中执行，编译过程是怎样的      
+
+24如果一个页面要做性能优化，从哪方面考察，从哪些地方优化     
+https://segmentfault.com/a/1190000010927816
 25vue的开发模式和jQuery的开发模式有哪些不同，有哪些优点     
+
 26jQuery有没有办法组件化        
-27能用es6写jQuery       
-28VUE数据双向绑定是怎么实现的       
-29假设一个object A里面的值n为1，怎么知道n改变的，有事件绑定吗         
+
+27能用es6写jQuery  
+
+28VUE数据双向绑定是怎么实现的     
+
+29假设一个object A里面的值n为1，怎么知道n改变的，有事件绑定吗   
+
 诸如我现在需要监听那种频繁发生的事件        
 埋点的实现思路      
 非递归的二叉树遍历      
 文件上传断点、续传      
-设计模式的应用场景考核       
-VUE 双向绑定原理        
+设计模式的应用场景考核        
 VUE/React diff 算法的大概思路       
 现有的状态管理的实现        
 webpack中 loader、plugin 的实现思路     
@@ -63,8 +79,53 @@ let和var的区别。let产生的背景？
 HTTPS的请求过程     
 代码规范            
 尾递归问题   
-实现函数的柯里化          
-Promise的用法以及实现原理。 
+不会让栈爆掉
+```
+function fact(_n, _r) { // <= _n, _r 用作初始化变量
+    var n = _n;
+    var r = _r; // <= 将原来的 n, r 变量提出来编程迭代变量
+    function _fact(_n, _r) { // <= 迭代函数非常简单,就是更新迭代变量而已
+        n = _n;
+        r = _r;
+    }
+    _fact_loop: while (true) { // <= 生成一个迭代循环
+        if (n <= 0) {
+            return r;
+        } else {
+            _fact(n - 1, r * n); continue _fact_loop; // <= 执行迭代函数，并且进入下一次迭代
+        }
+    }
+}
+```
+实现函数的柯里化    
+柯里化通常也称部分求值  
+```js
+// 柯里化函数的构造方法
+function curry (fn) {
+  // 缓存除第一个参数的所有参数
+  let args = [].slice.call(arguments, 1);  
+  let _fn = function () {
+    if (arguments.length === 0) {
+      return fn.apply(this, args)
+    } else {
+      args.push(...arguments);
+      return _fn
+    }
+  }
+  return _fn
+}   
+let currying = (...rest) => {
+    // 如果参数为空，那么递归停止，返回执行结果
+    if (rest.length === 0) {
+      return args.reduce((a, b) => a + b);
+    } else {
+      // 否则将参数保存到args里面，返回currying方法
+      args.push(...rest);
+      return currying
+    }      
+  }
+``` 
+Promise的用法以及实现原理。
 有一个进度条，进度条中间有一串文字，当我的进度条覆盖了文字之后，文字要与进度条反色:mix-blend-mode       
 问：跨域问题有几种解决方式？
 问：如何让一个元素在页面内上下左右居中？
