@@ -42,8 +42,8 @@ getItem
 21promise的两个方法，具体实现       
 
 22箭头函数      
-
-
+> 引入箭头函数有两个方面的作用：更简短的函数并且不绑定this
+箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者obj   
 23es6不能在有的浏览器中执行，编译过程是怎样的      
 
 24如果一个页面要做性能优化，从哪方面考察，从哪些地方优化     
@@ -57,29 +57,236 @@ https://segmentfault.com/a/1190000010927816
 28VUE数据双向绑定是怎么实现的     
 
 29假设一个object A里面的值n为1，怎么知道n改变的，有事件绑定吗   
+请解释原型继承（prototypal inheritance）的工作原理  
+> 所有 JS 对象都有一个prototype属性，指向它的原型对象。当试图访问一个对象的属性时，   
+如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，    
+直到找到一个名字匹配的属性或到达原型链的末尾。这种行为是在模拟经典的继承，但是与其说是继承，不如说是委托（delegation）。
+说说你对 AMD 和 CommonJS 的了解   
+>   它们都是实现模块体系的方式，直到 ES2015 出现之前，JavaScript 一直没有模块体系。CommonJS 是同步的，而 AMD（Asynchronous Module Definition）从全称中可以明显看出是异步的。CommonJS 的设计是为服务器端开发考虑的，而 AMD 支持异步加载模块，更适合浏览器。
+(前端模块化：CommonJS,AMD,CMD,ES6)
 
-诸如我现在需要监听那种频繁发生的事件        
+ 
 埋点的实现思路      
-非递归的二叉树遍历      
-文件上传断点、续传      
-设计模式的应用场景考核        
+
+非递归的二叉树遍历     
+
+文件上传断点、续传   
+
+设计模式的应用场景考核     
+
 VUE/React diff 算法的大概思路       
+
 现有的状态管理的实现        
+
 webpack中 loader、plugin 的实现思路     
+>
+
 简易版 webpack 的实现       
+
 KOA、Express 中间件的实现       
+
 React fiber 的理解和原理        
+
+
 前端构建工具的、vue-cli、create-react-app 的原理和实现思路      
-事件委托？原理、好处、应用场景。          
+
+
+事件委托？原理、好处、应用场景。     
+>事件委托是将事件监听器添加到父元素，而不是每个子元素单独设置事件监听器。当触发子元素时，事件会冒泡到父元素，监听器就会触发。这种技术的好处是：
+内存占用减少，因为只需要一个父元素的事件处理程序，而不必为每个后代都添加事件处理程序。
+无需从已删除的元素中解绑处理程序，也无需将处理程序绑定到新元素上。    
+
 vue和react的区别。        
+
+
 vue的原理。       
-闭包         
-let和var的区别。let产生的背景？
+
+
+闭包     
+>闭包是函数和声明该函数的词法环境的组合。
+词法作用域中使用的域，是变量在代码中声明的位置所决定的。闭包是即使被外部函数返回，依然可以访问到外部（封闭）函数作用域的函数。    
+为什么使用闭包？    
+利用闭包实现数据私有化或模拟私有方法。这个方式也称为模块模式（module pattern）。    
+部分参数函数（partial applications）柯里化（currying）.     
+
+
+匿名函数的典型应用场景是什么
+>   匿名函数可以在 IIFE 中使用，来封装局部作用域内的代码，以便其声明的变量不会暴露到全局作用域。
+(function() {
+  // 一些代码。
+})();
+匿名函数可以作为只用一次，不需要在其他地方使用的回调函数。
+当处理函数在调用它们的程序内部被定义时，代码具有更好地自闭性和可读性，可以省去寻找该处理函数的函数体位置的麻烦。
+setTimeout(function() {
+  console.log("Hello world!");
+}, 1000);
+匿名函数可以用于函数式编程或 Lodash（类似于回调函数）。
+
+
+宿主对象（host objects）和原生对象（native objects）的区别是什么
+> 原生对象是由 ECMAScript 规范定义的 JavaScript 内置对象，比如String、Math、RegExp、Object、Function等等。  
+宿主对象是由运行时环境（浏览器或 Node）提供，比如window、XMLHTTPRequest等等。 
+
+
+.call和.apply有什么区别？
+>.call和.apply都用于调用函数，
+第一个参数将用作函数内 this 的值。然而，
+.call接受逗号分隔的参数作为后面的参数，而.apply接受一个参数数组作为后面的参数。一个简单的记忆方法是，
+从call中的 C 联想到逗号分隔（comma-separated），从apply中的 A 联想到数组（array）。
+function add(a, b) {
+  return a + b;
+}
+console.log(add.call(null, 1, 2)); // 3
+console.log(add.apply(null, [1, 2])); // 3
+
+
+功能检测（feature detection）、功能推断（feature inference）和使用 UA 字符串之间有什么区别？
+> 
+功能检测包括确定浏览器是否支持某段代码，以及是否运行不同的代码（取决于它是否执行），以便浏览器始终能够正常运行代码功能，而不会在某些浏览器中出现崩溃和错误。例如：
+if ("geolocation" in navigator) {
+  // 可以使用 navigator.geolocation
+} else {
+  // 处理 navigator.geolocation 功能缺失
+}
+Modernizr是处理功能检测的优秀工具。
+功能推断与功能检测一样，会对功能可用性进行检查，但是在判断通过后，还会使用其他功能，因为它假设其他功能也可用.    
+UA 字符串这是一个浏览器报告的字符串，它允许网络协议对等方（network protocol peers）识别请求用户代理的应用类型、操作系统、应用供应商和应用版本。它可以通过navigator.userAgent访问。
+
+
+单页应用有那些优缺点
+>
+好处：
+用户感知响应更快，用户切换页面时，不再看到因页面刷新而导致的白屏。
+对服务器进行的 HTTP 请求减少，因为对于每个页面加载，不必再次下载相同的资源。
+客户端和服务器之间的关注点分离。可以为不同平台（例如手机、聊天机器人、智能手表）建立新的客户端，而无需修改服务器代码。只要 API 没有修改，可以单独修改客户端和服务器上的代码。
+坏处：
+由于加载了多个页面所需的框架、应用代码和资源，导致初始页面加载时间较长。    
+服务器还需要进行额外的工作，需要将所有请求路由配置到单个入口点，然后由客户端接管路由。    
+SPA 依赖于 JavaScript 来呈现内容，但并非所有搜索引擎都在抓取过程中执行 JavaScript，他们可能会在你的页面上看到空的内容。   
+这无意中损害了应用的搜索引擎优化（SEO）。然而，当你构建应用时，大多数情况下，搜索引擎优化并不是最重要的因素，因为并非所有内容都需要通过搜索引擎进行索引。
+为了解决这个问题，可以在服务器端渲染你的应用，或者使用诸如 Prerender 的服务来“在浏览器中呈现你的 javascript，保存静态 HTML，并将其返回给爬虫”。   
+
+
+请说明 JSONP 的工作原理，它为什么不是真正的 Ajax？  
+> JSONP（带填充的 JSON）是一种通常用于绕过 Web 浏览器中的跨域限制的方法，因为 Ajax 不允许跨域请求。
+
+JSONP 通过script标签发送跨域请求，通常使用callback查询参数，例如：https://example.com?callback=printData。 
+然后服务器将数据包装在一个名为printData的函数中并将其返回给客户端。
+<script>
+  function printData(data) {
+    console.log(`My name is ${data.name}!`);
+  }
+</script>
+<script src="https://example.com?callback=printData"></script>
+printData({ name: "Yang Shun" });
+客户端必须在其全局范围内具有printData函数，并且在收到来自跨域的响应时，该函数将由客户端执行。
+JSONP 可能具有一些安全隐患。由于 JSONP 是纯 JavaScript 实现，它可以完成 JavaScript 所能做的一切，因此需要信任 JSONP 数据的提供者。
+现如今，跨来源资源共享（CORS） 是推荐的主流方式，JSONP 已被视为一种比较 hack 的方式。
+
+
+“attribute” 和 “property” 之间有什么区别？
+> 
+“Attribute” 是在 HTML 中定义的，
+而 “property” 是在 DOM 上定义的。
+为了说明区别，假设我们在 HTML 中有一个文本框：<input type="text" value="Hello">。
+const input = document.querySelector("input");
+console.log(input.getAttribute("value")); // Hello
+console.log(input.value); // Hello
+但是在文本框中键入“ World!”后:
+console.log(input.getAttribute("value")); // Hello
+console.log(input.value); // Hello World!   
+
+document 中的load事件和DOMContentLoaded事件之间的区别是什么？
+> 当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded事件被触发，而无需等待样式表、图像和子框架的完成加载。
+window的load事件仅在 DOM 和所有相关资源全部完成加载后才会触发。
+
+什么是"use strict";？使用它有什么优缺点？
+> use strict' 是用于对整个脚本或单个函数启用严格模式的语句。严格模式是可选择的一个限制 JavaScript 的变体一种方式 。
+优点：
+无法再意外创建全局变量。
+会使引起静默失败（silently fail，即：不报错也没有任何效果）的赋值操抛出异常。
+试图删除不可删除的属性时会抛出异常（之前这种操作不会产生任何效果）。
+要求函数的参数名唯一。
+全局作用域下，this的值为undefined。
+捕获了一些常见的编码错误，并抛出异常。
+缺点：
+无法访问function.caller和function.arguments。
+以不同严格模式编写的脚本合并后可能导致问题。    
+
+
+什么是事件循环？调用堆栈和任务队列之间有什么区别？
+>事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。   
+如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。    
+
+
+let和var的区别。let产生的背景？ 
+> 用var声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。 
+let和const是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
+
+
+高阶函数（higher-order）的定义是什么
+>高阶函数是将一个或多个函数作为参数的函数，它用于数据处理，也可能将函数作为返回结果。高阶函数是为了抽象一些重复执行的操作。一个典型的例子是map，它将一个数组和一个函数作为参数。map使用这个函数来转换数组中的每个元素，并返回一个包含转换后元素的新数组。JavaScript 中的其他常见示例是forEach、filter和reduce。高阶函数不仅需要操作数组的时候会用到，还有许多函数返回新函数的用例。Function.prototype.bind就是一个例子。
+
+请阐述块格式化上下文（Block Formatting Context）及其工作原理。    
+>
+块格式上下文（BFC）是 Web 页面的可视化 CSS 渲染的部分，是块级盒布局发生的区域，也是浮动元素与其他元素交互的区域。
+一个 HTML 盒（Box）满足以下任意一条，会创建块格式化上下文：
+float的值不是none.
+position的值不是static或relative.
+display的值是table-cell、table-caption、inline-block、flex、或inline-flex。
+overflow的值不是visible。
+在 BFC 中，每个盒的左外边缘都与其包含的块的左边缘相接。
+两个相邻的块级盒在垂直方向上的边距会发生合并（collapse）。更多内容请参考边距合并（margin collapsing）。
+
+
+有什么不同的方式可以隐藏内容（使其仅适用于屏幕阅读器）
+> 
+visibility: hidden：元素仍然在页面流中，并占用空间。
+width: 0; height: 0：使元素不占用屏幕上的任何空间，导致不显示它。
+position: absolute; left: -99999px： 将它置于屏幕之外。
+text-indent: -9999px：这只适用于block元素中的文本。
+Metadata： 例如通过使用 Schema.org，RDF 和 JSON-LD。
+WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
+
+使用 CSS 预处理的优缺点分别是什么
+> 优点：
+提高 CSS 可维护性。   
+易于编写嵌套选择器。    
+引入变量，增添主题功能。可以在不同的项目中共享主题文件。    
+通过混合（Mixins）生成重复的 CSS。    
+将代码分割成多个文件。不进行预处理的 CSS，虽然也可以分割成多个文件，但需要建立多个 HTTP 请求加载这些文件。    
+缺点：
+需要预处理工具。    
+重新编译的时间可能会很慢。    
+
+什么情况下，用translate()而不用绝对定位？什么时候，情况相反
+>
+translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），   
+只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，    
+但改变绝对定位会使用到 CPU。 因此translate()更高效，可以缩短平滑动画的绘制时间。    
+当使用translate()时，元素仍然占据其原始空间（有点像position：relative），这与改变绝对定位不同。   
+
 定宽定高，如何垂直居中？那不定宽高呢？      
+
+
 HTTPS的请求过程     
-代码规范            
+
+
+代码规范         
+
+
 尾递归问题   
-不会让栈爆掉
+>不会让栈爆掉
+
+
+请简述JavaScript中的this
+>粗略地讲，函数的调用方式决定了this的值。this取值符合以下规则：
+在调用函数时使用new关键字，函数内的this是一个全新的对象。   
+如果apply、call或bind方法用于调用、创建一个函数，函数内的 this 就是作为参数传入这些方法的对象。   
+当函数作为对象里的方法被调用时，函数内的this是调用该函数的对象。比如当obj.method()被调用时，函数内的 this 将绑定到obj对象。   
+如果调用函数不符合上述规则，那么this的值指向全局对象（global object）。浏览器环境下this的值指向window对象，但是在严格模式下('use strict')，this的值为undefined。    
+如果符合上述多个规则，则较高的规则（1 号最高，4 号最低）将决定this的值。    
+如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，this被设置为它被创建时的上下文。    
 ```
 function fact(_n, _r) { // <= _n, _r 用作初始化变量
     var n = _n;
@@ -132,6 +339,14 @@ Promise的用法以及实现原理。
 问：如何清除浮动？
 问：如何实现动画？
 问：CSS 选择器的优先级是怎样的？
+>浏览器通过优先级规则，判断元素展示哪些样式。优先级通过 4 个维度指标确定，我们假定以a、b、c、d命名，分别代表以下含义：
+a表示是否使用内联样式（inline style）。如果使用，a为 1，否则为 0。    
+b表示 ID 选择器的数量。   
+c表示类选择器、属性选择器和伪类选择器数量之和。   
+d表示标签（类型）选择器和伪元素选择器之和。   
+优先级的结果并非通过以上四个值生成一个得分，而是每个值分开比较。a、b、c、d权重从左到右，依次减小。
+判断优先级时，从左到右，一一比较，直到比较出最大值，即可停止。所以，如果b的值不同，那么c和d不管多大，都不会对结果产生影响。比如0，1，0，0的优先级高于0，0，10，10。
+当出现优先级相等的情况时，最晚出现的样式规则会被采纳。如果你在样式表里写了相同的规则（无论是在该文件内部还是其它样式文件中），那么最后出现的（在文件底部的）样式优先级更高，因此会被采纳。
 问：熟悉什么类库吗？
 问：原生 js 怎么发起 ajax 请求？
 答：新建一个 XMLHttpRequest 实例，用 open 和 send 方法发起请求，添加状态变更监听器。
