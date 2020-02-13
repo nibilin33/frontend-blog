@@ -14,9 +14,7 @@
 [HTML问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/html-questions.md)       
 [CSS问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)     
 [技术面试手册](https://yangshun.github.io/tech-interview-handbook/algorithms/array)     
-
-
-
+[virtual DOM](https://github.com/livoras/blog/issues/13)
 ## 解题     
 推荐[tech-interview-handbook/algorithms](https://yangshun.github.io/tech-interview-handbook/algorithms)     
 ### 数组
