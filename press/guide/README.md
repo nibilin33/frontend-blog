@@ -154,3 +154,59 @@ Promise的用法以及实现原理。
 问：对于以后的职业规划？    
 问：感觉面试得如何？还有什么想问的？
 目前部门里还有待解的问题吗      
+
+### redis
+非关系型数据库    
+1. Redis支持的数据类型
+String，哈希，列表，集合，zset    
+2. 什么是Redis持久化？Redis有哪几种持久化方式？优缺点是什么？
+持久化就是把内存的数据写到磁盘中去，防止服务宕机了内存数据丢失。
+Redis 提供了两种持久化方式:RDB（默认） 和AOF 。   
+存储结构:
+内容是redis通讯协议(RESP )格式的命令文本存储。
+比较：
+1、aof文件比rdb更新频率高，优先使用aof还原数据。    
+2、aof比rdb更安全也更大   
+3、rdb性能比aof好   
+4、如果两个都配了优先加载AOF    
+3. Redis 有哪些架构模式？讲讲各自的特点 
+单机  
+主从复制：降低 master 读压力在转交从库，无法保证高可用，没有解决 master 写的压力    
+哨兵：
+Redis sentinel 是一个分布式系统中监控 redis 主从服务器，并在主服务器下线时自动进行故障转移。其中三个特性：
+监控（Monitoring）：    Sentinel  会不断地检查你的主服务器和从服务器是否运作正常。
+提醒（Notification）： 当被监控的某个 Redis 服务器出现问题时， Sentinel 可以通过 API 向管理员或者其他应用程序发送通知。
+自动故障迁移（Automatic failover）： 当一个主服务器不能正常工作时， Sentinel 会开始一次自动故障迁移操作。
+特点：    
+1、保证高可用   
+2、监控各个节点   
+3、自动故障迁移   
+缺点：主从模式，切换需要时间丢数据    
+没有解决 master 写的压力    
+集群（proxy 型）
+4. Redis常用命令  
+Set   
+1. 请解释一下什么是Nginx?
+Nginx是一个web服务器和方向代理服务器，用于HTTP、HTTPS、SMTP、POP3和IMAP协议。
+2. 请解释Nginx如何处理HTTP请求。  
+Nginx使用反应器模式。主事件循环等待操作系统发出准备事件的信号，这样数据就可以从套接字读取，在该实例中读取到缓冲区并进行处理。单个线程可以提供数万个并发连接。   
+3. 请解释Nginx服务器上的Master和Worker进程分别是什么?
+Master进程：读取及评估配置和维持    
+Worker进程：处理请求    
+4. 请解释ngx_http_upstream_module的作用是什么?    
+ngx_http_upstream_module用于定义可通过fastcgi传递、proxy传递、uwsgi传递、memcached传递和scgi传递指令来引用的服务器组。   
+5. 请陈述stub_status和sub_filter指令的作用是什么?
+Stub_status指令：该指令用于了解Nginx当前状态的当前状态，如当前的活动连接，接受和处理当前读/写/等待连接的总数
+Sub_filter指令：它用于搜索和替换响应中的内容，并快速修复陈旧的数据
+6. 解释Nginx是否支持将请求压缩到上游?   
+您可以使用Nginx模块gunzip将请求压缩到上游。gunzip模块是一个过滤器，它可以对不支持“gzip”编码方法的客户机或服务器使用“内容编码:gzip”来解压缩响应。    
+7. 解释如何在Nginx中获得当前的时间?   
+要获得Nginx的当前时间，必须使用SSI模块、$date_gmt和$date_local的变量。    
+Proxy_set_header THE-TIME $date_gmt;    
+8. 用Nginx服务器解释-s的目的是什么?   
+用于运行Nginx -s参数的可执行文件。  
+9. 负载均衡配置
+Upstream模块实现负载均衡
+ip_hash指令   
+server指令    
+upstream指令及相关变量      
