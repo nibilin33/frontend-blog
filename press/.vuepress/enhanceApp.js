@@ -1,7 +1,6 @@
 function showComment(router) {
     router.afterEach((to) => {
       let comment = document.getElementById('valine-vuepress-comment');
-      console.log(to.path.indexOf('/guide/comment.html') > -1,comment);
       if (to.path.indexOf('/guide/comment.html') > -1) {
         comment && (comment.style.display='block');
       } else {
