@@ -15,6 +15,34 @@
 [CSS问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)     
 [技术面试手册](https://yangshun.github.io/tech-interview-handbook/algorithms/array)     
 [virtual DOM](https://github.com/livoras/blog/issues/13)
+
+## 面试经
+### 淘宝电话一面40分钟      
+这是一场极度紧张and没有自信的面试......
+头痛了两天...挂断电话的瞬间头就不痛了...心态炸裂...     
+```
+1. 自我介绍             
+2. 聊一下最近的项目经历     
+3. 根据我简历提到的问了：       
+内存泄漏是什么场景，GC的原理是什么？              
+如果上百个复杂组件要展示如何优化？            
+离线资源包的方案是什么样的？            
+混合H5是如何通信的？    
+（前提：我提到H5和native的通信都采用异步方式）就如果想要同步获得native的数据要怎么做？      
+4. 基础知识：
+跨域请求有哪些方式？    
+JSONP如何保证不被劫持，被任何人调用         
+了解前端哪些安全方面          
+了解Option请求吗？             
+了解HTTP2吗？        
+知道ES6哪些特性？await,async实现原理               
+这些性特性浏览器不能支持怎么做？        
+babel是用来做什么的？有写过babel的loader吗？        
+webpack是用来做什么的？知道loader和Plugin的原理吗？           
+（我有写过webpack的loader）写过loader是用来做什么的？   
+vue 的双向绑定的原理，vue template是如何知道哪些数据要双向绑定的？
+5. 你还有什么想问的吗？      
+```
 ## 解题     
 推荐[tech-interview-handbook/algorithms](https://yangshun.github.io/tech-interview-handbook/algorithms)     
 ### 数组
