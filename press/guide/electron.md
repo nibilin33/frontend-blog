@@ -21,7 +21,8 @@ vue add electron-builder
 ## 参考
 [electron-webview完全指南](http://www.ayqy.net/blog/electron-webview%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/)  
 ## 使用 
-加入项目作为内嵌模拟工具        
+### 加入项目作为内嵌模拟工具     
+::: details   
 ```
 <template>
   <div id="wrapper">
@@ -99,6 +100,24 @@ vue add electron-builder
   }
 </script>
 ```
+::: 
+### 模拟终端完成拦截返回本地资源逻辑    
+::: details
+```js
+    const filter = {
+        urls: ['http://localhost:3000/*']
+      }
+      protocol.registerHttpProtocol('ume', (request, callback)=>{
+        request.url = request.url.substr(6);
+        callback(request);
+      });
+    session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
+        callback({
+            redirectURL: `ume://${__dirname}/index.html`
+        });
+    })
+```
+::: 
 ## 可能遇到的问题
 1.webview 不识别        
 https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#new-browserwindow-webpreferences- 

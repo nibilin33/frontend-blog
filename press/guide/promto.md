@@ -29,7 +29,7 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 服务器会提供获取资源列表的文件请求。    
 当发现变更的时候，需要更新这个资源列表文件，并进行下载。    
 生成资源列表的webpack-plugin如下        
-::: detail
+::: details
 ```js
 const fs = require('fs');
 class SourceWebpackPlugin {
@@ -59,23 +59,7 @@ class SourceWebpackPlugin {
 module.exports = SourceWebpackPlugin;
 ```
 :::
-在electorn 的实践       
-::: detail
-```js
-    const filter = {
-        urls: ['http://localhost:3000/*']
-      }
-      protocol.registerHttpProtocol('ume', (request, callback)=>{
-        request.url = request.url.substr(6);
-        callback(request);
-      });
-    session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
-        callback({
-            redirectURL: `ume://${__dirname}/index.html`
-        });
-    })
-```
-::: 
+
 
 **方案三：**  
 资源包有NG做目录映射    
