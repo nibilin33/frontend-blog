@@ -167,7 +167,21 @@ node.js 采用事件驱动，异步编程，为网络服务而设计。
 ### 核心模块
 核心模块分为c/c++编写和javascript编写     
 编译程序需要将所有javascript模块文件编译成c/c++代码，   
-node采用v8附带的js2c.py工具，
+node采用v8附带的js2c.py工具
+### 非I/O 的异步API     
+setTimeout(),setInterval(),setImmediate(),process.nextTick()     
+调用setTimeout，setInterval创建的定时器会被插入到定会器观察者内部的 
+一个红黑树中。      
+process.nextTick 方法比setTimeout 轻量     
+
+### Nodejs基础中间件Connect        
+[connect](http://blog.fens.me/nodejs-connect/)  
+
+### 异步API添加过载保护     
+bagpipe:        
+1. 通过一个队列来控制并发量     
+2. 当前活跃的异步调用量小于   
+
 ## Redis实战        
 
  

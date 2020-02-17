@@ -9,15 +9,20 @@ npm install
 npm run dev
 ```
 由于 simulatedgreg 太久没有更新，electron版本还是用2.x的    
-方法二(慢的话用cnpm)    
+   
+::: tip 方法二(慢的话用cnpm)
 npm install -g electron
 npm install -g electron-forge       
 electron-forge init projectName 
 electron-forge start   
-方法三  
-vue-cli init project
-vue add electron-builder     
-如果出现异常，反复vue add electron-builder           
+::: 
+  
+::: tip 方法三
+vue-cli init project    
+vue add electron-builder         
+如果出现异常，反复vue add electron-builder    
+::: 
+
 ## 参考
 [electron-webview完全指南](http://www.ayqy.net/blog/electron-webview%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/)  
 ## 使用 
