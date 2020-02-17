@@ -28,23 +28,52 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 当发现请求命中资源列表，则返回本地的资源，不然直接放行请求去拉取服务器资源。        
 服务器会提供获取资源列表的文件请求。    
 当发现变更的时候，需要更新这个资源列表文件，并进行下载。    
-生成资源列表的webpack-plugin        
-
+生成资源列表的webpack-plugin如下        
+::: detail
+```js
+const fs = require('fs');
+class SourceWebpackPlugin {
+    constructor(options) {
+        this.options = options || {
+            prefix: '',
+            outputName: 'source.js',
+        };
+    }
+    apply(compiler) {
+        compiler.hooks.emit.tap('SourceWebpackPlugin', (compilation) => {
+            console.log('compiler.hooks.emit');
+        });
+        compiler.hooks.done.tap('SourceWebpackPlugin', (stats) => {
+            try {
+                let str = '';
+                stats.compilation.chunks.forEach((chunk) => {
+                    str += `${str ? ',' : ''}${chunk.files.map(filename => `"${this.options.prefix}/${filename}"`).join(',')}`;
+                });
+                fs.writeFileSync(`${__dirname}/${this.options.outputName}`, str);
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    }
+}
+module.exports = SourceWebpackPlugin;
+```
+:::
 在electorn 的实践       
 ::: detail
 ```js
-// in main.js
-var electron = require('electron');
-var BrowserWindow = electron.BrowserWindow;
-mainWindow = new BrowserWindow({
-    "width": 970,
-    "height": 500,
-    "center": true,
-    'title': 'Main window',
-});
-mainWindow.webContents.session.setProxy({proxyRules:"socks5://114.215.193.156:1080"}, function () {
-    mainWindow.loadURL('https://whatismyipaddress.com/');       
-});
+    const filter = {
+        urls: ['http://localhost:3000/*']
+      }
+      protocol.registerHttpProtocol('ume', (request, callback)=>{
+        request.url = request.url.substr(6);
+        callback(request);
+      });
+    session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
+        callback({
+            redirectURL: `ume://${__dirname}/index.html`
+        });
+    })
 ```
 ::: 
 
