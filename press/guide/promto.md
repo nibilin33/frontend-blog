@@ -24,9 +24,29 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 如果为http请求无法注册成功。  
 
 **方案二：**  
-终端在请求到html的时候，写入一个js脚本，这个脚本做资源判断，  
-如果资源和本地一致，替换成本地资源路径。  
-如果存在不一致，先使用远程的。并且需要下载资源包进行替换。    
+终端代理所有请求，服务器下发一个资源列表，终端根据资源列表提前下载资源到本地。  
+当发现请求命中资源列表，则返回本地的资源，不然直接放行请求去拉取服务器资源。        
+服务器会提供获取资源列表的文件请求。    
+当发现变更的时候，需要更新这个资源列表文件，并进行下载。    
+生成资源列表的webpack-plugin        
+
+在electorn 的实践       
+::: detail
+```js
+// in main.js
+var electron = require('electron');
+var BrowserWindow = electron.BrowserWindow;
+mainWindow = new BrowserWindow({
+    "width": 970,
+    "height": 500,
+    "center": true,
+    'title': 'Main window',
+});
+mainWindow.webContents.session.setProxy({proxyRules:"socks5://114.215.193.156:1080"}, function () {
+    mainWindow.loadURL('https://whatismyipaddress.com/');       
+});
+```
+::: 
 
 **方案三：**  
 资源包有NG做目录映射    
