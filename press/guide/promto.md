@@ -32,13 +32,15 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 ::: details
 ```js
 const fs = require('fs');
+const opt = {
+    prefix: '',
+    outputName: 'source.js',
+};
 class SourceWebpackPlugin {
     constructor(options) {
-        this.options = options || {
-            prefix: '',
-            outputName: 'source.js',
-        };
+        this.options = Object.assign(opt,options||{});
     }
+
     apply(compiler) {
         compiler.hooks.emit.tap('SourceWebpackPlugin', (compilation) => {
             console.log('compiler.hooks.emit');
@@ -57,6 +59,7 @@ class SourceWebpackPlugin {
     }
 }
 module.exports = SourceWebpackPlugin;
+
 ```
 :::
 

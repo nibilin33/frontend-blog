@@ -109,18 +109,29 @@ vue add electron-builder
 ### 模拟终端完成拦截返回本地资源逻辑    
 ::: details
 ```js
-    const filter = {
-        urls: ['http://localhost:3000/*']
-      }
-      protocol.registerHttpProtocol('ume', (request, callback)=>{
-        request.url = request.url.substr(6);
-        callback(request);
-      });
-    session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
+  win = new BrowserWindow({ width: 800, height: 600, darkTheme: true,
+    frame:true,
+    webPreferences: {
+        nodeIntegration: true,
+        webviewTag: true,
+        webSecurity: false
+    }});
+  const filter = {
+    urls: ['http://10.200.112.35:3100/*']
+  }
+  session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
+      const redirect = source.find((it)=>details.url.endsWith(it));
+      if(redirect) {
         callback({
-            redirectURL: `ume://${__dirname}/index.html`
+          redirectURL:`file://${path.join(__dirname,`../dist/${redirect}`)}`
+        })
+      }else {
+        callback({
+          cancel:false,
         });
-    })
+      }
+
+  });
 ```
 ::: 
 ## 可能遇到的问题
