@@ -181,7 +181,11 @@ process.nextTick 方法比setTimeout 轻量
 bagpipe:        
 1. 通过一个队列来控制并发量     
 2. 当前活跃的异步调用量小于   
+3. 活跃调用到定
 
+### V8垃圾回收机制
+V8做一次小的垃圾回收需要50ms以上，做一次非增量的垃圾回收甚至要1s以上。 
+查看垃圾回收日志： node --trace_gc -e > gc.log     
 ## Redis实战        
 
  
