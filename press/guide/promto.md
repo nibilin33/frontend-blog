@@ -247,7 +247,6 @@ http.createServer(app).listen(3000, '0.0.0.0', function () {
 ```
 2.Locust—python压力测试工具  
 [使用文档](https://docs.locust.io/en/stable/what-is-locust.html)  
-安装：pip install locustio
 简单的locustio脚本  
 ```
 # coding: utf-8
@@ -262,11 +261,24 @@ class MyLocust(HttpLocust):
     min_wait = 5000
     max_wait = 15000
 ```
+::: tip windows版
+安装：pip install locustio
 跑起来  
 locust -f locustTest.py --host=http://    
 访问 localhost:8089 开始模拟并发  
 ![本地执行文件](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/locust.png)  
-![图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png)  
+![图形界面](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/web.png) 
+:::
+
+::: tip Linux版     
+python2.7安装：pip install locustio      
+安装失败，版本不支持，换：pip install locustio==0.13.5          
+安装request失败，版本问题，换：pip install -I requests==2.14.2      
+locust -f locustTest.py --no-web -c 2000 -r 500 -t 3000     
+:::
+
+
+ 
 **结论**  
 请求html，直接压node没有问题，2000用户并发400，可以处理过来，但是加上NG代理，出现失败。   
 最后排查到后端代码出现端口占用的问题。  
