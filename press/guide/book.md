@@ -115,20 +115,26 @@ weinre远程调试
 ## 内容分发网络原理与实践(CDN)   
 
 ## web安全深度剖析  
+
 ### 理论篇
+
 1. SQL 注入漏洞： 用户输入的数据被SQL解释器执行。       
 2. 上传漏洞： 
+
 ::: tip
 2.1 IIS解析漏洞： IIS6.0 建立*.asp 格式的文件夹，其任意文件都将被IIS当做asp文件解析。     
 2.2 apache 解析漏洞： apache 1.x 和 2.x 在解析文件时有一个原则：当碰到不认识的扩展名时，  
 将会从后向前解析，直到碰到认识的扩展名为止，如果都不认识，则会暴露其源代码
-2.3 PHP CGI 解析漏洞： http：//xx.ss/x.txt/xx.php ,x.php 是不存在的，PHP将会向前递归解析，造成解析漏洞。      
+2.3 PHP CGI 解析漏洞： http：//xx.ss/x.txt/xx.php , x.php 是不存在的，PHP将会向前递归解析，造成解析漏洞。      
 防止上传漏洞：      
+
 1. 客户端检测：用javascript检测，在文件未上传时，就对文件进行校验。
 2. 服务器检测： mime type，扩展名，检测文件是否嵌入恶意代码。 
+
 :::
 
 3. XSS 跨站脚本漏洞： 攻击者在网页中嵌入客户端脚本，通常是javascript编写的恶意代码。    
+
 ::: tip
 常见危害：  
 盗取用户cookie    
@@ -140,61 +146,108 @@ XSS蠕虫
 敏感字符过来
 HttpOnly: 防止客户端脚本访问   
 :::   
+
 4.  CSRF(跨站请求伪造)：建立在浏览器与web服务器的会话中;欺骗用户访问URL;
+
 ::: tip 预防
+
 1. 二次确认     
 2. token 认证    
+
 :::  
+
 ### 实战篇    
+
 <span class="emoj">🔞</span>
 
 ## 深入理解Nginx    
+
 ## 深入浅出node.js  
 node.js 采用事件驱动，异步编程，为网络服务而设计。      
 事件驱动是node.js通过内部单线程高效地维护事件循环队列来实现的。 
 没有多线程的资源占用和上下文切换。      
+
 ### 单线程
+
 无法利用多核CPU 
 错误会引起应用退出  
 大量计算占用CPU倒置无法继续调用异步IO（解决：child_process）               
+
 ### Node 的模块实现     
+
 在node中引入模块，需要经历3个步骤       
+
 1. 路径分析        
 2. 文件定位        
 3. 编译执行          
+
 核心模块在node源代码的编译过程中，编译进了二进制执行文件。在node进程启动时，    
 部分核心模块就被直接加载进内存中，文件模块则要经历完整过程。   
+
 ### 核心模块
+
 核心模块分为c/c++编写和javascript编写     
 编译程序需要将所有javascript模块文件编译成c/c++代码，   
 node采用v8附带的js2c.py工具
+
 ### 非I/O 的异步API     
-setTimeout(),setInterval(),setImmediate(),process.nextTick()     
+
+setTimeout(), setInterval(), setImmediate(), process.nextTick()     
 调用setTimeout，setInterval创建的定时器会被插入到定会器观察者内部的 
 一个红黑树中。      
 process.nextTick 方法比setTimeout 轻量     
 
 ### Nodejs基础中间件Connect        
+
 [connect](http://blog.fens.me/nodejs-connect/)  
 
 ### 异步API添加过载保护     
+
 bagpipe:        
+
 1. 通过一个队列来控制并发量     
 2. 当前活跃的异步调用量小于   
 3. 活跃调用到定
 
 ### V8垃圾回收机制
+
 V8做一次小的垃圾回收需要50ms以上，做一次非增量的垃圾回收甚至要1s以上。 
 查看垃圾回收日志： node --trace_gc -e > gc.log     
 
 ### 内存泄漏排查工具        
+
 1. v8-profiler  
 2. node-heapdump    
 3. node-mtrace  
 4. drace    
 5. node-memwatch    
+
 ### Buffer
+
 buffer 所占的内存不是由V8分配的，属于堆外内存。     
+
+### ANSI转义码  
+
+::: tip 终端共支持8种（代码0，30-37）不同的颜色,8种背景颜色对应的代码为(40-47）
+重置：\u001b[0m 
+黑色：\u001b[30m    
+红色：\u001b[31m    
+绿色：\u001b[32m    
+黄色：\u001b[33m        
+蓝色：\u001b[34m    
+洋红：\u001b[35m    
+青色：\u001b[36m    
+白特：\u001b[37m    
+亮黑: \u001b[30; 1m      
+亮红: \u001b[31; 1m      
+亮绿: \u001b[32; 1m      
+亮黄: \u001b[33; 1m      
+亮蓝: \u001b[34; 1m      
+亮洋红: \u001b[35; 1m          
+亮青: \u001b[36; 1m      
+亮白: \u001b[37; 1m      
+Reset: \u001b[0m            
+:::
 
 ## Redis实战        
 
