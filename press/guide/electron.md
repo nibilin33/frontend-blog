@@ -111,5 +111,4 @@ vue add electron-builder
 
 ## 可能遇到的问题
 1.webview 不识别        
-https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#new-browserwindow-webpreferences- 
-
+https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#new-browserwindow-webpreferences-     
