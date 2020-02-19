@@ -186,6 +186,16 @@ bagpipe:
 ### V8垃圾回收机制
 V8做一次小的垃圾回收需要50ms以上，做一次非增量的垃圾回收甚至要1s以上。 
 查看垃圾回收日志： node --trace_gc -e > gc.log     
+
+### 内存泄漏排查工具        
+1. v8-profiler  
+2. node-heapdump    
+3. node-mtrace  
+4. drace    
+5. node-memwatch    
+### Buffer
+buffer 所占的内存不是由V8分配的，属于堆外内存。     
+
 ## Redis实战        
 
  
