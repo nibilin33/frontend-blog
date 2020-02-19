@@ -107,33 +107,8 @@ vue add electron-builder
 ```
 ::: 
 ### 模拟终端完成拦截返回本地资源逻辑    
-::: details
-```js
-  win = new BrowserWindow({ width: 800, height: 600, darkTheme: true,
-    frame:true,
-    webPreferences: {
-        nodeIntegration: true,
-        webviewTag: true,
-        webSecurity: false
-    }});
-  const filter = {
-    urls: ['http://10.200.112.35:3100/*']
-  }
-  session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
-      const redirect = source.find((it)=>details.url.endsWith(it));
-      if(redirect) {
-        callback({
-          redirectURL:`file://${path.join(__dirname,`../dist/${redirect}`)}`
-        })
-      }else {
-        callback({
-          cancel:false,
-        });
-      }
+[详细实现](https://github.com/nibilin33/vue-solution/blob/master/src/background.js)   
 
-  });
-```
-::: 
 ## 可能遇到的问题
 1.webview 不识别        
 https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#new-browserwindow-webpreferences- 
