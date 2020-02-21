@@ -48,6 +48,44 @@ webpack是用来做什么的？知道loader和Plugin的原理吗？
 vue 的双向绑定的原理，vue template是如何知道哪些数据要双向绑定的？
 5. 你还有什么想问的吗？      
 ```
+知道自己没有答好，也料到过不了，最后也收到没有过的邮件，反思了一下：       
+1. GC 场景没有描述好，去循环引用是三个对象形成环，不是两个对象互相成环，在被反问A=B，B=A的时候，    
+没有反应过来和上面不是一个问题，给了一个错误答案。事后用node模拟查看GC情况，加深了印象。        
+2. 上百个复杂组件要展示如何优化，我的理念只有按需...再复杂，用户不需要立马用到的...就不展示...  
+虽然好像不是对方要的答案的感觉...好迷...    
+3. Options 请求是不清楚，只见过，没有深入了解<span class="emoj">🙉</span>      
+OPTIONS请求旨在发送一种“探测”请求以确定针对某个目标地址的请求必须具有怎样的约束（比如应该采用怎样的HTTP方法以及自定义的请求报头），然后根据其约束发送真正的请求。比如针对"跨域资源"的预检（Preflight）请求采用的HTTP方法就是OPTIONS。
+  
+浏览器想服务端发送一个post/patch请求,实际上产生了两个请求，一个是Option,另一个才是真实的Post/Patch请求, 而get请求则不会产生Options请求。 
+Options请求出现的情况有两种：
+1、获取后台服务器支持的HTTP的通信方式       
+2、对跨域请求进行preflight request(预检请求)。      
+预检请求首先需要向另外一个域名的资源发送一个Http Options的请求头，      
+以检测实际发送的请求是否是安全的。options请求是浏览器自发起的preflight request(预检请求)。
+preflight request请求报文中有两个需要关注的首部字段：       
+（1）Access-Control-Request-Method：告知服务器实际请求所使用的HTTP方法。    
+（2）Access-Control-Request-Headers：告知服务器实际请求所携带的自定义首部字段。 
+同时服务器也会添加origin header,告知服务器实际请求的客户端的地址。      
+服务器基于从预检请求获得的信息来判断，是否接受接下来的实际请求。        
+服务器所返回的Access-Control-Allow-Methods首部字段将所有允许的请求方法告知客户端，  
+返回将所有Access-Control-Request-Headers首部字段将所有允许的自定义首部字段告知客户端。  
+此外，服务器端可返回Access-Control-Max-Age首部字段，允许浏览器在指定时间内，无需再发送预检请求，直接用本次结果即可。        
+在我们开发过程中出现的浏览器自发起的options请求就是上面的第二种情况。
+实际上，跨域请求中的”复杂请求”发出前会进行一次方法是options的preflight request。               
+当跨域请求是简单请求时不会进行preflight request,只有复杂请求才会进行preflight request。
+跨域请求分两种：简单请求、复杂请求；
+符合以下任一情况的就是复杂请求：    
+1.使用方法put/delete/patch/post;        
+2.发送json格式的数据（content-type: application/json）      
+3.请求中带有自定义头部；        
+其他情况则可理解为是简单请求。      
+为什么跨域的复杂请求需要preflight request？                    
+复杂请求可能对服务器数据产生副作用。例如delete或者put,都会对服务器数据进行修改,     
+所以在请求之前都要先询问服务器，当前网页所在域名是否在服务器的许可名单中，      
+服务器允许后，浏览器才会发出正式的请求，否则不发送正式请求。             
+4. 安全方面<span class="emoj">🙉</span> 虽然知道有两个比较关键，死活只想起了XSS，另一是CROS。            
+5. <span class="emoj">🙉</span>引擎不了解，react 没用过，服务端渲染没做过。     
+
 ## 解题     
 推荐[tech-interview-handbook/algorithms](https://yangshun.github.io/tech-interview-handbook/algorithms)     
 ### 数组
