@@ -28,40 +28,7 @@ PWA请求一次后资源都缓存在本地了，可以利用这个特点，在�
 当发现请求命中资源列表，则返回本地的资源，不然直接放行请求去拉取服务器资源。        
 服务器会提供获取资源列表的文件请求。    
 当发现变更的时候，需要更新这个资源列表文件，并进行下载。    
-生成资源列表的webpack-plugin如下        
-::: details
-```js
-const fs = require('fs');
-const opt = {
-    prefix: '',
-    outputName: 'source.js',
-};
-class SourceWebpackPlugin {
-    constructor(options) {
-        this.options = Object.assign(opt,options||{});
-    }
-
-    apply(compiler) {
-        compiler.hooks.emit.tap('SourceWebpackPlugin', (compilation) => {
-            console.log('compiler.hooks.emit');
-        });
-        compiler.hooks.done.tap('SourceWebpackPlugin', (stats) => {
-            try {
-                let str = '';
-                stats.compilation.chunks.forEach((chunk) => {
-                    str += `${str ? ',' : ''}${chunk.files.map(filename => `"${this.options.prefix}/${filename}"`).join(',')}`;
-                });
-                fs.writeFileSync(`${__dirname}/${this.options.outputName}`, str);
-            } catch (error) {
-                console.log(error);
-            }
-        });
-    }
-}
-module.exports = SourceWebpackPlugin;
-
-```
-:::
+生成资源列表的webpack-plugin可以到我的vue-solutions 查看       
 
 
 **方案三：**  

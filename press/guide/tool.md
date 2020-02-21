@@ -17,10 +17,9 @@
 1.2）重构或者迭代项目利用vscode国际化插件替换已有的国际化        
 [vscode 插件开发](https://code.visualstudio.com/api/get-started/your-first-extension)     
 [vscode 参考](https://github.com/antfu/i18n-ally)   
-**详细看show me the code 的注释说明**   
-<details>
-<summary>Show Me The Code</summary>
-</details>
+::: details 
+<span class="emoj">🙉</span>在公司开发的，不能开
+:::
 2. 使用说明
 
 ## 项目发布
@@ -32,130 +31,9 @@
 > 3. 下载包到本地，本地中转到目标打包目录    
 > 4. 发送邮件     
 
-<details>
-<summary>Show Me The Code</summary>
-
-```
-# coding: utf-8
-import requests
-import paramiko
-import os
-import traceback
-import shutil
-
-host = ""
-port = 22
-user = ""
-password = ""
-packageConfig = {
-    'web_uc': {
-        'local': 'J:\gitlab\uc2.xApplications\server\dist', #本地工程路径
-        'remote': '/usr/local/apollo/web_uc/dist', # 目标服务器目录
-        'upload': True, # 是否需要发版
-        'nextVersionPath': '\\\\gitlab.yealink.com\uc_module\web_uc\\23.253.0.20', # 放包的的地址，直接写下个版本号，会自动创建
-    },
-    'web_ume': {
-        'local': '',
-        'remote': '/usr/local/apollo/web_ume/dist',
-        'upload': False,
-        'nextVersionPath': '\\\\gitlab.yealink.com\uc_module\web_ume\\23.253.0.21',
-    }
-}
-# 中文要注意编码，u
-mailConfig = {
-    'receivers':[],
-    'subject':u'',
-    'mailContentPath':'mail.html', # 邮件模板路径
-    # eg:{'mail_path':'J:/python-anaconda/translate.json','file_name':'translate.json'}
-    'attachments':[]
-}
-
-
-def __get_all_files_in_local_dir(local_dir):
-    all_files = list()
-    files = os.listdir(local_dir)
-    for x in files:
-        filename = os.path.join(local_dir, x)
-        if os.path.isdir(filename):
-            all_files.extend(__get_all_files_in_local_dir(filename))
-        else:
-            all_files.append(filename)
-    return all_files
-
-
-def sftp_put_dir(local_dir, remote_dir, sftp, ssh):
-    if remote_dir[-1] == '/':
-        remote_dir = remote_dir[0:-1]
-    print remote_dir
-    all_files = __get_all_files_in_local_dir(local_dir)
-    for x in all_files:
-        filename = os.path.split(x)[-1]
-        remote_file = os.path.split(x)[0].replace(local_dir, remote_dir)
-        path = remote_file.replace('\\', '/')
-        remote_filename = path + '/' + filename
-        tdin, stdout, stderr = ssh.exec_command('mkdir -p ' + path)
-        print stderr.read()
-        print (u'Put文件%s传输到%s中...' % (filename, host))
-        sftp.put(x, remote_filename)
-
-
-def sendOutLook():
-    outlook = win32.Dispatch('Outlook.Application')
-    mail_item = outlook.CreateItem(0) # 0: olMailItem
-    for recipers in mailConfig['receivers']:
-        mail_item.Recipients.Add(recipers)
-    mail_item.BodyFormat = 2          # 2: Html format
-    myfile = codecs.open(mailConfig['mailContentPath'], 'r',encoding='utf8')
-    for attr in mailConfig['attachments']:
-        print attr
-        mail_item.Attachments.Add(attr['mail_path'], 1, 1, attr['file_name'])
-    data = myfile.read()
-    myfile.close()
-    mail_item.HTMLBody = data
-    mail_item.Subject = mailConfig['subject']
-    mail_item.Send()
-
-def package(local, remote, filename, nextVersion):
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(host, port, user, password)
-    sftp = ssh.open_sftp()
-    ssh.exec_command('rm -rf ' + remote)
-    sftp_put_dir(local, remote, sftp, ssh)
-    targetDir = remote[0:remote.rindex('/')]
-    targetFile = targetDir + '/' + filename + '.tar.gz'
-    ssh.exec_command('rm -rf ' + targetFile)
-    tdin, stdout, stderr = ssh.exec_command('cd ' + targetDir + ';' + 'tar -zcvf' + ' ' + filename + '.tar.gz' + ' *')
-    print stdout.read()
-    print "Downloading files ==> " + targetFile
-    localPath = './' + filename + '.tar.gz'
-    print localPath
-    if os.path.exists(localPath):
-        try:
-            os.remove(localPath)
-            print("File removed successfully")
-        except OSError as error:
-            print(error)
-            print("File path can not be removed")
-    sftp.get(targetFile, localPath)
-    if not os.path.exists(nextVersion):
-        os.mkdir(nextVersion)
-    print("Directory ", nextVersion, " Created ")
-    shutil.copy(localPath, nextVersion)
-
-if __name__ == '__main__':
-    print desktop
-    try:
-        for itera in packageConfig:
-            if packageConfig[itera]['upload']:
-                package(packageConfig[itera]['local'], packageConfig[itera]['remote'],itera,packageConfig[itera]['nextVersionPath'])
-        sendOutLook()
-    except Exception, err:
-        print(traceback.format_exc())
-
-```
-
-</details>
+::: details 
+<span class="emoj">🙉</span>在公司开发的，不能开
+:::
 
 2. 使用说明  
 安装依赖pip install paramiko,pip install pywin32    
@@ -165,12 +43,16 @@ if __name__ == '__main__':
 
 1. 实现思路  
 2. 使用说明
-
+::: details 
+<span class="emoj">🙉</span>在公司开发的，不能开
+:::
 ## 代码分析
 
 1. 实现思路  
 2. 使用说明
-
+::: details 
+<span class="emoj">🙉</span>在公司开发的，不能开
+:::
 ## 自动化测试     
 1. Selenium IDE 
 Selenium IDE是Firefox浏览器的一个插件，依附于Firefox浏览器。    
