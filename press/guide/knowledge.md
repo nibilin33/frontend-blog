@@ -130,9 +130,20 @@ EventLoop 运行机制：检测调用栈为空闲状态时将回调函数加入�
 <ClientOnly>
 <urlNavigation/>
 </ClientOnly>  
-HTTP 1.1 均为纯文本格式传输，
-HTTP2.0将消息的传输格式改为二进制，以流的形式进行消息传输。     
-消除队首阻塞。服务器还可以主动推送消息。
+HTTP 1.1 均为纯文本格式传输，     
+
+HTTP2.0将消息的传输格式改为二进制，以流的形式进行消息传输。         
+
+消除队首阻塞。服务器还可以主动推送消息。      
+
+Websocket:协议基于TCP协议实现，包含初始的握手过程，以及后续的多次数据帧双向传输过程。其目的是在WebSocket应用和WebSocket服务 器进行频繁双向通信时，可以使服务器避免打开多个HTTP连接进行工作来节约资源，提高了工作效率和资源利用率。  
+
+当创建 WebSocket 实例的时候，会发一个 HTTP 请求，请求报文中有个特殊的字段 Upgrade ，然后这个连接会由 HTTP 协议转换为 WebSocket 协议，这样客户端和服务端建立了全双工通信，通过 WebSocket 的 send 方法和 onmessage 事件就可以通过这条通信连接交换信息。   
+
+socket.io: 从IE6到IOS都支持         
+
+
+<img src="https://s1.51cto.com/oss/201906/17/47b144c643677df810e0270e6a228934.jpeg"/>
 
 
 

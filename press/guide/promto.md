@@ -229,7 +229,8 @@ class MyLocust(HttpLocust):
     max_wait = 15000
 ```
 ::: tip windows版
-安装：pip install locustio
+安装：pip install locustio  
+如果安装失败，把版本降低地装 pip install locustio==0.13.1       
 跑起来  
 locust -f locustTest.py --host=http://    
 访问 localhost:8089 开始模拟并发  
