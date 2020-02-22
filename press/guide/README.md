@@ -474,6 +474,7 @@ d表示标签（类型）选择器和伪元素选择器之和。
 答：var 有全局作用域、函数作用域，let 和 const 外加块作用域。
 问：了解 Promise 吗？
 答：Promise 是 ES6 的新特性，可以用来碾平异步回调。简要地描述了一下 resolve、reject 函数和 then 方法。  
+async/await 属于ES2017,babel 将ES2017转2016，async函数会被替代为Generator和promse的组合（语法糖）
 问：svn 和 git 的主要区别？
 问：让一个 100px 的方形元素从页面的最左边过渡到最右边，最高效的动画方式是什么？ 
 追问：有没有更高效的方式？

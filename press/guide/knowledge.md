@@ -119,5 +119,21 @@ overflow不为visible
 2. 解决外边距塌陷
 3. 宽度自适应的两栏布局      
 
+## EventLoop    
+EventLoop 运行机制：检测调用栈为空闲状态时将回调函数加入任务队列中并执行。  
+异步编程原理:比如ajax， 分为发请求和回调，javascript引擎先调用发起请求后，顺序执行任务队列中      
+的下一个任务，浏览器网络模块得到响应通知javascript引擎，eventloop 检测到栈  
+为空闲的时候将回到函数加入任务队列。    
+
+## 网络  
+
+<ClientOnly>
+<urlNavigation/>
+</ClientOnly>  
+HTTP 1.1 均为纯文本格式传输，
+HTTP2.0将消息的传输格式改为二进制，以流的形式进行消息传输。     
+消除队首阻塞。服务器还可以主动推送消息。
+
+
 
 
