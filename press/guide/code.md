@@ -9,6 +9,9 @@ How: 构建依赖图，生成chunk
 Entry：构建第一步从entry开始。  
 Module:一个模块对应一个文件，webpack会从entry开始，递归找出所有依赖的模块。 
 Chunk：代码块，一个Chunk由多个模块组合而成，用于代码合并与分割。    
+Loader: loader 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）.    
+Plugin:loader 被用于转换某些类型的模块,而插件则可以用于执行范围更广的任务。 
+插件的范围包括,从打包优化和压缩,一直到重新定义环境中的变量。插件接口功能极其强大,可以用来处理各种各样的任务。   
  
 先浏览了一下package.json,依赖了哪些。        
 发现了不少第一次见到的库<span class="emoj">🙉</span>
@@ -27,8 +30,77 @@ memory-fs是内存缓存和快速数据处理的完美替代方案。webpack间�
 理清楚核心理念之后，开始读源码<span class="emoj">🔞</span>      
     
 
-## vue-next 
-https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23      
+## vue  
+[12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)
+答：没看答案之前，答上了一半。<span class="emoj">🙉</span>我根据API的表现形式，猜测出大概实现方式，但是还是有没有
+反应过来的。我不喜欢人家问你看过XX的源码吗？没有（<span class="emoj">😒</span>）|有（<span class="emoj">😍</span>）。   
+因为有自己没有想到的思路，才推动了我去看源码的兴趣。    
+
+### keep-alive       
+1. 它是个vue 组件,负责渲染子组件           
+2. 用一个cache对象存对应组件：cache[vnode.key]=componentInstance;
+3. 监听include,exclude, 发生变更的时候就对应操作cache对象。 
+4. 将最近访问的组件 push 到 this.keys 最后面,this.keys[0]也就是最久没被访问的组件,当缓存实例超过 max 设置值,删除 this.key[0]   
+
+### nextTick    
+1. 用一个队列存再包装的function,function里面执行cb    
+2. timerFunc 主要是利用setTimeout等让callback放入任务队列去等待下一次空闲时候执行。 
+3. MutationObserver 这个api不常用，了解了一下
+> MutationObserver接口提供了监视对DOM树所做更改的能力
+disconnect()
+阻止 MutationObserver 实例继续接收的通知，直到再次调用其observe()方法，该观察者对象包含的回调函数都不会再被调用。       
+observe()       
+配置MutationObserver在DOM更改匹配给定选项时，通过其回调函数开始接收通知。       
+takeRecords()       
+从MutationObserver的通知队列中删除所有待处理的通知，并将它们返回到MutationRecord对象的新Array中。       
+```js
+
+export function nextTick (cb?: Function, ctx?: Object) {
+  let _resolve
+  callbacks.push(() => {
+    if (cb) {
+      try {
+        cb.call(ctx)
+      } catch (e) {
+        handleError(e, ctx, 'nextTick')
+      }
+    } else if (_resolve) {
+      _resolve(ctx)
+    }
+  })
+  if (!pending) {
+    pending = true
+    timerFunc()
+  }
+  if (!cb && typeof Promise !== 'undefined') {
+    return new Promise(resolve => {
+      _resolve = resolve
+    })
+  }
+}
+```
+### v-on,v-bind,v-model 
+
+### key 的作用      
+我的理解：更快地定位到要比较的节点找出差异，不用一层层找。就优化了diff算法 。   
+看了眼updateChildren方法<span class="emoj">🙉</span>    
+太多......if elseif elseif......我选择...找个图，有时间按照图写一个     
+<span class="emoj">👇</span>        
+
+
+<img src="https://ask.qcloudimg.com/http-save/5949888/zbgt5ik5k1.png?imageView2/2/w/1620"/>  
+<img src="https://ask.qcloudimg.com/http-save/5949888/jh0ctfikom.png?imageView2/2/w/1620"/>     
+<img src="https://ask.qcloudimg.com/http-save/5949888/573fn16c14.png?imageView2/2/w/1620"/> 
+<img src="https://ask.qcloudimg.com/http-save/5949888/exk5xe42uu.png?imageView2/2/w/1620"/>
+<img src="https://ask.qcloudimg.com/http-save/5949888/1ctt1k3kjw.png?imageView2/2/w/1620"/>
+<img src="https://ask.qcloudimg.com/http-save/5949888/1n1dtshge2.png?imageView2/2/w/1620"/>    
+<img src="https://ask.qcloudimg.com/http-save/5949888/2vujt8kx0c.png?imageView2/2/w/1620"/> 
+
+
+::: details 
+// todo
+:::
+
 ## babel
 Babel 是一个 JavaScript 编译器      
 Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行 在当前和旧版本的浏览器或其他环境中。       

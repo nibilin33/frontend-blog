@@ -145,6 +145,14 @@ socket.io: 从IE6到IOS都支持
 
 <img src="https://s1.51cto.com/oss/201906/17/47b144c643677df810e0270e6a228934.jpeg"/>
 
+URI,URL,URN的理解： 
+
+URI：通一资源标志符(Uniform Resource Identifier， URI)，表示的是web上每一种可用的资源，如 HTML文档、图像、视频片段、程序等都由一个URI进行定位的。
+
+URL：Uniform Resource Locator（统一资源定位符）
+
+URN：Uniform Resource Name（统一资源命名），P2P下载中使用的磁力链接是URN的一种实现，它可以持久化的标识一个BT资源，资源分布式的存储在P2P网络中，无需中心服务器用户即可找到并下载它。 
+
 
 
 
