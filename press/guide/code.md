@@ -32,9 +32,11 @@ memory-fs是内存缓存和快速数据处理的完美替代方案。webpack间�
 
 ## vue  
 [12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)
+[router 工作原理](https://segmentfault.com/a/1190000019386190)    
 答：没看答案之前，答上了一半。<span class="emoj">🙉</span>我根据API的表现形式，猜测出大概实现方式，但是还是有没有
 反应过来的。我不喜欢人家问你看过XX的源码吗？没有（<span class="emoj">😒</span>）|有（<span class="emoj">😍</span>）。   
-因为有自己没有想到的思路，才推动了我去看源码的兴趣。    
+因为有自己没有想到的思路，才推动了我去看源码的兴趣。 
+核心：发布订阅模式Dep+object.defineproperty数据劫持    
 
 ### keep-alive       
 1. 它是个vue 组件,负责渲染子组件           
@@ -80,7 +82,34 @@ export function nextTick (cb?: Function, ctx?: Object) {
 }
 ```
 ### v-on,v-bind,v-model 
+v-model 是v-on 和v-bind的语法糖 
+```js
+<input v-model="sth" />
+<input v-bind:value="sth" v-on:input="sth = $event.target.value" />
+```
+简单来说，就是包了层方法去执行  
+on 
+```js
+export default function on (el: ASTElement, dir: ASTDirective) {
+  if (process.env.NODE_ENV !== 'production' && dir.modifiers) {
+    warn(`v-on without argument does not support modifiers.`)
+  }
+  el.wrapListeners = (code: string) => `_g(${code},${dir.value})`
+}
+```
+bind  
+```js
+export default function bind (el: ASTElement, dir: ASTDirective) {
+  el.wrapData = (code: string) => {
+    return `_b(${code},'${el.tag}',${dir.value},${
+      dir.modifiers && dir.modifiers.prop ? 'true' : 'false'
+    }${
+      dir.modifiers && dir.modifiers.sync ? ',true' : ''
+    })`
+  }
+}
 
+```
 ### key 的作用      
 我的理解：更快地定位到要比较的节点找出差异，不用一层层找。就优化了diff算法 。   
 看了眼updateChildren方法<span class="emoj">🙉</span>    
@@ -98,8 +127,74 @@ export function nextTick (cb?: Function, ctx?: Object) {
 
 
 ::: details 
-// todo
+
+<ClientOnly>
+<dom-tree/>
+</ClientOnly>  
+
 :::
+### vuex  
+核心：  
+```js
+this._watcherVM = new Vue();
+```
+本质： 就是一个没有template的vue对象。  
+
+### vue-router  
+看了眼install.js文件...离不开数据劫持   
+router 基本依托于window.history的api, 
+那么url与组件的渲染匹配关系本质上利用了vue的响应式属性，  
+在route属性变更和router-view视图渲染之间建立关系。    
+```js
+  Vue.mixin({
+    beforeCreate () {
+      if (isDef(this.$options.router)) {
+        this._routerRoot = this
+        this._router = this.$options.router
+        this._router.init(this)
+        Vue.util.defineReactive(this, '_route', this._router.history.current)
+      } else {
+        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this
+      }
+      registerInstance(this, this)
+    },
+    destroyed () {
+      registerInstance(this)
+    }
+  })
+
+  Object.defineProperty(Vue.prototype, '$router', {
+    get () { return this._routerRoot._router }
+  })
+
+  Object.defineProperty(Vue.prototype, '$route', {
+    get () { return this._routerRoot._route }
+  })
+```
+### vue-server-renderer  
+原理：虚拟dom(用JavaScript模拟DOM树，并渲染这个DOM树，变更的时候把差异对象应用到渲染的DOM树。)    
+主要方法：renderToString  
+就找到核心renderNode(component._render(), true, context); 
+利用vue的私有_render方法，把组件转成html之后返回客户端。  
+顺藤摸瓜，找到_render,从_render找createElement,然后找到[虚拟dom](https://github.com/snabbdom/snabbdom)的算法来源。  
+```js 
+  Vue.prototype._render = function () {
+    .....
+    return vnode
+  };  
+  /**
+ * Virtual DOM patching algorithm based on Snabbdom by
+ * Simon Friis Vindum (@paldepind)
+ * Licensed under the MIT License
+ * https://github.com/paldepind/snabbdom/blob/master/LICENSE
+ *
+ * modified by Evan You (@yyx990803)
+ *
+ * Not type-checking this because this file is perf-critical and the cost
+ * of making flow understand it is not worth it.
+ */
+```
+
 
 ## babel
 Babel 是一个 JavaScript 编译器      
