@@ -158,7 +158,29 @@ HttpOnly: 防止客户端脚本访问
 
 ### 实战篇    
 
-<span class="emoj">🔞</span>
+1. 与安全性相关的HTTP标头：         
+csp设置Content-Security-Policy标头可帮助防止跨站点脚本攻击和其他跨站点注入。    
+hidePoweredBy删除X-Powered-By标题。 
+hpkp添加了公钥固定标头，以防止伪造证书对中间人的攻击。  
+hsts设置Strict-Transport-Security标头，以强制建立与服务器的安全（基于SSL / TLS的HTTP）连接。    
+ieNoOpen套X-Download-Options为IE8 +。   
+noCache集Cache-Control和Pragma标头可禁用客户端缓存。    
+noSniff设置X-Content-Type-Options为防止浏览器通过MIME嗅探远离声明的内容类型的响应。     
+frameguard设置X-Frame-Options标题以提供点击劫持保护。       
+xssFilter设置X-XSS-Protection为在最新的Web浏览器中启用跨站点脚本（XSS）过滤器。         
+2. 确保依赖项安全       
+npm audit        
+npm install -g snyk         
+snyk test          
+snyk wizard     
+3. Node.js安全清单  
+实施速率限制，以防止对身份验证的暴力攻击。一种实现方法是使用StrongLoop Microgateway实施限速策略。另外，您可以使用rate-limiter-flexible之类的包并配置限制。      
+使用csurf中间件来防止跨站点请求伪造（CSRF）。       
+始终过滤和清除用户输入，以防止跨站点脚本（XSS）和命令注入攻击。     
+通过使用参数化查询或准备好的语句来防御SQL注入攻击。     
+使用开源sqlmap工具检测您的应用程序中的SQL注入漏洞。     
+使用nmap和sslyze工具测试SSL密码，密钥和重新协商的配置以及证书的有效性。     
+使用安全正则表达式可确保您的正则表达式不受正则表达式拒绝服务攻击的影响。        
 
 ## 深入理解Nginx    
 特点：      

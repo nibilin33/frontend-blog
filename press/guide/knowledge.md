@@ -153,6 +153,9 @@ URL：Uniform Resource Locator（统一资源定位符）
 
 URN：Uniform Resource Name（统一资源命名），P2P下载中使用的磁力链接是URN的一种实现，它可以持久化的标识一个BT资源，资源分布式的存储在P2P网络中，无需中心服务器用户即可找到并下载它。 
 
+ETag：是实体标签(Entity Tag)的缩写。ETag一般不以明文形式相应给客户端。在资源的各个生命周期中，它都具有不
+同的值，用于标识出资源的状态
+
 
 
 
