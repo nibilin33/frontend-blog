@@ -85,6 +85,8 @@ preflight request请求报文中有两个需要关注的首部字段：
 服务器允许后，浏览器才会发出正式的请求，否则不发送正式请求。             
 4. 安全方面<span class="emoj">🙉</span> 虽然知道有两个比较关键，死活只想起了XSS，另一是CSRF。            
 5. <span class="emoj">🙉</span>引擎不了解，react 没用过，服务端渲染没做过。     
+6. 混合H5同步获取，用promise改写callback=-=讲道理一直是这么做，突然问通信都是异步，想同步怎么办，我的   
+脑回路一直在终端的小伙子他们的执行都是异步...
 
 ## 解题     
 推荐[tech-interview-handbook/algorithms](https://yangshun.github.io/tech-interview-handbook/algorithms)     

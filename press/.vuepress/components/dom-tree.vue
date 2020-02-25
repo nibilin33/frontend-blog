@@ -3,44 +3,97 @@
         <div>
             NEW tree
             <div id="newTree">
-                1
-                <div>
-                    2<br/>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                </div>
             </div>
         </div>
         <div>
             OLD tree
             <div id="oldTree"> 
-                1
-                <div>2<br/>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>3</span>
-                        <span>6</span>
-                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+class Node {
+    constructor(data) {
+        this.tagName = data.tagName;
+        this.data = data.firstChild.data;
+        this.children = [];
+    }
+}
+const oldTreeList = {
+    tagName: 'div',
+    data:'1',
+    children: [
+        {
+            tagName: 'div',
+            data: 2,
+            children: [
+                {
+                    tagName: 'span',
+                    data: 3,
+                },
+                {
+                    tagName: 'span',
+                    data: 4,
+                },
+                {
+                    tagName: 'span',
+                    data: 5,
+                },
+            ]
+        }
+    ]
+}
+const newTreeList = {
+    tagName: 'div',
+    data:'1',
+    children: [
+        {
+            tagName: 'div',
+            data: 2,
+            children: [
+                {
+                    tagName: 'span',
+                    data: 3,
+                },
+                {
+                    tagName: 'span',
+                    data: 5,
+                },
+                {
+                    tagName: 'span',
+                    data: 4,
+                },
+            ]
+        }
+    ]
+}
 export default {
+    data() {
+        return {
+            treeData: {},
+        };
+    },
     mounted(){
         this.diff();
     },
     methods: {
+        toJsObject(node) {
+
+        },
+        dfsWalk(node) {
+            if(node.childNodes) {
+                this.dfsWalk(node)
+            }
+        },
         diff() {
-            const newTree = document.getElementById('newTree');
-            const oldTree = document.getElementById('oldTree');
-            console.log(newTree.childNodes,oldTree);
-            console.log(this.sameNode(newTree,oldTree));
+            for(let prop in newTreeList) {
+                
+            }
+            
         },
         sameNode(first,second){
-            return first.isSameNode(second);
+            return first.isEqualNode(second);
         }
     }
 }

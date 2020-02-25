@@ -113,7 +113,7 @@ export default function bind (el: ASTElement, dir: ASTDirective) {
 ### key 的作用      
 我的理解：更快地定位到要比较的节点找出差异，不用一层层找。就优化了diff算法 。   
 看了眼updateChildren方法<span class="emoj">🙉</span>    
-太多......if elseif elseif......我选择...找个图，有时间按照图写一个     
+太多......if elseif elseif......我选择...找个图      
 <span class="emoj">👇</span>        
 
 
@@ -126,13 +126,6 @@ export default function bind (el: ASTElement, dir: ASTDirective) {
 <img src="https://ask.qcloudimg.com/http-save/5949888/2vujt8kx0c.png?imageView2/2/w/1620"/> 
 
 
-::: details 
-
-<ClientOnly>
-<dom-tree/>
-</ClientOnly>  
-
-:::
 ### vuex  
 核心：  
 ```js
