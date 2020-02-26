@@ -13,13 +13,13 @@ pkg in atilo
 ::: tip    
 1. 安装Termux    
 2. 参考[https://github.com/Hax4us/Nethunter-In-Termux](https://github.com/Hax4us/Nethunter-In-Termux)进行安装       
-3. apt-update   
-4. apt-upgrade  
+3. apt update   
+4. apt upgrade  
 5. apt-get install python2.7 python-pip     
 6. clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
 7. chmod +x /usr/bin/katoolin   
 8. katoolin 
-![启动成功图](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
+![启动成功图](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/kali.jpg)
 9. [选择想要安装的工具](https://linux.cn/article-10860-1.html)安装  
 10. apt install postgresql
 11. apt install metasploit-framework     
