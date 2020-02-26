@@ -12,31 +12,16 @@ echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> 
 pkg in atilo
 ::: tip    
 1. 安装Termux    
-2. pkg install proot    
-3. termux-chroot（不用空格不用空格<span class="emoj">💀</span> ）
-4. pkg install git
-5. git clone https://github.com/YadominJinta/atilo      
-6. cd atilo/        
-7. chmod +x atilo       
-8. ~~./atilo install kali~~     
-额，提示没有python3这个目录        
-更新一遍    
-apt update
-apt upgrade 
-安装apt install python    
-又提示我没有request这个模块，降版本安装pip install -I requests==2.14.2  
-结果提示我未知命令<span class="emoj">💀</span>，cat README.md     
-命令行只有下面几种：    
-    | 命令       |   功能      |
-    | --------   | -----:  |
-    | images        | list available images  |
-    | remove        | remove installed images|
-    | pull        | pulling an image|   
-    | run        | run an image|   
-    | clean        | clean tmps|        
-     
-**./atilo pull kali**   
-**./atilo run kali**   
-报错：proot warning: can't santitize bingding /sys：no such file or directory   
-<span class="emoj">💀</span> proot --link2symlink指令，是获取proot权限的 
+2. 参考[https://github.com/Hax4us/Nethunter-In-Termux](https://github.com/Hax4us/Nethunter-In-Termux)进行安装       
+3. apt-update   
+4. apt-upgrade  
+5. apt-get install python2.7 python-pip     
+6. clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
+7. chmod +x /usr/bin/katoolin   
+8. katoolin 
+![启动成功图](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
+9. [选择想要安装的工具](https://linux.cn/article-10860-1.html)安装  
+10. apt install postgresql
+11. apt install metasploit-framework     
+12. msfconsole  
 :::
