@@ -7,9 +7,6 @@
 ## Android 手机安装Kail Linux
 突发兴致，买了台二手安卓手机，惊人地发现......不会用<span class="emoj">💀</span>    
 找了个其他人的安装步骤折腾....  
-echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> $PREFIX/etc/apt/sources.list
-
-pkg in atilo
 ::: tip    
 1. 安装Termux    
 2. 参考[https://github.com/Hax4us/Nethunter-In-Termux](https://github.com/Hax4us/Nethunter-In-Termux)进行安装       
@@ -24,4 +21,6 @@ pkg in atilo
 10. apt install postgresql
 11. apt install metasploit-framework     
 12. msfconsole  
+![启动成功图](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/msf5.jpg)
 :::
+## 尝试攻击自己的服务器🔞
