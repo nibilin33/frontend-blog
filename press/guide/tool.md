@@ -71,7 +71,8 @@ Selenium IDE是Firefox浏览器的一个插件，依附于Firefox浏览器。
 [xpath](https://devhints.io/xpath)  
 4. python 录制回放  
 由于利用selenium感觉编写操作的代码比较多而且很难复用，  
-就还是想把操作录制，回放执行的时候做基本的预期判断，    
+就还是想把操作录制，回放执行的时候做基准图像比较判断，    
+有差异的生成差异图，    
 最后生成报告。  
 ::: tip 
 操作键盘鼠标的库:pynput         
