@@ -11,7 +11,7 @@ module.exports = {
             ['./guide/solution.md', '记录重构心路思考'],
             ['./guide/book.md', '书籍阅读'],
             ['./guide/code.md', '源码学习'],
-            ['./guide/interview.md', '解题'],
+            ['./guide/interview.md', '面试'],
             ['./guide/knowledge.md', 'Need to Know'],
             ['./guide/requirements.md', '代码实践'],
             ['./guide/tool.md', '工具说明'], 
