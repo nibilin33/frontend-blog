@@ -39,7 +39,7 @@ HTML5 包括10大类别：
 8. 如果节点需要依赖其他资源，例如图片、 CSS 、视频等，调用资源加载器来加载它们，但是它们是异步的，不会阻碍当前 DOM 树的继续创建；如果是 JavascriPt 资源 URL （没有标记异步方式），则需要停止当前 DOM 树的创建，直到 Javascript 的资源加载并被 Javascript 引擎执行后才继续 DOM 树的创建。    
 
 在上述的过程中，网页在加载和渲染过程中会发出“ DOMConent ”事件和 DOM 的“ onload ”事件，分别在 DOM 树构建完之后，以及 DOM 树建完并且网页所依赖。
-
+![加载过程对应的参数](http://fex.baidu.com/img/build-performance-monitor-in-7-days/timing.png)
 ### webkit 资源加载机制     
 
 缓存，有资源池，以URL作为标识，如果URL不一样，即使是同一个资源也认为是不同的。      
