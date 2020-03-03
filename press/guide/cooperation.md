@@ -11,7 +11,7 @@ setChangeCallbackTimeout ----   执行changeCallback -- setUserChangeNotificatio
 handleUserChanges/collab_client  --- sendMessage 发送 change提交消息        
 
 ## 参考文档
-(http://fex.baidu.com/blog/2014/04/realtime-collaboration/)[http://fex.baidu.com/blog/2014/04/realtime-collaboration/]       
-(http://www.codecommit.com/blog/java/understanding-and-applying-operational-transformation)[http://www.codecommit.com/blog/java/understanding-and-applying-operational-transformation]   
-(https://operational-transformation.github.io/ot-for-javascript.html)[https://operational-transformation.github.io/ot-for-javascript.html]   
-(http://objcer.com/2018/03/05/SharePen-Operational-Transformation/)[http://objcer.com/2018/03/05/SharePen-Operational-Transformation/]
+[http://fex.baidu.com/blog/2014/04/realtime-collaboration/](http://fex.baidu.com/blog/2014/04/realtime-collaboration/)
+[http://www.codecommit.com/blog/java/understanding-and-applying-operational-transformation](http://www.codecommit.com/blog/java/understanding-and-applying-operational-transformation) 
+[https://operational-transformation.github.io/ot-for-javascript.html](https://operational-transformation.github.io/ot-for-javascript.html) 
+[http://objcer.com/2018/03/05/SharePen-Operational-Transformation/](http://objcer.com/2018/03/05/SharePen-Operational-Transformation/)
