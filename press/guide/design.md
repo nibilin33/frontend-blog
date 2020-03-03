@@ -9,4 +9,6 @@ var singleton = function(fn) {
     }
 };
 ```
+## 发布订阅vs观察者 
 
+<img data-original-src="//upload-images.jianshu.io/upload_images/4842858-484f192f9506a5f1.png" data-original-width="1148" data-original-height="770" data-original-format="image/png" data-original-filesize="365212" data-image-index="0" style="cursor: zoom-in;" class="" src="//upload-images.jianshu.io/upload_images/4842858-484f192f9506a5f1.png?imageMogr2/auto-orient/strip|imageView2/2/w/1148/format/webp">  
