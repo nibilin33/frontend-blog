@@ -162,6 +162,11 @@ overflow不为visible
 1. 清除浮动
 2. 解决外边距塌陷
 3. 宽度自适应的两栏布局      
+## 关于定位     
+static： 默认值。没有定位，元素出现在正常的流中
+relative（相对定位）：生成相对定位的元素,相对于其正常（原先本身）位置进行定位   
+absolute（绝对定位）：生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位    
+fixed（固定定位）：生成绝对定位的元素，相对于浏览器窗口进行定位          
 
 ## 恶补CSS知识点          
 [视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)        

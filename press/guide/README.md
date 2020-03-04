@@ -339,7 +339,7 @@ text-indent: -9999px：这只适用于block元素中的文本。
 Metadata： 例如通过使用 Schema.org，RDF 和 JSON-LD。       
 WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
 
-        
+       
 
 ## 使用 CSS 预处理的优缺点分别是什么
 
@@ -349,7 +349,7 @@ WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
 易于编写嵌套选择器。          
 引入变量，增添主题功能。可以在不同的项目中共享主题文件。           
 通过混合（Mixins）生成重复的 CSS。            
-将代码分割成多个文件。不进行预处理的         CSS，虽然也可以分割成多个文件，但需要建立多个 HTTP 请求加载这些文件。         
+将代码分割成多个文件。不进行预处理的CSS，虽然也可以分割成多个文件，但需要建立多个 HTTP 请求加载这些文件。         
 缺点：      
 需要预处理工具。           
 重新编译的时间可能会很慢。          
@@ -358,7 +358,7 @@ WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
 
 translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），         
 只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，         
-但改变绝对定位会使用到 CPU。         因此translate()更高效，可以缩短平滑动画的绘制时间。          
+但改变绝对定位会使用到 CPU。因此translate()更高效，可以缩短平滑动画的绘制时间。          
 当使用translate()时，元素仍然占据其原始空间（有点像position：relative），这与改变绝对定位不同。   
 
 ## 请简述JavaScript中的this
@@ -749,7 +749,79 @@ L1物理层：硬件设备升级提高速度
 L2数据链路层：寻找更快的网络节点、确保 Lastmile 尽量短
 L3路由层：路径优化，寻找两点间最优路径
 L4传输层：协议TCP优化，保持长连接、TCP快速打开
-L7应用层：静态资源压缩、请求合并
+L7应用层：静态资源压缩、请求合并    
+## 消除transition闪屏 
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden; 属性定义当元素不面向屏幕时是否可见。
+如果在旋转元素不希望看到其背面时，该属性很有用。
+    -webkit-perspective: 1000; 
+## GPU 加速原理   
+GPU加速实际上是大幅减少了合成/绘制时间，从而大大地提高了页面速度，但GPU加速有自己的缺点：
+过多的GPU层会带来性能开销，主要原因是使用GPU加速其实是利用了GPU层的缓存，让渲染资源可以重复使用，所以一旦层多了，
+缓存增大，就会引起别的性能问题
+
+## fetch 和 ajax 的区别   
+1. fetch 
+window 的一个方法，它的主要特点有： 
+1、第一个参数是URL:
+2、第二个是可选参数，可以控制不同配置的 init 对象
+3、使用了 JavaScript Promises 来处理结果/回调:
+2. ajax 
+是使用XMLHttpRequest对象来请求数据  
+## 渲染引擎
+一个渲染引擎主要包括 HTML 解释器、CSS 解释器、布局和 JavaScript 引擎等，
+JavaScript 引擎现在都已经独立出来。 下面是所依赖的模块，包括网络，存储，2D/3D 图形，音频和视频，图片解码器等等…,
+再下面就是操作系统相关的支持。    
+## 常见的浏览器内核有哪些，介绍一下你对浏览器内核的理解   
+Trident内核：IE
+Gecko内核：火狐
+Blink内核：Opera7及以上。
+Webkit内核：Safari，Chrome等。[Chrome的：Blink（WebKit的分支）]
+
+浏览器内核又可以分成两部分：渲染引擎和JS引擎。    
+渲染引擎主要负责取得网页的内容、整理讯息、计算网页的显示方式等，    
+JS引擎则是解析Javascript语言，执行javascript语言来实现网页的动态效果。    
+## 什么是文档流   
+将窗体自上而下分成若干行,并在每行中按从左至右的依次排放元素,即为文档流   
+## display:none与visibility：hidden的区别 
+区别|	display:none|	visibility：hidden的
+是否占据空间|	不占据任何空间，在文档渲染时，该元素如同不存在（但依然存在文档对象模型树中）|	该元素空间依旧存在
+是否渲染|	会触发reflow（回流），进行渲染|	只会触发repaint（重绘），因为没有发现位置变化，不进行渲染
+是否是继承属性|	不是继承属性，元素及其子元素都会消失|	是继承属性，若子元素使用了visibility:visible，则不继承，这个子孙元素又会显现出 
+## CSS中link 和@import的区别    
+link属于XHTML标签，@import完全是CSS提供的一种方式,只能加载CSS
+加载顺序的差别，当一个页面被加载的时候，link引用的CSS会同时被加载，
+而@import引用的CSS 会等到页面全部被下载完再被加载
+兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，而link标签无此问题
+当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的
+## ::before 和 :after中双冒号和单冒号有什么区别？解释一下这2个伪元素的作用
+单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。（伪元素由双冒号和伪元素名称组成）   
+,双冒号是在当前规范中引入的，用于区分伪类和伪元素   
+## 二进制转 Base64
+字符串转二进制 a.charCodeAt().toString(2)   
+String.fromCharCode
+```js 
+let encodedData = window.btoa("Hello, world"); // 编码
+let decodedData = window.atob(encodedData);    // 解码
+```
+## DOM事件中target和currentTarget的区别   
+event.target 返回触发事件的元素   
+event.currentTarget 返回绑定事件的元素  
+## 移动端300ms延迟由来及解决方案    
+1. 300ms延迟由来
+300 毫秒延迟的主要原因是解决双击缩放(double tap to zoom)。双击缩放，顾名思义，
+即用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。 
+那么这和 300 毫秒延迟有什么联系呢？ 假定这么一个场景。
+用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，
+当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。
+因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。 鉴于iPhone的成功，其他移动浏览器都复制了 iPhone Safari 浏览器的多数约定，包括双击缩放，几乎现在所有的移动端浏览器都有这个功能。
+2. 解决方案
+```js
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+```
+移动端事件触发顺序：在移动端，手指点击一个元素，会经过：touchstart --> touchmove -> touchend -->click。
+fastclick.js的原理是：FastClick的实现原理是在检测到touchend事件的时候，
+会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后真正的click事件阻止掉。  
 ## Node 面试题
 
 严格路由和不严格路由有什么区别  
