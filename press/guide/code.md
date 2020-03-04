@@ -110,6 +110,8 @@ export default function bind (el: ASTElement, dir: ASTDirective) {
 }
 
 ```
+### v-if、v-show、v-html    
+
 ### key 的作用      
 我的理解：更快地定位到要比较的节点找出差异，不用一层层找。就优化了diff算法 。   
 看了眼updateChildren方法<span class="emoj">🙉</span>    
@@ -197,6 +199,13 @@ Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转�
 通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)    
 源码转换 (codemods) 
 
+
+第1步 解析（Parse）   
+通过解析器babylon将代码解析成抽象语法树。   
+第2步 转换（TransForm）   
+通过babel-traverse plugin对抽象语法树进行深度优先遍历，遇到需要转换的，就直接在AST对象上对节点进行添加、更新及移除操作，比如遇到箭头函数，就转换成普通函数，最后得到新的AST树。   
+第3步 生成（Generate）
+通过babel-generator将AST树生成es5代码。   
 ## express  
 
 

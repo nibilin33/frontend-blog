@@ -20,9 +20,30 @@
 作用域已经不在被用到，但还没被垃圾回收的帧。  
 
 ## 浏览器工作原理       
-### 浏览器端的Event Loop
+### 浏览器端的EventLoop
 一个函数执行栈，一个事件队列，一个微任务队列。      
 每个事件队列中取一个事件时有微任务就把微任务执行完，才开始执行事件。
+EventLoop 运行机制：检测调用栈为空闲状态时将回调函数加入任务队列中并执行。  
+异步编程原理:比如ajax， 分为发请求和回调，javascript引擎先调用发起请求后，顺序执行任务队列中      
+的下一个任务，浏览器网络模块得到响应通知javascript引擎，eventloop 检测到栈  
+为空闲的时候将回到函数加入任务队列。    
+![eventloop 图解](https://image-static.segmentfault.com/582/928/582928712-5b3ee578ba5ba_articlex)   
+
+```js
+console.log(1);
+
+setTimeout(e=>{ console.log(2); },0)
+
+setTimeout(e=>{ console.log(3); },0)
+
+new Promise((resolve,reject)=>{ console.log(4); resolve();})
+.then(e=>{ console.log(5); })
+
+setTimeout(e=>{ console.log(6);new Promise((resolve,reject)=>{ console.log(7); resolve(); })
+     .then(e=>{ console.log(8);})
+})
+1 4 5 2 3 6 7 8 
+```
 ### 一段代码的运行
 从一段JavaScript源码，解析，抽象语法树，执行上下文，解释器，字节码，编译器。        
 ### JavaScript的核心
@@ -143,12 +164,7 @@ overflow不为visible
 3. 宽度自适应的两栏布局      
 
 ## 恶补CSS知识点          
-
-## EventLoop    
-EventLoop 运行机制：检测调用栈为空闲状态时将回调函数加入任务队列中并执行。  
-异步编程原理:比如ajax， 分为发请求和回调，javascript引擎先调用发起请求后，顺序执行任务队列中      
-的下一个任务，浏览器网络模块得到响应通知javascript引擎，eventloop 检测到栈  
-为空闲的时候将回到函数加入任务队列。    
+[视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)        
 
 ## 网络  
 

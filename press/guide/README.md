@@ -572,6 +572,184 @@ Promise对象的错误具有“冒泡”性质，会一直向后传递，直到�
 ## 介绍暂时性死区 
 在代码块内，使用let命令声明变量之前，该变量都是不可用的。   
 这在语法上，称为“暂时性死区”（temporal dead zone，简称TDZ）。   
+
+## 介绍一下PM2    
+pm2 是node进程管理工具  
+具有： 后台运行，自动重启，停止不稳定的进程，   
+集群模式下，可以达到重启时不停止服务，  
+简单日志管理， 自动负载均衡，提供实时接口，返回服务器与进程的信息
+Master挂了的话Pm2怎么处理？
+立即重启  
+
+## 使用过git merge和git rebase吗？它们之间有什么区别？
+简单的说，git merge和git rebase都是合并分支的命令。     
+
+git merge branch会把branch分支的差异内容pull到本地，然后与本地分支的内容一并形成一个committer对象提交到主分支上，合并后的分支与主分支一致；   
+
+git rebase branch会把branch分支优先合并到主分支，然后把本地分支的commit放到主分支后面，合并后的分支就好像从合并后主分支又拉了一个分支一样，本地分支本身不会保留提交历史。
+
+修改不够果断，使用合并操作，
+
+您可以充分利用 Rebase ：
+你在本地开发：如果您还没有与其他人合作。此时，你应该更喜欢 rebase 而不是 merge 以保持历史的整洁。
+如果您拥有存储库的个人分支并且未与其他开发人员共享，那么即使您已经推送到分支之后，也可以安全地进行 rebase 。
+Rebase 是将更改从一个分支集成到另一个分支的另一种方法。 Rebase 将所有更改压缩为单个“补丁”。然后它将补丁集成到目标分支上。
+与 merge 不同，重定位使历史变得扁平，因为它将完成的工作从一个分支转移到另一个分支。在这个过程中，不需要的历史记录被消除。
+Rebases 是更改应从层次结构顶部向下传递的方式，并且 Merge 是它们向上流回的方式
+## 告诉我 Git 中 HEAD、工作树和索引之间的区别？   
+
+## “git pull”和“git fetch”之间有什么区别
+git pull 是 git fetch + git merge
+
+## 说出space-between和space-around的区别    
+space-between在左右两侧没有边距，而space-around在左右两侧会留下边距，垂直布局同理   
+## 你所知道的前端性能优化方案   
+这个其实方案还是比较多的，可以从DOM层面，CSS样式层面和JS逻辑层面分别入手，大概给出以下几种：
+(1) 减少DOM的访问次数，可以将DOM缓存到变量中；    
+(2) 减少重绘和回流，任何会导致重绘和回流的操作都应减少执行，可将多次操作合并为一次；    
+(3) 尽量采用事件委托的方式进行事件绑定，避免大量绑定导致内存占用过多；    
+(4) css层级尽量扁平化，避免过多的层级嵌套，尽量使用特定的选择器来区分；   
+(5) 动画尽量使用CSS3动画属性来实现，开启GPU硬件加速；   
+(6) 图片在加载前提前指定宽高或者脱离文档流，可避免加载后的重新计算导致的页面回流；    
+(7) css文件在head标签中引入，js文件在body标签中引入，优化关键渲染路径；     
+(8) 加速或者减少HTTP请求，使用CDN加载静态资源，合理使用浏览器强缓存和协商缓存，小图片可以使用Base64来代替，合理使用浏览器的预取指令prefetch和预加载指令preload；
+(9) 压缩混淆代码，删除无用代码，代码拆分来减少文件体积；
+(10) 小图片使用雪碧图，图片选择合适的质量、尺寸和格式，避免流量浪费。
+## GET和POST的区别    
+(1) GET请求在浏览器回退和刷新时是无害的，而POST请求会告知用户数据会被重新提交；   
+(2) GET请求可以收藏为书签，POST请求不可以收藏为书签；   
+(3) GET请求可以被缓存，POST请求不可以被缓存，除非在响应头中包含合适的Cache-Control/Expires字段，但是不建议缓存POST请求，其不满足幂等性，每次调用都会对服务器资源造成影响；    
+(4) GET请求一般不具有请求体，因此只能进行url编码，而POST请求支持多种编码方式。    
+(5) GET请求的参数可以被保留在浏览器的历史中，POST请求不会被保留；   
+(6) GET请求因为是向URL添加数据，不同的浏览器厂商，代理服务器，web服务器都可能会有自己的长度限制，而POST请求无长度限制；   
+(7) GET请求只允许ASCII字符，POST请求无限制，支持二进制数据；    
+(8) GET请求的安全性较差，数据被暴露在浏览器的URL中，所以不能用来传递敏感信息，POST请求的安全性较好，数据不会暴露在URL中；   
+(9) GET请求具有幂等性(多次请求不会对资源造成影响)，POST请求不幂等；   
+(10) GET请求一般不具有请求体，请求中一般不包含100-continue 协议，所以只会发一次请求，而POST请求在发送数据到服务端之前允许双方"握手"，客户端先发送Expect:100-continue消息，询问服务端是否愿意接收数据，接收到服务端正确的100-continue应答后才会将请求体发送给服务端，服务端再响应200返回数据。   
+## CSS3中transition和animation的属性分别有哪些    
+transition 过渡动画：      
+(1) transition-property：属性名称       
+(2) transition-duration: 间隔时间       
+(3) transition-timing-function: 动画曲线       
+(4) transition-delay: 延迟    
+animation 关键帧动画：
+(1) animation-name：动画名称
+(2) animation-duration: 间隔时间  
+(3) animation-timing-function: 动画曲线 
+(4) animation-delay: 延迟 
+(5) animation-iteration-count：动画次数 
+(6) animation-direction: 方向 
+(7) animation-fill-mode: 禁止模式 
+## 选择器优先级   
+!important > 行内样式 > id选择器 > class选择器 > 标签选择器 > * > 继承 > 默认   
+## 跨标签页的通讯方式有哪些   
+(1) BroadCastChannel    
+```js
+var bc = new BroadcastChannel('test_channel');  
+bc.addEventListener("message",function(ev){
+    wrapper.append("<p>2接收："+ev.data+"</p>");
+});
+bc.postMessage(data); 
+bc.close(); 
+```
+(2) Service Worker    
+```js
+navigator.serviceWorker.register('./sw.js', { scope: './' })
+    .then(function (reg) {
+      const messageChannel = new MessageChannel();
+      messageChannel.port1.onmessage = e => {
+        console.log(e.data); // this message is from sw.js, to page
+      }
+      reg.active.postMessage("this message is from page, to sw", [messageChannel.por2]);
+    });
+this.addEventListener('message', function (event) {
+  console.log(event.data); // this message is from page, to sw
+  event.ports[0].postMessage('this message is from sw.js, to page');
+});
+```
+(3) LocalStorage + window.onstorage监听   
+(4) Shared Worker + 定时器轮询(setInterval)   
+(5) IndexedDB + 定时器轮询(setInterval)   
+(6) cookie + 定时器轮询(setInterval)    
+(7) window.open + window.postMessage    
+(8) Websocket   
+## 介绍下 npm 模块安装机制，为什么输入 npm install 就可以自动安装对应的模块？   
+1. npm 模块安装机制：
+发出npm install命令   
+查询node_modules目录之中是否已经存在指定模块  
+若存在，不再重新安装  
+若不存在  
+npm 向 registry 查询模块压缩包的网址  
+下载压缩包，存放在根目录下的.npm目录里  
+解压压缩包到当前项目的node_modules目录
+
+2. npm 实现原理
+
+输入 npm install 命令并敲下回车后，会经历如下几个阶段（以 npm 5.5.1 为例）：
+
+执行工程自身 preinstall
+
+当前 npm 工程如果定义了 preinstall 钩子此时会被执行。
+
+#### 确定首层依赖模块
+
+首先需要做的是确定工程中的首层依赖，
+也就是 dependencies 和 devDependencies 属性中直接指定的模块（假设此时没有添加 npm install 参数）。
+
+工程本身是整棵依赖树的根节点，
+每个首层依赖模块都是根节点下面的一棵子树，
+npm 会开启多进程从每个首层依赖模块开始逐步寻找更深层级的节点。
+#### 获取模块
+获取模块是一个递归的过程，分为以下几步：
+获取模块信息。在下载一个模块之前，首先要确定其版本，这是因为 package.json 中往往是 semantic version（semver，语义化版本）。此时如果版本描述文件（npm-shrinkwrap.json 或 package-lock.json）中有该模块信息直接拿即可，如果没有则从仓库获取。如 packaeg.json 中某个包的版本是 ^1.1.0，npm 就会去仓库中获取符合 1.x.x 形式的最新版本。
+获取模块实体。上一步会获取到模块的压缩包地址（resolved 字段），npm 会用此地址检查本地缓存，缓存中有就直接拿，如果没有则从仓库下载。
+查找该模块依赖，如果有依赖则回到第1步，如果没有则停止。
+
+## v-if、v-show、v-html 的原理是什么，它是如何封装的？    
+## 为什么建立连接要三次握手，为什么不是2次，4次   
+三次是最小的安全次数，可以保证通信的双方都具有发送消息和接收响应的能力，发送方和接收方始终同步序号，可以实现可靠传输。    
+## 说说事件循环机制   
+JavaScript代码的执行过程中，除了依靠函数调用栈来搞定函数的执行顺序外，还依靠任务队列(task queue)来搞定另外一些代码的执行。整个执行过程，我们称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为macro-task（宏任务）与micro-task（微任务），在最新标准中，它们被分别称为task与jobs。
+macro-task大概包括：
+script(整体代码)
+setTimeout
+setInterval
+setImmediate
+I/O
+UI render
+micro-task大概包括:
+process.nextTick
+Promise
+Async/Await(实际就是promise)
+MutationObserver(html5新特性)
+## 如何监控网页崩溃?  
+1. 利用页面崩溃无法触发 beforeunload 事件来实现 
+2. 基于 Service Worker 实现一种基于心跳检测的监控方案   
+## 长按闪退的问题
+长按列表页的列表项时(触摸到文字)，在低版本手机中会出现闪退的情况    
+js部分：在事件触发时添加e.preventDefault();，用于阻止默认行为   
+css部分：添加禁止文本文本复制的代码   
+## 正向代理与反向代理的理解以及区别   
+正向代理：      
+1、用户发送请求到自己的代理服务器   
+2、自己的代理服务器发送请求到服务器   
+3、服务器将数据返回到自己的代理服务器   
+4、自己的代理服务器再将数据返回给用户     
+反向代理 
+1、用户发送请求到服务器（访问的其实是反向代理服务器，但用户不知道）   
+2、反向代理服务器发送请求到真正的服务器   
+3、真正的服务器将数据返回给反向代理服务器     
+4、反向代理服务器再将数据返回给用户   
+正向代理隐藏的是用户，反向代理隐藏的是服务器    
+## CDN有哪些优化静态资源加载速度的方法？    
+资源调度：CDN会根据用户接入网络的ip寻找距离用户最优路径的服务器。调度的方式主要有DNS调度、http 302调度、使用 HTTP 进行的 DNS 调度（多用于移动端）；
+缓存策略和数据检索：CDN服务器使用高效的算法和数据结构，快速的检索资源和更新读取缓存；
+网络优化：从OSI七层模型进行优化，达到网络优化的目的。
+L1物理层：硬件设备升级提高速度
+L2数据链路层：寻找更快的网络节点、确保 Lastmile 尽量短
+L3路由层：路径优化，寻找两点间最优路径
+L4传输层：协议TCP优化，保持长连接、TCP快速打开
+L7应用层：静态资源压缩、请求合并
 ## Node 面试题
 
 严格路由和不严格路由有什么区别  
