@@ -224,6 +224,42 @@ string.replace(rePropName, function(match, number, quote, subString) {
 1. 反向引用 \1, \2...
 表达式在匹配时，表达式引擎会将小括号 "( )" 包含的表达式所匹配到的字符串记录下来。在获取匹配结果的时候，小括号包含的表达式所匹配到的字符串可以单独获取   
 2. ?: 匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用   
+**这瞬间启发了我，好几个手写题**      
+```js  
+let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
+let data = {
+  name: '姓名',
+  age: 18
+}
+function render(template, data){
+  let reg = /{{(\w+)}}/g;
+  return template.replace(reg,function(match,name){
+    return data[name];
+  });
+}
+// 输出：我是姓名，年龄18，性别undefined
+```
+```js
+var s1 = "get-element-by-id";
+// 转化为 getElementById
+function caseIgnore(s) {
+  const reg = /-(\w)/g;
+  return s.replace(reg,function(match,res){
+    return res.toUpperCase();
+  })
+}
+```
+```js
+//return '1,087,654.321'
+function parseToMoney(value){
+  const reg = /(\d)(?=(\d{3})+$)/g;
+  let sm = value.split('.');
+  let res = sm[0].replace(reg,function(match){
+    return match+',';
+  })
+  return res+(sm.length>1?'.'+sm[1]:'');
+}
+```
 [正则手册](https://tool.oschina.net/uploads/apidocs/jquery/regexp.html)         
 
 
