@@ -94,4 +94,5 @@ window.addEventListener('message');
 
 内嵌的web时常收到体验差的效果，除了在代码层面尽量压缩资源，最好的效果还是本地效应。  
 具体的见 [那些年做过的优化](/guide/promto.html) 
+调试：spy-debugger
 

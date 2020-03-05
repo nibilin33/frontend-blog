@@ -210,5 +210,22 @@ Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转�
 为了解决全局对象或者全局对象方法编译不足的情况，才出现了transform-runtime这个插件，
 但是它只会对es6的语法进行转换，而不会对新api进行转换  
 ## express  
+## lodash   
+看到一段很妙的正则    
+解析'a[0].b.c'这种格式    
+```js
+var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
+var reEscapeChar = /\\(\\)?/g;
+
+string.replace(rePropName, function(match, number, quote, subString) {
+    result.push(quote ? subString.replace(reEscapeChar, '$1') : (number || match));
+});
+```
+1. 反向引用 \1, \2...
+表达式在匹配时，表达式引擎会将小括号 "( )" 包含的表达式所匹配到的字符串记录下来。在获取匹配结果的时候，小括号包含的表达式所匹配到的字符串可以单独获取   
+2. ?: 匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用   
+[正则手册](https://tool.oschina.net/uploads/apidocs/jquery/regexp.html)         
+
+
 
 

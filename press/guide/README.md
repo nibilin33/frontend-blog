@@ -519,7 +519,61 @@ Tree-shaking的本质是消除无用的js代码
 
 1. 使用transform： scale +媒体查询 
 2. 直接rem设置
+## CSS：区别 px、em、rem    
+px 在缩放页面时无法调整那些使用它作为单位的字体、按钮等的大小；
 
+em 的值并不是固定的，会继承父级元素的字体大小，代表倍数；   
+
+rem 的值并不是固定的，始终是基于根元素 <html> 的，也代表倍数。    
+## ios滑动不流畅    
+-webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 */
+ 
+-webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */
+## iOS 上拉边界下拉出现白色空白   
+1. 通过监听 touchmove，让需要滑动的地方滑动，不需要滑动的地方禁止滑动。 
+2. 填充一些元素：下拉后刷新页面 
+## 软键盘将页面顶起来、收起未回落   
+安卓一些版本中，输入弹窗出来，会将解压 absolute 和 fixed 定位的元素。导致可视区域变小，布局错乱。
+软键盘将页面顶起来的解决方案，主要是通过监听页面高度变化，强制恢复成弹出前的高度。
+键盘不能回落问题出现在 iOS 12+ 和 wechat 6.7.4+ 中，而在微信 H5 开发中是比较常见的 Bug。
+## iPhone X系列安全区域适配问题   
+viewport-fit meta 标签设置为 cover，获取所有区域填充。判断设备是否属于 iPhone X，给头部底部增加适配层
+
+viewport-fit 有 3 个值分别为：
+
+auto：此值不影响初始布局视图端口，并且整个web页面都是可查看的。
+
+contain：视图端口按比例缩放，以适合显示内嵌的最大矩形。
+
+cover：视图端口被缩放以填充设备显示。强烈建议使用 safe area inset 变量，以确保重要内容不会出现在显示之外。
+增加适配层
+使用 safe area inset 变量
+
+/* 适配 iPhone X 顶部填充*/
+@supports (top: env(safe-area-inset-top)){
+  body,
+  .header{
+      padding-top: constant(safe-area-inset-top, 40px);
+      padding-top: env(safe-area-inset-top, 40px);
+      padding-top: var(safe-area-inset-top, 40px);
+  }
+}
+/* 判断iPhoneX 将 footer 的 padding-bottom 填充到最底部 */
+@supports (bottom: env(safe-area-inset-bottom)){
+    body,
+    .footer{
+        padding-bottom: constant(safe-area-inset-bottom, 20px);
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+        padding-top: var(safe-area-inset-bottom, 20px);
+    }
+}
+safe-area-inset-top, safe-area-inset-right, safe-area-inset-bottom, safe-area-inset-left safe-area-inset-*由四个定义了视口边缘内矩形的 top, right, bottom 和 left 的环境变量组成，这样可以安全地放入内容，而不会有被非矩形的显示切断的风险。对于矩形视口，例如普通的笔记本电脑显示器，其值等于零。对于非矩形显示器（如圆形表盘，iPhoneX 屏幕），在用户代理设置的四个值形成的矩形内，所有内容均可见。
+
+其中 env() 用法为 env( <custom-ident> , <declaration-value>? )，第一个参数为自定义的区域，第二个为备用值。
+
+其中 var() 用法为 var( <custom-property-name> , <declaration-value>? )，作用是在 env() 不生效的情况下，给出一个备用值。
+
+constant（） 被 css 2017-2018 年为草稿阶段，是否已被标准化未知。而其他iOS 浏览器版本中是否有此函数未知，作为兼容处理而添加进去。 
 ## JSBridge原理是什么？如何设计一个JSBridge？
 
 ## 离线包怎么设计？    
@@ -822,6 +876,22 @@ event.currentTarget 返回绑定事件的元素
 移动端事件触发顺序：在移动端，手指点击一个元素，会经过：touchstart --> touchmove -> touchend -->click。
 fastclick.js的原理是：FastClick的实现原理是在检测到touchend事件的时候，
 会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后真正的click事件阻止掉。  
+## 前后端分离的项目如何seo  
+使用prerender。但是回答prerender，面试官肯定会问你，如果不用prerender，让你直接去实现，好的，请看下面的第二个答案。
+先去 www.baidu.com/robots.txt 找出常见的爬虫，然后在nginx上判断来访问页面用户的User-Agent是否是爬虫，如果是爬虫，就用nginx方向代理到我们自己用nodejs + puppeteer实现的爬虫服务器上，然后用你的爬虫服务器爬自己的前后端分离的前端项目页面，增加扒页面的接收延时，保证异步渲染的接口数据返回，最后得到了页面的数据，返还给来访问的爬虫即可。  
+
+## 一次性插入1000个div，如何优化插入的性能
+使用Fragment
+var fragment = document.createDocumentFragment();
+fragment.appendChild(elem);
+复制代码
+向1000个并排的div元素中，插入一个平级的div元素，如何优化插入的性能    
+先display:none 然后插入 再display:block   
+赋予key，然后使用virtual-dom，先render，然后diff，最后patch   
+脱离文档流，用GPU去渲染，开启硬件加速   
+## a.b.c.d和a['b']['c']['d']，哪个性能更高    
+a['b']['c']和a.b.c，转换成AST前者的的树是含计算的，后者只是string literal，天然前者会消耗更多的计算成本，时间也更长
+
 ## Node 面试题
 
 严格路由和不严格路由有什么区别  
