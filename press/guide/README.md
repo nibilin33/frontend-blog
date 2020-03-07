@@ -884,6 +884,11 @@ fastclick.js的原理是：FastClick的实现原理是在检测到touchend事件
 使用Fragment
 var fragment = document.createDocumentFragment();
 fragment.appendChild(elem);
+DocumentFragments 是DOM节点。
+它们不是主DOM树的一部分。通常的用例是创建文档片段，
+将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的子元素所代替。    
+因为文档片段存在于内存中，并不在DOM树中，所以将子元素插入到文档片段时不会引起页面回流（对元素位置和几何上的计算）。因此，使用文档片段通常会带来更好的性能。
+
 复制代码
 向1000个并排的div元素中，插入一个平级的div元素，如何优化插入的性能    
 先display:none 然后插入 再display:block   
@@ -892,8 +897,71 @@ fragment.appendChild(elem);
 ## a.b.c.d和a['b']['c']['d']，哪个性能更高    
 a['b']['c']和a.b.c，转换成AST前者的的树是含计算的，后者只是string literal，天然前者会消耗更多的计算成本，时间也更长
 
-## Node 面试题
+## 伪类和伪元素的区别
+1. 伪元素: 改变dom结构，创建虚拟dom   
+2. 伪类: 不修改dom内容，通过一些特定的选择器根据特定的状态，特定条件来修改元素的样式    
+## 讲讲MVVM，说说与MVC有什么区别    
+MVVM是Model-View-ViewModel的简写。它本质上就是MVC 的改进版。
+MVVM 就是将其中的View 的状态和行为抽象化，让我们将视图 UI 和业务逻辑分开。
+当然这些事 ViewModel 已经帮我们做了，它可以取出 Model 的数据同时帮忙处理 View 中由于需要展示内容而涉及的业务逻辑。
 
+MVC 业务逻辑、数据、界面显示分离的方法组织代码    
+## 说说z-index有什么需要注意的地方    
+background/border < -z-index< block < float < 
+inline < z-index:auto < z-index     
+## 说说DOM事件流
+DOM事件流包括三个阶段。
+事件捕获阶段，处于目标阶段，事件冒泡阶段。    
+event.target返回触发事件的元素
+event.currentTarget返回绑定事件的元素
+relatedTarget 事件属性返回与事件的目标节点相关的节点。
+对于 mouseover 事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。
+对于 mouseout 事件来说，该属性是离开目标时，鼠标指针进入的节点。
+对于其他类型的事件来说，这个属性没有用。    
+## HTTP状态码206是干什么的    
+206 部分请求成功，断点续传    
+## Vue的数据为什么频繁变化但只会更新一次    
+Vue是异步更新Dom的，Dom的更新放在下一个宏任务或者当前宏任务的末尾（微任务）中进行执行
+由于VUE的数据驱动视图更新是异步的，即修改数据的当下，视图不会立刻更新，
+而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。  
+## 判断两个变量是否一样 
+Object.is 
+
+if (!Object.is) {
+  Object.is = function(x, y) {
+    // SameValue algorithm
+    if (x === y) { // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  };
+}
+## Vue模板编译的过程    
+DocumentFragments： 
+解析指令（属性节点）与插值表达式（文本节点），并替换模板数据，初始化视图；
+将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图；
+## http 301和302
+301 redirect: 301 代表永久性转移(Permanently Moved)   
+302 redirect: 302 代表暂时性转移(Temporarily Moved )  
+## http 缓存的优先级      
+强缓存>协商缓存
+1、Expires
+Expires是一个Http1.0提出的概念，它描述的是一个绝对时间，由服务端返回
+Expires: Wed, 11 May 2018 07:20:00 GMT
+这种方式的弊端在于如果我们修改了客户端的时间可能会意外导致缓存失效。
+2、Cache-Control
+catche-control是http1.1提出的概念，优先级高于expires，描述的是一个相对时间  
+## Node 面试题
+Node.js的加载机制   
+require 和 module.exports
+nodejs认为一个js文件就是一个模块，每个模块都有一个全局对象module，同时module对象中有一个对象exports。   
+exports是module.exports对象的别名，提供便捷的属性和方法设置       
+这个对象被加载一次之后会别缓存，里面提供了模块的父子模块关联信息，即父模块被那些模块引用，子模块引用了那些模块。
+require可以加载文件模块（.js、.code、.json）和nodejs核心模块，最终获取到的是module.exports对象。第一次加载的时候执行代码，第二次从缓存中获取module.exports对象，如果没有发现指定模块就报错not find module。   
+----------------------------------
 严格路由和不严格路由有什么区别  
 strict 严格路由，例如 /foo 和 /foo/ ，默认false关闭。
 -------------------------------------------
