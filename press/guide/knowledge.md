@@ -62,7 +62,22 @@ promise.then()
 object.Observe            
 mutaionObserver     
 微任务可以多个同时执行，宏任务一次只能执行一个。        
-Promise宏任务，Promise.then是微任务，宏任务先，console.log，再到微任务         
+Promise宏任务，Promise.then是微任务，宏任务先，console.log，再到微任务       
+
+### You think you know JavaScript? 
+函数声明会覆盖变量声明，但不会覆盖变量赋值      
+```js
+function value(){
+    return 1;
+}
+var value;
+alert(typeof value);    //"function"
+function value(){
+    return 1;
+}
+var value = 1;
+alert(typeof value);    //"number"
+```
 ## XHTML 与 HTML 的不同 
 
 XHTML 元素必须被正确地嵌套。    

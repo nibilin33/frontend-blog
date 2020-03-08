@@ -35,7 +35,8 @@ module.exports = {
         text: "评论留言",
         link: "/guide/comment.md"
       },
-      { text: "Github", link: "https://github.com/nibilin33" }
+      { text: "Github", link: "https://github.com/nibilin33" },
+      { text:"GitBook",link:"https://legacy.gitbook.com/book/nibilin33/share-code/welcome"}
     ]
   },
   plugins: [
