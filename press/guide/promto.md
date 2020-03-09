@@ -362,4 +362,14 @@ export default new nbTree();
 
 #### 利用好console
 - [x] 占用内存 ---- console.memory
-- [x] 花费时间 ---- console.profile(),console.profileEnd()
+- [x] 花费时间 ---- console.profile(),console.profileEnd()      
+
+## 离屏渲染优化     
+看electron看到离屏渲染，就找资料了解了一下。        
+### 渲染机制        
+CPU将计算好的需要显示的内容提交给GPU，GPU渲染完成后将渲染结果放入帧缓冲区，随后视频控制器会按照Vsync(垂直脉冲)信号逐行读取帧缓冲区的数据，经过可能的数模转换传递给显示器进行显示。
+### 原理        
+GPU在当前屏幕缓冲区以外新开辟一个缓冲区进行渲染操作。
+### 相关资料        
+https://juejin.im/post/5dc3ad196fb9a04ac07ce1a0#heading-0       
+http://www.cocoachina.com/articles/26292        

@@ -1005,6 +1005,100 @@ GFC（GrideLayout formatting contexts）：网格布局格式化上下文
 
 FFC（Flex formatting contexts）:自适应格式上下文
 display值为flex或者inline-flex的元素将会生成自适应容器（flex container），可惜这个牛逼的属性只有谷歌和火狐支持，不过在移动端也足够了，至少safari和chrome还是OK的，毕竟这俩在移动端才是王道。Flex Box 由伸缩容器和伸缩项目组成。通过设置元素的 display 属性为 flex 或 inline-flex 可以得到一个伸缩容器。设置为 flex 的容器被渲染为一个块级元素，而设置为 inline-flex 的容器则渲染为一个行内元素。伸缩容器中的每一个子元素都是一个伸缩项目。伸缩项目可以是任意数量的。伸缩容器外和伸缩项目内的一切元素都不受影响。简单地说，Flexbox 定义了伸缩容器内伸缩项目该如何布局。    
+## 前端压题   
+HTML
+必考：你是如何理解 HTML 语义化的？
+meta viewport 是做什么用的，怎么写？
+name为viewport表示供移动设备使用. content定义了viewport的属性   
+```js
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+```
+你用过哪些 HTML 5 标签？
+H5 是什么？
+CSS
+必考：两种盒模型分别说一下。
+必考：如何垂直居中？
+必考：flex 怎么用，常用属性有哪些？
+必考：BFC 是什么？
+CSS 选择器优先级
+清除浮动说一下
+原生 JS
+必考：ES 6 语法知道哪些，分别怎么用？
+必考 Promise、Promise.all、Promise.race 分别怎么用？
+必考：手写函数防抖和函数节流
+必考：手写AJAX
+必考：这段代码里的 this 是什么？
+必考：闭包/立即执行函数是什么？
+必考：什么是 JSONP，什么是 CORS，什么是跨域？
+常考：async/await 怎么用，如何捕获异常？
+常考：如何实现深拷贝？
+常考：如何用正则实现 trim()？
+```js
+/(^\s*)|(\s*$)/g
+```
+常考：不用 class 如何实现继承？用 class 又如何实现？
+常考：如何实现数组去重？
+放弃：== 相关题目（反着答）
+送命题：手写一个 Promise
+DOM
+必考：事件委托
+曾考：用 mouse 事件写一个可拖曳的 div
+HTTP
+必考：HTTP 状态码知道哪些？分别什么意思？
+大公司必考：HTTP 缓存有哪几种？
+必考：GET 和 POST 的区别
+Cookie V.S. LocalStorage V.S. SessionStorage V.S. Session
+框架 Vue
+必考：watch 和 computed 和 methods 区别是什么？
+必考：Vue 有哪些生命周期钩子函数？分别有什么用？
+必考：Vue 如何实现组件间通信？
+必考：Vue 数据响应式怎么做到的？
+必考：Vue.set 是做什么用的？
+Vuex 你怎么用的？
+VueRouter 你怎么用的？
+路由守卫是什么？
+beforeEach,在进入目标路由前判断是否能进入。   
+框架 React
+必考：受控组件 V.S. 非受控组件
+必考：React 有哪些生命周期函数？分别有什么用？（Ajax 请求放在哪个阶段？）
+必考：React 如何实现组件间通信？
+必考：shouldComponentUpdate 有什么用？
+必考：虚拟 DOM 是什么？
+必考：什么是高阶组件？
+React diff 的原理是什么？
+必考 Redux 是什么？
+connect 的原理是什么？
+TypeScript
+never 类型是什么？
+TypeScript 比起 JavaScript 有什么优点？
+Webpack
+必考：有哪些常见 loader 和 plugin，你用过哪些？
+英语题：loader 和 plugin 的区别是什么？
+必考：如何按需加载代码？
+必考：如何提高构建速度？
+转义出的文件过大怎么办？
+上面五题请看这个不错的参考：https://zhuanlan.zhihu.com/p/44438844
+安全
+必考：什么是 XSS？如何预防？
+必考：什么是 CSRF？如何预防？
+开放题目
+必考：你遇到最难的问题是怎样的？
+你在团队的突出贡献是什么？
+最近在关注什么新技术
+有没有看什么源码，看了后有什么记忆深刻的地方，有什么收获
+刁钻题目
+代码
+代码
+(a ==1 && a== 2 && a==3) 可能为 true 吗？
+超纲题    
+JS 垃圾回收机制   
+Eventloop 说一下    
+个性化题目    
+PWA   
+echarts.js / d3.js    
+three.js    
+flutter   
+SSR   
 ## Vue 的父组件和子组件生命周期钩子执行顺序是什么   
 父组建： beforeCreate -> created -> beforeMount
 子组件： -> beforeCreate -> created -> beforeMount -> mounted

@@ -25,6 +25,7 @@ vue add electron-builder
 
 ## 参考
 [electron-webview完全指南](http://www.ayqy.net/blog/electron-webview%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/)  
+[electron-docs](https://www.bootwiki.com/electron/electron-intro.html)    
 ## 使用 
 ### 加入项目作为内嵌模拟工具     
 ::: details   
