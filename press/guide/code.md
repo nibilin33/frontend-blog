@@ -206,6 +206,7 @@ Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转�
 通过babel-traverse plugin对抽象语法树进行深度优先遍历，遇到需要转换的，就直接在AST对象上对节点进行添加、更新及移除操作，比如遇到箭头函数，就转换成普通函数，最后得到新的AST树。   
 第3步 生成（Generate）
 通过babel-generator将AST树生成es5代码。   
+
 1. transform-runtime
 为了解决全局对象或者全局对象方法编译不足的情况，才出现了transform-runtime这个插件，
 但是它只会对es6的语法进行转换，而不会对新api进行转换  
