@@ -89,5 +89,10 @@ html报告：%格式格式化
 xx-----20       
 :::
 
+```js     
+pip install pynput  
+pip install pysqlite    
+```
+
 
 
