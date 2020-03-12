@@ -110,23 +110,21 @@ export default function bind (el: ASTElement, dir: ASTDirective) {
 }
 
 ```
-### v-if、v-show、v-html    
-
+### v-if、v-show、v-html,v-for   
+都是将指令解析到AST，然后用AST生成代码字符串，最后在虚拟DOM渲染时候触发指令钩子函数让指令生效。   
+提到AST，有在线的展示js代码解析成AST的样子[https://astexplorer.net/](https://astexplorer.net/)    
 ### key 的作用      
 我的理解：更快地定位到要比较的节点找出差异，不用一层层找。就优化了diff算法 。   
-看了眼updateChildren方法<span class="emoj">🙉</span>    
-太多......if elseif elseif......我选择...找个图      
-<span class="emoj">👇</span>        
+diff 算法核心：updateChildren方法<span class="emoj">🙉</span>    
+太多......if elseif elseif......冷静下来，画一下图（<span class="emoj">🙉</span>字忽略）....  
+核心思想：尽量复用相同节点，所以会从旧节点里面找到和新节点一样的，进行移动。    
 
+<ClientOnly>
+<diff/>
+</ClientOnly> 
 
-<img src="https://ask.qcloudimg.com/http-save/5949888/zbgt5ik5k1.png?imageView2/2/w/1620"/>  
-<img src="https://ask.qcloudimg.com/http-save/5949888/jh0ctfikom.png?imageView2/2/w/1620"/>     
-<img src="https://ask.qcloudimg.com/http-save/5949888/573fn16c14.png?imageView2/2/w/1620"/> 
-<img src="https://ask.qcloudimg.com/http-save/5949888/exk5xe42uu.png?imageView2/2/w/1620"/>
-<img src="https://ask.qcloudimg.com/http-save/5949888/1ctt1k3kjw.png?imageView2/2/w/1620"/>
-<img src="https://ask.qcloudimg.com/http-save/5949888/1n1dtshge2.png?imageView2/2/w/1620"/>    
-<img src="https://ask.qcloudimg.com/http-save/5949888/2vujt8kx0c.png?imageView2/2/w/1620"/> 
-
+我按着这个思路写了一个简易版...<span class="emoj">🙉</span> 
+[vue-diff](https://github.com/nibilin33/Interview-Days/blob/master/code-practice/3-12/vue-diff.js)  
 
 ### vuex  
 核心：  
