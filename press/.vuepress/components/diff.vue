@@ -1,5 +1,5 @@
 <template>
     <div>
-        <img class="zoom-custom-imgs" src="./diff.jpg"/>
+        <img alt="diff" class="zoom-custom-imgs" src="./diff.jpg"/>
     </div>
 </template>

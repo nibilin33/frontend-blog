@@ -128,25 +128,6 @@ eg:点狗脸，点狗脸
 <nb-img></nb-img>
 </ClientOnly>  
 
-::: demo
-<template>
-    <div class="hide">
-    <figure>
-        <img class="img-transform" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1266768696,2505081725&fm=26&gp=0.jpg"
-            usemap="#Map"></img>
-    <figcaption>小白狗</figcaption>
-    </figure>
-        <map name="Map">
-            <area shape="circle" href="javascript:alert('haha')" coords="10,150,50">
-        </map>
-    </div>
-</template>
-<script>
-export default {
-    name:'nb-img'
-}
-</script>
-:::
 
 ## H5新增日期类型（chrome） 
 | 类型          | 功能|
@@ -178,7 +159,7 @@ overflow不为visible
 2. 解决外边距塌陷
 3. 宽度自适应的两栏布局      
 ## 关于定位     
-static： 默认值。没有定位，元素出现在正常的流中
+static： 默认值。没有定位，元素出现在正常的流中         
 relative（相对定位）：生成相对定位的元素,相对于其正常（原先本身）位置进行定位   
 absolute（绝对定位）：生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位    
 fixed（固定定位）：生成绝对定位的元素，相对于浏览器窗口进行定位          

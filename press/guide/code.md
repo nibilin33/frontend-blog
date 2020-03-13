@@ -2,13 +2,13 @@
 5W是指：Why，What，Where，Who，When     
 1H是指：How 
 ## webpack  
-Why: 解决代码的拆分问题 
-What: 现代JavaScript 应用程序的静态模块打包工具,能做代码转换、文件优化、代码分割、模块合并、自动刷新、代码校验、自动发布    
-How: 构建依赖图，生成chunk    
-通过官网可以知道关键概念：
+Why: 解决代码的拆分问题     
+What: 现代JavaScript 应用程序的静态模块打包工具,能做代码转换、文件优化、代码分割、模块合并、自动刷新、代码校验、自动发布        
+How: 构建依赖图，生成chunk        
+通过官网可以知道关键概念：    
 Entry：构建第一步从entry开始。  
-Module:一个模块对应一个文件，webpack会从entry开始，递归找出所有依赖的模块。 
-Chunk：代码块，一个Chunk由多个模块组合而成，用于代码合并与分割。    
+Module:一个模块对应一个文件，webpack会从entry开始，递归找出所有依赖的模块。     
+Chunk：代码块，一个Chunk由多个模块组合而成，用于代码合并与分割。        
 Loader: loader 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）.    
 Plugin:loader 被用于转换某些类型的模块,而插件则可以用于执行范围更广的任务。 
 插件的范围包括,从打包优化和压缩,一直到重新定义环境中的变量。插件接口功能极其强大,可以用来处理各种各样的任务。   
@@ -195,15 +195,15 @@ Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转�
 功能：      
 语法转换    
 通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)    
-源码转换 (codemods) 
 
-
+::: tip 源码转换 (codemods)
 第1步 解析（Parse）   
 通过解析器babylon将代码解析成抽象语法树。   
 第2步 转换（TransForm）   
 通过babel-traverse plugin对抽象语法树进行深度优先遍历，遇到需要转换的，就直接在AST对象上对节点进行添加、更新及移除操作，比如遇到箭头函数，就转换成普通函数，最后得到新的AST树。   
 第3步 生成（Generate）
 通过babel-generator将AST树生成es5代码。   
+:::
 
 1. transform-runtime
 为了解决全局对象或者全局对象方法编译不足的情况，才出现了transform-runtime这个插件，
