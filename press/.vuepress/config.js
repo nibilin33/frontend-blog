@@ -11,10 +11,10 @@ module.exports = {
   themeConfig: {
     sidebar: [
       ["./guide/solution.md", "记录重构心路思考"],
+      ["./guide/promto.md", "那些年让人难受的BUG"],
       ["./guide/book.md", "书籍阅读"],
       ["./guide/code.md", "源码学习"],
       ["./guide/algorithm.md", "算法学习"],
-      ["./guide/promto.md", "那些年让人难受的BUG"],
       ["./guide/webview.md", "WebView"],
       ["./guide/penetration.md", "渗透测试"],
       ["./guide/interview.md", "面试"],
