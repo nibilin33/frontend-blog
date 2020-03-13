@@ -188,7 +188,7 @@ Websocket:协议基于TCP协议实现，包含初始的握手过程，以及后�
 socket.io: 从IE6到IOS都支持         
 
 
-<img src="https://s1.51cto.com/oss/201906/17/47b144c643677df810e0270e6a228934.jpeg"/>
+<img alt="http网络流程" src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/47b144c643677df810e0270e6a228934.jpeg"/>
 
 #### URI,URL,URN的理解： 
 
