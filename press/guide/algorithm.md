@@ -107,4 +107,4 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 
 [无重复字符的最长子串](https://github.com/nibilin33/Interview-Days/blob/master/code-practice/3-5/3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.js)            
 ## 二叉树
-![前序+中序](https://pic.leetcode-cn.com/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)
+![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)
