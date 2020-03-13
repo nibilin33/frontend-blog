@@ -11,4 +11,4 @@ var singleton = function(fn) {
 ```
 ## 发布订阅vs观察者 
 
-<img data-original-src="//upload-images.jianshu.io/upload_images/4842858-484f192f9506a5f1.png" data-original-width="1148" data-original-height="770" data-original-format="image/png" data-original-filesize="365212" data-image-index="0" style="cursor: zoom-in;" class="" src="//upload-images.jianshu.io/upload_images/4842858-484f192f9506a5f1.png?imageMogr2/auto-orient/strip|imageView2/2/w/1148/format/webp">  
+<img alt="发布观察对比" src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/%E8%A7%82%E5%AF%9F%E8%80%85%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85.png">  
