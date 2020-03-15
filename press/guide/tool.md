@@ -94,5 +94,13 @@ pip install pynput
 pip install pysqlite    
 ```
 
+## 自动下载并安装软件    
+背景：换台电脑装环境都要折腾很久，建一个虚拟机装环境也要很久                
+1. 实现思路
+> 软件能自动批量下载到指定目录      
+> 执行安装程序，跳过图形界面的各种确定按钮             
 
+
+[参考](https://www.cnblogs.com/xiongzaiqiren/p/11268615.html)       
+[基本语法](https://blog.51cto.com/8686505/2438270)      
 
