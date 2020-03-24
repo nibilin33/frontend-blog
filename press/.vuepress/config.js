@@ -24,6 +24,7 @@ module.exports = {
       ["./guide/design.md", "设计模式"],
       ["./guide/component.md", "组件说明"],
       ["./guide/electron.md", "Electron"],
+      ["./guide/min-routine.md", "小程序"],
       ["./guide/cooperation.md", "协作的实现"],
       ["./guide/me.md", "README"]
     ],
