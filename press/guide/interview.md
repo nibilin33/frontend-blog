@@ -18,7 +18,7 @@
 [(上)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-1.md)            
 [(下)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-3.md)       
 
-## 面试经
-迁移到[Interviews-Day](https://github.com/nibilin33/Interview-Days/tree/master/enterprise)  
+## 面试准备
+[题目](https://github.com/nibilin33/frontend-blog/blob/master/code-practice/README.md)      
 
 
