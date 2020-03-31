@@ -25,5 +25,24 @@ async draw() {
     this.context.drawImage(this.img,-this.x,0,this.width,this.height);
 }
 ```
+3. 真机调试HTMLCanvasView is not defined  
+让人绝望的，工具里面都能运行，放到手机开始报错。 
+最后在官网找到，我使用的是canvas最新的接口写法...   
+真机还不支持🙉真的是让人绝望...    
+```
+const ctx =  wx.createCanvasContext('games');
+ctx.drawImage(
+      this.img,
+      this.x,
+      this.y,
+      this.birdHeight,
+      this.birdWidth
+);
+ctx.draw(true);
+```
+改成旧的api的写法，真机上虽然可以渲染出来了，但是卡顿得可怕... 
+而且像素还很模糊🙉
+最后发现，用web-view比原生api流程多了🙉 
+
 ## canvas 性能差异              
 
