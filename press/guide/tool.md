@@ -102,5 +102,20 @@ pip install pysqlite
 
 
 [参考](https://www.cnblogs.com/xiongzaiqiren/p/11268615.html)       
-[基本语法](https://blog.51cto.com/8686505/2438270)      
+[基本语法](https://blog.51cto.com/8686505/2438270)   
+
+## Linux 初始化node 环境shell 脚本  
+```
+wget http://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.gz 
+
+tar  xf node-v5.10.1-linux-x64.tar.gz -C /usr/local/
+
+cd /usr/local/
+
+mv node-v8.11.1-linux-x64/ nodejs
+
+ln -s /usr/local/nodejs/bin/node /usr/local/bin
+
+ln -s /usr/local/nodejs/bin/npm /usr/local/bin
+```
 
