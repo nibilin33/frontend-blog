@@ -3,7 +3,8 @@
 支付宝：axml     
 XML Parser    
 所有现代浏览器都有内建的 XML 解析器。   
-XML 解析器把 XML 文档转换为 XML DOM 对象,就可通过 JavaScript 操作的对象。   
+XML 解析器把 XML 文档转换为 XML DOM 对象,就可通过 JavaScript 操作的对象。  
+通过使用 XSLT，可以把 XML 文档转换成 HTML 格式。        
 ## 遇到的问题       
 
 1. async,await 语法报错       
@@ -112,6 +113,10 @@ wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 | IOS  | JSCore |WKWebView |
 | Android  | V8 |Chrome 内核|
 | 模拟器|NW.js| Chromium Webview|
+
+这里需要看一下WebKit源码中canvas怎么实现的  
+```
+```
 
 ### 模拟器    
 模拟器比真机流畅多了，模拟器的表现效果和web-view基本一致。    
