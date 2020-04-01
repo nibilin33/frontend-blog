@@ -1,5 +1,9 @@
 ## 起步     
-
+微信：wxml     
+支付宝：axml     
+XML Parser    
+所有现代浏览器都有内建的 XML 解析器。   
+XML 解析器把 XML 文档转换为 XML DOM 对象,就可通过 JavaScript 操作的对象。   
 ## 遇到的问题       
 
 1. async,await 语法报错       
