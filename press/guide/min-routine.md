@@ -109,5 +109,12 @@ wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 | Android  | V8 |Chrome 内核|
 | 模拟器|NW.js| Chromium Webview|
 
+### 模拟器    
+模拟器比真机流畅多了，模拟器的表现效果和web-view基本一致。    
+模拟器 [WEPT](https://github.com/chemzqm/wept)    
+[微信小程序架构分析（上）](https://zhuanlan.zhihu.com/p/22754296)   
+[微信小程序架构分析（中）](https://zhuanlan.zhihu.com/p/22765476)   
+[微信小程序架构分析（下）](https://zhuanlan.zhihu.com/p/22932309)   
+
 ### canvas 渲染引擎   
 
