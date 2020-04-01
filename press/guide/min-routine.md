@@ -58,12 +58,14 @@ ctx.draw(true);
 
 被迫又去试小游戏那一套... 🙉   
 
+5. 服务器更新，web-view 内容没有更新  
+清除缓存：在src上加时间戳参数    
     
 
 ## canvas 性能差异    
 
-### 小游戏canvas效果和小程序canvas 元素差异   
-小游戏引入一个runtime 
+### 小游戏canvas和小程序canvas元素比较   
+小游戏引入一个adapter.js  
 1. 核心canvas对象代码      
 ``` js
 	function Canvas() {
@@ -96,6 +98,16 @@ wx.onTouchMove(touchEventHandlerFactory('touchmove'))
 wx.onTouchEnd(touchEventHandlerFactory('touchend'))
 wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 ```
+小程序事件是绑定在组件上，当达到触发事件，再执行逻辑层中对应的事件处理函数。  
+小游戏是直接执行逻辑层的事件。从架构可以知道，这样少了一层进程通信交流。    
+![渲染层和逻辑层](https://res.wx.qq.com/wxdoc/dist/assets/img/4-1.ad156d1c.png)   
+
+### web-view canvas 和 小程序canvas元素比较      
+|  环境   | 逻辑层  | 视图层|
+|  ----  | ----  | ----  |
+| IOS  | JSCore |WKWebView |
+| Android  | V8 |Chrome 内核|
+| 模拟器|NW.js| Chromium Webview|
 
 ### canvas 渲染引擎   
 
