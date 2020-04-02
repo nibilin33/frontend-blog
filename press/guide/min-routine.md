@@ -55,9 +55,10 @@ ctx.drawImage(
 ctx.draw(true);
 ```
 
-改成旧的api的写法，真机上虽然可以渲染出来了，但是卡顿得可怕... 
+改成旧的api的写法，在模拟器上会一闪一闪的，真机上虽然可以渲染出来了，但是卡顿得可怕... 
 而且像素还很模糊🙉
 最后发现，用web-view比原生api流畅多了🙉    
+    
 
 4. 个人账号发布的不支持web-view的使用...🙉  
 
@@ -114,8 +115,9 @@ wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 | Android  | V8 |Chrome 内核|
 | 模拟器|NW.js| Chromium Webview|
 
-就需要看一下web-view实现差异以及canvas怎么实现的    
-[chrominum源码](https://source.chromium.org/chromium/chromium/src/+/master:?originalUrl=https:%2F%2Fcs.chromium.org%2F)     
+就需要看一下web-view以及canvas怎么实现的    
+[Chromium 在线源码搜索](https://source.chromium.org/chromium/chromium/src/+/master:?originalUrl=https:%2F%2Fcs.chromium.org%2F) （需要翻墙）        
+[Chromium 源码](https://github.com/nibilin33/chromium)     
 [webkit源码](https://github.com/nibilin33/webkit)    
 [v8源码](https://github.com/nibilin33/v8)   
 [Ignition：V8解释器](https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t)       
@@ -124,16 +126,44 @@ wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 ```
 wget https://github.com/nibilin33/webkit/archive/master.zip
 ```
+**canvas 在webkit的源文件目录Source/WebCore/html/canvas**  
+从文件名能看出canvasContext 分为2D类型和非2D，2D类型有开启GPU加速。       
+**问题的代码：**        
+createCanvasContext 不是2D类型，canvas源码里面是默认关闭GPU的，所以效果差很多。               
+而在web-view里面是使用2D类型。  
+**canvas 在Chromium的源文件目录/skia**      
+skia 图形渲染引擎其速度与GPU渲染不相上下   
 
+**android web-view 在Chromium的源文件目录/android_webview**
+android_webview/renderer/aw_render_view_ext.cc  
 ```
+#include "android_webview/renderer/aw_render_view_ext.h"
+#include "android_webview/common/render_view_messages.h"
+#include "content/public/renderer/render_frame.h"
+#include "content/public/renderer/render_view.h"
+#include "third_party/blink/public/web/web_local_frame.h"
+#include "third_party/blink/public/web/web_view.h"
 ```
+可以看出是使用blink作为渲染引擎    
 
-### 模拟器    
-模拟器比真机流畅多了，模拟器的表现效果和web-view基本一致。    
+**IOS 在Chromium的源文件目录/ios/web_view**     
+ios/web_view/public/cwv_web_view.h      
+```
+#import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
+```     
+可以看出是使用webkit作为渲染引擎。  
+Blink只是Webkit的一个分支。 
+
+***所以web-view canvas 和 小程序canvas元素 本质上没有什么区别，只是***          
+***开放出来的api问题，微信新增的2D接口就基本达成效果了。***       
+
+
+<!-- ### 模拟器       
 模拟器 [WEPT](https://github.com/chemzqm/wept)    
 [微信小程序架构分析（上）](https://zhuanlan.zhihu.com/p/22754296)   
 [微信小程序架构分析（中）](https://zhuanlan.zhihu.com/p/22765476)   
 [微信小程序架构分析（下）](https://zhuanlan.zhihu.com/p/22932309)   
 
-### canvas 渲染引擎   
+### canvas 渲染引擎    -->
 
