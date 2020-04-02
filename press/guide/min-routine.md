@@ -69,7 +69,7 @@ ctx.draw(true);
 
 ## canvas 性能差异    
 
-### 小游戏canvas和小程序canvas元素比较   
+### 小游戏canvas对象 VS 小程序canvas元素 
 小游戏引入一个adapter.js  
 1. 核心canvas对象代码      
 ``` js
@@ -107,14 +107,24 @@ wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 小游戏是直接执行逻辑层的事件。从架构可以知道，这样少了一层进程通信交流。    
 ![渲染层和逻辑层](https://res.wx.qq.com/wxdoc/dist/assets/img/4-1.ad156d1c.png)   
 
-### web-view canvas 和 小程序canvas元素比较      
+### web-view canvas VS 小程序canvas元素     
 |  环境   | 逻辑层  | 视图层|
 |  ----  | ----  | ----  |
 | IOS  | JSCore |WKWebView |
 | Android  | V8 |Chrome 内核|
 | 模拟器|NW.js| Chromium Webview|
 
-这里需要看一下WebKit源码中canvas怎么实现的  
+就需要看一下web-view实现差异以及canvas怎么实现的    
+[chrominum源码](https://source.chromium.org/chromium/chromium/src/+/master:?originalUrl=https:%2F%2Fcs.chromium.org%2F)     
+[webkit源码](https://github.com/nibilin33/webkit)    
+[v8源码](https://github.com/nibilin33/v8)   
+[Ignition：V8解释器](https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t)       
+可以利用服务器去下载，然后再从服务器上拉下来，直接从github上面拉取太慢了，  
+而且一直中断失败，毕竟github的节点不在国内。        
+```
+wget https://github.com/nibilin33/webkit/archive/master.zip
+```
+
 ```
 ```
 
