@@ -166,7 +166,7 @@ json格式的数据传递和解析比较费性能，如果频繁调用很可能�
 序列化将对象的状态信息转换为可以存储或传输的形式的过程。        
 在序列化期间，对象将其当前状态写入到临时或持久性存储区。            
 以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。  
-序列化反序列化的影响效果可以查看[11. 序列化反序列化性能影响情况](https://nibilin33.github.io/vue-solution/#/serialize)
+序列化反序列化的影响效果可以查看[11. 序列化反序列化性能影响情况](https://github.com/nibilin33/vue-solution/blob/master/README.md)   
 :::       
   
 ![渲染层和逻辑层](https://res.wx.qq.com/wxdoc/dist/assets/img/4-1.ad156d1c.png)   
