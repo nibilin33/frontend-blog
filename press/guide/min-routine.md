@@ -160,16 +160,21 @@ wx.onTouchCancel(touchEventHandlerFactory('touchcancel'))
 小游戏是直接执行逻辑层的事件。从架构可以知道，这样少了一层进程通信交流。
 json格式的数据传递和解析比较费性能，如果频繁调用很可能损耗过多性能，进而影响用户体验。   
 为什么数据传递和解析费性能？我才发现IOS，android 进程通信是没法通过共享内存实现。       
-
+这边涉及序列化反序列化的大量I/O操作。 
+::: tip 
+序列化将对象的状态信息转换为可以存储或传输的形式的过程。        
+在序列化期间，对象将其当前状态写入到临时或持久性存储区。            
+以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。 
+:::       
+ 
 ![渲染层和逻辑层](https://res.wx.qq.com/wxdoc/dist/assets/img/4-1.ad156d1c.png)   
 
 
 ## 模拟器实现分析       
 微信工具的源码都混淆了，不好看，有人已经实现了个基本    
-流程可以作为参考[模拟器 WEPT](https://github.com/chemzqm/wept)      
+流程，可以作为参考[模拟器 WEPT](https://github.com/chemzqm/wept)      
 或者参考[Linux版weixin-devtools](https://github.com/yuan1994/wechat_web_devtools)       
 进行了解。      
-
 
 <!--    
 [微信小程序架构分析（上）](https://zhuanlan.zhihu.com/p/22754296)   
