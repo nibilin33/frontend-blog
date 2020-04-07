@@ -69,7 +69,7 @@ ctx.draw(true);
     
 
 ## canvas 性能差异    
-### 不同底层的web-view，canvas      
+#### 不同底层的web-view，canvas      
 |  环境   | 逻辑层  | 视图层|
 |  ----  | ----  | ----  |
 | IOS  | JSCore |WKWebView |
@@ -121,7 +121,7 @@ ios/web_view/public/cwv_web_view.h
 ***从渲染引擎性能角度看：微信的canvas元素，开放2D type，利用GPU加速优化渲染效果***             
 ***也可以达到用终端原生的图形渲染库的效果***    
 
-### 小游戏canvas优化点       
+#### 小游戏canvas优化点       
 小游戏引入一个adapter.js  
 1. 核心canvas对象代码      
 ``` js
@@ -165,9 +165,10 @@ json格式的数据传递和解析比较费性能，如果频繁调用很可能�
 ::: tip 
 序列化将对象的状态信息转换为可以存储或传输的形式的过程。        
 在序列化期间，对象将其当前状态写入到临时或持久性存储区。            
-以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。 
+以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。  
+序列化反序列化的影响效果可以查看[11. 序列化反序列化性能影响情况](https://nibilin33.github.io/vue-solution/#/serialize)
 :::       
-序列化反序列化的影响效果可以查看[11. node 序列化反序列化性能影响情况](https://nibilin33.github.io/vue-solution/#/serialize) 
+  
 ![渲染层和逻辑层](https://res.wx.qq.com/wxdoc/dist/assets/img/4-1.ad156d1c.png)   
 
 
