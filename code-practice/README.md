@@ -1,7 +1,7 @@
 # 准备过程中看的题      
 
-
 ## HTML的盒子模型有哪些构成，盒子模型有哪几种，默认的是哪一种    
+
 content-box
 
 ## 盒子模型有没有办法把宽度设置为包含padding的     
@@ -29,8 +29,8 @@ float造成的影响：
 
 ## 清除浮动的所有方法     
 
-1. clear:both
-2. overflow:hidden  
+01. clear:both
+02. overflow:hidden  
 
 ## cookie有哪些特征           
 
@@ -122,12 +122,11 @@ https://segmentfault.com/a/1190000010927816
 
 ## 文件上传断点、续传   
 
-1. 把文件按大小1M分割成N份
-2. 每次上传时，告诉后台大文件的md5、当前第几份（从0开始）、总共几份
-3. 并行上传，前端同时开启5个请求进行传输增加速度
-4. 上传失败或出错后，继续上传下一份，把出错的份放在队尾，如果一直出错则中断请求防止死循环
-5. 后台接受文件后通过md5进行比对，上次是否接受过此文件，如果接受则跳过，最后进行文件合并出来     
-
+01. 把文件按大小1M分割成N份
+02. 每次上传时，告诉后台大文件的md5、当前第几份（从0开始）、总共几份
+03. 并行上传，前端同时开启5个请求进行传输增加速度
+04. 上传失败或出错后，继续上传下一份，把出错的份放在队尾，如果一直出错则中断请求防止死循环
+05. 后台接受文件后通过md5进行比对，上次是否接受过此文件，如果接受则跳过，最后进行文件合并出来     
 
 ## 虚拟DOM算法思路   
 
@@ -188,9 +187,9 @@ vuex 中的 store 本质就是没有 template 的隐藏着的 vue 组件
 
 ## 宿主对象（hostbjects）和原生对象（native objects）的区别是什么
 
-1. 原生对象是由 ECMAScript 规范定义的 JavaScript 内置对象，比如String、Math、RegExp、Object、Function等等。       
+01. 原生对象是由 ECMAScript 规范定义的 JavaScript 内置对象，比如String、Math、RegExp、Object、Function等等。       
 
-2. 宿主对象是由运行时环境（浏览器或 Node）提供，比如window、XMLHTTPRequest等等。 
+02. 宿主对象是由运行时环境（浏览器或 Node）提供，比如window、XMLHTTPRequest等等。 
 
 ## call和.apply有什么区别？
 
@@ -347,26 +346,26 @@ translate()是transform的一个值。改变transform或opacity不会触发浏�
 
 ## 在浏览器中，一个页面从输入URL到加载完成，都有哪些步骤    
 
-1. 域名解析
-2. 建立TCP连接，浏览器与服务器经过3次握手后建立连接   
-3. 浏览器发起HTTP气球，获取资源/*-
-4. 服务器响应HTTP气球
-5. 浏览器渲染   
+01. 域名解析
+02. 建立TCP连接，浏览器与服务器经过3次握手后建立连接   
+03. 浏览器发起HTTP气球，获取资源/*-
+04. 服务器响应HTTP气球
+05. 浏览器渲染   
 
 ## HTTP1.1 有哪些不足   
 
-1. 出现队首阻塞问题   
-2. 响应不分轻重缓急，只会先来后到   
-3. 并行需要建立多个TCP
-4. 只能被动等待客户端发起请求
-5. HTTP是无状态的，每次请求和响应都会携带大量冗余信息 
+01. 出现队首阻塞问题   
+02. 响应不分轻重缓急，只会先来后到   
+03. 并行需要建立多个TCP
+04. 只能被动等待客户端发起请求
+05. HTTP是无状态的，每次请求和响应都会携带大量冗余信息 
 
 ## 用new 运算符创建对象时，具体的创建过程有哪几步
 
-1. 一个新对象被创建，它继承自构造函数的原型
-2. 将指定的参数传递给构造函数
-3. 将执行上下文（this）绑定到新创建的对象中
-4. 如果构造函数有返回值，那么返回值将取代第一步中新创建的对象   
+01. 一个新对象被创建，它继承自构造函数的原型
+02. 将指定的参数传递给构造函数
+03. 将执行上下文（this）绑定到新创建的对象中
+04. 如果构造函数有返回值，那么返回值将取代第一步中新创建的对象   
 
 ## isPrototypeOf方法与instanceof 运算符有哪些区别
 
@@ -395,7 +394,7 @@ isPrototypeOf 用于检测调用此方法对象是否存在于指定对象的原
 
 1.props和$emit
 
-2. EventBus(基本不用)
+02. EventBus(基本不用)
 
 3.vuex
 
@@ -451,12 +450,12 @@ RESTful的缺点
 
 ## Webpack性能优化你知道哪些  
 
-1. 优化Loader的文件搜索范围  
-2. 把Babel编译过的文件缓存起来 loader: 'babel-loader?cacheDirectory=ture'
-3. HappyPack可以将Loader的同步执行转换为并行的  
-4. DllPlugin可以将特定的类库提前打包然后引入。这种方式可以极大的减少打包类库的次数，只有当类库更新版本才有需要重新打包，并且也实现了将公共代码抽离成单独文件的优化方案. 
-5. Scope Hoisting会分析出模块之间的依赖关系，尽可能的把打包出来的模块合并到一个函数中去。
-6. Tree Shaking 可以实现删除项目中未被引用的代码    
+01. 优化Loader的文件搜索范围  
+02. 把Babel编译过的文件缓存起来 loader: 'babel-loader?cacheDirectory=ture'
+03. HappyPack可以将Loader的同步执行转换为并行的  
+04. DllPlugin可以将特定的类库提前打包然后引入。这种方式可以极大的减少打包类库的次数，只有当类库更新版本才有需要重新打包，并且也实现了将公共代码抽离成单独文件的优化方案. 
+05. Scope Hoisting会分析出模块之间的依赖关系，尽可能的把打包出来的模块合并到一个函数中去。
+06. Tree Shaking 可以实现删除项目中未被引用的代码    
 
 ## 如何设计一个组件？   
 
@@ -490,26 +489,36 @@ Tree-shaking的本质是消除无用的js代码
 由于分辨率 DPI 的差异，高清手机屏上的 1px 实际上是由 2×2 个像素点来渲染，有的屏幕甚至用到了 3×3 个像素点
 所以在实际的代码实现中，设置1px的边框，会渲染成2px.
 
-1. 使用transform： scale +媒体查询 
-2. 直接rem设置
+01. 使用transform： scale +媒体查询 
+02. 直接rem设置
+
 ## CSS：区别 px、em、rem    
+
 px 在缩放页面时无法调整那些使用它作为单位的字体、按钮等的大小；
 
 em 的值并不是固定的，会继承父级元素的字体大小，代表倍数；   
 
 rem 的值并不是固定的，始终是基于根元素 <html> 的，也代表倍数。    
+
 ## ios滑动不流畅    
+
 -webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 */
  
 -webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */
+
 ## iOS 上拉边界下拉出现白色空白   
-1. 通过监听 touchmove，让需要滑动的地方滑动，不需要滑动的地方禁止滑动。 
-2. 填充一些元素：下拉后刷新页面 
+
+01. 通过监听 touchmove，让需要滑动的地方滑动，不需要滑动的地方禁止滑动。 
+02. 填充一些元素：下拉后刷新页面 
+
 ## 软键盘将页面顶起来、收起未回落   
+
 安卓一些版本中，输入弹窗出来，会将解压 absolute 和 fixed 定位的元素。导致可视区域变小，布局错乱。
 软键盘将页面顶起来的解决方案，主要是通过监听页面高度变化，强制恢复成弹出前的高度。
 键盘不能回落问题出现在 iOS 12+ 和 wechat 6.7.4+ 中，而在微信 H5 开发中是比较常见的 Bug。
+
 ## iPhone X系列安全区域适配问题   
+
 viewport-fit meta 标签设置为 cover，获取所有区域填充。判断设备是否属于 iPhone X，给头部底部增加适配层
 
 viewport-fit 有 3 个值分别为：
@@ -524,21 +533,25 @@ cover：视图端口被缩放以填充设备显示。强烈建议使用 safe are
 
 /* 适配 iPhone X 顶部填充*/
 @supports (top: env(safe-area-inset-top)){
-  body,
+  body, 
   .header{
+
       padding-top: constant(safe-area-inset-top, 40px);
       padding-top: env(safe-area-inset-top, 40px);
       padding-top: var(safe-area-inset-top, 40px);
+
   }
 }
 /* 判断iPhoneX 将 footer 的 padding-bottom 填充到最底部 */
 @supports (bottom: env(safe-area-inset-bottom)){
+
     body,
     .footer{
         padding-bottom: constant(safe-area-inset-bottom, 20px);
         padding-bottom: env(safe-area-inset-bottom, 20px);
         padding-top: var(safe-area-inset-bottom, 20px);
     }
+
 }
 safe-area-inset-top, safe-area-inset-right, safe-area-inset-bottom, safe-area-inset-left safe-area-inset-*由四个定义了视口边缘内矩形的 top, right, bottom 和 left 的环境变量组成，这样可以安全地放入内容，而不会有被非矩形的显示切断的风险。对于矩形视口，例如普通的笔记本电脑显示器，其值等于零。对于非矩形显示器（如圆形表盘，iPhoneX 屏幕），在用户代理设置的四个值形成的矩形内，所有内容均可见。
 
@@ -547,6 +560,7 @@ safe-area-inset-top, safe-area-inset-right, safe-area-inset-bottom, safe-area-in
 其中 var() 用法为 var( <custom-property-name> , <declaration-value>? )，作用是在 env() 不生效的情况下，给出一个备用值。
 
 constant（） 被 css 2017-2018 年为草稿阶段，是否已被标准化未知。而其他iOS 浏览器版本中是否有此函数未知，作为兼容处理而添加进去。 
+
 ## JSBridge原理是什么？如何设计一个JSBridge？
 
 ## 离线包怎么设计？    
@@ -590,17 +604,22 @@ GPU 进程：其实，Chrome 刚开始发布的时候是没有 GPU 进程的。�
 网络进程：主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。      
 
 插件进程：主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。            
+
 ## promise 和 callback 有什么区别  
+
 Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件更合理
  
 Promise可以用来避免异步操作函数里的嵌套回调问题，因为解决异步最直接的方法是回调嵌套，将后一个的操作放在前一个操作的异步回调里，但如果操作多了，就会有很多层的嵌套。     
 使用 Promise 对象，可以十分方便的摆脱层层嵌套的异步操作回调函数，而以同步操作的流程书写代码   
 Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。即错误总会被下一个catch语句捕获    
+
 ## 介绍暂时性死区 
+
 在代码块内，使用let命令声明变量之前，该变量都是不可用的。   
 这在语法上，称为“暂时性死区”（temporal dead zone，简称TDZ）。   
 
 ## 介绍一下PM2    
+
 pm2 是node进程管理工具  
 具有： 后台运行，自动重启，停止不稳定的进程，   
 集群模式下，可以达到重启时不停止服务，  
@@ -609,6 +628,7 @@ Master挂了的话Pm2怎么处理？
 立即重启  
 
 ## 使用过git merge和git rebase吗？它们之间有什么区别？
+
 简单的说，git merge和git rebase都是合并分支的命令。     
 
 git merge branch会把branch分支的差异内容pull到本地，然后与本地分支的内容一并形成一个committer对象提交到主分支上，合并后的分支与主分支一致；   
@@ -623,14 +643,18 @@ git rebase branch会把branch分支优先合并到主分支，然后把本地分
 Rebase 是将更改从一个分支集成到另一个分支的另一种方法。 Rebase 将所有更改压缩为单个“补丁”。然后它将补丁集成到目标分支上。
 与 merge 不同，重定位使历史变得扁平，因为它将完成的工作从一个分支转移到另一个分支。在这个过程中，不需要的历史记录被消除。
 Rebases 是更改应从层次结构顶部向下传递的方式，并且 Merge 是它们向上流回的方式
+
 ## 告诉我 Git 中 HEAD、工作树和索引之间的区别？   
 
 ## “git pull”和“git fetch”之间有什么区别
 git pull 是 git fetch + git merge
 
 ## 说出space-between和space-around的区别    
+
 space-between在左右两侧没有边距，而space-around在左右两侧会留下边距，垂直布局同理   
+
 ## 你所知道的前端性能优化方案   
+
 这个其实方案还是比较多的，可以从DOM层面，CSS样式层面和JS逻辑层面分别入手，大概给出以下几种：
 (1) 减少DOM的访问次数，可以将DOM缓存到变量中；    
 (2) 减少重绘和回流，任何会导致重绘和回流的操作都应减少执行，可将多次操作合并为一次；    
@@ -642,7 +666,9 @@ space-between在左右两侧没有边距，而space-around在左右两侧会留�
 (8) 加速或者减少HTTP请求，使用CDN加载静态资源，合理使用浏览器强缓存和协商缓存，小图片可以使用Base64来代替，合理使用浏览器的预取指令prefetch和预加载指令preload；
 (9) 压缩混淆代码，删除无用代码，代码拆分来减少文件体积；
 (10) 小图片使用雪碧图，图片选择合适的质量、尺寸和格式，避免流量浪费。
+
 ## GET和POST的区别    
+
 (1) GET请求在浏览器回退和刷新时是无害的，而POST请求会告知用户数据会被重新提交；   
 (2) GET请求可以收藏为书签，POST请求不可以收藏为书签；   
 (3) GET请求可以被缓存，POST请求不可以被缓存，除非在响应头中包含合适的Cache-Control/Expires字段，但是不建议缓存POST请求，其不满足幂等性，每次调用都会对服务器资源造成影响；    
@@ -653,7 +679,9 @@ space-between在左右两侧没有边距，而space-around在左右两侧会留�
 (8) GET请求的安全性较差，数据被暴露在浏览器的URL中，所以不能用来传递敏感信息，POST请求的安全性较好，数据不会暴露在URL中；   
 (9) GET请求具有幂等性(多次请求不会对资源造成影响)，POST请求不幂等；   
 (10) GET请求一般不具有请求体，请求中一般不包含100-continue 协议，所以只会发一次请求，而POST请求在发送数据到服务端之前允许双方"握手"，客户端先发送Expect:100-continue消息，询问服务端是否愿意接收数据，接收到服务端正确的100-continue应答后才会将请求体发送给服务端，服务端再响应200返回数据。   
+
 ## CSS3中transition和animation的属性分别有哪些    
+
 transition 过渡动画：      
 (1) transition-property：属性名称       
 (2) transition-duration: 间隔时间       
@@ -667,41 +695,54 @@ animation 关键帧动画：
 (5) animation-iteration-count：动画次数 
 (6) animation-direction: 方向 
 (7) animation-fill-mode: 禁止模式 
+
 ## 选择器优先级   
+
 !important > 行内样式 > id选择器 > class选择器 > 标签选择器 > * > 继承 > 默认   
+
 ## 跨标签页的通讯方式有哪些   
+
 (1) BroadCastChannel    
-```js
-var bc = new BroadcastChannel('test_channel');  
-bc.addEventListener("message",function(ev){
-    wrapper.append("<p>2接收："+ev.data+"</p>");
+
+``` js
+var bc = new BroadcastChannel('test_channel');
+bc.addEventListener("message", function(ev) {
+    wrapper.append("<p>2接收：" + ev.data + "</p>");
 });
-bc.postMessage(data); 
-bc.close(); 
+bc.postMessage(data);
+bc.close();
 ```
+
 (2) Service Worker    
-```js
-navigator.serviceWorker.register('./sw.js', { scope: './' })
-    .then(function (reg) {
-      const messageChannel = new MessageChannel();
-      messageChannel.port1.onmessage = e => {
-        console.log(e.data); // this message is from sw.js, to page
-      }
-      reg.active.postMessage("this message is from page, to sw", [messageChannel.por2]);
+
+``` js
+navigator.serviceWorker.register('./sw.js', {
+        scope: './'
+    })
+    .then(function(reg) {
+        const messageChannel = new MessageChannel();
+        messageChannel.port1.onmessage = e => {
+            console.log(e.data); // this message is from sw.js, to page
+        }
+        reg.active.postMessage("this message is from page, to sw", [messageChannel.por2]);
     });
-this.addEventListener('message', function (event) {
-  console.log(event.data); // this message is from page, to sw
-  event.ports[0].postMessage('this message is from sw.js, to page');
+this.addEventListener('message', function(event) {
+    console.log(event.data); // this message is from page, to sw
+    event.ports[0].postMessage('this message is from sw.js, to page');
 });
 ```
+
 (3) LocalStorage + window.onstorage监听   
 (4) Shared Worker + 定时器轮询(setInterval)   
 (5) IndexedDB + 定时器轮询(setInterval)   
 (6) cookie + 定时器轮询(setInterval)    
 (7) window.open + window.postMessage    
 (8) Websocket   
+
 ## 介绍下 npm 模块安装机制，为什么输入 npm install 就可以自动安装对应的模块？   
-1. npm 模块安装机制：
+
+01. npm 模块安装机制：
+
 发出npm install命令   
 查询node_modules目录之中是否已经存在指定模块  
 若存在，不再重新安装  
@@ -710,7 +751,7 @@ npm 向 registry 查询模块压缩包的网址
 下载压缩包，存放在根目录下的.npm目录里  
 解压压缩包到当前项目的node_modules目录
 
-2. npm 实现原理
+02. npm 实现原理
 
 输入 npm install 命令并敲下回车后，会经历如下几个阶段（以 npm 5.5.1 为例）：
 
@@ -726,16 +767,21 @@ npm 向 registry 查询模块压缩包的网址
 工程本身是整棵依赖树的根节点，
 每个首层依赖模块都是根节点下面的一棵子树，
 npm 会开启多进程从每个首层依赖模块开始逐步寻找更深层级的节点。
+
 #### 获取模块
+
 获取模块是一个递归的过程，分为以下几步：
 获取模块信息。在下载一个模块之前，首先要确定其版本，这是因为 package.json 中往往是 semantic version（semver，语义化版本）。此时如果版本描述文件（npm-shrinkwrap.json 或 package-lock.json）中有该模块信息直接拿即可，如果没有则从仓库获取。如 packaeg.json 中某个包的版本是 ^1.1.0，npm 就会去仓库中获取符合 1.x.x 形式的最新版本。
 获取模块实体。上一步会获取到模块的压缩包地址（resolved 字段），npm 会用此地址检查本地缓存，缓存中有就直接拿，如果没有则从仓库下载。
 查找该模块依赖，如果有依赖则回到第1步，如果没有则停止。
 
 ## v-if、v-show、v-html 的原理是什么，它是如何封装的？    
+
 ## 为什么建立连接要三次握手，为什么不是2次，4次   
 三次是最小的安全次数，可以保证通信的双方都具有发送消息和接收响应的能力，发送方和接收方始终同步序号，可以实现可靠传输。    
+
 ## 说说事件循环机制   
+
 JavaScript代码的执行过程中，除了依靠函数调用栈来搞定函数的执行顺序外，还依靠任务队列(task queue)来搞定另外一些代码的执行。整个执行过程，我们称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为macro-task（宏任务）与micro-task（微任务），在最新标准中，它们被分别称为task与jobs。
 macro-task大概包括：
 script(整体代码)
@@ -749,14 +795,20 @@ process.nextTick
 Promise
 Async/Await(实际就是promise)
 MutationObserver(html5新特性)
+
 ## 如何监控网页崩溃?  
-1. 利用页面崩溃无法触发 beforeunload 事件来实现 
-2. 基于 Service Worker 实现一种基于心跳检测的监控方案   
+
+01. 利用页面崩溃无法触发 beforeunload 事件来实现 
+02. 基于 Service Worker 实现一种基于心跳检测的监控方案   
+
 ## 长按闪退的问题
+
 长按列表页的列表项时(触摸到文字)，在低版本手机中会出现闪退的情况    
-js部分：在事件触发时添加e.preventDefault();，用于阻止默认行为   
+js部分：在事件触发时添加e.preventDefault(); ，用于阻止默认行为   
 css部分：添加禁止文本文本复制的代码   
+
 ## 正向代理与反向代理的理解以及区别   
+
 正向代理：      
 1、用户发送请求到自己的代理服务器   
 2、自己的代理服务器发送请求到服务器   
@@ -768,7 +820,9 @@ css部分：添加禁止文本文本复制的代码
 3、真正的服务器将数据返回给反向代理服务器     
 4、反向代理服务器再将数据返回给用户   
 正向代理隐藏的是用户，反向代理隐藏的是服务器    
+
 ## CDN有哪些优化静态资源加载速度的方法？    
+
 资源调度：CDN会根据用户接入网络的ip寻找距离用户最优路径的服务器。调度的方式主要有DNS调度、http 302调度、使用 HTTP 进行的 DNS 调度（多用于移动端）；
 缓存策略和数据检索：CDN服务器使用高效的算法和数据结构，快速的检索资源和更新读取缓存；
 网络优化：从OSI七层模型进行优化，达到网络优化的目的。
@@ -777,29 +831,43 @@ L2数据链路层：寻找更快的网络节点、确保 Lastmile 尽量短
 L3路由层：路径优化，寻找两点间最优路径
 L4传输层：协议TCP优化，保持长连接、TCP快速打开
 L7应用层：静态资源压缩、请求合并    
+
 ## 消除transition闪屏 
+
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden; 属性定义当元素不面向屏幕时是否可见。
+
 如果在旋转元素不希望看到其背面时，该属性很有用。
+
     -webkit-perspective: 1000; 
+
 ## GPU 加速原理   
+
 GPU加速实际上是大幅减少了合成/绘制时间，从而大大地提高了页面速度，但GPU加速有自己的缺点：
 过多的GPU层会带来性能开销，主要原因是使用GPU加速其实是利用了GPU层的缓存，让渲染资源可以重复使用，所以一旦层多了，
 缓存增大，就会引起别的性能问题
 
 ## fetch 和 ajax 的区别   
-1. fetch 
+
+01. fetch 
+
 window 的一个方法，它的主要特点有： 
 1、第一个参数是URL:
 2、第二个是可选参数，可以控制不同配置的 init 对象
 3、使用了 JavaScript Promises 来处理结果/回调:
-2. ajax 
+
+02. ajax 
+
 是使用XMLHttpRequest对象来请求数据  
+
 ## 渲染引擎
+
 一个渲染引擎主要包括 HTML 解释器、CSS 解释器、布局和 JavaScript 引擎等，
-JavaScript 引擎现在都已经独立出来。 下面是所依赖的模块，包括网络，存储，2D/3D 图形，音频和视频，图片解码器等等…,
+JavaScript 引擎现在都已经独立出来。 下面是所依赖的模块，包括网络，存储，2D/3D 图形，音频和视频，图片解码器等等…, 
 再下面就是操作系统相关的支持。    
+
 ## 常见的浏览器内核有哪些，介绍一下你对浏览器内核的理解   
+
 Trident内核：IE
 Gecko内核：火狐
 Blink内核：Opera7及以上。
@@ -808,55 +876,77 @@ Webkit内核：Safari，Chrome等。[Chrome的：Blink（WebKit的分支）]
 浏览器内核又可以分成两部分：渲染引擎和JS引擎。    
 渲染引擎主要负责取得网页的内容、整理讯息、计算网页的显示方式等，    
 JS引擎则是解析Javascript语言，执行javascript语言来实现网页的动态效果。    
+
 ## 什么是文档流   
-将窗体自上而下分成若干行,并在每行中按从左至右的依次排放元素,即为文档流   
+
+将窗体自上而下分成若干行, 并在每行中按从左至右的依次排放元素, 即为文档流   
+
 ## display:none与visibility：hidden的区别 
+
 区别|	display:none|	visibility：hidden的
 是否占据空间|	不占据任何空间，在文档渲染时，该元素如同不存在（但依然存在文档对象模型树中）|	该元素空间依旧存在
 是否渲染|	会触发reflow（回流），进行渲染|	只会触发repaint（重绘），因为没有发现位置变化，不进行渲染
 是否是继承属性|	不是继承属性，元素及其子元素都会消失|	是继承属性，若子元素使用了visibility:visible，则不继承，这个子孙元素又会显现出 
+
 ## CSS中link 和@import的区别    
-link属于XHTML标签，@import完全是CSS提供的一种方式,只能加载CSS
+
+link属于XHTML标签，@import完全是CSS提供的一种方式, 只能加载CSS
 加载顺序的差别，当一个页面被加载的时候，link引用的CSS会同时被加载，
 而@import引用的CSS 会等到页面全部被下载完再被加载
 兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，而link标签无此问题
 当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的
+
 ## ::before 和 :after中双冒号和单冒号有什么区别？解释一下这2个伪元素的作用
+
 单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。（伪元素由双冒号和伪元素名称组成）   
-,双冒号是在当前规范中引入的，用于区分伪类和伪元素   
+, 双冒号是在当前规范中引入的，用于区分伪类和伪元素   
+
 ## 二进制转 Base64
+
 字符串转二进制 a.charCodeAt().toString(2)   
 String.fromCharCode
 ```js 
 let encodedData = window.btoa("Hello, world"); // 编码
-let decodedData = window.atob(encodedData);    // 解码
-```
+let decodedData = window.atob(encodedData); // 解码
+
+``` 
+
 ## DOM事件中target和currentTarget的区别   
+
 event.target 返回触发事件的元素   
 event.currentTarget 返回绑定事件的元素  
+
 ## 移动端300ms延迟由来及解决方案    
-1. 300ms延迟由来
+
+01. 300ms延迟由来
+
 300 毫秒延迟的主要原因是解决双击缩放(double tap to zoom)。双击缩放，顾名思义，
 即用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。 
 那么这和 300 毫秒延迟有什么联系呢？ 假定这么一个场景。
 用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，
 当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。
 因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。 鉴于iPhone的成功，其他移动浏览器都复制了 iPhone Safari 浏览器的多数约定，包括双击缩放，几乎现在所有的移动端浏览器都有这个功能。
-2. 解决方案
+
+02. 解决方案
+
 ```js
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 ```
+
 移动端事件触发顺序：在移动端，手指点击一个元素，会经过：touchstart --> touchmove -> touchend -->click。
 fastclick.js的原理是：FastClick的实现原理是在检测到touchend事件的时候，
 会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后真正的click事件阻止掉。  
+
 ## 前后端分离的项目如何seo  
+
 使用prerender。但是回答prerender，面试官肯定会问你，如果不用prerender，让你直接去实现，好的，请看下面的第二个答案。
 先去 www.baidu.com/robots.txt 找出常见的爬虫，然后在nginx上判断来访问页面用户的User-Agent是否是爬虫，如果是爬虫，就用nginx方向代理到我们自己用nodejs + puppeteer实现的爬虫服务器上，然后用你的爬虫服务器爬自己的前后端分离的前端项目页面，增加扒页面的接收延时，保证异步渲染的接口数据返回，最后得到了页面的数据，返还给来访问的爬虫即可。  
 
 ## 一次性插入1000个div，如何优化插入的性能
+
 使用Fragment
-var fragment = document.createDocumentFragment();
-fragment.appendChild(elem);
+var fragment = document.createDocumentFragment(); 
+fragment.appendChild(elem); 
 DocumentFragments 是DOM节点。
 它们不是主DOM树的一部分。通常的用例是创建文档片段，
 将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的子元素所代替。    
@@ -867,22 +957,31 @@ DocumentFragments 是DOM节点。
 先display:none 然后插入 再display:block   
 赋予key，然后使用virtual-dom，先render，然后diff，最后patch   
 脱离文档流，用GPU去渲染，开启硬件加速   
+
 ## a.b.c.d和a['b']['c']['d']，哪个性能更高    
+
 a['b']['c']和a.b.c，转换成AST前者的的树是含计算的，后者只是string literal，天然前者会消耗更多的计算成本，时间也更长
 
 ## 伪类和伪元素的区别
-1. 伪元素: 改变dom结构，创建虚拟dom   
-2. 伪类: 不修改dom内容，通过一些特定的选择器根据特定的状态，特定条件来修改元素的样式    
+
+01. 伪元素: 改变dom结构，创建虚拟dom   
+02. 伪类: 不修改dom内容，通过一些特定的选择器根据特定的状态，特定条件来修改元素的样式    
+
 ## 讲讲MVVM，说说与MVC有什么区别    
+
 MVVM是Model-View-ViewModel的简写。它本质上就是MVC 的改进版。
 MVVM 就是将其中的View 的状态和行为抽象化，让我们将视图 UI 和业务逻辑分开。
 当然这些事 ViewModel 已经帮我们做了，它可以取出 Model 的数据同时帮忙处理 View 中由于需要展示内容而涉及的业务逻辑。
 
 MVC 业务逻辑、数据、界面显示分离的方法组织代码    
+
 ## 说说z-index有什么需要注意的地方    
+
 background/border < -z-index< block < float < 
 inline < z-index:auto < z-index     
+
 ## 说说DOM事件流
+
 DOM事件流包括三个阶段。
 事件捕获阶段，处于目标阶段，事件冒泡阶段。    
 event.target返回触发事件的元素
@@ -891,17 +990,24 @@ relatedTarget 事件属性返回与事件的目标节点相关的节点。
 对于 mouseover 事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。
 对于 mouseout 事件来说，该属性是离开目标时，鼠标指针进入的节点。
 对于其他类型的事件来说，这个属性没有用。    
+
 ## HTTP状态码206是干什么的    
+
 206 部分请求成功，断点续传    
+
 ## Vue的数据为什么频繁变化但只会更新一次    
+
 Vue是异步更新Dom的，Dom的更新放在下一个宏任务或者当前宏任务的末尾（微任务）中进行执行
 由于VUE的数据驱动视图更新是异步的，即修改数据的当下，视图不会立刻更新，
 而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。  
+
 ## 判断两个变量是否一样 
+
 Object.is 
 
-if (!Object.is) {
+if (! Object.is) {
   Object.is = function(x, y) {
+
     // SameValue algorithm
     if (x === y) { // Steps 1-5, 7-10
       // Steps 6.b-6.e: +0 != -0
@@ -910,41 +1016,56 @@ if (!Object.is) {
       // Step 6.a: NaN == NaN
       return x !== x && y !== y;
     }
-  };
+
+  }; 
 }
+
 ## Vue模板编译的过程    
+
 DocumentFragments： 
 解析指令（属性节点）与插值表达式（文本节点），并替换模板数据，初始化视图；
 将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图；
+
 ## 居中为什么要使用transform（为什么不使用marginLeft/Top）  
+
 transform 属于合成属性（composite property），对合成属性进行 transition/animation 动画将会创建一个合成层（composite layer），这使得被动画元素在一个独立的层中进行动画。通常情况下，浏览器会将一个层的内容先绘制进一个位图中，然后再作为纹理（texture）上传到 GPU，只要该层的内容不发生改变，就没必要进行重绘（repaint），浏览器会通过重新复合（recomposite）来形成一个新的帧。    
 top/left属于布局属性，该属性的变化会导致重排（reflow/relayout），所谓重排即指对这些节点以及受这些节点影响的其它节点，进行CSS计算->布局->重绘过程，浏览器需要为整个层进行重绘并重新上传到 GPU，造成了极大的性能开销。    
+
 ## src和 href 的区别    
+
 href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系。   
 src表示引用资源，表示替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。   
 src是source的缩写，是指向外部资源的位置，指向的内部会迁入到文档中当前标签所在的位置；在请求src资源时会将其指向的资源下载并应用到当前文档中，例如js脚本，img图片和frame等元素。        
+
 ## 介绍SSL和TLS   
+
 SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。   
 TLS：（Transport Layer Security，传输层安全协议），用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。   
+
 ## http 301和302
+
 301 redirect: 301 代表永久性转移(Permanently Moved)   
 302 redirect: 302 代表暂时性转移(Temporarily Moved )  
+
 ## delete 数组的 item，数组的 length 是否会 -1    
-不会，数组长度不变，数组变成[empty,empty...]
+
+不会，数组长度不变，数组变成[empty, empty... ]
+
 ## 给出 ['1', '3', '10'].map(parseInt) 执行结果   
-['1', '3', '10'].map((it,index)=>parseInt(it,index))
-index:0,1,2
+
+['1', '3', '10'].map((it, index)=>parseInt(it, index))
+index:0, 1, 2
 [1, NaN, 2]
+
 ## HTTP劫持、DNS劫持与XSS   
+
 HTTP劫持
 什么是HTTP劫持呢，大多数情况是运营商HTTP劫持，当我们使用HTTP请求请求一个网站页面的时候，网络运营商会在正常的数据流中插入精心设计的网络数据报文，让客户端（通常是浏览器）展示“错误”的数据，通常是一些弹窗，宣传性广告或者直接显示某网站的内容，大家应该都有遇到过。
-
 
 DNS劫持
 DNS 劫持就是通过劫持了 DNS 服务器，通过某些手段取得某域名的解析记录控制权，进而修改此域名的解析结果，导致对该域名的访问由原IP地址转入到修改后的指定IP，其结果就是对特定的网址不能访问或访问的是假网址，从而实现窃取资料或者破坏原有正常服务的目的。
 
 DNS 劫持比之 HTTP 劫持 更加过分，简单说就是我们请求的是 http://www.a.com/index.html ，直接被重定向了 http://www.b.com/index.html ，本文不会过多讨论这种情况。
-
 
 XSS跨站脚本
 XSS指的是攻击者利用漏洞，向 Web 页面中注入恶意代码，当用户浏览该页之时，注入的代码会被执行，从而达到攻击的特殊目的。
@@ -952,17 +1073,20 @@ XSS指的是攻击者利用漏洞，向 Web 页面中注入恶意代码，当用
 关于这些攻击如何生成，攻击者如何注入恶意代码到页面中本文不做讨论，只要知道如 HTTP 劫持 和 XSS 最终都是恶意代码在客户端，通常也就是用户浏览器端执行，本文将讨论的就是假设注入已经存在，如何利用 Javascript 进行行之有效的前端防护。
 
 ## 虚拟DOM的优劣如何?   
+
 优点:     
 
-保证性能下限: 虚拟DOM可以经过diff找出最小差异,然后批量进行patch,这种操作虽然比不上手动优化,但是比起粗暴的DOM操作性能要好很多,因此虚拟DOM可以保证性能下限
-无需手动操作DOM: 虚拟DOM的diff和patch都是在一次更新中自动进行的,我们无需手动操作DOM,极大提高开发效率
-跨平台: 虚拟DOM本质上是JavaScript对象,而DOM与平台强相关,相比之下虚拟DOM可以进行更方便地跨平台操作,例如服务器渲染、移动端开发等等
+保证性能下限: 虚拟DOM可以经过diff找出最小差异, 然后批量进行patch, 这种操作虽然比不上手动优化, 但是比起粗暴的DOM操作性能要好很多, 因此虚拟DOM可以保证性能下限
+无需手动操作DOM: 虚拟DOM的diff和patch都是在一次更新中自动进行的, 我们无需手动操作DOM, 极大提高开发效率
+跨平台: 虚拟DOM本质上是JavaScript对象, 而DOM与平台强相关, 相比之下虚拟DOM可以进行更方便地跨平台操作, 例如服务器渲染、移动端开发等等
 
 缺点:   
 
-无法进行极致优化: 在一些性能要求极高的应用中虚拟DOM无法进行针对性的极致优化,
+无法进行极致优化: 在一些性能要求极高的应用中虚拟DOM无法进行针对性的极致优化, 
 比如VScode采用直接手动操作DOM的方式进行极端的性能优化   
+
 ## 介绍下 BFC、IFC、GFC 和 FFC    
+
 BFC（Block formatting contexts）：块级格式上下文
 页面上的一个隔离的渲染区域，那么他是如何产生的呢？可以触发BFC的元素有float、position、overflow、display：table-cell/ inline-block/table-caption ；
 
@@ -976,16 +1100,21 @@ IFC中时不可能有块级元素的，当插入块级元素时（如p中插入d
 GFC（GrideLayout formatting contexts）：网格布局格式化上下文
 当为一个元素设置display值为grid的时候，此元素将会获得一个独立的渲染区域，我们可以通过在网格容器（grid container）上定义网格定义行（grid definition rows）和网格定义列（grid definition columns）属性各在网格项目（grid item）上定义网格行（grid row）和网格列（grid columns）为每一个网格项目（grid item）定义位置和空间。那么GFC有什么用呢，和table又有什么区别呢？首先同样是一个二维的表格，但GridLayout会有更加丰富的属性来控制行列，控制对齐以及更为精细的渲染语义和控制。
 
-FFC（Flex formatting contexts）:自适应格式上下文
+FFC（Flex formatting contexts）: 自适应格式上下文
 display值为flex或者inline-flex的元素将会生成自适应容器（flex container），可惜这个牛逼的属性只有谷歌和火狐支持，不过在移动端也足够了，至少safari和chrome还是OK的，毕竟这俩在移动端才是王道。Flex Box 由伸缩容器和伸缩项目组成。通过设置元素的 display 属性为 flex 或 inline-flex 可以得到一个伸缩容器。设置为 flex 的容器被渲染为一个块级元素，而设置为 inline-flex 的容器则渲染为一个行内元素。伸缩容器中的每一个子元素都是一个伸缩项目。伸缩项目可以是任意数量的。伸缩容器外和伸缩项目内的一切元素都不受影响。简单地说，Flexbox 定义了伸缩容器内伸缩项目该如何布局。    
+
 ## 前端压题   
+
 HTML
 必考：你是如何理解 HTML 语义化的？
 meta viewport 是做什么用的，怎么写？
-name为viewport表示供移动设备使用. content定义了viewport的属性   
-```js
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+name为viewport表示供移动设备使用.content定义了viewport的属性   
+
+``` js
+< meta name = "viewport"
+content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" >
 ```
+
 你用过哪些 HTML 5 标签？
 H5 是什么？
 CSS
@@ -1006,9 +1135,11 @@ CSS 选择器优先级
 常考：async/await 怎么用，如何捕获异常？
 常考：如何实现深拷贝？
 常考：如何用正则实现 trim()？
-```js
+
+``` js
 /(^\s*)|(\s*$)/g
 ```
+
 常考：不用 class 如何实现继承？用 class 又如何实现？
 常考：如何实现数组去重？
 放弃：== 相关题目（反着答）
@@ -1020,7 +1151,7 @@ HTTP
 必考：HTTP 状态码知道哪些？分别什么意思？
 大公司必考：HTTP 缓存有哪几种？
 必考：GET 和 POST 的区别
-Cookie V.S. LocalStorage V.S. SessionStorage V.S. Session
+Cookie V. S. LocalStorage V. S. SessionStorage V. S. Session
 框架 Vue
 必考：watch 和 computed 和 methods 区别是什么？
 必考：Vue 有哪些生命周期钩子函数？分别有什么用？
@@ -1030,9 +1161,9 @@ Cookie V.S. LocalStorage V.S. SessionStorage V.S. Session
 Vuex 你怎么用的？
 VueRouter 你怎么用的？
 路由守卫是什么？
-beforeEach,在进入目标路由前判断是否能进入。   
+beforeEach, 在进入目标路由前判断是否能进入。   
 框架 React
-必考：受控组件 V.S. 非受控组件
+必考：受控组件 V. S. 非受控组件
 必考：React 有哪些生命周期函数？分别有什么用？（Ajax 请求放在哪个阶段？）
 必考：React 如何实现组件间通信？
 必考：shouldComponentUpdate 有什么用？
@@ -1072,31 +1203,43 @@ echarts.js / d3.js
 three.js    
 flutter   
 SSR   
+
 ## Vue 的父组件和子组件生命周期钩子执行顺序是什么   
+
 父组建： beforeCreate -> created -> beforeMount
 子组件： -> beforeCreate -> created -> beforeMount -> mounted
 父组件： -> mounted
 总结：从外到内，再从内到外    
 
 ## 为什么 var 可以重复声明    
+
 编译器会查询作用域是否已经存在变量，如果不存在，就创建，
 如果存在，执行赋值操作。    
+
 ## WeakMap 和 Map 的区别?   
+
 WeakMap 结构与 Map 结构基本类似，唯一的区别是它只接受对象作为键名（ null 除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。
 WeakMap 最大的好处是可以避免内存泄漏。一个仅被 WeakMap 作为 key 而引用的对象，会被垃圾回收器回收掉。
 WeakMap 拥有和 Map 类似的 set(key, value) 、get(key)、has(key)、delete(key) 和 clear() 方法, 没有任何与迭代有关的属性和方法。
 
 ## 可以对图片开启 gzip 压缩吗，为什么
+
 图片体积反而会变大    
+
 ## js 代码压缩的原理是什么      
+
 uglify 包里有 ast.js 所以它一定是生成了抽象语法树
 接着遍历语法树并作出优化，像是替换语法树中的变量，变成a，b，c那样的看不出意义的变量名。还有把 if/else 合并成三元运算符等。
 最后输出代码的时候，全都输出成一行。    
+
 ## 在前端开发中，如何获取浏览器的唯一标识   
+
 浏览器指纹--Canvas指纹
 从根本上来说，每一种浏览器都会使用不同的图像处理引擎，不同的导出选项，不同的压缩等级，所以每一台电脑绘制出的图形都会有些许不同，这些图案可以被用来给用户设备分配特定编号（指纹），也就是说可以用来识别不同用户。 
 canvas to base64   
+
 ## http 缓存的优先级      
+
 强缓存>协商缓存
 1、Expires
 Expires是一个Http1.0提出的概念，它描述的是一个绝对时间，由服务端返回
@@ -1104,7 +1247,9 @@ Expires: Wed, 11 May 2018 07:20:00 GMT
 这种方式的弊端在于如果我们修改了客户端的时间可能会意外导致缓存失效。
 2、Cache-Control
 catche-control是http1.1提出的概念，优先级高于expires，描述的是一个相对时间  
+
 ## Node 面试题
+
 Node.js的加载机制   
 require 和 module.exports
 nodejs认为一个js文件就是一个模块，每个模块都有一个全局对象module，同时module对象中有一个对象exports。   
@@ -1149,9 +1294,10 @@ express中内置了一个错误处理程序。如果请求内的同步代码抛�
 Node.js为什么处理异步IO快?          
 利用事件队列，不用等待IO完成，在非阻塞IO返回之前，node主线程可以用来处理其他事物，此时性能提升非常明显。    
 -------------------------------  
+
 ## Node中的错误怎么捕获？          
 
-1. 使用uncaughtExprection去捕获异常   
+01. 使用uncaughtExprection去捕获异常   
 
 process.on("uncaughtExpection", function(err){
 
@@ -1159,8 +1305,8 @@ process.on("uncaughtExpection", function(err){
 
 })
 
-2. 用try-catch在回调函数前捕获异常　　　　
-3. 用框架去包住，捕获异常 
+02. 用try-catch在回调函数前捕获异常　　　　
+03. 用框架去包住，捕获异常 
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -1182,17 +1328,21 @@ app.use(function(err, req, res, next) {
 uncaughtExpection捕获异常的的原理就是：uncaughtExpection事件存在回调函数process.on("uncaughtExpection", callback)时node不会强制结束进程，这样可弥补domain丢失stack的问题        
 
 -------------------------------------------------
+
 ## Node中遇到错误，进程退出了怎么办？    
 
-1. 捕获uncaughtException  
-2. 使用守护进程
+01. 捕获uncaughtException  
+02. 使用守护进程
+
 pm2 和 forever ，它们都可以实现进程守护，底层也都是 child_process 模块和 cluster 模块 实现的。  
 RPC 简单的理解是一个节点请求另一个节点提供的服务    
 RPC 的全称是 Remote Procedure Call 是一种进程间通信方式。   
 它允许程序调用另一个地址空间（通常是共享网络的另一台机器上）的过程或函数，而不用程序员显式编码这个远程调用的细节。    
 即无论是调用本地接口/服务的还是远程的接口/服务，本质上编写的调用代码基本相同。    
 比如两台服务器A，B，一个应用部署在A服务器上，想要调用B服务器上应用提供的函数或者方法，由于不在一个内存空间，不能直接调用，这时候需要通过就可以应用RPC框架的实现来解决。
+
 ## Promise的错误如何统一捕获？   
+
 错误捕获装饰器尝试
 
 ``` js
@@ -1213,48 +1363,62 @@ const tryCatch = msg => (target, name, descriptor) => {
 ```
 
 Promise中的ajax 可以try catch 到么？  
+
 ## Node 的Cluster模式是什么？   
-cluster是一个nodejs内置的模块，用于nodejs多核处理.    
+
+cluster是一个nodejs内置的模块，用于nodejs多核处理.
 工作原理
 集群模块会创建一个master主线程，然后复制任意多份程序并启动，这叫做工作线程。
 工作线程通过 IPC 频道进行通信并且使用了 Round-robin algorithm 算法进行工作调度以此实现负载均衡。
 Round-robin调度策略主要是master主线程负责接收所有的连接并派发给下面的各个工作线程。
 -------------------------------------------------
+
 ## Node中的进程和线程什么区别？   
+
 单线程就是一个进程只开一个线程    
 进程是线程的容器  
 调度：线程作为调度和分配的基本单位，进程作为拥有资源的基本单位       
 拥有资源：进程是拥有资源的一个独立单位，线程不拥有系统资源，但可以访问隶属于进程的资源    
+
 ## Node中如何创建一个进程？
+
 ## Node的多个进程如何通信？   
 使用共享内存，信号量。这种方式可以通过 child_process 模块实现。   
 使用套接。这种方式可以使用 net，http，websocket 模块实现，还可以使用 socket.io 来实现（推荐）。   
 使用共享文件。这种方式通过监听文件的变化来实现，不过效率不理想（不推荐）。    
 使用订阅发布，响应式数据库。通过 Redis 这些数据库，并利用它们的特性进行多进程通信。   
+
 ## 如何监控Node？ 
+
 node-monitor    
 Shell脚本将定期向节点服务器插件询问测量数据。
 如果节点服务器尚未启动或关闭，则脚本会将相应的信息发送到monitis（monitor起了一个服务）。
 随着Node服务器可用，测量值将被捕获并发送到monitis。
 node-memwatch 
+
 ## Node中的日志如何串行保证？
+
 保存函数执行顺序，然后执行数组中下一个函数的函数  
 
 ## Node中的事件循环是什么？
+
 它是一个无限的while循环，调用Epoll（Kqueue）“等待”或“池”，当Node.js发生（回调、事件、fs）时，它会路由到Node.js，并且在Epoll没有等待的情况下退出   
 
 ## 架构的设计步骤   
-1. 收集利益相关的需求 
-2. 与技术人员讨论，理解架构上的潜在限制，寻找架构的关注点： 性能，安全，平台化，代码维护，用户体验  
-3. 寻找潜在的可行性技术方案   
-4. 整理出功能列表中的功能性需求和跨功能性需求   
-5. 找出会严重影响开发的风险点：技术风险，第三方系统集成
-6. 对架构设计进行概念证明   
-7. 细化架构的部分实施细节   
-8. 进行需求排期   
+
+01. 收集利益相关的需求 
+02. 与技术人员讨论，理解架构上的潜在限制，寻找架构的关注点： 性能，安全，平台化，代码维护，用户体验  
+03. 寻找潜在的可行性技术方案   
+04. 整理出功能列表中的功能性需求和跨功能性需求   
+05. 找出会严重影响开发的风险点：技术风险，第三方系统集成
+06. 对架构设计进行概念证明   
+07. 细化架构的部分实施细节   
+08. 进行需求排期   
+
 可行性研究的目的就是用最小的代价在尽可能短的时间内确定问题是否能够解决    
 
 ## 设计原则 
+
 单一职责原则：一个类只有一个引起他变化的原因，相关性很高的函数、数据封装到一个类中。
 原因：避免某块函数或数据的变化影响其他类，降低耦合度。
 
@@ -1285,4 +1449,613 @@ node-memwatch
 创建型：单例模式、工厂模式、抽象工厂模式、建造者模式、原始模式      
 结构型：适配器模式、装饰模式、代理模式      
 行为型：模板方法模式、命令模式、迭代器模式、观察者模式、策略模式        
+
+阿里
+
+使用过的Koa2中间件
+Koa-body原理
+介绍自己写过的中间件
+有没有涉及到Cluster
+介绍Pm2
+Master挂了的话Pm2怎么处理
+如何和MySQL进行通信
+React声明周期及自己的理解
+如何配置React-Router
+路由的动态加载模块
+服务端渲染SSR
+介绍路由的History
+介绍Redux数据流的流程
+Redux如何实现多个组件之间的通信，多个组件使用相同状态如何进行管理
+多个组件之间如何拆分各自的State，每块小的组件有自己的状态，它们之间还有一些公共的状态需要维护，如何思考这块
+使用过的Redux中间件
+如何解决跨域的问题
+常见Http请求头
+移动端适配1px的问题
+介绍Flex布局
+其他CSS方式设置垂直居中
+居中为什么要使用Transform（为什么不使用MarginLeft/Top）
+使用过Webpack里面哪些Plugin和Loader
+Webpack里面的插件是怎么实现的
+Dev-Server是怎么跑起来
+项目优化
+抽取公共文件是怎么配置的
+项目中如何处理安全问题
+怎么实现this对象的深拷贝
+网易
+
+介绍Redux，主要解决什么问题
+文件上传如何做断点续传
+表单可以跨域吗
+Promise、Async有什么区别
+搜索请求如何处理（防抖）
+搜索请求中文如何请求
+介绍观察者模式
+介绍中介者模式
+观察者和订阅-发布的区别，各自用在哪里
+介绍React优化
+介绍Http2.0
+通过什么做到并发请求
+Hhttp1.1时如何复用Tcp连接
+介绍Service Worker
+介绍CSS3中Position:sticky
+Redux请求中间件如何处理并发
+介绍Promise，异常捕获
+介绍position属性包括CSS3新增
+浏览器事件流向
+介绍事件代理以及优缺点
+React组件中怎么做事件代理
+React组件事件代理的原理
+介绍This各种情况
+前端怎么控制管理路由
+使用路由时出现问题如何解决
+React怎么做数据的检查和变化
+滴滴
+
+React-Router怎么实现路由切换
+React-Router里的<Link>标签和<a>标签有什么区别
+<a>标签默认事件禁掉之后做了什么才实现了跳转
+React层面的性能优化
+整个前端性能提升大致分几类
+import { Button } from 'antd'，打包的时候只打包button，分模块加载，是怎么做到的
+使用import时，Webpack对node_modules里的依赖会做什么
+JS异步解决方案的发展历程以及优缺点
+Http报文的请求会有几个部分
+Cookie放哪里，Cookie能做的事情和存在的价值
+Cookie和Token都存放在Header里面，为什么只劫持前者
+Cookie和Session有哪些方面的区别
+React中Dom结构发生变化后内部经历了哪些变化
+React挂载的时候有3个组件，TextComponent、ComposeComponent、DomComponent，区别和关系，Dom结构发生变化时怎么区分Data的变化，怎么更新，更新怎么调度，如果更新的时候还有其他任务存在怎么处理
+Key主要是解决哪一类的问题，为什么不建议用索引index（重绘）
+Redux中异步的请求怎么处理
+Redux中间件是什么东西，接受几个参数（两端的柯里化函数）
+柯里化函数两端的参数具体是什么东西
+中间件是怎么拿到Store和Action，然后怎么处理
+State是怎么注入到组件的，从Reducer到组件经历了什么样的过程
+Koa中response.send、Response.rounded、Response.json发生了什么事，浏览器为什么能识别到它是一个json结构或是html
+Koa-bodyparser怎么来解析Request
+Webpack整个生命周期，Loader和Plugin有什么区别
+介绍AST（Abstract Syntax Tree）抽象语法树
+安卓Activity之间数据是怎么传递的
+安卓4.0到6.0过程中WebView对JS兼容性的变化
+WebView和原生是如何通信
+跨域怎么解决，有没有使用过Apache等方案
+今日头条
+
+对Async、Await的理解，内部原理
+介绍下Promise，内部实现
+清除浮动
+定位问题（绝对定位、相对定位等）
+从输入URL到页面加载全过程
+TCP3次握手
+TCP属于哪一层（1 物理层 -> 2 数据链路层 -> 3 网络层(IP)-> 4 传输层(TCP) -> 5 应用层(Http)）
+Redux的设计思想
+接入Redux的过程
+绑定Cconnect的过程
+Cconnect原理
+Webpack介绍
+== 和 ===的区别，什么情况下用相等==
+Bind、Call、Apply的区别
+动画的了解
+介绍下原型链（解决的是继承问题吗）
+对跨域的了解
+有赞
+
+Linux 754 介绍
+介绍冒泡排序，选择排序，冒泡排序如何优化
+Transform动画和直接使用Left、Top改变位置有什么优缺点
+如何判断链表是否有环
+介绍二叉搜索树的特点
+介绍暂时性死区
+ES6中的Map和原生的对象有什么区别
+观察者和发布-订阅的区别
+React异步渲染的概念，介绍Time Slicing 和 Suspense
+
+16. X声明周期的改变
+16. X中Props改变后在哪个生命周期中处理
+
+介绍纯函数
+前端性能优化
+PureComponent和FunctionComponent区别
+介绍JSX
+如何做RN在安卓和iOS端的适配
+RN为什么能在原生中绘制成原生组件（bundle.js）
+介绍虚拟DOM
+如何设计一个localStorage，保证数据的实效性
+如何设计Promise.all()
+介绍高阶组件
+sum(2, 3)实现sum(2)(3)的效果
+react性能优化
+两个对象如何比较
+挖财
+
+JS的原型
+变量作用域链
+call、apply、bind的区别
+防抖和节流的区别
+介绍各种异步方案
+React生命周期
+介绍Fiber
+前端性能优化
+介绍DOM树对比
+React中的key的作用
+如何设计状态树
+介绍CSS，Xsrf
+Http缓存控制
+项目中如何应用数据结构
+Native提供了什么能力给RN
+如何做工程上的优化
+shouldComponentUpdate是为了解决什么问题
+如何解决Props层级过深的问题
+前端怎么做单元测试
+Webpack生命周期
+Webpack打包的整个过程
+常用的Plugins
+Pm2怎么做进程管理，进程挂掉怎么处理
+不用Pm2怎么做进程管理
+沪江
+
+介绍下浏览器跨域
+怎么去解决跨域问题
+Jsonp方案需要服务端怎么配合
+Ajax发生跨域要设置什么（前端）
+加上CORS之后从发起到请求正式成功的过程
+Xsrf跨域攻击的安全性问题怎么防范
+使用Async会注意哪些东西
+Async里面有多个await请求，可以怎么优化（请求是否有依赖）
+Promise和Async处理失败的时候有什么区别
+Redux在状态管理方面解决了React本身不能解决的问题
+Redux有没有做过封装
+React生命周期，常用的生命周期
+对应的生命周期做什么事
+遇到性能问题一般在哪个生命周期里解决
+怎么做性能优化（异步加载组件）
+写React有哪些细节可以优化
+React的事件机制（绑定一个事件到一个组件上）
+介绍下事件代理，主要解决什么问题
+前端开发中用到哪些设计模式
+React/Redux中哪些功能用到了哪些设计模式
+JS变量类型分为几种，区别是什么
+JS里垃圾回收机制是什么，常用的是哪种，怎么处理的
+一般怎么组织CSS（Webpack）
+饿了么
+
+小程序里面开页面最多是多少
+React子父组件之间如何传值
+Emit事件怎么发，需要引入什么
+介绍下React高阶组件，和普通组件有什么区别
+一个对象数组，每个子对象包含一个ID和Name，React如何渲染出全部的Name
+在哪个生命周期里写
+其中有几个Name不存在，通过异步接口获取，如何做
+渲染的时候Key给什么值，可以使用Index吗？用ID好还是Index好
+Webpack如何配Sass，需要配哪些Loader
+配CSS需要哪些Loader
+如何配置把JS、CSS、Html单独打包成一个文件
+Div垂直水平居中（Flex、绝对定位）
+两个元素块，一左一右，中间相距10像素
+上下固定，中间滚动布局如何实现
+[1, 2, 3, 4, 5]变成[1, 2, 3, a, b, 5]
+取数组的最大值（ES5、ES6）
+apply和call的区别
+ES5和ES6有什么区别
+some、every、find、filter、map、forEach有什么区别
+上述数组随机取数，每次返回的值都不一样
+如何找0-5的随机数，95-99呢
+页面上有1万个Button如何绑定事件
+如何判断是Button
+页面上生成一万个Button，并且绑定事件，如何做（JS原生操作DOM）
+循环绑定时的Index是多少，为什么，怎么解决
+页面上有一个input，还有一个p标签，改变input后p标签就跟着变化，如何处理
+监听input的哪个事件，在什么时候触发
+携程
+
+对React看法，有没有遇到一些坑
+对闭包的看法，为什么要用闭包
+手写数组去重函数
+手写数组扁平化函数
+介绍下Promise的用途和性质
+Promise和Callback有什么区别
+React生命周期
+两道手写算法题
+喜马拉雅
+
+ES6新的特性
+介绍Promise
+Promise有几个状态
+说一下闭包
+React的生命周期
+ComponentWillReceiveProps的触发条件是什么
+React16.3对生命周期的改变
+介绍下React的Filber架构
+画Filber渲染树
+介绍React高阶组件
+父子组件之间如何通信
+Redux怎么实现属性传递，介绍下原理
+React-Router版本号
+网站SEO怎么处理
+介绍下HTTP状态码
+403、301、302是什么
+缓存相关的HTTP请求头
+介绍HTTPS
+HTTPS怎么建立安全通道
+前端性能优化（JS原生和React）
+用户体验做过什么优化
+对PWA有什么了解
+对安全有什么了解
+介绍下数字签名的原理
+前后端通信使用什么方案
+RESTful常用的Method
+介绍下跨域
+Access-Control-Allow-Origin在服务端哪里配置
+csrf跨站攻击怎么解决
+前端和后端怎么联调
+兑吧
+
+LocalStorage和Cookie有什么区别
+CSS选择器有哪些
+盒子模型，以及标准情况和IE下的区别
+如何实现高度自适应
+Prototype和Proto区别
+_construct是什么
+new是怎么实现的
+promise的精髓，以及优缺点
+如何实现H5手机端的适配
+Rrem、Flex的区别（Root em）
+em和px的区别
+React声明周期
+如何去除url中的#号
+Redux状态管理器和变量挂载到Window中有什么区别
+Webpack和Gulp的优缺点
+如何实现异步加载
+如何实现分模块打包（多入口）
+前端性能优化（1JS、CSS；2 图片；3 缓存预加载； 4 SSR； 5 多域名加载；6 负载均衡）
+并发请求资源数上限（6个）
+base64为什么能提升性能，缺点
+介绍Webp这个图片文件格式
+介绍Koa2
+Promise如何实现的
+异步请求，低版本Fetch如何低版本适配
+Ajax如何处理跨域
+CORS如何设置
+Jsonp为什么不支持Post方法
+介绍同源策略
+React使用过的一些组件
+介绍Immuable
+介绍下Redux整个流程原理
+介绍原型链
+如何继承
+微医
+
+介绍JS数据类型，基本数据类型和引用数据类型的区别
+Array是Object类型吗
+数据类型分别存在哪里
+var a = {name: "前端开发"}; var b = a; a = null那么b输出什么
+var a = {b: 1}存放在哪里
+var a = {b: {c: 1}}存放在哪里
+栈和堆的区别
+垃圾回收时栈和堆的区别
+数组里面有10万个数据，取第一个元素和第10万个元素的时间相差多少
+栈和堆具体怎么存储
+介绍闭包以及闭包为什么没清除
+闭包的使用场景
+JS怎么实现异步
+异步整个执行周期
+Promise的三种状态
+Async/Await怎么实现
+Promise和setTimeout执行先后的区别
+JS为什么要区分微任务和宏任务
+Promise构造函数是同步还是异步执行，then呢
+发布-订阅和观察者模式的区别
+JS执行过程中分为哪些阶段
+词法作用域和this的区别
+平常是怎么做继承
+深拷贝和浅拷贝
+loadsh深拷贝实现原理
+ES6中let块作用域是怎么实现的
+React中setState后发生了什么
+setState为什么默认是异步
+setState什么时候是同步的
+为什么3大框架出现以后就出现很多Native（RN）框架（虚拟DOM）
+虚拟DOM主要做了什么
+虚拟DOM本身是什么（JS对象）
+304是什么
+打包时Hash码是怎么生成的
+随机值存在一样的情况，如何避免
+使用Webpack构建时有无做一些自定义操作
+Webpack做了什么
+a，b两个按钮，点击aba，返回顺序可能是baa，如何保证是aba（Promise.then）
+Node接口转发有无做什么优化
+Node起服务如何保证稳定性，平缓降级，重启等
+RN有没有做热加载
+RN遇到的兼容性问题
+RN如何实现一个原生的组件
+RN混原生和原生混RN有什么不同
+什么是单页项目
+遇到的复杂业务场景
+Promise.all实现原理
+寺库
+
+介绍Promise的特性，优缺点
+介绍Redux
+RN的原理，为什么可以同时在安卓和IOS端运行
+RN如何调用原生的一些功能
+介绍RN的缺点
+介绍排序算法和快排原理
+堆和栈的区别
+介绍闭包
+闭包的核心是什么
+网络的五层模型
+HTTP和HTTPS的区别
+HTTPS的加密过程
+介绍SSL和TLS
+介绍DNS解析
+JS的继承方法
+介绍垃圾回收
+Cookie的引用为了解决什么问题
+Cookie和localStorage的区别
+如何解决跨域问题
+前端性能优化
+宝宝树
+
+使用Canvas绘图时如何组织成通用组件
+formData和原生的Ajax有什么区别
+介绍下表单提交，和FormData有什么关系
+介绍Redux接入流程
+Rudux和全局管理有什么区别（数据可控、数据响应）
+RN和原生通信
+介绍MVP怎么组织
+介绍异步方案
+Promise如何实现Then处理
+Koa2中间件原理
+常用的中间件
+服务端怎么做统一的状态处理
+如何对相对路径引用进行优化
+Node文件查找优先级
+Npm2和Npm3+有什么区别
+海康威视
+
+Knex连接数据库响应回调
+介绍异步方案
+如何处理异常捕获
+项目如何管理模块
+前端性能优化
+JS继承方案
+如何判断一个变量是不是数组
+变量a和b，如何交换
+事件委托
+多个<li>标签生成的Dom结构是一个类数组
+类数组和数组的区别
+dom的类数组如何转成数组
+介绍单页面应用和多页面应用
+Redux状态树的管理
+介绍Localstorage的API
+蘑菇街
+
+Html语义化的理解
+<b>和<strong>的区别
+对闭包的理解
+工程中闭包使用场景
+介绍this和原型
+使用原型最大的好处
+React设计思路
+为什么虚拟DOM比真实DOM性能好
+React常见的通信方式
+Redux整体的工作流程
+Redux和全局对象之间的区别
+Redux数据回溯设计思路
+单例、工厂、观察者项目中实际场景
+项目中树的使用场景以及了解
+工作收获
+酷家乐
+
+React生命周期
+React性能优化
+添加原生事件不移除为什么会内存泄露
+还有哪些地方会内存泄露
+setInterval需要注意的点
+定时器为什么是不精确的
+setTimeout(1)和setTimeout(2)之间的区别
+介绍宏任务和微任务
+Promise里面和then里面执行有什么区别
+介绍pureComponet
+介绍Function Component
+React数据流
+props和state的区别
+介绍React context
+介绍class和ES5的类以及区别
+介绍箭头函数和普通函数的区别
+介绍defineProperty方法，什么时候需要用到
+for..in 和 object.keys的区别
+介绍闭包，使用场景
+使用闭包特权函数的使用场景
+Get和Post有什么区别
+百分点
+
+React15/16.x的区别
+重新渲染Render会做些什么
+哪些方法会触发React重新渲染
+state和props触发更新的生命周期分别有什么区别
+setState是同步还是异步
+对无状态组件的理解
+介绍Redux工作流程
+介绍ES6的功能
+let、const以及var的区别
+浅拷贝和深拷贝的区别
+介绍箭头函数的this
+介绍Promise和then
+介绍快速排序
+算法：前K个最大的元素
+海风教育
+
+对React看法，它的优缺点
+使用过程中遇到的问题，如何解决的
+React的理念是什么（拿函数式编程来做页面渲染）
+JS是什么范式语言(面向对象还是函数式编程)
+Koa原理，为什么要用Koa(Express和Koa对比)
+使用的Koa中间件
+ES6使用的语法
+Promise 和 async/await 和 Callback的区别
+Promise有没有解决异步的问题（Promise链是真正强大的地方）
+Promise和setTimeout的区别（Event Loop）
+进程和线程的区别（一个Node实例就是一个进程，Node是单线程，通过事件循环来实现异步）
+介绍下DFS深度优先
+介绍下观察者模式
+观察者模式里面使用的数据结构(不具备顺序 ，是一个List)
+一、HTML常见题目
+
+01、Doctype作用？严格模式与混杂模式如何区分？它们有何意义？
+
+02、HTML5为什么只需要写？
+
+03、行内元素有哪些？块级元素有哪些？空(void)元素有那些？
+
+04、页面导入样式时，使用link和@import有什么区别？
+
+05、介绍一下你对浏览器内核的理解？
+
+06、常见的浏览器内核有哪些？
+
+07、html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？
+
+08、如何区分HTML和HTML5？
+
+09、简述一下你对HTML语义化的理解？
+
+10、HTML5的离线储存怎么使用，工作原理能不能解释一下？
+二、CSS类的题目
+
+01、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？
+
+02、CSS选择符有哪些？哪些属性可以继承？
+
+03、CSS优先级算法如何计算？
+
+04、CSS3新增伪类有那些？
+
+05、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？
+
+06、display有哪些值？说明他们的作用。
+
+07、position的值relative和absolute定位原点是？
+
+08、CSS3有哪些新特性？
+
+09、请解释一下CSS3的Flexbox(弹性盒布局模型), 以及适用场景？
+
+10、用纯CSS创建一个三角形的原理是什么？
+三、JavaScript类的题目
+
+01、JavaScript 中 this 是如何工作的
+
+02、请解释原型继承 的原理。
+
+03、什么是闭包 (closure)，如何使用它，为什么要使用它？
+
+04、.call 和 .apply 的区别是什么？
+
+05、请指出 JavaScript 宿主对象 (host objects) 和原生对象 (native objects) 的区别？
+
+06、请指出以下代码的区别：function Person(){}、var person = Person()、var person = new Person()？
+
+07、请解释变量声明提升 (hoisting)。
+
+08、什么是 “use strict”; ? 使用它的好处和坏处分别是什么？
+
+09、什么是事件循环 (event loop)？
+
+10、请解释同步 (synchronous) 和异步 (asynchronous) 函数的区别。
+四、开发及性能优化类题目
+
+01、如何规避javascript多人开发函数重名问题？
+
+02、请说出三种减低页面加载时间的方法.
+
+03、说说你所了解到的Web攻击技术。
+
+04、说说你说了解的前端性能优化方法？
+
+05、前端开发中，如何优化图像？图像格式的区别？
+
+06、浏览器是如何渲染页面的？
+
+07、页面重构怎么操作？
+
+08、什么叫优雅降级和渐进增强？
+
+09、前端需要注意哪些SEO？如何做SEO优化?
+
+10、平时如何管理你的项目？
+借鉴了朋友的阿里面试经：（社招前端2年经验）
+电话面
+简单自我介绍, 做过哪些项目, 使用哪些技术栈 ?
+如何看待前端框架选型 ?
+vue的如何实现双向绑定的 ？
+react 虚拟DOM 是什么? 如何实现? 说一下diff算法 ?
+工作中最出色的点, 和你最头疼的问题 如何解决的 ?
+平时如何学习, 最近接触了解了哪些新的知识 ?
+技术一面
+简单自我介绍, 介绍一下你的项目, 技术栈 ?
+react和vue的比较 ?
+React Diff 算法 ?
+观察者模式实现 ?
+http报文头部有哪些字段? 有什么意义 ?
+移动端高清方案如何解决 ?
+webpack的原理, loader 和 plugin 是干什么的? 有自己手写过么 ?
+简述从网页输入url到网页展示的过程发生了哪些事情 ?
+SSR 和 客户端渲染有什么区别 , vue是如何实现绑定事件的 ?
+简述公司node架构中容灾的实现 ?
+浏览器事件有哪些过程? 为什么一般在冒泡阶段, 而不是在捕获阶段注册监听? addEventListener 参数分别是什么 ?
+面向对象如何实现? 需要复用的变量 怎么处理 ?
+移动端300ms延时的原因? 如何处理?
+主流框架的数据单向/双向绑定实现原理 ?
+简述转行经历, 如何学习 ?
+你觉得自己在前端工作的最大的优点是什么 拿实际工作的内容举例?
+技术二面
+和一面前3问基本一致, 简述项目, React vue区别 virsualDOM实现
+DIFF算法为什么是O(n)复杂度而不是O(n^3)
+http code码?
+移动端rem布局如何实现? 简述原理?
+JSbridge原理, js和native是如何通信的?
+Rollup和webpack区别, treeshaking是什么?
+TCP三次握手的过程, get post请求的区别 ?
+静态文件的浏览器缓存如何实现?
+前端跨域方案
+http 请求包含哪些字段 分别是什么意思
+js 有哪些数据类型 如何判断? null 和 undefined区别 应用场景?
+new String('a') 和 'a' 是一样的么?
+移动端如何实现下拉到底部 跟随移动 结束后回弹的动画?
+移动端如何优化首页白屏时间过长 ?
+ES6 generator函数简述
+数组去重实现?
+js浮点数运算不精确 如何解决?
+工作中最得意和出色的点, 头疼的点, 问题如何解决的
+为何换工作?
+聊了下阿里的压力, 文化
+技术三面
+公司的前端工程化实践
+转行之后是如何自学前端的, 学习途径 有没有一些自己的代码
+DOM基础知识, 添加元素, 删除元素等等... 
+DOM节点类型
+正则表达式如何匹配一段url ? 在正则表达式中有哪几种作用?
+移动端优化方式? 离线包是如何实现的?
+最后聊了一下项目, 聊了一下目前公司
 
