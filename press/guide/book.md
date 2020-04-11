@@ -26,7 +26,7 @@
 
 ### Shell 脚本  
 vscode 安装 shell-format    
-1. 以以下行开头 
+1. 以下行开头 
 ```
 #!/bin/sh   
 ```
