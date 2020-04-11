@@ -119,3 +119,6 @@ ln -s /usr/local/nodejs/bin/node /usr/local/bin
 ln -s /usr/local/nodejs/bin/npm /usr/local/bin
 ```
 
+## github 爬虫  
+github 爬虫开放[api](https://developer.github.com/v3/search/#search-users)      
+
