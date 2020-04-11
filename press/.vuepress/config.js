@@ -37,7 +37,7 @@ module.exports = {
         link: "/guide/comment.md"
       },
       { text: "Github", link: "https://github.com/nibilin33" },
-      { text:"GitBook",link:"https://legacy.gitbook.com/book/nibilin33/share-code/welcome"}
+      // { text:"GitBook",link:"https://legacy.gitbook.com/book/nibilin33/share-code/welcome"}
     ]
   },
   plugins: [
