@@ -108,7 +108,7 @@ pip install pysqlite
 ```
 wget http://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.gz 
 
-tar  xf node-v5.10.1-linux-x64.tar.gz -C /usr/local/
+tar  xf node-v8.11.1-linux-x64.tar.gz -C /usr/local/
 
 cd /usr/local/
 
@@ -118,7 +118,12 @@ ln -s /usr/local/nodejs/bin/node /usr/local/bin
 
 ln -s /usr/local/nodejs/bin/npm /usr/local/bin
 ```
-
+执行命令        
+```
+chomd 744 node_init.sh 
+./node_init.sh  
+```
+[完整下载](https://github.com/nibilin33/python-tool/blob/master/shell/node_init.sh) 
 ## github 爬虫  
 github 爬虫开放[api](https://developer.github.com/v3/search/#search-users)      
 

@@ -22,7 +22,53 @@
 /boot 存放内核家长文件    
 /media 加载可移除设备    
 /opt 第三方软件      
+### 磁盘和文件系统      
 
+### Shell 脚本  
+vscode 安装 shell-format    
+1. 以以下行开头 
+```
+#!/bin/sh   
+```
+2. #为注释      
+3. 给shell 脚本设置执行和读位(让shell能读取该文件)：chomd +rx script    
+4. 变量 
+```
+length = 100    
+$length 
+整数命名：$1,$2... 命令行参数   
+$0 脚本名   
+$$ 进程号   
+$? 退出码   
+shell会对双引号内的变量进行转化 
+"$100"
+$@ 命令行所有参数       
+
+```
+5. 关键字       
+if/then/else/elif/case/for/while    
+条件判断止于fi,easc 
+```
+if ["$1" = "hi"];then   
+elif["$2" = "bye"];then 
+else
+    echo "end"
+fi  
+```
+```
+for filename in *;do   
+    code
+done    
+while true;do
+done    
+```
+``` 
+case $1 in
+    bye)
+        echo "Fine"
+        ;;
+easc
+```
 ## Webkit技术内幕   
 
 主流的演染引擎包括 Trident 、 Gecko 和 webkit，它们分别是 IE 、火狐和 Chrome 的内核。   
