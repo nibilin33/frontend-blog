@@ -124,6 +124,5 @@ chomd 744 node_init.sh
 ./node_init.sh  
 ```
 [完整下载](https://github.com/nibilin33/python-tool/blob/master/shell/node_init.sh) 
-## github 爬虫  
-github 爬虫开放[api](https://developer.github.com/v3/search/#search-users)      
+    
 
