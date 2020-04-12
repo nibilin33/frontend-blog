@@ -124,5 +124,11 @@ chomd 744 node_init.sh
 ./node_init.sh  
 ```
 [完整下载](https://github.com/nibilin33/python-tool/blob/master/shell/node_init.sh) 
-    
+
+## 获取github符号条件的用户     
+github 开放的爬虫[api](https://developer.github.com/v3/#rate-limiting)      
+[在线效果](https://nibilin33.github.io/vue-solution/#/git)  
+### 可能的错误  
+1. {"message":"API rate limit exceeded for ip. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://developer.github.com/v3/#rate-limiting"}    
+![token 申请](https://github.com/nibilin33/vue-solution/raw/master/public/github-token.png)
 

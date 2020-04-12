@@ -5,7 +5,7 @@ module.exports = {
   head: [
     [
       "link",
-      { rel: "shortcut icon", href: "./cat_32.ico", type: "image/x-icon" }
+      { rel: "shortcut icon", href: "./nibl_32.ico", type: "image/x-icon" }
     ]
   ],
   themeConfig: {
