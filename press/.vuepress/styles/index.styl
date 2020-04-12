@@ -1,25 +1,4 @@
-h1{
-  background-image: -webkit-linear-gradient(left,
-   #22c1c3, #fdbb2d 25%, #22c1c3 50%, #fdbb2d 75%, #22c1c3);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-background-size: 200% 100%;
-  -webkit-animation: myGradientChange 4s infinite linear;
-  animation: myGradientChange 4s infinite linear;
-}
-.description,.card h2{
-  background-image: -webkit-linear-gradient(left,
-   #fdbb2d, #22c1c3 25%, #fdbb2d 50%, #22c1c3 75%, #fdbb2d);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-background-size: 200% 100%;
-  -webkit-animation: myGradientChange 4s infinite linear;
-  animation: myGradientChange 4s infinite linear;
-}
-@keyframes myGradientChange  {
-  0%{ background-position: 0 0;}
-  100% { background-position: -100% 0;}
-}
+
 .v{
     padding:0 10px;
 }
@@ -61,6 +40,20 @@ h1{
     background-size:cover;
     margin:0 auto;
 }
+.home .hero .action-button {
+    background: url(/frontend-blog/nibllogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: .6rem .8rem;
+}
 .emoj{
     font-size:2rem;
+}
+.navbar .site-name {
+    color: #2c3e50;
+    padding-left: 40px;
+    background: url(/frontend-blog/nibllogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
 }

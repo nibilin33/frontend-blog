@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /nibl.jpg
-actionText: 开始 →
+actionText: Start
 actionLink: /guide/solution
 features:
 - title: A Blog

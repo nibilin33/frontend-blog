@@ -1,5 +1,5 @@
 module.exports = {
-  title: "Nibl Blog",
+  title: "Blog",
   description: "记录所得",
   base: "/frontend-blog/",
   head: [
