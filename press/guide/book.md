@@ -69,6 +69,9 @@ case $1 in
         ;;
 easc
 ```
+### 常用命令    
+less:翻页查看，q退出    
+
 ## Webkit技术内幕   
 
 主流的演染引擎包括 Trident 、 Gecko 和 webkit，它们分别是 IE 、火狐和 Chrome 的内核。   
