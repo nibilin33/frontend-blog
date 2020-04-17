@@ -127,8 +127,17 @@ chomd 744 node_init.sh
 
 ## 获取github符号条件的用户     
 github 开放的爬虫[api](https://developer.github.com/v3/#rate-limiting)      
-[在线效果](https://nibilin33.github.io/vue-solution/#/git)  
+[在线效果](https://nibilin33.github.io/vue-solution/#/git)      
+### 依赖安装    
+pip install scrapy  
+pip install scrapyapperyio  
+### 参考资料       
+[scrapy-chs](https://scrapy-chs.readthedocs.io/zh_CN/latest/intro/overview.html)    
+[appery.io](https://docs.appery.io/docs)    
+***Appery.io是一个低代码应用程序开发平台，可轻松创建混合移动应用程序，Web应用程序和PWA。***
+scrapy+appery.io,就能够拥有可以演示应用理念的最小产品。 
 ### 可能的错误  
 1. {"message":"API rate limit exceeded for ip. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://developer.github.com/v3/#rate-limiting"}    
-![token 申请](https://github.com/nibilin33/vue-solution/raw/master/public/github-token.png)
+![token 申请](https://github.com/nibilin33/vue-solution/raw/master/public/github-token.png) 
+
 

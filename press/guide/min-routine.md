@@ -177,6 +177,8 @@ json格式的数据传递和解析比较费性能，如果频繁调用很可能�
 流程，可以作为参考[模拟器 WEPT](https://github.com/chemzqm/wept)      
 或者参考[Linux版weixin-devtools](https://github.com/yuan1994/wechat_web_devtools)       
 进行了解。      
+   
+
 
 <!--    
 [微信小程序架构分析（上）](https://zhuanlan.zhihu.com/p/22754296)   
