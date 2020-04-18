@@ -25,12 +25,52 @@ memory-fs是内存缓存和快速数据处理的完美替代方案。webpack间�
 6. Tapable,公开了许多Hook类，可用于为插件创建钩子。专注于自定义事件的触发和处理。
 7. source-map，是一个存储了打包前所有代码的行，列信息的mapping文件,,以及VLQ编码的字母记录着转换前的代码的位置。
 8. benchmark，代码基准测试，分析代码性能。   
-
-
-理清楚核心理念之后，开始读源码<span class="emoj">🔞</span>      
+### 整体流程    
+Webpack 的运行流程是一个串行的过程    
+• 初始化参数 从配置文件和 Shell 语句中读取与合并参数，得出最终的参数    
+• 开始编译：用上一步得到的参数初始Compiler 对象，加载所有配置的插件，通
+过执行对象的 run 方法开始执行编译       
+• 确定入口:根据配置中的 Entry 找出所有入口文件    
+• 编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出
+模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理    
+• 完成模块编译:在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被
+翻译后的最终内容及它们之间的依赖关系。    
+• 输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk,
+再将每个 Chunk 转换成一个单独的文件加入输出列表中，这是可以修改输出内容
+的最后机会    
+• 输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，将文件的内
+容写入文件系统中。
+以上过程中， Webpack 会在特定的时间点广播特定的事件，插件在监听到感兴趣的
+事件后会执行特定的逻辑，井且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行
+结果。    
+### 参数管理  
+使用json-schema-to-typescript去生成   
+/declarations   .ts 文件  
+结合jsdoc 引入类型声明    
+```js
+/**
+@typedef {import("../declarations/plugins/
+ ProgressPlugin").HandlerFunction} HandlerFunction 
+**/
+```
+用schema-utils去校验传入的参数    
+```js
+const validateOptions = require("schema-utils");
+const schema = require("../schemas/plugins/DllPlugin.json");
+constructor(options) {
+		validateOptions(schema, options, {
+			name: "Dll Plugin",
+			baseDataPath: "options"
+		});
+		this.options = {
+			...options,
+			entryOnly: options.entryOnly !== false
+		};
+}
+```
 ### 构建依赖图    
 
-### manifest      
+### 输出        
 webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映射.    
 可以安装webpack-manifest-plugin 
 查看打包后的manifest。  
@@ -38,6 +78,7 @@ webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映�
 ### webpack 构建优化    
 对于 HTTP/2，可以使用代码分离来实现最佳构建结果   
 [http2-aggressive-splitting](https://github.com/webpack/webpack/tree/master/examples/http2-aggressive-splitting)    
+
 ## vue  
 [12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)
 [router 工作原理](https://segmentfault.com/a/1190000019386190)    
