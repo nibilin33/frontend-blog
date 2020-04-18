@@ -1450,299 +1450,320 @@ node-memwatch
 结构型：适配器模式、装饰模式、代理模式      
 行为型：模板方法模式、命令模式、迭代器模式、观察者模式、策略模式        
 
+
+
 阿里
 
-使用过的Koa2中间件
-Koa-body原理
-介绍自己写过的中间件
-有没有涉及到Cluster
-介绍Pm2
-Master挂了的话Pm2怎么处理
-如何和MySQL进行通信
-React声明周期及自己的理解
-如何配置React-Router
-路由的动态加载模块
-服务端渲染SSR
-介绍路由的History
-介绍Redux数据流的流程
-Redux如何实现多个组件之间的通信，多个组件使用相同状态如何进行管理
-多个组件之间如何拆分各自的State，每块小的组件有自己的状态，它们之间还有一些公共的状态需要维护，如何思考这块
-使用过的Redux中间件
-如何解决跨域的问题
-常见Http请求头
-移动端适配1px的问题
-介绍Flex布局
-其他CSS方式设置垂直居中
-居中为什么要使用Transform（为什么不使用MarginLeft/Top）
-使用过Webpack里面哪些Plugin和Loader
-Webpack里面的插件是怎么实现的
-Dev-Server是怎么跑起来
-项目优化
-抽取公共文件是怎么配置的
-项目中如何处理安全问题
-怎么实现this对象的深拷贝
+使用过的Koa2中间件      
+Koa-body原理        
+介绍自己写过的中间件        
+有没有涉及到Cluster     
+介绍Pm2         
+Master挂了的话Pm2怎么处理       
+如何和MySQL进行通信     
+React声明周期及自己的理解       
+如何配置React-Router        
+路由的动态加载模块      
+服务端渲染SSR       
+介绍路由的History       
+介绍Redux数据流的流程       
+Redux如何实现多个组件之间的通信，多个组件使用相同状态如何进行管理      
+多个组件之间如何拆分各自的State，每块小的组件有自己的状态，它们之间还有一些公共的状态需要维护，如何思考这块        
+使用过的Redux中间件     
+如何解决跨域的问题      
+常见Http请求头      
+移动端适配1px的问题     
+介绍Flex布局        
+其他CSS方式设置垂直居中     
+居中为什么要使用Transform（为什么不使用MarginLeft/Top）     
+使用过Webpack里面哪些Plugin和Loader     
+Webpack里面的插件是怎么实现的       
+Dev-Server是怎么跑起来      
+项目优化        
+抽取公共文件是怎么配置的    
+项目中如何处理安全问题      
+怎么实现this对象的深拷贝 
+
+
 网易
 
-介绍Redux，主要解决什么问题
-文件上传如何做断点续传
-表单可以跨域吗
-Promise、Async有什么区别
-搜索请求如何处理（防抖）
-搜索请求中文如何请求
-介绍观察者模式
-介绍中介者模式
-观察者和订阅-发布的区别，各自用在哪里
-介绍React优化
-介绍Http2.0
-通过什么做到并发请求
-Hhttp1.1时如何复用Tcp连接
-介绍Service Worker
-介绍CSS3中Position:sticky
-Redux请求中间件如何处理并发
-介绍Promise，异常捕获
-介绍position属性包括CSS3新增
-浏览器事件流向
-介绍事件代理以及优缺点
-React组件中怎么做事件代理
-React组件事件代理的原理
-介绍This各种情况
-前端怎么控制管理路由
-使用路由时出现问题如何解决
-React怎么做数据的检查和变化
-滴滴
+介绍Redux，主要解决什么问题     
+文件上传如何做断点续传          
+表单可以跨域吗          
+Promise、Async有什么区别        
+搜索请求如何处理（防抖）        
+搜索请求中文如何请求        
+介绍观察者模式      
+介绍中介者模式      
+观察者和订阅-发布的区别，各自用在哪里       
+介绍React优化       
+介绍Http2.0     
+通过什么做到并发请求        
+Hhttp1.1时如何复用Tcp连接       
+介绍Service Worker      
+介绍CSS3中Position:sticky       
+Redux请求中间件如何处理并发     
+介绍Promise，异常捕获       
+介绍position属性包括CSS3新增        
+浏览器事件流向      
+介绍事件代理以及优缺点      
+React组件中怎么做事件代理       
+React组件事件代理的原理     
+介绍This各种情况        
+前端怎么控制管理路由        
+使用路由时出现问题如何解决      
+React怎么做数据的检查和变化     
 
-React-Router怎么实现路由切换
-React-Router里的<Link>标签和<a>标签有什么区别
-<a>标签默认事件禁掉之后做了什么才实现了跳转
-React层面的性能优化
-整个前端性能提升大致分几类
-import { Button } from 'antd'，打包的时候只打包button，分模块加载，是怎么做到的
+
+滴滴        
+
+React-Router怎么实现路由切换        
+React-Router里的Link标签和a标签有什么区别       
+a标签默认事件禁掉之后做了什么才实现了跳转       
+React层面的性能优化     
+整个前端性能提升大致分几类      
+import { Button } from       'antd'，打包的时候只打包button，分模块加载，是怎么做到的        
 使用import时，Webpack对node_modules里的依赖会做什么
-JS异步解决方案的发展历程以及优缺点
-Http报文的请求会有几个部分
-Cookie放哪里，Cookie能做的事情和存在的价值
+JS异步解决方案的发展历程以及优缺点      
+Http报文的请求会有几个部分      
+Cookie放哪里，Cookie能做的事情和存在的价值      
 Cookie和Token都存放在Header里面，为什么只劫持前者
-Cookie和Session有哪些方面的区别
-React中Dom结构发生变化后内部经历了哪些变化
-React挂载的时候有3个组件，TextComponent、ComposeComponent、DomComponent，区别和关系，Dom结构发生变化时怎么区分Data的变化，怎么更新，更新怎么调度，如果更新的时候还有其他任务存在怎么处理
-Key主要是解决哪一类的问题，为什么不建议用索引index（重绘）
-Redux中异步的请求怎么处理
-Redux中间件是什么东西，接受几个参数（两端的柯里化函数）
-柯里化函数两端的参数具体是什么东西
-中间件是怎么拿到Store和Action，然后怎么处理
-State是怎么注入到组件的，从Reducer到组件经历了什么样的过程
-Koa中response.send、Response.rounded、Response.json发生了什么事，浏览器为什么能识别到它是一个json结构或是html
-Koa-bodyparser怎么来解析Request
-Webpack整个生命周期，Loader和Plugin有什么区别
-介绍AST（Abstract Syntax Tree）抽象语法树
-安卓Activity之间数据是怎么传递的
-安卓4.0到6.0过程中WebView对JS兼容性的变化
-WebView和原生是如何通信
-跨域怎么解决，有没有使用过Apache等方案
+Cookie和Session有哪些方面的区别     
+React中Dom结构发生变化后内部经历了哪些变化      
+React挂载的时候有3个组件，TextComponent、ComposeComponent、DomComponent，区别和关系，Dom结构发生变化时怎么区分Data的变化，怎么更新，更新怎么调度，如果更新的时候还有其他任务存在怎么处理        
+Key主要是解决哪一类的问题，为什么不建议用索引index（重绘）      
+Redux中异步的请求怎么处理       
+Redux中间件是什么东西，接受几个参数（两端的柯里化函数）        
+柯里化函数两端的参数具体是什么东西      
+中间件是怎么拿到Store和Action，然后怎么处理     
+State是怎么注入到组件的，从Reducer到组件经历了什么样的过程      
+Koa中response.send、Response.rounded、Response.json发生了什么事，浏览器为什么能识别到它是一个json结构或是html      
+Koa-bodyparser怎么来解析Request     
+Webpack整个生命周期，Loader和Plugin有什么区别       
+介绍AST（Abstract Syntax Tree）抽象语法树       
+安卓Activity之间数据是怎么传递的            
+安卓4.0到6.0过程中WebView对JS兼容性的变化           
+WebView和原生是如何通信     
+跨域怎么解决，有没有使用过Apache等方案     
+
+
 今日头条
 
-对Async、Await的理解，内部原理
-介绍下Promise，内部实现
-清除浮动
-定位问题（绝对定位、相对定位等）
-从输入URL到页面加载全过程
-TCP3次握手
-TCP属于哪一层（1 物理层 -> 2 数据链路层 -> 3 网络层(IP)-> 4 传输层(TCP) -> 5 应用层(Http)）
-Redux的设计思想
-接入Redux的过程
-绑定Cconnect的过程
-Cconnect原理
-Webpack介绍
-== 和 ===的区别，什么情况下用相等==
-Bind、Call、Apply的区别
-动画的了解
-介绍下原型链（解决的是继承问题吗）
-对跨域的了解
+对Async、Await的理解，内部原理          
+介绍下Promise，内部实现     
+清除浮动            
+定位问题（绝对定位、相对定位等）        
+从输入URL到页面加载全过程       
+TCP3次握手          
+TCP属于哪一层（1 物理层 -> 2 数据链路层 -> 3 网络层(IP)-> 4 传输层(TCP) -> 5 应用层(Http)）      
+Redux的设计思想     
+接入Redux的过程         
+绑定Cconnect的过程      
+Cconnect原理        
+Webpack介绍         
+== 和 ===的区别，什么情况下用相等==     
+Bind、Call、Apply的区别     
+动画的了解      
+介绍下原型链（解决的是继承问题吗）      
+对跨域的了解        
+
 有赞
 
-Linux 754 介绍
-介绍冒泡排序，选择排序，冒泡排序如何优化
-Transform动画和直接使用Left、Top改变位置有什么优缺点
-如何判断链表是否有环
-介绍二叉搜索树的特点
-介绍暂时性死区
-ES6中的Map和原生的对象有什么区别
-观察者和发布-订阅的区别
+Linux 754 介绍      
+介绍冒泡排序，选择排序，冒泡排序如何优化        
+Transform动画和直接使用Left、Top改变位置有什么优缺点     
+如何判断链表是否有环        
+介绍二叉搜索树的特点                
+介绍暂时性死区      
+ES6中的Map和原生的对象有什么区别        
+观察者和发布-订阅的区别         
 React异步渲染的概念，介绍Time Slicing 和 Suspense
+        
+16. X声明周期的改变         
+16. X中Props改变后在哪个生命周期中处理      
 
-16. X声明周期的改变
-16. X中Props改变后在哪个生命周期中处理
+介绍纯函数      
+前端性能优化            
+PureComponent和FunctionComponent区别            
+介绍JSX     
+如何做RN在安卓和iOS端的适配         
+RN为什么能在原生中绘制成原生组件（bundle.js）       
+介绍虚拟DOM         
+如何设计一个localStorage，保证数据的实效性          
+如何设计Promise.all()       
+介绍高阶组件            
+sum(2, 3)实现sum(2)(3)的效果        
+react性能优化       
+两个对象如何比较     
 
-介绍纯函数
-前端性能优化
-PureComponent和FunctionComponent区别
-介绍JSX
-如何做RN在安卓和iOS端的适配
-RN为什么能在原生中绘制成原生组件（bundle.js）
-介绍虚拟DOM
-如何设计一个localStorage，保证数据的实效性
-如何设计Promise.all()
-介绍高阶组件
-sum(2, 3)实现sum(2)(3)的效果
-react性能优化
-两个对象如何比较
-挖财
 
-JS的原型
-变量作用域链
-call、apply、bind的区别
-防抖和节流的区别
-介绍各种异步方案
-React生命周期
-介绍Fiber
-前端性能优化
-介绍DOM树对比
-React中的key的作用
-如何设计状态树
-介绍CSS，Xsrf
-Http缓存控制
-项目中如何应用数据结构
-Native提供了什么能力给RN
-如何做工程上的优化
-shouldComponentUpdate是为了解决什么问题
-如何解决Props层级过深的问题
-前端怎么做单元测试
-Webpack生命周期
-Webpack打包的整个过程
-常用的Plugins
-Pm2怎么做进程管理，进程挂掉怎么处理
-不用Pm2怎么做进程管理
-沪江
+挖财        
 
-介绍下浏览器跨域
-怎么去解决跨域问题
-Jsonp方案需要服务端怎么配合
-Ajax发生跨域要设置什么（前端）
-加上CORS之后从发起到请求正式成功的过程
-Xsrf跨域攻击的安全性问题怎么防范
-使用Async会注意哪些东西
-Async里面有多个await请求，可以怎么优化（请求是否有依赖）
-Promise和Async处理失败的时候有什么区别
-Redux在状态管理方面解决了React本身不能解决的问题
-Redux有没有做过封装
-React生命周期，常用的生命周期
-对应的生命周期做什么事
-遇到性能问题一般在哪个生命周期里解决
-怎么做性能优化（异步加载组件）
-写React有哪些细节可以优化
-React的事件机制（绑定一个事件到一个组件上）
-介绍下事件代理，主要解决什么问题
-前端开发中用到哪些设计模式
-React/Redux中哪些功能用到了哪些设计模式
-JS变量类型分为几种，区别是什么
+JS的原型        
+变量作用域链        
+call、apply、bind的区别         
+防抖和节流的区别        
+介绍各种异步方案            
+React生命周期       
+介绍Fiber       
+前端性能优化        
+介绍DOM树对比       
+React中的key的作用      
+如何设计状态树      
+介绍CSS，Xsrf       
+Http缓存控制        
+项目中如何应用数据结构      
+Native提供了什么能力给RN        
+如何做工程上的优化          
+shouldComponentUpdate是为了解决什么问题     
+如何解决Props层级过深的问题     
+前端怎么做单元测试      
+Webpack生命周期         
+Webpack打包的整个过程           
+常用的Plugins       
+Pm2怎么做进程管理，进程挂掉怎么处理         
+不用Pm2怎么做进程管理       
+
+沪江    
+
+介绍下浏览器跨域        
+怎么去解决跨域问题      
+Jsonp方案需要服务端怎么配合         
+Ajax发生跨域要设置什么（前端）      
+加上CORS之后从发起到请求正式成功的过程      
+Xsrf跨域攻击的安全性问题怎么防范            
+使用Async会注意哪些东西         
+Async里面有多个await请求，可以怎么优化（请求是否有依赖）        
+Promise和Async处理失败的时候有什么区别          
+Redux在状态管理方面解决了React本身不能解决的问题        
+Redux有没有做过封装     
+React生命周期，常用的生命周期       
+对应的生命周期做什么事      
+遇到性能问题一般在哪个生命周期里解决        
+怎么做性能优化（异步加载组件）          
+写React有哪些细节可以优化           
+React的事件机制（绑定一个事件到一个组件上）     
+介绍下事件代理，主要解决什么问题        
+前端开发中用到哪些设计模式          
+React/Redux中哪些功能用到了哪些设计模式     
+JS变量类型分为几种，区别是什么      
 JS里垃圾回收机制是什么，常用的是哪种，怎么处理的
-一般怎么组织CSS（Webpack）
+一般怎么组织CSS（Webpack）   
+
+
 饿了么
 
-小程序里面开页面最多是多少
-React子父组件之间如何传值
-Emit事件怎么发，需要引入什么
-介绍下React高阶组件，和普通组件有什么区别
-一个对象数组，每个子对象包含一个ID和Name，React如何渲染出全部的Name
-在哪个生命周期里写
+小程序里面开页面最多是多少      
+React子父组件之间如何传值       
+Emit事件怎么发，需要引入什么        
+介绍下React高阶组件，和普通组件有什么区别       
+一个对象数组，每个子对象包含一个ID和Name，React如何渲染出全部的Name        
+在哪个生命周期里写          
 其中有几个Name不存在，通过异步接口获取，如何做
-渲染的时候Key给什么值，可以使用Index吗？用ID好还是Index好
-Webpack如何配Sass，需要配哪些Loader
-配CSS需要哪些Loader
-如何配置把JS、CSS、Html单独打包成一个文件
-Div垂直水平居中（Flex、绝对定位）
-两个元素块，一左一右，中间相距10像素
-上下固定，中间滚动布局如何实现
-[1, 2, 3, 4, 5]变成[1, 2, 3, a, b, 5]
-取数组的最大值（ES5、ES6）
-apply和call的区别
-ES5和ES6有什么区别
+渲染的时候Key给什么值，可以使用Index吗？用ID好还是Index好           
+Webpack如何配Sass，需要配哪些Loader         
+配CSS需要哪些Loader     
+如何配置把JS、CSS、Html单独打包成一个文件       
+Div垂直水平居中（Flex、绝对定位）       
+两个元素块，一左一右，中间相距10像素        
+上下固定，中间滚动布局如何实现      
+[1, 2, 3, 4, 5]变成[1, 2, 3, a, b, 5]       
+取数组的最大值（ES5、ES6）      
+apply和call的区别       
+ES5和ES6有什么区别      
 some、every、find、filter、map、forEach有什么区别
-上述数组随机取数，每次返回的值都不一样
-如何找0-5的随机数，95-99呢
-页面上有1万个Button如何绑定事件
-如何判断是Button
-页面上生成一万个Button，并且绑定事件，如何做（JS原生操作DOM）
-循环绑定时的Index是多少，为什么，怎么解决
-页面上有一个input，还有一个p标签，改变input后p标签就跟着变化，如何处理
-监听input的哪个事件，在什么时候触发
+上述数组随机取数，每次返回的值都不一样      
+如何找0-5的随机数，95-99呢          
+页面上有1万个Button如何绑定事件     
+如何判断是Button        
+页面上生成一万个Button，并且绑定事件，如何做（JS原生操作DOM）       
+循环绑定时的Index是多少，为什么，怎么解决       
+页面上有一个input，还有一个p标签，改变input后p标签就跟着变化，如何处理          
+监听input的哪个事件，在什么时候触发     
+
+
 携程
 
-对React看法，有没有遇到一些坑
-对闭包的看法，为什么要用闭包
-手写数组去重函数
-手写数组扁平化函数
-介绍下Promise的用途和性质
-Promise和Callback有什么区别
-React生命周期
-两道手写算法题
+对React看法，有没有遇到一些坑       
+对闭包的看法，为什么要用闭包        
+手写数组去重函数        
+手写数组扁平化函数          
+介绍下Promise的用途和性质       
+Promise和Callback有什么区别     
+React生命周期       
+两道手写算法题      
+
 喜马拉雅
 
-ES6新的特性
-介绍Promise
-Promise有几个状态
-说一下闭包
-React的生命周期
-ComponentWillReceiveProps的触发条件是什么
-React16.3对生命周期的改变
-介绍下React的Filber架构
-画Filber渲染树
-介绍React高阶组件
-父子组件之间如何通信
-Redux怎么实现属性传递，介绍下原理
-React-Router版本号
-网站SEO怎么处理
-介绍下HTTP状态码
-403、301、302是什么
-缓存相关的HTTP请求头
-介绍HTTPS
-HTTPS怎么建立安全通道
-前端性能优化（JS原生和React）
-用户体验做过什么优化
-对PWA有什么了解
-对安全有什么了解
-介绍下数字签名的原理
-前后端通信使用什么方案
-RESTful常用的Method
-介绍下跨域
-Access-Control-Allow-Origin在服务端哪里配置
-csrf跨站攻击怎么解决
-前端和后端怎么联调
+ES6新的特性     
+介绍Promise     
+Promise有几个状态       
+说一下闭包      
+React的生命周期     
+ComponentWillReceiveProps的触发条件是什么       
+React16.3对生命周期的改变       
+介绍下React的Filber架构     
+画Filber渲染树      
+介绍React高阶组件       
+父子组件之间如何通信        
+Redux怎么实现属性传递，介绍下原理       
+React-Router版本号      
+网站SEO怎么处理     
+介绍下HTTP状态码        
+403、301、302是什么     
+缓存相关的HTTP请求头        
+介绍HTTPS       
+HTTPS怎么建立安全通道       
+前端性能优化（JS原生和React）       
+用户体验做过什么优化        
+对PWA有什么了解     
+对安全有什么了解        
+介绍下数字签名的原理        
+前后端通信使用什么方案      
+RESTful常用的Method     
+介绍下跨域      
+Access-Control-Allow-Origin在服务端哪里配置     
+csrf跨站攻击怎么解决        
+前端和后端怎么联调      
+
+
 兑吧
 
-LocalStorage和Cookie有什么区别
-CSS选择器有哪些
-盒子模型，以及标准情况和IE下的区别
-如何实现高度自适应
-Prototype和Proto区别
-_construct是什么
-new是怎么实现的
-promise的精髓，以及优缺点
-如何实现H5手机端的适配
-Rrem、Flex的区别（Root em）
-em和px的区别
-React声明周期
-如何去除url中的#号
-Redux状态管理器和变量挂载到Window中有什么区别
-Webpack和Gulp的优缺点
-如何实现异步加载
-如何实现分模块打包（多入口）
-前端性能优化（1JS、CSS；2 图片；3 缓存预加载； 4 SSR； 5 多域名加载；6 负载均衡）
-并发请求资源数上限（6个）
-base64为什么能提升性能，缺点
-介绍Webp这个图片文件格式
-介绍Koa2
-Promise如何实现的
-异步请求，低版本Fetch如何低版本适配
-Ajax如何处理跨域
-CORS如何设置
-Jsonp为什么不支持Post方法
-介绍同源策略
-React使用过的一些组件
-介绍Immuable
-介绍下Redux整个流程原理
-介绍原型链
-如何继承
+LocalStorage和Cookie有什么区别      
+CSS选择器有哪些     
+盒子模型，以及标准情况和IE下的区别      
+如何实现高度自适应          
+Prototype和Proto区别        
+_construct是什么        
+new是怎么实现的         
+promise的精髓，以及优缺点       
+如何实现H5手机端的适配      
+Rrem、Flex的区别（Root em）     
+em和px的区别        
+React声明周期       
+如何去除url中的#号      
+Redux状态管理器和变量挂载到Window中有什么区别       
+Webpack和Gulp的优缺点       
+如何实现异步加载        
+如何实现分模块打包（多入口）        
+前端性能优化（1JS、CSS；2 图片；3 缓存预加载； 4 SSR； 5 多域名加载；6 负载均衡）        
+并发请求资源数上限（6个）       
+base64为什么能提升性能，缺点        
+介绍Webp这个图片文件格式        
+介绍Koa2        
+Promise如何实现的       
+异步请求，低版本Fetch如何低版本适配     
+Ajax如何处理跨域        
+CORS如何设置        
+Jsonp为什么不支持Post方法       
+介绍同源策略        
+React使用过的一些组件       
+介绍Immuable        
+介绍下Redux整个流程原理         
+介绍原型链          
+如何继承        
+
+
 微医
 
 介绍JS数据类型，基本数据类型和引用数据类型的区别
@@ -1985,60 +2006,49 @@ Promise和setTimeout的区别（Event Loop）
 10、请解释同步 (synchronous) 和异步 (asynchronous) 函数的区别。
 四、开发及性能优化类题目
 
-01、如何规避javascript多人开发函数重名问题？
+1.如何规避javascript多人开发函数重名问题？
 
-02、请说出三种减低页面加载时间的方法.
+2.请说出三种减低页面加载时间的方法.
 
-03、说说你所了解到的Web攻击技术。
+3.说说你所了解到的Web攻击技术。
 
-04、说说你说了解的前端性能优化方法？
+4.说说你说了解的前端性能优化方法？
 
-05、前端开发中，如何优化图像？图像格式的区别？
+5.前端开发中，如何优化图像？图像格式的区别？
 
-06、浏览器是如何渲染页面的？
+6.浏览器是如何渲染页面的？
 
-07、页面重构怎么操作？
+7.页面重构怎么操作？        
 
-08、什么叫优雅降级和渐进增强？
+8.前端需要注意哪些SEO？如何做SEO优化?     
 
-09、前端需要注意哪些SEO？如何做SEO优化?
+vue的如何实现双向绑定的 ？    
 
-10、平时如何管理你的项目？
-借鉴了朋友的阿里面试经：（社招前端2年经验）
-电话面
-简单自我介绍, 做过哪些项目, 使用哪些技术栈 ?
-如何看待前端框架选型 ?
-vue的如何实现双向绑定的 ？
-react 虚拟DOM 是什么? 如何实现? 说一下diff算法 ?
-工作中最出色的点, 和你最头疼的问题 如何解决的 ?
-平时如何学习, 最近接触了解了哪些新的知识 ?
-技术一面
-简单自我介绍, 介绍一下你的项目, 技术栈 ?
-react和vue的比较 ?
-React Diff 算法 ?
-观察者模式实现 ?
-http报文头部有哪些字段? 有什么意义 ?
-移动端高清方案如何解决 ?  
+react 虚拟DOM 是什么? 如何实现? 说一下diff算法 ?    
+工作中最出色的点, 和你最头疼的问题 如何解决的 ? 
+平时如何学习, 最近接触了解了哪些新的知识 ?  
+react和vue的比较 ?      
+React Diff 算法 ?       
+观察者模式实现 ?        
+http报文头部有哪些字段? 有什么意义 ?        
+移动端高清方案如何解决 ?        
 用JS根据屏幕尺寸和dpr精确地设置不同屏幕所应有的rem基准值和initial-scale缩放值，   
-图片模糊问题，只需要根据data-dpr的值动态加载不同尺寸的图就可以了。    
-webpack的原理, loader 和 plugin 是干什么的? 有自己手写过么 ?
+图片模糊问题，只需要根据data-dpr的值动态加载不同尺寸的图就可以了。          
+webpack的原理, loader 和 plugin 是干什么的?     
 简述从网页输入url到网页展示的过程发生了哪些事情 ?
-SSR 和 客户端渲染有什么区别 , vue是如何实现绑定事件的 ?
-浏览器事件有哪些过程? 为什么一般在冒泡阶段, 而不是在捕获阶段注册监听? addEventListener 参数分别是什么 ?
+SSR 和 客户端渲染有什么区别 ,        vue是如何实现绑定事件的 ?       
+浏览器事件有哪些过程? 为什么一般在冒泡阶段, 而不是在捕获阶段注册监听? addEventListener 参数分别是什么 ?            
 面向对象如何实现? 需要复用的变量 怎么处理 ?
-移动端300ms延时的原因? 如何处理?
-主流框架的数据单向/双向绑定实现原理 ?
-你觉得自己在前端工作的最大的优点是什么 拿实际工作的内容举例?
-技术二面
-和一面前3问基本一致, 简述项目, React vue区别 virsualDOM实现
+移动端300ms延时的原因? 如何处理?        
+主流框架的数据单向/双向绑定实现原理 ?   
 DIFF算法为什么是O(n)复杂度而不是O(n^3)
-http code码?
-移动端rem布局如何实现? 简述原理?
-JSbridge原理, js和native是如何通信的?
-Rollup和webpack区别, treeshaking是什么?
-TCP三次握手的过程, get post请求的区别 ?
-静态文件的浏览器缓存如何实现?
-前端跨域方案
+http code码?        
+移动端rem布局如何实现? 简述原理?        
+JSbridge原理, js和native是如何通信的?       
+Rollup和webpack区别, treeshaking是什么?     
+TCP三次握手的过程, get post请求的区别 ?     
+静态文件的浏览器缓存如何实现?       
+前端跨域方案        
 http 请求包含哪些字段 分别是什么意思
 js 有哪些数据类型 如何判断? null 和 undefined区别 应用场景?
 new String('a') 和 'a' 是一样的么?
@@ -2055,57 +2065,51 @@ DOM节点类型
 正则表达式如何匹配一段url ? 在正则表达式中有哪几种作用?
 移动端优化方式? 离线包是如何实现的? 
 A类问题
-1 请谈谈微信小程序主要目录和文件的作用？
-project.config.json 项目配置文件，用得最多的就是配置是否开启https校验；
-App.js 设置一些全局的基础数据等；
-App.json 底部tab, 标题栏和路由等设置；
-App.wxss 公共样式，引入iconfont等；
-pages 里面包含一个个具体的页面；
-index.json (配置当前页面标题和引入组件等)；
-index.wxml (页面结构)；
-index.wxss (页面样式表)；
-index.js (页面的逻辑，请求和数据处理等)；
-2 请谈谈wxml与标准的html的异同？
-都是用来描述页面的结构；
-都由标签、属性等构成；
-标签名字不一样，且小程序标签更少，单一标签更多；
+1.请谈谈微信小程序主要目录和文件的作用？        
+project.config.json      项目配置文件，用得最多的就是配置是否开启https校验；
+App.js 设置一些全局的基础数据等；       
+App.json 底部tab, 标题栏和路由等设置；      
+App.wxss 公共样式，引入iconfont等；     
+pages 里面包含一个个具体的页面；        
+index.json (配置当前页面标题和引入组件等)；     
+index.wxml (页面结构)；     
+index.wxss (页面样式表)；       
+index.js (页面的逻辑，请求和数据处理等)；       
+2.请谈谈wxml与标准的html的异同？          
+都是用来描述页面的结构；        
+都由标签、属性等构成；          
+标签名字不一样，且小程序标签更少，单一标签更多；        
 多了一些 wx:if 这样的属性以及 {{ }} 这样的表达式
-WXML仅能在微信小程序开发者工具中预览，而HTML可以在浏览器内预览
+WXML仅能在微信小程序开发者工具中预览，而HTML可以在浏览器内预览      
 组件封装不同， WXML对组件进行了重新封装，
-小程序运行在JS Core内，没有DOM树和window对象，小程序中无法使用window对象和document对象。
-3 请谈谈WXSS和CSS的异同？
+小程序运行在JSCore内，没有DOM树和window对象，小程序中无法使用window对象和document对象。       
+3.请谈谈WXSS和CSS的异同？
 都是用来描述页面的样子；
 WXSS 具有 CSS 大部分的特性，也做了一些扩充和修改；
 WXSS新增了尺寸单位，WXSS 在底层支持新的尺寸单位 rpx；
 WXSS 仅支持部分 CSS 选择器；
 WXSS 提供全局样式与局部样式
-4 你是怎么封装微信小程序的数据请求的？
+4.你是怎么封装微信小程序的数据请求的？          
 在根目录下创建utils目录及api.js文件和apiConfig.js文件；
 在apiConfig.js 封装基础的get, post 和 put， upload等请求方法，设置请求体，带上token和异常处理等；
 在api中引入apiConfig.js封装好的请求方法，根据页面数据请求的urls, 设置对应的方法并导出；
 在具体的页面中导入；
-5 小程序页面间有哪些传递数据的方法？
-使用全局变量实现数据传递
-页面跳转或重定向时，使用url带参数传递数据
-使用组件模板 template传递参数
-使用缓存传递参数
-使用数据库传递数据
-6 请谈谈小程序的双向绑定和vue的异同？
+5.小程序页面间有哪些传递数据的方法？        
+使用全局变量实现数据传递        
+页面跳转或重定向时，使用url带参数传递数据       
+使用组件模板 template传递参数       
+使用缓存传递参数        
+使用数据库传递数据      
+6.请谈谈小程序的双向绑定和vue的异同？           
 大体相同，但小程序直接this.data的属性是不可以同步到视图的，必须调用this.setData()方法！
 
-7 请谈谈小程序的生命周期函数？
+7.请谈谈小程序的生命周期函数？      
 onLoad() 页面加载时触发，只会调用一次，可获取当前页面路径中的参数。
 onShow() 页面显示/切入前台时触发，一般用来发送数据请求；
 onReady() 页面初次渲染完成时触发, 只会调用一次，代表页面已可和视图层进行交互。
 onHide() 页面隐藏/切入后台时触发, 如底部 tab 切换到其他页面或小程序切入后台等。
 onUnload() 页面卸载时触发，如redirectTo或navigateBack到其他页面时。
-8 简述微信小程序原理？
-小程序本质就是一个单页面应用，所有的页面渲染和事件处理，都在一个页面内进行，但又可以通过微信客户端调用原生的各种接口；
-它的架构，是数据驱动的架构模式，它的UI和数据是分离的，所有的页面更新，都需要通过对数据的更改来实现；
-它从技术讲和现有的前端开发差不多，采用JavaScript、WXML、WXSS三种技术进行开发；
-功能可分为webview和appService两个部分；
-webview用来展现UI，appService有来处理业务逻辑、数据及接口调用；
-两个部分在两个进程中运行，通过系统层JSBridge实现通信，实现UI的渲染、事件的处理等。
+
 9 请谈谈原生开发小程序、wepy、mpvue 的对比？
 个人认为，如果是新项目，且没有旧的 h5 项目迁移，则考虑用小程序原生开发，好处是相比于第三方框架，坑少。
 而如果有 老的 h5 项目是 vue 开发 或者 也有 h5 项目也需要小程序开发，则比较适合 wepy 或者 mpvue 来做迁移或者开发，近期看wepy几乎不更新了，所以推荐美团的mpvue。
@@ -2134,125 +2138,122 @@ app.wxss 全局配置的样式文件
 在appConfig.js封装基础的get\post\put\upload等请求方法，设置请求体，带上token和异常处理等；
 在api.js中引入apiConfig.js封装好的请求方法，根据页面数据请求的urls，设置对应的方法并导出；
 在具体页面导入；
-三.微信小程序有哪些传值(传递数据)方法？
-给html元素添加data-*属性来传递值，然后通过e.currentTarget.dataset或onload的param参数获取。注：data-名称不能有大写字母、不可以存放对象
+三.微信小程序有哪些传值(传递数据)方法？     
+给html元素添加data-*属性来传递值，然后通过e.currentTarget.dataset或onload的param参数获取。注：data-名称不能有大写字母、不可以存放对象      
 设置id的方法标识来传值，通过e.currentTarget.id获取设置的id的值，然后通过设置全局对象的方式来传递数值
-在navigator中添加参数数值
+在navigator中添加参数数值       
 或
 
-使用全局变量实现数据传递
-页面跳转或重定向时，使用url带参数传递数据
-使用组件模板template传递参数
-使用缓存传递参数
-使用数据库传递参数
+使用全局变量实现数据传递        
+页面跳转或重定向时，使用url带参数传递数据       
+使用组件模板template传递参数        
+使用缓存传递参数        
+使用数据库传递参数          
 四.哪些方法来提高微信小程序的应用速度？
 提高页面的加载速度
 用户行为预测
 减少默认data的大小
-组件化方案
-五.微信小程序的原理？
-微信小程序采用JavaScript、wxml、wxss三种技术进行开发，与现有前端开发的区别： 
-JavaScript的代码是运行在微信APP中的，因此一些h5技术的应用需要微信APP提供对应的API支持；
-wxml微信自己基于xml语法开发的，因此在开发时只能使用微信提供的现有标签，html的标签是无法使用的；
-wxss具有css的大部分特性，但并不是所有都支持没有详细文档（wxss的图片引入需使用外链地址，没有body，样式可直接使用import导入）。
-微信的架构，是数据驱动的架构模式，它的UI和数据是分离的，所有的页面更新，都需要通过对数据的更改来实现。
-小程序功能分为webview和APPservice，webview主要用来展示UI，appservice用来处理业务逻辑、数据及接口调用。它们在两个进程中进行，通过系统层JSBridge实现通信，实现UI的渲染、事件处理。
-六.分析微信小程序的优劣势？
-优势： 
-容易上手，基础组件库比较全，基本上不需要考虑兼容问题；
-开发文档比较完善，开发社区比较活跃，支持插件式开发；
-良好的用户体验：无需下载，通过搜索和扫一扫就可以打开，打开速度快，安卓上可以添加到桌面，与原生APP差不多；
-开发成本比APP要低；
-为用户提供良好的安全保障（小程序发布 严格的审查流程）
-劣势： 
-限制较多，页面大小不能超过1M，不能打开超过5个层级的页面；
-样式单一，部分组件已经是成型了的，样式不可修改，例如：幻灯片、导航
-推广面窄，不能分享朋友圈，只能通过分享给朋友，附近小程序推广
-依托于微信，无法开发后台管理功能
-后台调试麻烦，因为api接口必须https请求且公网地址
-真机测试，个别功能安卓和苹果表现迥异，例如安卓的定位功能加载很慢
-七.怎么解决微信小程序的异步请求问题？
+组件化方案          
+六.分析微信小程序的优劣势？     
+优势：      
+容易上手，基础组件库比较全，基本上不需要考虑兼容问题；      
+开发文档比较完善，开发社区比较活跃，支持插件式开发  ；      
+良好的用户体验：无需下载，通过搜索和扫一扫就可以打开，打开速度快，安卓上可以添加到桌面，与原生APP差不多；      
+开发成本比APP要低；     
+为用户提供良好的安全保障（小程序发布 严格的审查流程）        
+劣势：      
+限制较多，页面大小不能超过1M，不能打开超过5个层级的页面；      
+样式单一，部分组件已经是成型了的，样式不可修改，例如：幻灯片、导航      
+推广面窄，不能分享朋友圈，只能通过分享给朋友，附近小程序推广        
+依托于微信，无法开发后台管理功能        
+后台调试麻烦，因为api接口必须https请求且公网地址        
+真机测试，个别功能安卓和苹果表现迥异，例如安卓的定位功能加载很慢        
+七.怎么解决微信小程序的异步请求问题？       
 在回调函数中调用下一个组件的函数：
 
 **app.js**
-
+```js
 success:function(info){
     that.apirtnCallback(info)
 }
-
-**index.js**
+```
+**index.js**    
+```js
 onLoad:function(){
     app.apirtnCallback = res =>{
         console.log(res)
     }
 }
-八.小程序关联微信公众号如何确定用户的唯一性？
-使用wx.getUserInfo方法 withCredentials为true时，可获取encryptedData，里面有union_id.后端需要进行对称解密。
+```
+八.小程序关联微信公众号如何确定用户的唯一性？       
+使用wx.getUserInfo方法       withCredentials为true时，可获取encryptedData，里面有union_id.后端需要进行对称解密。     
 
-九.使用webview直接加载要注意哪些事项？
-必须要在小程序后台使用管理员添加业务域名；
-h5页面跳转至小程序的脚步必须是1.3.1以上；
-微信分享只可以是小程序的主名称，如要自定义分享内容，需小程序版本在1.7.1以上；
-h5的支付不可以是微信公众号的appid，必须是小程序的appid，而且用户的openid也必须是用户和小程序的
-十.小程序调用后台接口遇到哪些问题？
-数据的大小限制，超过范围会直接导致整个小程序崩溃，除非重启小程序；
-小程序不可以直接渲染文章内容这类型的html文本，显示需借助插件
+九.使用webview直接加载要注意哪些事项？      
+必须要在小程序后台使用管理员添加业务域名；      
+h5页面跳转至小程序的脚步必须是1.3.1以上；       
+微信分享只可以是小程序的主名称，如要自定义分享内容，需小程序版本在1.7.1以上；       
+h5的支付不可以是微信公众号的appid，必须是小程序的appid，而且用户的openid也必须是用户和小程序的      
+十.小程序调用后台接口遇到哪些问题？     
+数据的大小限制，超过范围会直接导致整个小程序崩溃，除非重启小程序；      
+小程序不可以直接渲染文章内容这类型的html文本，显示需借助插件        
 注：插件渲染会导致页面加载变慢，建议在后台对文章内容的html进行过滤，后台直接处理批量替换p标签div标签为view标签。然后其他的标签让插件来做。
 
 十一.微信小程序如何实现下拉刷新？
-用view代替scroll-view，设置onPullDownRefresh函数实现
+用view代替scroll-view，设置onPullDo     wnRefresh函数实现
 
-十二.webview中的页面怎么跳转回小程序？
+十二.webview中的页面怎么跳转回小程序？      
+```js   
 wx.miniProgram.navigateTo({
     url:’pages/login/login’+’$params’
 })
+```
 
-**//跳转到小程序导航页面**
+**跳转到小程序导航页面**
 
 wx.miniProgram.switchTab({
     url:’/pages/index/index’
 })
-十三.bindtap和catchtap的区别？
-bind事件绑定不会阻止冒泡事件向上冒泡
-catch事件绑定可以阻止冒泡事件向上冒泡
-十四.简述wx.navigateTo(),wx.redirectTo(),wx.switchTab(),wx.navigateBack(),wx.reLaunch()的区别？
-在wxml页面中： 
-跳转新页面
-在当前页打开
-切换到首页Tab
-在js页面中：分为‘应用内的页面’和‘tabBar页面’；
-如果上述跳转遇到跳转失败或者无效的问题，请访问：wx.navigateTo/wx.redirectTo无效
-十五.小程序的生命周期函数？
-onLoad()页面加载时触发，只会调用一次，可获取当前页面路径中的参数
-onShow()页面显示/切换前台时触发，一般用来发送数据请求
-onReady()页面初次渲染完成时触发，只会调用一次，代表页面已可和视图层进行交互
-onHide()页面隐藏/切入后台时触发，如底部tab切换到其他页面或小程序切入后台等
-onUnload()页面卸载时触发，如redirectTo或navigateBack到其他页面时。
-十六.微信小程序与H5的区别？
-运行环境不同（小程序在微信运行，h5在浏览器运行）；
-开发成本不同（h5需要兼容不同的浏览器）；
+十三.bindtap和catchtap的区别？          
+bind事件绑定不会阻止冒泡事件向上冒泡        
+catch事件绑定可以阻止冒泡事件向上冒泡           
+十四.简述wx.navigateTo(),wx.redirectTo(),wx.switchTab(),wx.navigateBack(),wx.reLaunch()的区别？     
+在wxml页面中：      
+跳转新页面      
+在当前页打开        
+切换到首页Tab       
+在js页面中：分为‘应用内的页面’和‘tabBar页面’；      
+如果上述跳转遇到跳转失败或者无效的问题，请访问：wx.navigateTo/wx.redirectTo无效     
+十五.小程序的生命周期函数？     
+onLoad()页面加载时触发，只会调用一次，可获取当前页面路径中的参数        
+onShow()页面显示/切换前台时触发，一般用来发送数据请求      
+onReady()页面初次渲染完成时触发，只会调用一次，代表页面已可和视图层进行交互        
+onHide()页面隐藏/切入后台时触发，如底部tab切换到其他页面或小程序切入后台等      
+onUnload()页面卸载时触发，如redirectTo或navigateBack到其他页面时。      
+十六.微信小程序与H5的区别？     
+运行环境不同（小程序在微信运行，h5在浏览器运行）；  
+开发成本不同（h5需要兼容不同的浏览器）；        
 获取系统权限不同（系统级权限可以和小程序无缝衔接）；
-应用在生产环境的运行流畅度（h5需不断对项目优化来提高用户体验）；
-十七.小程序和Vue写法的区别？
-遍历的时候： 
-小程序 wx:for = "lists"
-Vue是 v-for = "item in lists"
-调用data模型（赋值）的时候： 
-小程序：this.data.item //调用 this.setData({item:1}) //赋值
+应用在生产环境的运行流畅度（h5需不断对项目优化来提高用户体验）；        
+十七.小程序和Vue写法的区别？        
+遍历的时候：         
+小程序 wx:for = "lists"     
+Vue是 v-for = "item in lists"       
+调用data模型（赋值）的时候：        
+小程序：this.data.item //调用 this.setData({item:1}) //赋值      
 vue: this.item //调用 this.item =1 //赋值
-常见问题
-rpx:小程序的尺寸单位，规定屏幕为750rpx，可适配不同分辨率的屏幕。
-本地资源无法通过wxss获取 
-RE：
-background-image：可以使用网络图片，或者base64，或者使用标签
-wx.navigateTo无法打开页面 
-RE：
-一个应用同时只能打开5个页面，请避免多层级的交互方式，或使用wx.redirectTo
-tabBar设置不显示 
-RE：
-tabBar的数量少于2项或超过5项都不会显示；
-tabBar写法错误导致不显示；
-tabBar没有写pagePath字段（程序启动后显示的第一个页面）    
+常见问题        
+rpx:小程序的尺寸单位，规定屏幕为750rpx，可适配不同分辨率的屏幕。        
+本地资源无法通过wxss获取        
+RE：        
+background-image：可以使用网络图片，或者base64，或者使用标签        
+wx.navigateTo无法打开页面       
+RE：        
+一个应用同时只能打开5个页面，请避免多层级的交互方式，或使用wx.redirectTo       
+tabBar设置不显示            
+RE：        
+tabBar的数量少于2项或超过5项都不会显示；        
+tabBar写法错误导致不显示；      
+tabBar没有写pagePath字段（程序启动后显示的第一个页面）          
 
 Loader和Plugin的区别？
 Loader 本质就是一个函数，在该函数中对接收到的内容进行转换，返回转换后的结果。因为 Webpack 只认识 JavaScript，所以 Loader 就成了翻译官，对其他类型的资源进行转译的预处理工作。
