@@ -28,8 +28,16 @@ memory-fs是内存缓存和快速数据处理的完美替代方案。webpack间�
 
 
 理清楚核心理念之后，开始读源码<span class="emoj">🔞</span>      
-    
+### 构建依赖图    
 
+### manifest      
+webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映射.    
+可以安装webpack-manifest-plugin 
+查看打包后的manifest。  
+
+### webpack 构建优化    
+对于 HTTP/2，可以使用代码分离来实现最佳构建结果   
+[http2-aggressive-splitting](https://github.com/webpack/webpack/tree/master/examples/http2-aggressive-splitting)    
 ## vue  
 [12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)
 [router 工作原理](https://segmentfault.com/a/1190000019386190)    
