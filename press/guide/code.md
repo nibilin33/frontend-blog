@@ -75,7 +75,7 @@ webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映�
 可以安装webpack-manifest-plugin 
 查看打包后的manifest。  
 
-### webpack 构建优化    
+### 构建优化    
 对于 HTTP/2，可以使用代码分离来实现最佳构建结果   
 [http2-aggressive-splitting](https://github.com/webpack/webpack/tree/master/examples/http2-aggressive-splitting)    
 
