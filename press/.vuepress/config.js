@@ -1,6 +1,6 @@
 module.exports = {
   title: "Blog",
-  description: "记录——成为更好的自己",
+  description: "记录——平凡之路",
   base: "/frontend-blog/",
   head: [
     [
