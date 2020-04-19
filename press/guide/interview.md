@@ -15,7 +15,7 @@
 虽然存在小概率的失误，但总体还是可靠的。    
 对我来说，上机做题，会比想那些名词会舒服一点。      
 毕竟上了年龄，记忆力会飘忽不定，一瞬间会突然想不起怎么表达。        
-准备的[题目](https://github.com/nibilin33/frontend-blog/blob/master/code-practice/README.md)                  
+准备的[题目](https://github.com/nibilin33/Interviews)                      
 
 ## 面试题  
 
