@@ -92,7 +92,7 @@ webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映�
 2. 用一个cache对象存对应组件：cache[vnode.key]=componentInstance;
 3. 监听include,exclude, 发生变更的时候就对应操作cache对象。 
 4. 将最近访问的组件 push 到 this.keys 最后面,this.keys[0]也就是最久没被访问的组件,当缓存实例超过 max 设置值,删除 this.key[0]   
-
+keep-alive 使用的是LRU缓存机制，[LRU实现](https://github.com/nibilin33/Interviews/blob/master/codes/146.lru%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.js) 
 ### nextTick    
 1. 用一个队列存再包装的function,function里面执行cb    
 2. timerFunc 主要是利用setTimeout等让callback放入任务队列去等待下一次空闲时候执行。 
