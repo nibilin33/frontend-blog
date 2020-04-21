@@ -107,4 +107,68 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 
 [无重复字符的最长子串](https://github.com/nibilin33/Interview-Days/blob/master/code-practice/3-5/3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.js)            
 ## 二叉树
-![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)
+![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)      
+
+## 图遍历算法(DFS/BFS)      
+### DFS(递归) 
+从图中的某个顶点v出发，访问此顶点，然后依次从v的未被访问的邻接点出发深度优先遍历图，  
+直至图中所有和v有路径相通的顶点都被访问到； 
+若此时图中尚有顶点未被访问，则另选图中一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。        
+```js
+function Node(val, neighbors) {
+     this.val = val === undefined ? 0 : val;
+     this.neighbors = neighbors === undefined ? [] : neighbors;
+ };
+var cloneGraph = function(node) {
+    let visited = {};
+    function dfs(node) {
+        if(!(node instanceof Node)) {
+            return node;
+        }
+        if(visited[node.val]) {
+            return visited[node.val];
+        }
+        let clone = new Node(node.val,[]);
+        visited[node.val] = clone;
+        for(let i=0;i<node.neighbors.length;i++) {
+            let item = node.neighbors[i];
+            clone.neighbors.push(dfs(item));
+        }
+        return clone;
+
+    }
+    return dfs(node);
+};
+```
+### BFS
+从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点， 
+然后分别从这些邻接点出发依次访问它们的邻接点，并使得先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，    
+直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，       
+重复上述过程，直至图中所有顶点都被访问到为止。  
+
+```js
+var cloneGraph = function(node) {
+    let visited = {};
+    function bfs(node) {
+        if(!(node instanceof Node)) {
+            return node;
+        }
+        let clone = new Node(node.val,[]);
+        visited[clone.val] = clone;
+        let visiteque = [];
+        visiteque.unshift(node);
+        while(visiteque.length){
+            let tmp = visiteque.pop();//当前访问的节点
+            tmp.neighbors.forEach((item)=>{
+                if(!visited[item.val]) {//如果临节点未访问，进入访问队列，在当前节点的临接节点都访问过后作为新的遍历节点
+                    visited[item.val] = new Node(item.val,[]);
+                    visiteque.unshift(item);
+                }
+                visited[tmp.val].neighbors.push(visited[item.val]);
+            })
+        }
+        return clone;
+    }
+    return bfs(node);
+};
+```
