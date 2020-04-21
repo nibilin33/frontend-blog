@@ -19,12 +19,16 @@ Plugin:loader 被用于转换某些类型的模块,而插件则可以用于执�
 2. memory-fs, node原生fs模块内存版(in-memory)的完整功能实现。   
 memory-fs是内存缓存和快速数据处理的完美替代方案。webpack间过程中打包的文件  
 是利用这个放到内存，减少了代码写入文件的开销。  
+实现原理：把数据都放到一个js 对象里面，实现文件的几个api. 
 3. rimraf， 递归删除目录所有文件    
 4. graceful-fs, 可以替代fs模块，是对fs模块的改进，使不同平台和环境之间的行为规范化，并使文件系统访问对错误的恢复更具弹性。      
 5. vm, 提供了在 V8 虚拟机上下文中编译和运行代码的一系列 API。JavaScript 代码可以被编译并立即运行，也可以编译、保存，以后再运行。  
 6. Tapable,公开了许多Hook类，可用于为插件创建钩子。专注于自定义事件的触发和处理。
 7. source-map，是一个存储了打包前所有代码的行，列信息的mapping文件,,以及VLQ编码的字母记录着转换前的代码的位置。
 8. benchmark，代码基准测试，分析代码性能。   
+9. portfinder, 自动获取端口.  
+10. serve-index, 将文件夹中文件列表显示到浏览器中.[具体](https://www.cnblogs.com/zhaoweikai/p/9662572.html)   
+11. internal-ip,获取内网IP地址. 
 ### 整体流程    
 Webpack 的运行流程是一个串行的过程    
 • 初始化参数 从配置文件和 Shell 语句中读取与合并参数，得出最终的参数    
@@ -42,7 +46,8 @@ Webpack 的运行流程是一个串行的过程
 容写入文件系统中。
 以上过程中， Webpack 会在特定的时间点广播特定的事件，插件在监听到感兴趣的
 事件后会执行特定的逻辑，井且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行
-结果。    
+结果。 
+
 ### 参数管理  
 使用json-schema-to-typescript去生成   
 /declarations   .ts 文件  
@@ -79,7 +84,10 @@ webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映�
 对于 HTTP/2，可以使用代码分离来实现最佳构建结果   
 [http2-aggressive-splitting](https://github.com/webpack/webpack/tree/master/examples/http2-aggressive-splitting)    
 
-## vue  
+### 相关插件    
+1. webpack-dev-server  
+2. webpack-dev-middleware：它作为一个容器，将 webpack 编译后的文件存储到内存中，然后在用户访问 express 服务时，将内存中对应的资源输出返回。
+## vue      
 [12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)
 [router 工作原理](https://segmentfault.com/a/1190000019386190)    
 答：没看答案之前，答上了一半。<span class="emoj">🙉</span>我根据API的表现形式，猜测出大概实现方式，但是还是有没有

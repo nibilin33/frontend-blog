@@ -333,22 +333,16 @@ buffer 所占的内存不是由V8分配的，属于堆外内存。
 黑色：\u001b[30m    
 红色：\u001b[31m    
 绿色：\u001b[32m    
-黄色：\u001b[33m        
-蓝色：\u001b[34m    
-洋红：\u001b[35m    
-青色：\u001b[36m    
-白特：\u001b[37m    
-亮黑: \u001b[30; 1m      
-亮红: \u001b[31; 1m      
-亮绿: \u001b[32; 1m      
-亮黄: \u001b[33; 1m      
-亮蓝: \u001b[34; 1m      
-亮洋红: \u001b[35; 1m          
-亮青: \u001b[36; 1m      
-亮白: \u001b[37; 1m      
-Reset: \u001b[0m            
+... 
+可以使用[ansi-colors](https://www.npmjs.com/package/ansi-colors)依赖修改终端输出颜色           
 :::   
-
+```js
+const colors = require('ansi-colors');
+console.log(colors.red('This is a red string!'));
+console.log(colors.green('This is a red string!'));
+console.log(colors.cyan('This is a cyan string!'));
+console.log(colors.yellow('This is a yellow string!')); 
+```
 ## 深入理解计算机系统   
 
 

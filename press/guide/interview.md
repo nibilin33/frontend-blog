@@ -16,9 +16,6 @@
 对我来说，上机做题，会比想那些名词会舒服一点。      
 毕竟上了年龄，记忆力会飘忽不定，一瞬间会突然想不起怎么表达。        
 准备的[题目](https://github.com/nibilin33/Interviews)                      
-
-## 面试题  
-
 [前端面试与进阶指南](https://www.cxymsg.com)        
 [大前端面试题库](http://bigerfe.com/author)     
 [javascript问题](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md)       
@@ -29,5 +26,11 @@
 [(上)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-1.md)            
 [(下)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-3.md)       
    
-
+## 面试期间犯的迷糊  
+因为有太明确的公司+部门+工作内容的志愿排行版。    
+在第一志愿还没落空的时候就完全不考虑其他的机会，           
+中断了面试的节奏和状态。而恢复节奏的代价是———很难恢复。     
+~~>_<~~     
+~~:-(       
+o_o ....    
 
