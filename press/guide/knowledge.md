@@ -125,7 +125,7 @@ console.log(nnm instanceof NamedNodeMap); //true
 - DOMNodeRemoved      
 - DOMNodeRemovedFromDocument      
 - DOMSubtreeModified      
-
+详细参考[DOM变化的监听检测与应用](https://www.zhangxinxu.com/wordpress/2019/08/js-dom-mutation-observer/)       
 ```js
 element.addEventListener("DOMNodeInserted", function (event) {
   // ...
