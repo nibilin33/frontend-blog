@@ -64,8 +64,8 @@ mutaionObserver
 微任务可以多个同时执行，宏任务一次只能执行一个。        
 Promise宏任务，Promise.then是微任务，宏任务先，console.log，再到微任务       
 
-### You think you know JavaScript? 
-函数声明会覆盖变量声明，但不会覆盖变量赋值      
+## You think you know JavaScript? 
+1. 函数声明会覆盖变量声明，但不会覆盖变量赋值      
 ```js
 function value(){
     return 1;
@@ -78,6 +78,74 @@ function value(){
 var value = 1;
 alert(typeof value);    //"number"
 ```
+2. 使用 prototype 除了可以实现继承之外，还可以节约内存，因为无论使用 function
+创建多少对象，它们所指向的 prototype 对象在内存中都只有一份。但使用prototype的  
+属性比直接使用对象中定义的属性在执行效率上理论来说会低一些。        
+3. 底层实现时， null 一般会指向一个全0的地址，这个地址是无法访问的，当遇到这种情况时就会当作不存在来处理；  
+undefined 则表示根本不存在，或者还没有初始化，所以一个变量可以赋值为 null ，但不可赋值为 undefined。         
+4. String.raw`Hi\n${2+3}!`;//'Hi\n5!'       
+String.raw({
+  raw: ['foo', 'bar', 'baz']
+}, 2 + 3, 'Java' + 'Script');// 'foo5barJavaScriptbaz'      
+String.raw({ raw: 'test' }, 0, 1, 2); // 't0e1s2t'      
+5. DocumentFragment 节点是表示 Document 片段的节点，它是轻量级的 Document ，继承
+Node ，没有自己的属性。     
+DocumentFragment 的作用就像一个容器，可以将其他节点暂时存放在里面，而且它对
+格式要求也不是那么严格，例如，可以直接将一个 Text 文本保存到里面。如果要在文档中插
+入多个节点，那么可以先创建一个 DocumentFragment ，然后将创建出来的节点暂时保存到里
+面，等所有要插入的节点全部创建完成之后，再使用创建的 DocumentFragment 将所有要插
+入的节点一次性插入到文档中，这样既可以简化操作，也可以减少直接对 DOM 操作的次数。       
+在将 DocumentFragment 类型的节点插入到文档中时，实际上插入的是它所包含的子节点，
+这样就使操作更加简便了。    
+6. NamedNodeMap 接口用于保存多个命名节点的 Map 集合，即按照名值对来保存节点，
+并且它所保存的节点不需要保证相互的顺序关系。            
+它主要包含以下属性（方法）：        
+length ：包含节点的数量。       
+getNamedltem(name）：按名称获取指定的节点       
+setNamedltem(node）：将指定节点添加到 Map       
+removeNamedltem(name）：删除指定名称的节点        
+item(index）：按序号获取节点。      
+这里需要注意两点：第一点， NamedNodeMap 所包含的节点是动态变化的，当它所对应的
+文档中的节点发生变化时， NamedNodeMap 的内容也会实时进行更新；第二点， NamedNodeMap
+所包含的节点的顺序跟在文档中定义的顺序不一定相同。      
+```js
+var div = document.getElementById("a"); 
+//获取 NamedNodeMap
+var nnm = div.attributes; 
+console.log(nnm instanceof NamedNodeMap); //true
+``` 
+
+7. MutationEvents list            
+- DOMAttrModified     
+- DOMAttributeNameChanged     
+- DOMCharacterDataModified        
+- DOMElementNameChanged       
+- DOMNodeInserted     
+- DOMNodeInsertedIntoDocument     
+- DOMNodeRemoved      
+- DOMNodeRemovedFromDocument      
+- DOMSubtreeModified      
+
+```js
+element.addEventListener("DOMNodeInserted", function (event) {
+  // ...
+}, false);
+```
+并不是所有浏览都支持MutationEvents的全部事件，而且不同      
+的浏览器在具体处理时也存在一些细节差异。 例如， IE Firefox 不支持
+DOMNodeRemovedFromDocument，DOMNodelnsertedlntoDocument事件，       
+Chrome不支持 DOMAttrModified；      
+Firefox，Chrome 中每执行一次操作都会触发
+一次 DOMSubtreeModified。       
+而IE 中在 多个相关操作全部处理完之后才会
+DOMSubtreeModified事件。        
+### 缓存对象    
+ES2015 新增缓存类型：ArrayBuffer,TypedArray,DataView。适合对大量二进制进行操作。    
+Array Buffer 一块作为二进制缓存使用的内存区，我们只要知道它就是一块内存就可以
+了，它自己并不直接操作数据，而是需要使用 TypedArray 或者 DataView 进行操作。    
+DataView (buffer [ , byteOffset [ , byteLength ] ] )        
+![TypedArray内存结构](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/arraybuffer.png)
+
 ## XHTML 与 HTML 的不同 
 
 XHTML 元素必须被正确地嵌套。    
