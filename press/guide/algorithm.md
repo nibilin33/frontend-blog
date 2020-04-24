@@ -73,6 +73,7 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 3. 计数排序    
 
 ## 入门到放弃：动态规划        
+[漫画：什么是动态规划](https://zhuanlan.zhihu.com/p/31628866)  
 #### 思想      
 动态规划解决的问题多数有重叠子问题这个特点，为减少重复计算，对每一个子问题只解一次，将其不同阶段的不同状态保存在一个二维数组中。      
 #### 一般步骤             
@@ -86,7 +87,8 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 最好是用迭代法求解动态规划法列出的递归方程          
 迭代实现需要存贮所有子问题的优化解的值，        
 因此动态规划法设计的算法往往需要较大的存储空间      
-算法的复杂性来自子问题的数目,通常子问题的数目往往很大       
+算法的复杂性来自子问题的数目,通常子问题的数目往往很大            
+     
 
 ## 滑动窗口算法        
 滑动窗口算法 的本质是 双指针法中的左右指针法 ,      
@@ -170,5 +172,56 @@ var cloneGraph = function(node) {
         return clone;
     }
     return bfs(node);
+};
+```
+
+## 回溯算法     
+回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。      
+回溯算法的框架：    
+```
+result = []
+def backtrack(路径, 选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径, 选择列表)
+        撤销选择
+```
+典型问题：全排列        
+  
+```js
+输入: [1,2,3]
+输出:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+var permute = function(nums) {
+    let result = [];
+    function backtrack(list){
+        if(nums.length == list.length) {
+            console.log(list);
+            let copy = JSON.parse(JSON.stringify(list));
+            result.push(copy);
+            return;
+        }
+        for(let i=0;i<nums.length;i++) {
+            if(list.indexOf(nums[i])>-1) {
+                continue;
+            }
+            list.push(nums[i]);
+            backtrack(list);
+            list.pop();
+        }
+    }
+    backtrack([]);
+    return result;
 };
 ```

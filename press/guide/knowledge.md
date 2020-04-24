@@ -115,7 +115,7 @@ var nnm = div.attributes;
 console.log(nnm instanceof NamedNodeMap); //true
 ``` 
 
-7. MutationEvents list            
+### MutationEvents list            
 - DOMAttrModified     
 - DOMAttributeNameChanged     
 - DOMCharacterDataModified        
@@ -144,8 +144,27 @@ ES2015 新增缓存类型：ArrayBuffer,TypedArray,DataView。适合对大量二
 Array Buffer 一块作为二进制缓存使用的内存区，我们只要知道它就是一块内存就可以
 了，它自己并不直接操作数据，而是需要使用 TypedArray 或者 DataView 进行操作。    
 DataView (buffer [ , byteOffset [ , byteLength ] ] )        
-![TypedArray内存结构](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/arraybuffer.png)
+![TypedArray内存结构](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/arraybuffer.png)    
 
+### JavaScript 内存模型     
+JS 内存模型理解为两个不同的区域：调用栈和堆     
+调用栈是原始类型值存储的位置（还包括函数调用）      
+堆是存储非原始类型数据的地方。关键的区别在于，堆可以存储无序数据，这些数据能动态增长，特别适合数组和对象。  
+```
+let myNumber = 23;  
+JS 会进行如下步骤：     
+  1. 为变量创建一个唯一的标识符（myNumber）     
+  2. 在内存中分配一个地址（运行时动态赋值）     
+  3. 在分配好的地址上存储它的值（23）。     
+```    
+```
+let myArray = [];       
+内存里会执行如下的步骤：
+  1. 为变量创建一个唯一的标识符（myArray）      
+  2. 在内存中分配一个地址（运行时动态赋值）     
+  3. 保存堆上分配的内存地址值（运行时赋值）     
+  4. 堆中的内存地址保存了赋给它的值（空数组[]）     
+```      
 ## XHTML 与 HTML 的不同 
 
 XHTML 元素必须被正确地嵌套。    
