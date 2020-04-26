@@ -72,6 +72,10 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 
 3. 计数排序    
 
+## Bitmap算法       
+[漫画：什么是Bitmap算法](https://zhuanlan.zhihu.com/p/54783053?utm_source=wechat_timeline)      
+所谓的BitMap就是用一个bit位来标记某个元素所对应的value，而key即是该元素，由于BitMap使用了bit位来存储数据，因此可以大大节省存储空间。        
+应用范围：快速查找、去重、排序、压缩数据等。        
 ## 入门到放弃：动态规划        
 [漫画：什么是动态规划](https://zhuanlan.zhihu.com/p/31628866)  
 ### 思想      
@@ -122,7 +126,24 @@ var climbStairs = function(n) {
 [无重复字符的最长子串](https://github.com/nibilin33/Interview-Days/blob/master/code-practice/3-5/3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.js)            
 ## 二叉树
 ![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)      
-
+## 二叉堆       
+[漫画：什么是二叉堆？](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653195207&idx=2&sn=12689c6c1a92e7ec3cce4d423019ec2a&chksm=8c99f91dbbee700b8e760d06b27582037ab0713295dacf2b5a7a7f954c0032fe860aa0bf8b74&scene=21#wechat_redirect)      
+[优先级队列的实现原理](https://leetcode-cn.com/circle/article/bNtb4J/)      
+二叉堆是一种特殊的堆，其实质是完全二叉树。      
+二叉堆有两种：最大堆和最小堆。      
+最大堆是指父节点键值总是大于或等于任何一个子节点的键值。        
+而最小堆恰恰相反，指的是父节点键值总是小于任何一个子节点的键值。        
+二叉堆主要就是上浮和下沉，来维护堆的性质（堆有序）。
+优先级队列是基于二叉堆实现的，主要操作是插入和删除。    
+插入是先插到最后，然后上浮到正确位置；删除是调换位置后再删除，然后下沉到正确位置。    
+优先队列不再遵循先入先出的原则，而是分为两种情况：
+最大优先队列，无论入队顺序，当前最大的元素优先出队。        
+最小优先队列，无论入队顺序，当前最小的元素优先出队。         
+[二叉堆具体实现](https://github.com/nibilin33/Interviews/blob/master/codes/%E4%BA%8C%E5%8F%89%E5%A0%86.js)
+```js
+class Heap{
+}
+```
 ## 图遍历算法(DFS/BFS)      
 ### DFS(递归) 
 从图中的某个顶点v出发，访问此顶点，然后依次从v的未被访问的邻接点出发深度优先遍历图，  
