@@ -15,7 +15,8 @@
 虽然存在小概率的失误，但总体还是可靠的。    
 对我来说，上机做题，会比想那些名词会舒服一点。      
 毕竟上了年龄，记忆力会飘忽不定，一瞬间会突然想不起怎么表达。        
-准备的[题目](https://github.com/nibilin33/Interviews)                      
+准备的[题目](https://github.com/nibilin33/Interviews)    
+[在阿里我是如何当面试官系列](https://juejin.im/post/5e6ebfa86fb9a07ca714d0ec#heading-43)                   
 [前端面试与进阶指南](https://www.cxymsg.com)        
 [大前端面试题库](http://bigerfe.com/author)     
 [javascript-101题](https://github.com/lydiahallie/javascript-questions/blob/master/zh-CN/README-zh_CN.md)       
