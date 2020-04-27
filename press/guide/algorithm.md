@@ -78,8 +78,43 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 应用范围：快速查找、去重、排序、压缩数据等。    
 ## HashMap      
 [漫画：什么是HashMap？](https://zhuanlan.zhihu.com/p/31610616)    
-美团面试题：hashmap的实现       
-
+HashMap中实现的散列表是一个链表类型的数组，即数组+链表，用来存储key-value数据对。       
+散列表的做法是将key映射到数组的某个下标，存取的时候通过key获取到下标（index）然后通过下标直接存取。     
+美团面试题：[hashmap的实现](https://www.cnblogs.com/xuhaopei/articles/12668064.html)   
+js 模拟实现hashtable,核心需要的函数如下     
+```js
+class HashTable{
+    constructor(){
+    }
+    /**
+     * 哈希函数
+     * 作用：返回key在哈希表的中的下标位置
+     * 参数：key（String） size(哈希表长度)
+     */
+    hashcode(){
+    }
+    push(key,value){
+    }
+    get(key){
+    }
+    remove(key){
+    }
+    size(){
+    }
+    /**
+     * 哈希表扩容
+     * 参数limit哈希表新的长度。
+    */
+    resize(limit){
+    }
+    /**
+     * 打印哈希表
+     */
+    toString(){
+    }
+}
+```    
+[hashtable.js](https://github.com/nibilin33/Interviews/blob/master/codes/hashtable.js)      
 ## 入门到放弃：动态规划        
 [漫画：什么是动态规划](https://zhuanlan.zhihu.com/p/31628866)  
 ### 思想      
