@@ -89,12 +89,71 @@ webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映�
 2. webpack-dev-middleware：它作为一个容器，将 webpack 编译后的文件存储到内存中，然后在用户访问 express 服务时，将内存中对应的资源输出返回。 
 
 ## vue      
-[12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)
-[router 工作原理](https://segmentfault.com/a/1190000019386190)    
+[12道vue高频原理面试题,你能答出几道?](https://juejin.im/post/5e04411f6fb9a0166049a073#heading-23)   
+[router 工作原理](https://segmentfault.com/a/1190000019386190)   
+::: tip vue 专题    
+1. 如何理解MVVM原理?
+2. 响应式数据的原理是什么?
+3. Vue中是如何检测数组变化?劫持数组，改写数组方法   
+4. 为何Vue采用异步渲染?每一次状态发生变化后，状态变化的信号会发送给组件，组件内部使用VirtualDOM进行计算得出需要更新的具体的DOM节点，然后对DOM进行更新操作，每次更新状态后的渲染过程需要更多的计算，而这种无用功也将浪费更多的性能，所以异步渲染变得更加至关重要。   
+5. nextrick实现原理?
+6. vue组件的生命周期?
+7. Ajax请求放在哪个生命周期中?
+8. 何时需要使用beforeDestroy? 清除自己定义的定时器，事件解绑   
+9. Vue父子组件生命周期调用顺序?
+10. Vue中Computed的特点?
+11. Watch中的deep:true是如何实现的?
+12. Vue中事件绑定的原理?
+13. Vue中v-html会导致哪些问题?
+14. Vue中v-if和v-show的区别?
+15. 为什么V-for和v-if不能连用   
+16. v-model中的实现原理及如何自定义v-model?
+17. 组件中的data为什么是一个函数? 因为组件是可以复用的,JS 里对象是引用关系,如果组件 data 是一个对象,那么子组件中的 data 属性值会互相污染,产生副作用。
+所以一个组件的 data 选项必须是一个函数,因此每个实例可以维护一份被返回对象的独立的拷贝。new Vue 的实例是不会被复用的,因此不存在以上问题。    
+18. Vue组件如何通信?
+19. 什么是作用域插槽?
+20. 用vnode来描述一个DoM结构?
+21. diff算法的时间复杂度?O(n)
+22. 简述Vue中diff算法原理?
+23. v-for中为什么要用key?
+24. 描述组件渲染和更新过程?
+25. Vue中模板编译原理?  
+模板字符串 转换成 element ASTs（解析器）    
+对 AST 进行静态节点标记，主要用来做虚拟DOM的渲染优化（优化器）    
+使用 element ASTs 生成 render 函数代码字符串（代码生成器）    
+26. Vue中常见性能优化?
+27. Vue中相同逻辑如何抽离?
+28. 为什么要使用异步组件?
+29. 谈谈你对keep-alive的了解?
+30. 实现hash路由和history路由
+31. Vue-Router中导航守卫有哪些?
+32. action和mutation区别    
+流程顺序:“相应视图—>修改State”拆分成两部分，视图触发Action，Action再触发Mutation。
+角色定位:基于流程顺序，二者扮演不同的角色。   
+Mutation：专注于修改State，理论上是修改State的唯一途径。
+Action：业务代码、异步请求。
+限制:角色不同，二者有不同的限制。
+Mutation：必须同步执行。
+Action：可以异步，但不能直接操作State。
+33. 简述Vuex工作原理
+34. Vue3.0你知道有哪些改进?   
+virtual DOM 完全重写，mounting & patching 提速 100%；   
+更多编译时 （compile-time）提醒以减少 runtime 开销；    
+基于 Proxy 观察者机制以满足全语言覆盖以及更好的性能；   
+优化插槽生成(Optimized Slots Generation):以单独重新渲染父组件和子组件   
+静态树提升(Static Tree Hoisting):Vue 3 的编译器将能够检测到什么是静态组件，然后将其提升，从而降低了渲染成本。它将能够跳过未整个树结构打补丁的过程。
+静态属性提升（Static Props Hoisting）   
+更易于开发使用: import {Observer }  from 'vue'  
+新的 core runtime：~ 10kb gzipped；   
+实验性的 Time Slicing 支持:有许多组件同时尝试重新渲染时，任何浏览器都可以开始变得很慢，从而使用户体验下降。
+尝试使用 Time Slicing，将 JS 的执行分解为几个部分，如果有用户交互需要处理，这些部分将提供给浏览器。
+
+::: 
 答：没看答案之前，答上了一半。<span class="emoj">🙉</span>我根据API的表现形式，猜测出大概实现方式，但是还是有没有
 反应过来的。我不喜欢人家问你看过XX的源码吗？没有（<span class="emoj">😒</span>）|有（<span class="emoj">😍</span>）。   
-因为有自己没有想到的思路，才推动了我去看源码的兴趣。 
+因为有自己没有想到的思路，才推动了我去看源码的兴趣。    
 核心：发布订阅模式Dep+object.defineproperty数据劫持    
+### watch   
 
 ### keep-alive       
 1. 它是个vue 组件,负责渲染子组件           
@@ -283,7 +342,7 @@ string.replace(rePropName, function(match, number, quote, subString) {
     result.push(quote ? subString.replace(reEscapeChar, '$1') : (number || match));
 });
 ```
-1. 反向引用 \1, \2...
+1. 反向引用 \1. \2...
 表达式在匹配时，表达式引擎会将小括号 "( )" 包含的表达式所匹配到的字符串记录下来。在获取匹配结果的时候，小括号包含的表达式所匹配到的字符串可以单独获取   
 2. ?: 匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用   
 **这瞬间启发了我，好几个手写题**      
@@ -312,7 +371,7 @@ function caseIgnore(s) {
 }
 ```
 ```js
-//return '1,087,654.321'
+//return '1.087.654.321'
 function parseToMoney(value){
   const reg = /(\d)(?=(\d{3})+$)/g;
   let sm = value.split('.');
