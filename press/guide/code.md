@@ -96,7 +96,7 @@ webpack 通过 manifest，可以追踪所有模块到输出 bundle 之间的映�
 2. 响应式数据的原理是什么?
 3. Vue中是如何检测数组变化?劫持数组，改写数组方法   
 4. 为何Vue采用异步渲染?每一次状态发生变化后，状态变化的信号会发送给组件，组件内部使用VirtualDOM进行计算得出需要更新的具体的DOM节点，然后对DOM进行更新操作，每次更新状态后的渲染过程需要更多的计算，而这种无用功也将浪费更多的性能，所以异步渲染变得更加至关重要。   
-5. nextrick实现原理?
+5. nextick实现原理?
 6. vue组件的生命周期?
 7. Ajax请求放在哪个生命周期中?
 8. 何时需要使用beforeDestroy? 清除自己定义的定时器，事件解绑   
@@ -381,7 +381,32 @@ function parseToMoney(value){
   return res+(sm.length>1?'.'+sm[1]:'');
 }
 ```
-[正则手册](https://tool.oschina.net/uploads/apidocs/jquery/regexp.html)         
+[正则手册](https://tool.oschina.net/uploads/apidocs/jquery/regexp.html)  
+[正则之环视](https://blog.csdn.net/chencye/article/details/51635391)    
+## react  
+::: tip react 专题 
+1. react key的作用？如果出现了相同的key怎么办？   
+2. React 中的 setState 为什么需要异步操作？   
+3. React 应用如何在重新加载页面时保留数据？ 
+4. 使用 React Hooks 的同时为什么需要使用高阶组件？  
+5. Ajax 请求放在 componentDidMount 里进行处理还是放在componentWillMount 里进行处理比较合适？    
+6. React 在语法层面可以做哪些性能优化？   
+PureComponent + Redux + immutable-js / immutability-helper    
+Redux ->  Redux Toolkit   
+组件库按需加载    
+动态 Ployfill   
+Tree Shaking    
+路由懒加载    
+Hooks useCallback   
+React Fragments   
+构建函数中的事件 bind 处理    
+避免使用内联样式属性    
+JSX 中合理控制条件渲染的范围（避免无谓的重复渲染）    
+key   
+保持 state 中数据必响应的特性   
+
+
+:::
 
 
 

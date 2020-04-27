@@ -21,11 +21,16 @@ if (window.initData) {
 
 移动端存在特殊的view，展示web页面控件。
 具体的可以看[https://blog.csdn.net/carson_ho/article/details/64904691](https://blog.csdn.net/carson_ho/article/details/64904691)理解   
+交互核心： 通过方法注入来实现。Native 应用将协议注入到系统Scheme，或将Native方法直接注入到  
+页面全局遍历，反之也可以在HTML5页面全局作用域添加方法，让Native调用。       
 ### JSBridge 的实现原理     
 JavaScript 是运行在一个单独的 JS Context 中（例如，WebView 的 Webkit 引擎、JSCore）。       
 由于这些 Context 与原生运行环境的天然隔离，我们可以将这种情况与 RPC（Remote Procedure Call，远程过程调用）通信进行类比，将 Native 与 JavaScript 的每次互相调用看做一次 RPC 调用。       
 那么什么是RPC呢？🙉            
-RPC 是指计算机 A 上的进程，调用另外一台计算机 B 上的进程，其中 A 上的调用进程被挂起，而 B 上的被调用进程开始执行，当值返回给 A 时，A 进程继续执行。调用方可以通过使用参数将信息传送给被调用方，而后可以通过传回的结果得到信息。     
+RPC 是指计算机 A 上的进程，调用另外一台计算机 B 上的进程，其中 A 上的调用进程被挂起，而 B 上的被调用进程开始执行，当值返回给 A 时，A 进程继续执行。调用方可以通过使用参数将信息传送给被调用方，而后可以通过传回的结果得到信息。    
+### JSBridge 设计规范       
+目前较多的方式是通过一个协定串定义Native 和 Javascript间的数据通信规则：    
+jsbridge://className:callbackMethod/methodName?jsonObj       
 ### DeepLinks   
 在H5中使用一个链接（URL Scheme或者Universal Links）就能打开我们指定的App。  
 URL Scheme：mycoolapp://path?foo=bar        

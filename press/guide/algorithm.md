@@ -75,7 +75,11 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 ## Bitmap算法       
 [漫画：什么是Bitmap算法](https://zhuanlan.zhihu.com/p/54783053?utm_source=wechat_timeline)      
 所谓的BitMap就是用一个bit位来标记某个元素所对应的value，而key即是该元素，由于BitMap使用了bit位来存储数据，因此可以大大节省存储空间。        
-应用范围：快速查找、去重、排序、压缩数据等。        
+应用范围：快速查找、去重、排序、压缩数据等。    
+## HashMap      
+[漫画：什么是HashMap？](https://zhuanlan.zhihu.com/p/31610616)    
+美团面试题：hashmap的实现       
+
 ## 入门到放弃：动态规划        
 [漫画：什么是动态规划](https://zhuanlan.zhihu.com/p/31628866)  
 ### 思想      
