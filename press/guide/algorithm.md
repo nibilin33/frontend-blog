@@ -164,7 +164,19 @@ var climbStairs = function(n) {
 
 [无重复字符的最长子串](https://github.com/nibilin33/Interview-Days/blob/master/code-practice/3-5/3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.js)            
 ## 二叉树
-![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)      
+![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)   
+1. 中序遍历首先遍历左子树，然后访问根结点，最后遍历右子树。   
+2. 前序遍历根左右。 
+3. 高度平衡二叉树:一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。   
+```js
+    // 高度计算
+    const height = (node)=>{
+        if(!node) {
+            return -1;
+        }
+        return 1+Math.max(height(node.left),height(node.right));
+    }
+``` 
 ## 二叉堆       
 [漫画：什么是二叉堆？](https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653195207&idx=2&sn=12689c6c1a92e7ec3cce4d423019ec2a&chksm=8c99f91dbbee700b8e760d06b27582037ab0713295dacf2b5a7a7f954c0032fe860aa0bf8b74&scene=21#wechat_redirect)      
 [优先级队列的实现原理](https://leetcode-cn.com/circle/article/bNtb4J/)      
