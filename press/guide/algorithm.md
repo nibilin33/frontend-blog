@@ -80,26 +80,33 @@ c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与
 [漫画：什么是HashMap？](https://zhuanlan.zhihu.com/p/31610616)    
 HashMap中实现的散列表是一个链表类型的数组，即数组+链表，用来存储key-value数据对。       
 散列表的做法是将key映射到数组的某个下标，存取的时候通过key获取到下标（index）然后通过下标直接存取。     
-美团面试题：[hashmap的实现](https://www.cnblogs.com/xuhaopei/articles/12668064.html)   
+散列表的第一个问题是散列函数的计算，这个过程将键转成数组索引。
+第二个问题是碰撞处理，也就是处理两个或多个键的散列值相同的情况。    
+将大小为M的数组中的每个元素指向一条链表，链表中的每个节点存储了散列值为索引的键值对。       
 js 模拟实现hashtable,核心需要的函数如下     
 ```js
 class HashTable{
     constructor(){
+        this.size = 0;// 元素个数
+        //负载因子，代表table最大的填充度，默认0.75，超过后会自动扩容
+        //loadFactor = 表中元素个数/表的长度
+        this.loadFactor = 0.75;
+        //容量，哈希表中桶的数量，默认初始为16，扩容后一定为2的n次幂。
+        this.capacity = 16;
+        this.table = new Array(this.capacity);
     }
     /**
      * 哈希函数
-     * 作用：返回key在哈希表的中的下标位置
-     * 参数：key（String） size(哈希表长度)
+     * 作用：返回key的hash值
+     * 参数：key（String）
      */
-    hashcode(){
+    hashcode(key){
     }
     push(key,value){
     }
     get(key){
     }
     remove(key){
-    }
-    size(){
     }
     /**
      * 哈希表扩容
@@ -114,7 +121,7 @@ class HashTable{
     }
 }
 ```    
-[hashtable.js](https://github.com/nibilin33/Interviews/blob/master/codes/hashtable.js)      
+[hashtable.js完整实现](https://github.com/nibilin33/Interviews/blob/master/codes/hashtable.js)       
 ## 入门到放弃：动态规划        
 [漫画：什么是动态规划](https://zhuanlan.zhihu.com/p/31628866)  
 ### 思想      
