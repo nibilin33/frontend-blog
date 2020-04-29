@@ -440,6 +440,21 @@ key
 
 25. React与Vue，各自的组件更新进行对比，它们有哪些区别？    
 :::
+### key  
+1. 使用shortid作为key比index好些   
+2. key 只是在兄弟节点之间必须唯一 
+```js 
+var shortid = require('shortid');
+function createNewTodo(text) {
+  return {
+    completed: false,
+    id: shortid.generate(),
+    text
+  }
+}
+```
+### 表单    
+验证、追踪访问字段以及处理表单提交的完整解决方案：https://jaredpalmer.com/formik/   
 
 
 
