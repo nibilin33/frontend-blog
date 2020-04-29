@@ -402,6 +402,43 @@ React Fragments
 JSX 中合理控制条件渲染的范围（避免无谓的重复渲染）    
 key   
 保持 state 中数据必响应的特性   
+7. React 使用场景？   
+
+8. 描述一下React 生命周期   
+
+9. 实现组件有哪些方式？   
+
+10. shouldComponentUpdate函数有什么作用？   
+
+11. 当组件的setState函数被调用之后，发生了什么？    
+
+12. React-router 路由的实现原理？   
+
+13. 说说React Native,Weex框架的实现原理？   
+
+14. 受控组件(Controlled Component)与非受控组件(Uncontrolled Component)的区别    
+
+15. refs 是什么?    
+
+16. React为什么自己定义一套事件体系呢，与浏览器原生事件体系有什么关系？   
+
+17. 什么时候应该选择用class实现一个组件，什么时候用一个函数实现一个组件？   
+
+18. 什么是HoC（Higher-Order Component）？适用于什么场景？   
+
+19. 并不是父子关系的组件，如何实现相互的数据通信？    
+
+20. Redux是如何做到可预测呢？   
+
+21. Redux将React组件划分为哪两种？    
+
+22. Redux是如何将state注入到React组件上的？   
+
+23. 请描述一次完整的 Redux 数据流   
+
+24. React的批量更新机制 BatchUpdates？    
+
+25. React与Vue，各自的组件更新进行对比，它们有哪些区别？    
 :::
 
 
