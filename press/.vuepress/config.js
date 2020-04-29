@@ -19,6 +19,7 @@ module.exports = {
       ["./guide/knowledge.md", "小知识点"],
       ["./guide/requirements.md", "代码实践"],
       ["./guide/tool.md", "工具说明"],
+      ["./guide/webgl.md", "WebGL"],
       ["./guide/electron.md", "Electron"],
       ["./guide/min-routine.md", "小程序"],
       ["./guide/serverless.md", "Serverless"],
