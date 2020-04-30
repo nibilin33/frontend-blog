@@ -454,7 +454,17 @@ function createNewTodo(text) {
 }
 ```
 ### 表单    
-验证、追踪访问字段以及处理表单提交的完整解决方案：https://jaredpalmer.com/formik/   
+验证、追踪访问字段以及处理表单提交的完整解决方案：https://jaredpalmer.com/formik/  
+```js
+import PropTypes from 'prop-types';
+Greeting.propTypes = {
+  name: PropTypes.string
+};
+``` 
+### diff 算法 
+当对比两颗树时，React 首先比较两棵树的根节点。不同类型的根节点元素会有不同的形态。    
+在默认条件下，当递归 DOM 节点的子元素时，React 会同时遍历两个子元素的列表；当产生差异时，生成一个 mutation。  
+当子元素拥有 key 时，React 使用 key 来匹配原有树上的子元素以及最新树上的子元素    
 
 
 
