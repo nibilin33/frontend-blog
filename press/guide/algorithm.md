@@ -172,9 +172,14 @@ var climbStairs = function(n) {
 [无重复字符的最长子串](https://github.com/nibilin33/Interview-Days/blob/master/code-practice/3-5/3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.js)            
 ## 二叉树
 ![前序+中序](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/beff309937462b352940c1925de8ff50c22b65bada872cf286b0228a45054ea2-2.jpg)   
-1. 中序遍历首先遍历左子树，然后访问根结点，最后遍历右子树。   
-2. 前序遍历根左右。 
-3. 高度平衡二叉树:一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。   
+1. 中序遍历首先遍历左子树，然后访问根结点，最后遍历右子树         
+2. 前序遍历根左右       
+3. 后序遍历，左子树，右子树，最后根 
+4. 高度平衡二叉树:一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过       
+5. 二叉搜索树：(二叉搜索树的最近公共祖先)            
+- 节点N左子树上的所有节点的值都小于等于节点N的值        
+- 节点N右子树上的所有节点的值都大于等于节点N的值        
+- 左子树和右子树也都是 BST      
 ```js
     // 高度计算
     const height = (node)=>{
