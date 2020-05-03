@@ -180,6 +180,7 @@ var climbStairs = function(n) {
 - 节点N左子树上的所有节点的值都小于等于节点N的值        
 - 节点N右子树上的所有节点的值都大于等于节点N的值        
 - 左子树和右子树也都是 BST      
+- 中序遍历得到一个升序的数组        
 ```js
     // 高度计算
     const height = (node)=>{
