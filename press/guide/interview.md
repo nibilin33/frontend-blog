@@ -30,10 +30,9 @@ https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Que
 [(下)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-3.md)       
    
 ## 面试期间犯的迷糊  
-因为有太明确的公司+部门+工作内容的志愿排行版。    
+一心想去第一志愿的公司，        
 在第一志愿还没落空的时候就完全不考虑其他的机会，           
-中断了面试的节奏和状态。而恢复节奏的代价是———很难恢复。     
-~~>_<~~     
-~~:-(       
-o_o ....    
+中断了面试的节奏和状态。而恢复节奏的代价是———无法回到那个峰值。               
+~~>_<~~ :-( o_o ....这该死的无法说服自我的执着......      
+
 
