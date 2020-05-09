@@ -10,10 +10,10 @@ function showComment(router) {
     });
 
   }
-  export default ({Vue, options, router}) => {
+  export default async ({Vue, options, router}) => {
     try {
-      update(router);
       showComment(router);
+      await update(router);
     } catch (e) {
       console.error(e.message)
     }
