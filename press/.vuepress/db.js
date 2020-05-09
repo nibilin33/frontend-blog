@@ -8,7 +8,7 @@
 // });
 // const Logger = AV.Object.extend('Visitor');
 export const update = (router)=>{
-    fetch('http://pv.sohu.com/cityjson?ie=utf-8')
+    fetch('https://pv.sohu.com/cityjson?ie=utf-8')
     .then((res)=>{
         console.log(res);
     });
