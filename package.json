@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "glob": "^7.1.4",
     "http": "^0.0.0",
+    "leancloud-storage": "^4.5.3",
     "log4js": "^5.2.2",
     "medium-zoom": "^1.0.5",
     "node-watch-changes": "^2.0.1",

@@ -1,3 +1,4 @@
+import {update} from './db';
 function showComment(router) {
     router.afterEach((to) => {
       let comment = document.getElementById('valine-vuepress-comment');
@@ -9,10 +10,10 @@ function showComment(router) {
     });
 
   }
-  
   export default ({Vue, options, router}) => {
     try {
-      document && showComment(router);
+      update(router);
+      showComment(router);
     } catch (e) {
       console.error(e.message)
     }
