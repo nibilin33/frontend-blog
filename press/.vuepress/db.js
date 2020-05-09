@@ -8,8 +8,14 @@
 // });
 // const Logger = AV.Object.extend('Visitor');
 export const update = (router)=>{
-    fetch('https://pv.sohu.com/cityjson?ie=utf-8')
-    .then((res)=>{
-        console.log(res);
-    });
+    if(!window.returnCitySN) {
+        var script = document.createElement('script')
+        // script.src = 'https://jsonip.com/'
+        script.src = 'https://pv.sohu.com/cityjson?ie=utf-8'
+        script.onload = function() {
+          console.log(window.returnCitySN);
+        }
+        document.body.appendChild(script);
+    }
+
 }
