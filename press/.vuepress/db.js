@@ -23,9 +23,9 @@ const init = ()=>{
     })
 }
 export const update = async (router)=>{
-    if(!window.returnCitySN) {
-        await init();
-    }
+    console.log(router.currentRoute.fullPath);
+    await init();
+    console.log(router.currentRoute.fullPath,'22');
     const Logger = AV.Object.extend('Visitor');
     let score = new Logger();
     Object.keys(window.returnCitySN).forEach((key)=>{
