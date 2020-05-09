@@ -7,6 +7,11 @@ const init = ()=>{
             var leancloud = document.createElement('script');
             leancloud.src = 'https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js';
             leancloud.onload = function(){
+                AV.init({
+                    appId: APP_ID,
+                    appKey: APP_KEY,
+                    serverURLs: 'https://avoscloud.com'
+                });
                 resolve();
             }
             script.src = 'https://pv.sohu.com/cityjson?ie=utf-8';
@@ -21,11 +26,6 @@ export const update = async (router)=>{
     if(!window.returnCitySN) {
         await init();
     }
-    AV.init({
-        appId: APP_ID,
-        appKey: APP_KEY,
-        serverURLs: 'https://avoscloud.com'
-    });
     const Logger = AV.Object.extend('Visitor');
     let score = new Logger();
     Object.keys(window.returnCitySN).forEach((key)=>{
