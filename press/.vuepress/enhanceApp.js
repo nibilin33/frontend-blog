@@ -12,7 +12,7 @@ function showComment(router) {
   }
   export default async ({Vue, options, router}) => {
     try {
-      showComment(router);
+      document && showComment(router);
       await update(router);
     } catch (e) {
       console.error(e.message)
