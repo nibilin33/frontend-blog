@@ -388,6 +388,7 @@ function parseToMoney(value){
 3. React 应用如何在重新加载页面时保留数据？ 
 4. 使用 React Hooks 的同时为什么需要使用高阶组件？  
 5. Ajax 请求放在 componentDidMount 里进行处理还是放在componentWillMount 里进行处理比较合适？    
+AJAX请求应在 componentDidMount函数 进行请求。   
 6. React 在语法层面可以做哪些性能优化？   
 PureComponent + Redux + immutable-js / immutability-helper    
 Redux ->  Redux Toolkit   
@@ -403,15 +404,25 @@ JSX 中合理控制条件渲染的范围（避免无谓的重复渲染）
 key   
 保持 state 中数据必响应的特性   
 7. React 使用场景？   
-
+逻辑复杂单页应用，偏中后台管理系统，纯展示性的UI页面不合适    
 8. 描述一下React 生命周期   
 
 9. 实现组件有哪些方式？   
-
+React.createClass 使用API来定义组件
+React ES6 class component 用 ES6 的class 来定义组件
+Functional stateless component 通过函数定义无状态组件
 10. shouldComponentUpdate函数有什么作用？   
+shouldComponentUpdate是一个允许我们自行决定某些组件（以及他们的子组件）是否进行更新的生命周期函数，   
+reconciliation的最终目的是尽可能以最有效的方式去根据新的state更新UI，   
+如果你已经知道UI的哪些状态无需进行改变，就没必要去让React去判断它是否该改变。     
+让shouldComponentUpdate返回falss, React就会让当前的组件和其子组件保持不变。   
 
 11. 当组件的setState函数被调用之后，发生了什么？    
-
+React会做的第一件事就是把你传递给setState的参数对象合并到组件原先的state。     
+这个事件会导致一个“reconciliation”（调和）的过程。    
+reconciliation的最终目标就是，尽可能以最高效的方法，去基于新的state来更新UI。   
+为了达到这个目的，React会构建一个React元素树（你可以把这个想象成一个表示UI的一个对象）。一旦这个树构建完毕,React为了根据新的state去决定UI要怎么进行改变，它会找出这棵新树和旧树的不同之处。   
+React能够相对精确地找出哪些位置发生了改变以及如何发生了什么变化，并且知道如何只通过必要的更新来最小化重渲染。
 12. React-router 路由的实现原理？   
 
 13. 说说React Native,Weex框架的实现原理？   
@@ -419,15 +430,15 @@ key
 14. 受控组件(Controlled Component)与非受控组件(Uncontrolled Component)的区别    
 
 15. refs 是什么?    
-
+Refs是能访问DOM元素或组件实例的一个函数；   
 16. React为什么自己定义一套事件体系呢，与浏览器原生事件体系有什么关系？   
 
 17. 什么时候应该选择用class实现一个组件，什么时候用一个函数实现一个组件？   
-
+组件用到了state或者用了生命周期函数，那么就该使用Class component。其他情况下，应使用Functional component。    
 18. 什么是HoC（Higher-Order Component）？适用于什么场景？   
-
+高阶组件就是一个 React 组件包裹着另外一个 React 组件    
 19. 并不是父子关系的组件，如何实现相互的数据通信？    
-
+使用父组件，通过props将变量传入子组件（如通过refs，父组件获取一个子组件的方法，简单包装后，将包装后的方法通过props传入另一个子组件）
 20. Redux是如何做到可预测呢？   
 
 21. Redux将React组件划分为哪两种？    
