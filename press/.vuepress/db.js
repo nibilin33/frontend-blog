@@ -22,10 +22,12 @@ const init = ()=>{
         }
     })
 }
+const ignoreIp = ['183.253.53.29','183.253.44.161'];
 export const update = async (router)=>{
-    console.log(router.currentRoute.fullPath);
     await init();
-    console.log(router.currentRoute.fullPath,'22');
+    if(window.returnCitySN && ignoreIp.indexOf(window.returnCitySN.cip)>-1) {
+        return;
+    }
     const Logger = AV.Object.extend('Visitor');
     let score = new Logger();
     Object.keys(window.returnCitySN).forEach((key)=>{
@@ -33,5 +35,4 @@ export const update = async (router)=>{
     });
     score.set('path',router.currentRoute.fullPath);
     Logger.saveAll([score]);
-
 }
