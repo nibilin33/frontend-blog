@@ -152,6 +152,7 @@ virtual DOM 完全重写，mounting & patching 提速 100%；
 因为有自己没有想到的思路，才推动了我去看源码的兴趣。    
 核心：发布订阅模式Dep+object.defineproperty数据劫持    
 ### watch   
+创建 Observer 实例观察数据，Observer 又创建 Dep , Dep 用来维护订阅者。然后创建 Watcher 实例提供 update函数。一旦数据变动，就层层执行回调函数。
 
 ### keep-alive       
 1. 它是个vue 组件,负责渲染子组件           
