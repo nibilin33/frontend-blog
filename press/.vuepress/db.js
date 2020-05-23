@@ -22,7 +22,7 @@ const init = ()=>{
         }
     })
 }
-const ignoreIp = ['183.253.53.29','183.253.44.161'];
+const ignoreIp = ['183.253.53.29','183.253.44.161','183.253.44.102'];
 export const update = async (router)=>{
     await init();
     if(window.returnCitySN && ignoreIp.indexOf(window.returnCitySN.cip)>-1) {
