@@ -461,14 +461,82 @@ Refs是能访问DOM元素或组件实例的一个函数；
 25. React与Vue，各自的组件更新进行对比，它们有哪些区别？    
 :::
 ### 常用库    
-1. react-dom      
-2. classnames       
-3. react-css-modules      
+1. react-dom:提供了可在应用顶层使用的 DOM（DOM-specific）方法[api](https://react.docschina.org/docs/react-dom.html)          
+2. classnames:方便动态绑定样式    
+```js
+<p className={classnames({
+    title:true,
+    color:this.state.addColor
+})}>标题</p>
+```       
+3. react-css-modules   
+原来的样式写法    
+```js
+import React from 'react';
+import styles from './table.css';
+
+export default class Table extends React.Component {
+    render () {
+        return <div className={styles.table}>
+            <div className={styles.row}>
+                <div className={styles.cell}>A0</div>
+                <div className={styles.cell}>B0</div>
+            </div>
+        </div>;
+```  
+存在问题：    
+1. 你必须使用驼峰式类名。 
+2. 无论何时构建一个 className 你都必须使用 style 对象。   
+3. 混合类模块以及全局 CSS 类不够灵活。    
+4. 引用一个未定义的 CSS 模块时解析结果为 undefined ,但并无相关警告提示。    
+```js
+import React from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './table.css';
+
+class Table extends React.Component {
+    render () {
+        return <div styleName='table'>
+            <div styleName='row'>
+                <div styleName='cell'>A0</div>
+                <div styleName='cell'>B0</div>
+            </div>
+        </div>;
+    }
+}
+
+export default CSSModules(Table, styles);
+```
+
 4. events   
-5. core-decorators    
-6. immutable      
-7. redux    
-8. react-router 
+主要用到EventEmitter       
+```js
+import {EventEmitter} from 'event';
+export default new EventEmitter;
+
+emiter.addListener(event, listener)
+// 为指定事件添加一个监听器到监听器数组的尾部。
+emiter.on(event, listener)
+//为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数。
+emiter.once(event, listener)
+//为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器
+emiter.removeListener(event, listener)
+//移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器。
+emiter.emit(event, [arg1], [arg2], [...])
+//按参数的顺序执行每个监听器，如果事件有注册监听返回 true，否则返回 false。
+```
+5. react-core-decorators    
+用装饰器写mixin      
+```js
+import PureRenderMixin from 'react-addons-pure-render-mixin'; 
+import { mixin } from 'react-core-decorators';  
+@mixin(PureRenderMixin)
+class Button extends React.Component { ... }
+```    
+6. immutable    
+[Immutable.js及在React中的应用](http://zhenhua-lee.github.io/react/Immutable.html)     
+7. redux :是JavaScript 状态容器，提供可预测化的状态管理[api](http://cn.redux.js.org/)        
+8. react-router [api](http://react-guide.github.io/react-router-cn/docs/API.html) 
 9. react-router-redux:将react router 与 redux store 绑定,管理路由状态    
 ```js
 import {push} from 'react-router-redux';
