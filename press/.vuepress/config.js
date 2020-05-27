@@ -12,7 +12,7 @@ module.exports = {
     sidebar: [
       ["./guide/solution.md", "记录重构心路思考"],
       ["./guide/promto.md", "那些年让人难受的BUG"],
-      ["./guide/book.md", "书籍阅读"],
+      ["./guide/book.md", "读书笔记"],
       ["./guide/code.md", "源码学习"],
       ["./guide/algorithm.md", "算法学习"],
       ["./guide/webview.md", "WebView"],
@@ -28,6 +28,7 @@ module.exports = {
       ["./guide/cooperation.md", "协作的实现"],
       ["./guide/design.md", "设计模式"],
       ["./guide/interview.md", "面试"],
+      ["./guide/worknote.md", "工作日记"],
       ["./guide/me.md", "README"]
     ],
     sidebarDepth: 3,
