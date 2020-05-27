@@ -460,6 +460,20 @@ Refs是能访问DOM元素或组件实例的一个函数；
 
 25. React与Vue，各自的组件更新进行对比，它们有哪些区别？    
 :::
+### 常用库    
+1. react-dom      
+2. classnames       
+3. react-css-modules      
+4. events   
+5. core-decorators    
+6. immutable      
+7. redux    
+8. react-router 
+9. react-router-redux:将react router 与 redux store 绑定,管理路由状态    
+```js
+import {push} from 'react-router-redux';
+store.dispatch(push('/home'));
+```
 ### key  
 1. 使用shortid作为key比index好些   
 2. key 只是在兄弟节点之间必须唯一 

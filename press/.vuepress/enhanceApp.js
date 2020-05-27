@@ -1,7 +1,6 @@
 import {update} from './db';
 function showComment(router) {
     router.afterEach(async (to) => {
-      console.log(to.path);
       let comment = document.getElementById('valine-vuepress-comment');
       if (to.path.indexOf('/guide/comment.html') > -1) {
         comment && (comment.style.display='block');

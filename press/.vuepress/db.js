@@ -22,12 +22,12 @@ const init = ()=>{
         }
     })
 }
-const ignoreIp = ['183.253.53.29','183.253.44.161','183.253.44.102'];
+// const ignoreIp = ['183.253.53.29','183.253.44.161','183.253.44.102'];
 export const update = async (router)=>{
     await init();
-    if(window.returnCitySN && ignoreIp.indexOf(window.returnCitySN.cip)>-1) {
-        return;
-    }
+    // if(window.returnCitySN && ignoreIp.indexOf(window.returnCitySN.cip)>-1) {
+    //     return;
+    // }
     const Logger = AV.Object.extend('Visitor');
     let score = new Logger();
     Object.keys(window.returnCitySN).forEach((key)=>{
