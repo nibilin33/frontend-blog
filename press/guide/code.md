@@ -535,9 +535,12 @@ class Button extends React.Component { ... }
 ```    
 6. immutable    
 [Immutable.js及在React中的应用](http://zhenhua-lee.github.io/react/Immutable.html)     
-7. redux :是JavaScript 状态容器，提供可预测化的状态管理[api](http://cn.redux.js.org/)        
+7. redux :是JavaScript 状态容器，提供可预测化的状态管理[api](http://cn.redux.js.org/)       
+[理解Redux](https://mp.weixin.qq.com/s/oVEoDLPWYrfbgAxZXCgOeQ)      
 8. react-router [api](http://react-guide.github.io/react-router-cn/docs/API.html) 
-9. react-router-redux:将react router 与 redux store 绑定,管理路由状态    
+9. react-router-redux:将react router 与 redux store 绑定,管理路由状态  
+10. redux-thunk: 处理异步等副作用操作[理解redux-thunk](https://zhuanlan.zhihu.com/p/85403048)     
+11. react-redux:将Redux结合React使用.react-redux 实现了一个简单的发布-订阅库，来监听当前 store 的变化.    
 ```js
 import {push} from 'react-router-redux';
 store.dispatch(push('/home'));
