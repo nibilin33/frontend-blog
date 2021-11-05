@@ -27,7 +27,6 @@ module.exports = {
       ["./guide/component.md", "组件说明"],
       ["./guide/cooperation.md", "协作的实现"],
       ["./guide/design.md", "设计模式"],
-      ["./guide/interview.md", "面试"],
       ["./guide/worknote.md", "工作日记"],
       ["./guide/me.md", "README"]
     ],
