@@ -1,41 +1,16 @@
 {
-  "name": "nibl-doc",
+  "name": "vuepress-starter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "directories": {
-    "doc": "press"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev press",
-    "docs:build": "vuepress build press && node movedist.js"
+    "docs:build": "vuepress build press && node move.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@vue/component-compiler-utils": "^3.1.1",
-    "@vuepress/shared-utils": "^1.2.0",
-    "express": "^4.17.1",
-    "glob": "^7.1.4",
-    "http": "^0.0.0",
-    "leancloud-storage": "^4.5.3",
-    "log4js": "^5.2.2",
-    "medium-zoom": "^1.0.5",
-    "node-watch-changes": "^2.0.1",
-    "path": "^0.12.7",
-    "shelljs": "^0.8.3",
-    "toml": "^3.0.0",
-    "valine": "^1.3.10",
-    "vuepress-plugin-comment": "^0.7.2",
-    "vuepress-plugin-flowchart": "^1.4.3"
-  },
   "devDependencies": {
-    "markdown-it-emoji": "^1.4.0",
-    "node-sass": "^7.0.0",
-    "sass-loader": "^12.4.0",
-    "vuepress": "^1.9.3",
-    "vuepress-plugin-container": "^2.1.2",
-    "vuepress-plugin-demo-code": "^0.5.0"
+    "shelljs": "^0.8.4",
+    "vuepress": "^1.9.5"
   }
 }

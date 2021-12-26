@@ -33,40 +33,8 @@ module.exports = {
     sidebarDepth: 3,
     displayAllHeaders: true, // 默认值：false
     nav: [
-      {
-        text: "评论留言",
-        link: "/guide/comment.md"
-      },
       { text: "Github", link: "https://github.com/nibilin33" },
       // { text:"GitBook",link:"https://legacy.gitbook.com/book/nibilin33/share-code/welcome"}
     ]
-  },
-  plugins: [
-    "flowchart",
-    [
-      "vuepress-plugin-container",
-      {
-        type: "details",
-        before: info => `<details class="custom-block details">`,
-        after: "</details>"
-      }
-    ],
-    [
-      "vuepress-plugin-comment",
-      {
-        choosen: "valine",
-        // options选项中的所有参数，会传给Valine的配置
-        options: {
-          el: "#valine-vuepress-comment",
-          appId: "jJfXeV1I2kHde68Hnn7A7yEJ-gzGzoHsz",
-          appKey: "SXR99ldnbUDDFITs3h62K9OH",
-          placeholder: "来了就说点什么吧~~~",
-          recordIP: true
-        }
-      }
-    ]
-  ],
-  markdown: {
-    lineNumbers: true
   }
 };

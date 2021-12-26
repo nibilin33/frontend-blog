@@ -23,4 +23,3 @@
 12. msfconsole  
 ![启动成功图](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/msf5.jpg)
 :::
-## 尝试攻击自己的服务器🔞

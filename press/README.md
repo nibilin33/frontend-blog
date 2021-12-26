@@ -1,6 +1,7 @@
 ---
 home: true
 heroImage: /nibl.jpg
+title: Blog
 actionText: Start
 actionLink: /guide/solution
 features:
