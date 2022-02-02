@@ -6,6 +6,20 @@ module.exports = {
     [
       "link",
       { rel: "shortcut icon", href: "./nibl_32.ico", type: "image/x-icon" }
+    ],
+    [
+      "script",
+      {},
+      `
+      var _hmt = _hmt || [];
+      (function() {
+        console.log("load hmt");
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ca71d93db8b670d9d48afc9fb07d5631";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+        `
     ]
   ],
   themeConfig: {
