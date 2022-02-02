@@ -1,3 +1,4 @@
 node_modules
 .idea
 press/.vuepress/.DS_Store
+package-lock.json
