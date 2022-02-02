@@ -12,6 +12,7 @@ module.exports = {
       {},
       `
       var _hmt = _hmt || [];
+      _hmt.push(['_setAutoPageview', false]);
       (function() {
         console.log("load hmt");
         var hm = document.createElement("script");
