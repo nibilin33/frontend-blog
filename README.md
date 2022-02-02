@@ -28,7 +28,8 @@ http://emojihomepage.com/
 [流程图语法](https://flowchart.vuepress.ulivz.com/#usage)      
 [在线绘图](https://c.runoob.com/more/shapefly-diagram/)    
 [github metrics](https://metrics.lecoq.io/)         
-[徽章生存](https://shields.io/)		    
+[徽章生存](https://shields.io/)		
+[渐变色](https://webgradients.com/)    
 ## 其他      
 vscode markdown 实时预览            
 F1 输入markdown,选择Preview to side 

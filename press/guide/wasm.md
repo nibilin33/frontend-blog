@@ -4,3 +4,9 @@
 二进制格式一般以.wasm;文本格式以.wat   
 ## 安装wabt
 https://github.com/WebAssembly/wabt   
+
+## wasm 官网
+https://wasm.zcopy.site/		
+
+## wasm 应用		
+https://github.com/mcuking/Awesome-WebAssembly-Applications
