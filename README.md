@@ -8,7 +8,9 @@ docs 目录是打包后的静态资源
 press 目录是md文档           
 ## 目录 
 - [工作日记](https://github.com/nibilin33/frontend-blog/blob/master/press/guide/worknote.md) 
-- [工作软技能](https://github.com/nibilin33/frontend-blog/blob/master/press/guide/softpower.md)     
+- [工作软技能](https://github.com/nibilin33/frontend-blog/blob/master/press/guide/softpower.md)  
+- [边缘计算](https://github.com/nibilin33/frontend-blog/blob/master/press/guide/edge.md)
+- [IoT]()    
 - [每天一个实用npm库](https://github.com/nibilin33/frontend-blog/blob/master/press/guide/npm.md) 
 - [chromium设计文档](https://github.com/nibilin33/Chromium-design)          
 - [读书笔记](https://github.com/nibilin33/frontend-blog/blob/master/press/guide/book.md)  

@@ -27,6 +27,7 @@ module.exports = {
     sidebar: [
       ["./guide/worknote.md", "工作日记"],
       ["./guide/softpower.md", "工作软技能"],
+      ["./guide/edge.md", "边缘计算"],
       ["./guide/npm.md","每天一个实用npm库"],
       ["./guide/webgpu.md","WebGPU学习"],
       ["./guide/webgl.md", "WebGL学习"],
