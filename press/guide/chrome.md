@@ -52,8 +52,6 @@
     target_cpu = "x64/arm64"
     is_debug = false
     is_component_build = false
-    # exec
-    gn gen out/Default
    ```
 3. 构建Chromium
   ```shell
