@@ -25,12 +25,15 @@ ccache, prepend this directory to your PATH:
 
 If this is an upgrade and you have previously added the symlinks to   
 your PATH, you may need to modify it to the path specified above so
-it points to the current version.     
-国外源git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git     
-国内源 https://source.codeaurora.org/quic/lc/chromium/tools/depot_tools/     
-git clone git://source.codeaurora.org/quic/lc/chromium/tools/depot_tools.git      
-cd depot_tools      
-git checkout origin/chromium.org/main   
-export PATH=/path to depot_tools/depot_tools:"$PATH"    
-git config --global core.precomposeUnicode true   
+it points to the current version.
+国外源git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+国内源 https://source.codeaurora.org/quic/lc/chromium/tools/depot_tools/
+git clone git://source.codeaurora.org/quic/lc/chromium/tools/depot_tools.git
+cd depot_tools
+git checkout origin/chromium.org/main
+export PATH=/path to depot_tools/depot_tools:"$PATH"
+git config --global core.precomposeUnicode true
 mkdir chromium && cd chromium   
+
+Failed to connect to chromium.googlesource.com port 443: Operation timed out
+git config --global http.proxy "localhost:5451"
