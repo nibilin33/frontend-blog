@@ -27,8 +27,9 @@ module.exports = {
     sidebar: [
       ["./guide/softpower.md", "工作软技能"],
       ["./guide/edge.md", "边缘计算"],
-      ["./guide/npm.md","每天一个实用npm库"],
+      ["./guide/graphics.md", "图形学编程"],
       ["./guide/iot.md","IoT"],
+      ["./guide/npm.md","每天一个实用npm库"],
       ["./guide/webgpu.md","WebGPU学习"],
       ["./guide/webgl.md", "WebGL学习"],
       ["./guide/wasm.md","WebAssembly学习"],
