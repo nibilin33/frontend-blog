@@ -1,7 +1,11 @@
 [Chromium源码解读](https://juejin.cn/post/7039850183244382216)
 # [Chromium for Mac](https://github.com/chromium/chromium/blob/main/docs/mac_build_instructions.md)
 1. 获取代码
-   通过chromium提供的depot_tools获取代码    
+   AppStore Install Xcode   
+   Run sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+   检查是否有sdk
+   ls ` xcode-select -p ` /Platforms/MacOSX.platform/Developer/SDKs     
+   通过chromium提供的depot_tools获取代码        
    ```shell
    git config --global core.precomposeUnicode true
    git clone https://chromium.googlesource.com/chromium/tools/depot_tools   # 国外源
@@ -35,7 +39,17 @@
     mkdir chromium && cd chromium   
     # 大约需要半小时到一小时
     fetch chromium 
+    cd src
    ```
+2. 准备构建环境
+   ```shell
+     gn gen out/Default
+   ```
+3. 构建Chromium
+  ```shell
+     autoninja -C out/Default chrome
+  ```
+
 # depot_tools 介绍
 chromium 开发工具，要求python2.7或者3.8   
 ## Tools  
@@ -89,6 +103,7 @@ On Windows only, running gclient will install git and python.
 ## 可能遇到的问题    
 - Failed to connect to chromium.googlesource.com port 443: Operation timed out
 git config --global http.proxy "localhost:1087"
+- xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
 ## 其他参考    
 https://segmentfault.com/a/1190000023231568   
 brew install --HEAD ccache      
