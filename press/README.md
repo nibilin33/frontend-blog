@@ -3,7 +3,7 @@ home: true
 heroImage: /nibl.jpg
 title: Blog
 actionText: Start
-actionLink: /guide/worknote
+actionLink: /guide/softpower
 features:
 - title: A Blog
   details: 记录日常所得 
