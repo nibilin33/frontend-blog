@@ -7,7 +7,7 @@
 达成的效果以及最后的总结与沉淀
 :::     
 
-## 刷题的思考       
+## 刷题         
 刚开始会很不理解这种方式，  
 但想了想，如果是自己，该怎么判断一个人能力如何？    
 答案是：不知道，不知道怎么聊去了解一个人。       
@@ -30,115 +30,319 @@ https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Que
 [(上)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-1.md)            
 [(下)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-3.md)       
  
+### 运行时的一些概念  
 
-### 淘系
+#### 帧  
 
-某部门一        
+一个帧是一个连续的工作单元。当一个函数被调用时，运行时环境就会在栈中  
+创建一个帧。帧里面保存了特殊函数的参数和局部变量。  
+
+#### 栈  
+
+栈包含了一个信息在执行时的所有步骤（帧）。   
+
+#### 队列
+
+队列包含一个待执行信息的列表，每一个信息都与一个函数相互联系。  
+
+#### 堆  
+
+堆是一个内存存储空间，它不关注内部储存的内容的保存顺序。   
+堆中保存了所有正在被使用的变量和对象，同时也保存了一些当前  
+作用域已经不在被用到，但还没被垃圾回收的帧。  
+
+### 浏览器工作原理       
+#### 浏览器端的EventLoop
+一个函数执行栈，一个事件队列，一个微任务队列。      
+每个事件队列中取一个事件时有微任务就把微任务执行完，才开始执行事件。
+EventLoop 运行机制：检测调用栈为空闲状态时将回调函数加入任务队列中并执行。  
+异步编程原理:比如ajax， 分为发请求和回调，javascript引擎先调用发起请求后，顺序执行任务队列中      
+的下一个任务，浏览器网络模块得到响应通知javascript引擎，eventloop 检测到栈  
+为空闲的时候将回到函数加入任务队列。    
+![eventloop 图解](https://image-static.segmentfault.com/582/928/582928712-5b3ee578ba5ba_articlex)   
+
+```js
+console.log(1);
+
+setTimeout(e=>{ console.log(2); },0)
+
+setTimeout(e=>{ console.log(3); },0)
+
+new Promise((resolve,reject)=>{ console.log(4); resolve();})
+.then(e=>{ console.log(5); })
+
+setTimeout(e=>{ console.log(6);new Promise((resolve,reject)=>{ console.log(7); resolve(); })
+     .then(e=>{ console.log(8);})
+})
+1 4 5 2 3 6 7 8 
 ```
-1. 自我介绍             
-2. 聊一下最近的项目经历     
-3. 根据我简历提到的问了：       
-内存泄漏是什么场景，GC的原理是什么？              
-如果上百个复杂组件要展示如何优化？            
-离线资源包的方案是什么样的？            
-混合H5是如何通信的？    
-（前提：我提到H5和native的通信都采用异步方式）就如果想要同步获得native的数据要怎么做？      
-4. 基础知识：
-首屏加载优化？
-CDN是如何能做到优化效果的？ 
-服务端渲染的原理？  
-客户端渲染的引擎有了解吗？      
-跨域请求有哪些方式？    
-JSONP如何保证不被劫持，被任何人调用         
-了解前端哪些安全方面?         
-了解Option请求吗？             
-了解HTTP2吗？   
-箭头函数的优点？        
-知道ES6哪些特性？await,async实现原理               
-这些性特性浏览器不能支持怎么做？        
-babel是用来做什么的？有写过babel的loader吗？        
-webpack是用来做什么的？知道loader和Plugin的原理吗？           
-（我有写过webpack的loader）写过loader是用来做什么的？   
-vue 的双向绑定的原理，vue template是如何知道哪些数据要双向绑定的？
-5. 你还有什么想问的吗？      
-```  
-某部门二          
-```
-1. 说出输出结果     
-setTimeout(function() {
-    console.log('setTimeout');
-}, 0);
+#### 一段代码的运行
+从一段JavaScript源码，解析，抽象语法树，执行上下文，解释器，字节码，编译器。        
+#### JavaScript的核心
+对象，原型链，构造函数，执行上下文堆栈，执行上下文，变量对象，活动对象，作用域链，闭包，this。      
+#### 运行时的描述
 
-new Promise(function(resolve) {
-    console.log('promise');
-    resolve();
-}).then(function() {
-    console.log('then');
-});
+对于每个执行上下文，三个重要的属性，变量对象，作用域链，this。
 
-console.log('console');
-2. 用apply实现bind           
-Function.prototype.bind = function () {
+执行上下文，第一，函数的形参，当进入到函数执行上下文时，变量对象的一个属性，其属性名就是形参的名字，其值就是实参的值，对于没有传递的参数其值为undefined。           
+函数声明，变量对象的一个属性，其属性名和值都是函数对象创建出来的，如果变量对象已经包含了相同名字的属性，则替换它的值。      
+变量声明，变量对象的一个属性，其属性名即为变量名，其值为undefined，如果变量名和已经声明的函数名或者函数的参数名相同，则不会影响已经存在的属性。         
+#### 微任务和宏任务对页面渲染的影响  
+异步任务包含：
+process.nextTick(Node都有)         
+promise.then()            
+object.Observe            
+mutaionObserver     
+微任务可以多个同时执行，宏任务一次只能执行一个。        
+Promise宏任务，Promise.then是微任务，宏任务先，console.log，再到微任务       
+
+### You think you know JavaScript? 
+1. 函数声明会覆盖变量声明，但不会覆盖变量赋值      
+```js
+function value(){
+    return 1;
 }
-3. 按1,2,3,4这样输出树           
-const tree = [
-  {
-    name: 'dir1', 
-    children: [
-      {name: 'dir2', children: []}
-    ]
-  },
-  {
-    name: 'dir3', 
-    children: [
-      {name: 'dir4', children: []}
-    ]
-  }
-]
-4. 知道BFC吗？用BFC解决过什么问题？     
-5. 行内元素和块元素有什么区别？         
-6. 了解行内替换元素和非替换元素吗？         
+var value;
+alert(typeof value);    //"function"
+function value(){
+    return 1;
+}
+var value = 1;
+alert(typeof value);    //"number"
+```
+2. 使用 prototype 除了可以实现继承之外，还可以节约内存，因为无论使用 function
+创建多少对象，它们所指向的 prototype 对象在内存中都只有一份。但使用prototype的  
+属性比直接使用对象中定义的属性在执行效率上理论来说会低一些。        
+3. 底层实现时， null 一般会指向一个全0的地址，这个地址是无法访问的，当遇到这种情况时就会当作不存在来处理；  
+undefined 则表示根本不存在，或者还没有初始化，所以一个变量可以赋值为 null ，但不可赋值为 undefined。         
+4. String.raw`Hi\n${2+3}!`;//'Hi\n5!'       
+String.raw({
+  raw: ['foo', 'bar', 'baz']
+}, 2 + 3, 'Java' + 'Script');// 'foo5barJavaScriptbaz'      
+String.raw({ raw: 'test' }, 0, 1, 2); // 't0e1s2t'      
+5. DocumentFragment 节点是表示 Document 片段的节点，它是轻量级的 Document ，继承
+Node ，没有自己的属性。     
+DocumentFragment 的作用就像一个容器，可以将其他节点暂时存放在里面，而且它对
+格式要求也不是那么严格，例如，可以直接将一个 Text 文本保存到里面。如果要在文档中插
+入多个节点，那么可以先创建一个 DocumentFragment ，然后将创建出来的节点暂时保存到里
+面，等所有要插入的节点全部创建完成之后，再使用创建的 DocumentFragment 将所有要插
+入的节点一次性插入到文档中，这样既可以简化操作，也可以减少直接对 DOM 操作的次数。       
+在将 DocumentFragment 类型的节点插入到文档中时，实际上插入的是它所包含的子节点，
+这样就使操作更加简便了。    
+6. NamedNodeMap 接口用于保存多个命名节点的 Map 集合，即按照名值对来保存节点，
+并且它所保存的节点不需要保证相互的顺序关系。            
+它主要包含以下属性（方法）：        
+length ：包含节点的数量。       
+getNamedltem(name）：按名称获取指定的节点       
+setNamedltem(node）：将指定节点添加到 Map       
+removeNamedltem(name）：删除指定名称的节点        
+item(index）：按序号获取节点。      
+这里需要注意两点：第一点， NamedNodeMap 所包含的节点是动态变化的，当它所对应的
+文档中的节点发生变化时， NamedNodeMap 的内容也会实时进行更新；第二点， NamedNodeMap
+所包含的节点的顺序跟在文档中定义的顺序不一定相同。      
+```js
+var div = document.getElementById("a"); 
+//获取 NamedNodeMap
+var nnm = div.attributes; 
+console.log(nnm instanceof NamedNodeMap); //true
 ``` 
-某部门三         
-```
-1. postion有哪些属性？      
-2. absolute是相对什么定位的？       
-3. get和post区别？          
-4. 可以用get上传吗？            
-5. 有没有什么场景是一定要用post请求？            
-6. 开发组件有什么原则吗？       
-```
-### 钉钉       
-5轮面试           
-1轮的基础的考察主要是上机，我的github分支上有我做过的题目，     
-额，可以参考，但并不具备特别的“指导”作用。      
-没什么好取巧的，老老实实刷一下leetcode找找手感。                 
-后面3轮技术面基本在考察比较虚的能力和工程经验.....这个是临时准备        
-不了的，就是看平时工作思考了。记录一些思考也很重要，我完全不记得        
-前两年到底干了啥...好在后面开始写博客整理，总归能讲一些东西出来。                
+#### Traversal 和 Range      
 
-不同部门侧重的点不一样，有的部门侧重工程经验，有的侧重      
-基础表达。              
-
-### 支付宝      
-3轮面试     
-因为通过了钉钉的面试，推荐到这边面试流程就压缩了一些。          
-没有上机和交叉面。             
-      
+#### MutationEvents list            
+- DOMAttrModified     
+- DOMAttributeNameChanged     
+- DOMCharacterDataModified        
+- DOMElementNameChanged       
+- DOMNodeInserted     
+- DOMNodeInsertedIntoDocument     
+- DOMNodeRemoved      
+- DOMNodeRemovedFromDocument      
+- DOMSubtreeModified      
+详细参考[DOM变化的监听检测与应用](https://www.zhangxinxu.com/wordpress/2019/08/js-dom-mutation-observer/)       
+```js
+element.addEventListener("DOMNodeInserted", function (event) {
+  // ...
+}, false);
 ```
-1. 解释一下MVVM     
-2. react 和 vue的区别       
-3. vue 的生命周期       
-4. v-model 和 v-bind区别        
-5. 说一下 == 和 === 的区别，以及=== 的实现原理   
-6. js是如何上传本地文件的？为什么能拿到文件句柄，拿到文件句柄是不是就可以删除覆盖文件？   
-  
-=-=...    
-因为太突然地就开始新的面试，脑袋还处于蒙蔽的状态...   
-想不起来基础问题问了啥...   
-```
+并不是所有浏览都支持MutationEvents的全部事件，而且不同      
+的浏览器在具体处理时也存在一些细节差异。 例如， IE Firefox 不支持
+DOMNodeRemovedFromDocument，DOMNodelnsertedlntoDocument事件，       
+Chrome不支持 DOMAttrModified；      
+Firefox，Chrome 中每执行一次操作都会触发
+一次 DOMSubtreeModified。       
+而IE 中在 多个相关操作全部处理完之后才会
+DOMSubtreeModified事件。        
+#### 缓存对象    
+ES2015 新增缓存类型：ArrayBuffer,TypedArray,DataView。适合对大量二进制进行操作。    
+Array Buffer 一块作为二进制缓存使用的内存区，我们只要知道它就是一块内存就可以
+了，它自己并不直接操作数据，而是需要使用 TypedArray 或者 DataView 进行操作。    
+DataView (buffer [ , byteOffset [ , byteLength ] ] )        
+![TypedArray内存结构](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/arraybuffer.png)    
 
-### 建议        
+#### JavaScript 内存模型     
+JS 内存模型理解为两个不同的区域：调用栈和堆     
+调用栈是原始类型值存储的位置（还包括函数调用）      
+堆是存储非原始类型数据的地方。关键的区别在于，堆可以存储无序数据，这些数据能动态增长，特别适合数组和对象。  
+```
+let myNumber = 23;  
+JS 会进行如下步骤：     
+  1. 为变量创建一个唯一的标识符（myNumber）     
+  2. 在内存中分配一个地址（运行时动态赋值）     
+  3. 在分配好的地址上存储它的值（23）。     
+```    
+```
+let myArray = [];       
+内存里会执行如下的步骤：
+  1. 为变量创建一个唯一的标识符（myArray）      
+  2. 在内存中分配一个地址（运行时动态赋值）     
+  3. 保存堆上分配的内存地址值（运行时赋值）     
+  4. 堆中的内存地址保存了赋给它的值（空数组[]）     
+```    
+1. 基本类型：保存在栈内存中，因为这些类型在内存中分别占有固定大小的空间，通过按值来访问。基本类型一共有6种：Undefined、Null、Boolean、Number 、String和Symbol   
+
+2. 引用类型：保存在堆内存中，因为这种值的大小不固定，因此不能把它们保存到栈内存中，但内存地址大小的固定的，因此保存在堆内存中，在栈内存中存放的只是该对象的访问地址。当查询引用类型的变量时， 先从栈中读取内存地址， 然后再通过地址找到堆中的值。对于这种，我们把它叫做按引用访问。          
+### XHTML 与 HTML 的不同 
+
+XHTML 元素必须被正确地嵌套。    
+XHTML 元素必须被关闭。  
+标签名必须用小写字母。  
+XHTML 文档必须拥有根元素。  
+XHTML 可以混合各种XML应用（MathMl, svg）
+XHTML 文档内的CDATA中的内容可以被执行，CDATA的作用是防止XML解析到非法字符。 
+
+### WAI-ARIA 
+
+WAI-ARIA, 是Web Accessibility Initiative - Accessible Rich Internet Applications 的缩写，指无障碍网页应用技术。她主要解决的一个问题：让残障人士能无障碍地访问网页上的动态内容。     
+ARIA主要由两部分组成，分别是：      
+role(角色)，标示这个dom元素是做什么用的.
+aria-属性描述了与之有关的事物（特征）及其是什么样的（状态）.
+
+### meta 元素   
+
+属性：charset, name, http-equiv, content       
+| charset        | name         | http-equiv| content|
+| ------------- |:-------------:|:-------------:|-------------:|
+| utf-8       | application-name | content-type  | width    |
+|               | author        |   default-style| initial-scale|
+|               | description    | refresh     | maximum-scale|
+|               | generator     |             | minimun-scale  |
+|               | keywords     |              | user-scalable  |
+|               | robots        |               |           |
+|               | viewport     |                |            |
+
+
+### A 元素的功能 
+1. 导航
+2. 浏览器支持的任何协议 
+::: tip
+手机拨号：href="tel:10086"      
+发送短信：href="sms:10086?body=test"    
+发送邮件：href="mailto:ss@qq.co?cc="    
+:::
+### IMG 新增实用属性     
+crossorigin:  anonymous,use-credentials (帮助canvas能够使用第三方站点的图像，并且不会污染画布)      
+usemap: 让图像关联分区响应图  
+figure,figcaption: 用于插入图像以及图像的描述       
+<ClientOnly>
+<cp-image></cp-image>
+</ClientOnly> 
+eg:点狗脸，点狗脸   
+<ClientOnly>
+<nb-img></nb-img>
+</ClientOnly>  
+
+
+### H5新增日期类型（chrome） 
+| 类型          | 功能|
+| --------------|----:|
+| datetime-local|选择本地日期时间|
+| month| xx年xx月|
+| time| 11:00|
+| week| xx年第xx周|
+
+### Iframe   
+1. 用途 
+2. 缺点 
+
+### 多媒体元素       
+video,audio,embed,track     
+
+### BEF 和 Margin Collapse   
+BFC全称Block Formatting Context ，直译“块级格式化上下文”，也有译作“块级格式化范围”。它决定了元素如何对其内容进行定位，以及与其他元素的关系和相互作用。BEF中的内容就相当于箱子中的物品，将物品摆放在箱子中，能避免与其他箱子中的物品混淆，还能保护它们不被破坏。
+怎么产生BFC?    
+::: tip    
+根元素      
+float属性不为none       
+position为absolute或fixed       
+display为inline-block, table-cell, table-caption, flex, inline-flex     
+overflow不为visible  
+:::  
+***BEF 的用途***    
+1. 清除浮动
+2. 解决外边距塌陷
+3. 宽度自适应的两栏布局      
+## 关于定位     
+static： 默认值。没有定位，元素出现在正常的流中         
+relative（相对定位）：生成相对定位的元素,相对于其正常（原先本身）位置进行定位   
+absolute（绝对定位）：生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位    
+fixed（固定定位）：生成绝对定位的元素，相对于浏览器窗口进行定位          
+
+### 恶补CSS知识点          
+[视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)   
+[CSS 实用效果](https://blog.csdn.net/frontend_frank/article/details/104438193)      
+<ClientOnly>
+<css-usage/>
+</ClientOnly> 
+
+### 网络  
+
+<ClientOnly>
+<urlNavigation/>
+</ClientOnly>  
+
+HTTP 1.1 均为纯文本格式传输，     
+
+HTTP2.0将消息的传输格式改为二进制，以流的形式进行消息传输。         
+
+消除队首阻塞。服务器还可以主动推送消息。      
+
+Websocket:协议基于TCP协议实现，包含初始的握手过程，以及后续的多次数据帧双向传输过程。其目的是在WebSocket应用和WebSocket服务 器进行频繁双向通信时，可以使服务器避免打开多个HTTP连接进行工作来节约资源，提高了工作效率和资源利用率。  
+
+当创建 WebSocket 实例的时候，会发一个 HTTP 请求，请求报文中有个特殊的字段 Upgrade ，然后这个连接会由 HTTP 协议转换为 WebSocket 协议，这样客户端和服务端建立了全双工通信，通过 WebSocket 的 send 方法和 onmessage 事件就可以通过这条通信连接交换信息。   
+
+socket.io: 从IE6到IOS都支持         
+
+
+<img alt="http网络流程" src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/47b144c643677df810e0270e6a228934.jpeg"/>
+
+#### URI,URL,URN的理解： 
+
+URI：通一资源标志符(Uniform Resource Identifier， URI)，表示的是web上每一种可用的资源，如 HTML文档、图像、视频片段、程序等都由一个URI进行定位的。(分为URL,URN)
+
+URL：Uniform Resource Locator（统一资源定位符）
+
+URN：Uniform Resource Name（统一资源命名），P2P下载中使用的磁力链接是URN的一种实现，它可以持久化的标识一个BT资源，资源分布式的存储在P2P网络中，无需中心服务器用户即可找到并下载它。 
+
+ETag：是实体标签(Entity Tag)的缩写。ETag一般不以明文形式相应给客户端。在资源的各个生命周期中，它都具有不
+同的值，用于标识出资源的状态   
+
+#### 常用的首部字段     
+1. X-Frame-Options  
+网站内容在其他web站的frame标签显示。防止点击劫持。  
+2. X-XSS-Protection     
+用于控制浏览器XSS防护机制的开关。       
+3. DNT  
+DO Not Track 的简称，拒绝个人信息被收集。拒绝被精准广告追踪的一种方法。     
+4. P3P  
+在线隐私偏好平台技术，可以让web网站上的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的目的。     
+
+#### SSL
+SSL的慢分两种。一种是指通信慢。另一种是指由于大量消耗 CPU 及内存等资源，导致处理速度变慢。 和使用 HTTP 相比，网络负载可能会变慢 2 到 100 倍。除去和 TCP 连接、发送 HTTP 请求 • 响应以外，还必须进行 SSL通信， 因此整体上处理通信量不可避免会增加。 另一点是 SSL必须进行加密处理。在服务器和客户端都需要进行 加密和解密的运算处理。因此从结果上讲，比起 HTTP 会更多地 消耗服务器和客户端的硬件资源，导致负载增强。 针对速度变慢这一问题，并没有根本性的解决方案，我们会使用 SSL加速器这种（专用服务器）硬件来改善该问题。该硬件为 SSL通信专用硬件，相对软件来讲，能够提高数倍 SSL的计算速 度。仅在 SSL处理时发挥 SSL加速器的功效，以分担负载。
+
+#### HTTP 使用的认证方式    
+
+
+#### 阿里面试建议            
 1. 一定要通过客服中心去查询面试进度，                                  
 HR告诉你提交offer审批，并不一定是提交了...... 
 2. 如果你是做ToB的，并且没有ToC的技能点（canvas,webgl，渲染引擎...）        
