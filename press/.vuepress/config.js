@@ -28,6 +28,7 @@ module.exports = {
       ["./guide/softpower.md", "工作软技能"],
       ["./guide/edge.md", "边缘计算"],
       ["./guide/npm.md","每天一个实用npm库"],
+      ["./guide/iot.md","IoT"],
       ["./guide/webgpu.md","WebGPU学习"],
       ["./guide/webgl.md", "WebGL学习"],
       ["./guide/wasm.md","WebAssembly学习"],
