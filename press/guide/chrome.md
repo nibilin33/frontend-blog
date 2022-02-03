@@ -122,7 +122,7 @@ git config --global http.proxy "localhost:1087"
 - xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
 - FileNotFoundError: [Errno 2] No such file or directory: '../../third_party/node/mac/node-darwin-x64/bin/node'
     修改 third_party/node.py
-    里面的系统判断有问题    
+    里面的cpu类型判断有问题    
 ## 其他参考    
 - https://segmentfault.com/a/1190000023231568   
 - https://ijackey.com/mac-%E4%B8%8B-chromium-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91-716.html  
