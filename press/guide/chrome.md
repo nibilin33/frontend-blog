@@ -43,7 +43,17 @@
    ```
 2. 准备构建环境
    ```shell
-     gn gen out/Default
+    # check CPU
+    uname -m
+    # modify cpu args
+    gn args out/Default
+    # insert args
+    target_os = "mac"
+    target_cpu = "x64/arm64"
+    is_debug = false
+    is_component_build = false
+    # exec
+    gn gen out/Default
    ```
 3. 构建Chromium
   ```shell
@@ -63,36 +73,37 @@ chromium 开发工具，要求python2.7或者3.8
 重要的工具    
 ### fetch
 用于获取项目，更多信息查看 fetch --help
-  fetch configs:
-  android
-  android_internal
-  breakpad
-  chromium
-  config_util
-  crashpad
-  dart
-  depot_tools
-  devtools-frontend
-  flutter
-  goma_client
-  gyp
-  infra
-  infra_internal
-  inspector_protocol
-  ios
-  ios_internal
-  nacl
-  naclports
-  node-ci
-  pdfium
-  skia
-  skia_buildbot
-  syzygy
-  v8
-  webrtc
-  webrtc_android
-  webrtc_ios
-  website
+fetch configs
+  - android
+  - android_internal
+  - breakpad
+  - chromium
+  - config_util
+  - crashpad
+  - dart
+  - depot_tools
+  - devtools-frontend
+  - flutter
+  - goma_client
+  - gyp
+  - infra
+  - infra_internal
+  - inspector_protocol
+  - ios
+  - ios_internal
+  - nacl
+  - naclports
+  - node-ci
+  - pdfium
+  - skia
+  - skia_buildbot
+  - syzygy
+  - v8
+  - webrtc
+  - webrtc_android
+  - webrtc_ios
+  - website
+
 ### gclient     
 gclient是谷歌开发的一套跨平台git仓库管理工具，用来将多个git仓库组成一个solution进行管理
 它的作用类似 git 的 submodule，用来将多个git仓库组成一个solution进行管理，比如chromium项目是由80多个独立的git仓库构成的.
@@ -113,7 +124,7 @@ git config --global http.proxy "localhost:1087"
 - xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
 ## 其他参考    
 - https://segmentfault.com/a/1190000023231568   
-
+- https://ijackey.com/mac-%E4%B8%8B-chromium-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91-716.html  
 - [CCache on Mac](https://github.com/chromium/chromium/blob/main/docs/ccache_mac.md)
   brew install --HEAD ccache      
   To install symlinks for compilers that will automatically use   
