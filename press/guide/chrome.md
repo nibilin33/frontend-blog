@@ -50,6 +50,13 @@
      autoninja -C out/Default chrome
   ```
 
+4. 启动
+   ```shell
+   out/Default/Chromium.app/Contents/MacOS/Chromium --disable-features="DialMediaRouteProvider"
+   ```
+5. Debugging Chromium on macOS
+  https://github.com/chromium/chromium/blob/main/docs/mac/debugging.md  
+
 # depot_tools 介绍
 chromium 开发工具，要求python2.7或者3.8   
 ## Tools  
@@ -105,12 +112,13 @@ On Windows only, running gclient will install git and python.
 git config --global http.proxy "localhost:1087"
 - xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
 ## 其他参考    
-https://segmentfault.com/a/1190000023231568   
-brew install --HEAD ccache      
-To install symlinks for compilers that will automatically use   
-ccache, prepend this directory to your PATH:    
-  /opt/homebrew/opt/ccache/libexec    
+- https://segmentfault.com/a/1190000023231568   
 
-If this is an upgrade and you have previously added the symlinks to   
-your PATH, you may need to modify it to the path specified above so
-it points to the current version.   
+- [CCache on Mac](https://github.com/chromium/chromium/blob/main/docs/ccache_mac.md)
+  brew install --HEAD ccache      
+  To install symlinks for compilers that will automatically use   
+  ccache, prepend this directory to your PATH:       
+  /opt/homebrew/opt/ccache/libexec      
+  If this is an upgrade and you have previously added the symlinks to   
+  your PATH, you may need to modify it to the path specified above so
+  it points to the current version.   
