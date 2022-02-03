@@ -2,14 +2,21 @@
 depot_tools
 Tools for working with Chromium development. It requires python 2.7 or 3.8 for python 3 support.
 
-Tools   
+## Tools   
 The most important tools are:     
 
 fetch: A gclient wrapper to checkout a project. Use fetch --help for more details.      
 gclient: A meta-checkout tool. Think repo or git submodules, except that it support OS-specific rules, e.g. do not checkout Windows only dependencies when checking out for Android. Use gclient help for more details and README.gclient.md.       
 git cl: A code review tool to interact with Rietveld or Gerrit. Use git cl help for more details and README.git-cl.md.      
 roll-dep: A gclient dependency management tool to submit a dep roll, updating a dependency to a newer revision.     
-There are a lot of git utilities included.        
+There are a lot of git utilities included.  
+## Updating
+depot_tools updates itself automatically when running gclient tool. To disable auto update, set the environment variable DEPOT_TOOLS_UPDATE=0.      
+
+To update package manually, run update_depot_tools.bat on Windows, or ./update_depot_tools on Linux or Mac.   
+
+On Windows only, running gclient will install git and python.         
+
 mac 上跑源码      
 brew install --HEAD ccache      
 To install symlinks for compilers that will automatically use   
