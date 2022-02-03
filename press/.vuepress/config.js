@@ -25,7 +25,6 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
-      ["./guide/worknote.md", "工作日记"],
       ["./guide/softpower.md", "工作软技能"],
       ["./guide/edge.md", "边缘计算"],
       ["./guide/npm.md","每天一个实用npm库"],
