@@ -39,4 +39,5 @@ http://emojihomepage.com/
 ## 其他      
 vscode markdown 实时预览            
 F1 输入markdown,选择Preview to side 
-[github 美化教程](https://zhuanlan.zhihu.com/p/454597068) 	 		      
+[github 美化教程](https://zhuanlan.zhihu.com/p/454597068) 
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome) 	      

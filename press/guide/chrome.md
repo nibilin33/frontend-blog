@@ -1,4 +1,5 @@
 [Chromium源码解读](https://juejin.cn/post/7039850183244382216)
+[深入理解v8](https://blog.appsignal.com/2020/07/01/a-deep-dive-into-v8.html)
 # [Chromium for Mac](https://github.com/chromium/chromium/blob/main/docs/mac_build_instructions.md)
 1. 获取代码
    AppStore Install Xcode   

@@ -29,7 +29,7 @@
 https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers      
 [(上)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-1.md)            
 [(下)中高级前端大厂面试秘籍](https://github.com/xd-tayde/blog/blob/master/interview-3.md)       
- 
+[javascript-exercises](https://www.w3resource.com/javascript-exercises/)    
 ### 运行时的一些概念  
 
 #### 帧  
