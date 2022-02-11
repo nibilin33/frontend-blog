@@ -26,6 +26,7 @@ module.exports = {
   themeConfig: {
     sidebar: [
       ["./guide/softpower.md", "工作软技能"],
+      ["./guide/programmer-english.md", "程序员的英语"],
       ["./guide/edge.md", "边缘计算"],
       ["./guide/graphics.md", "图形学编程"],
       ["./guide/iot.md","IoT"],
