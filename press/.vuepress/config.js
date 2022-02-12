@@ -45,8 +45,7 @@ module.exports = {
       ["./guide/design.md", "设计模式"],
       ["./guide/tool.md","写过的python小工具"],
       ["./guide/solution.md", "记录重构心路思考"],
-      ["./guide/promto.md", "那些年让人难受的BUG"],
-      ["./guide/me.md", "README"]
+      ["./guide/promto.md", "那些年让人难受的BUG"]
     ],
     sidebarDepth: 3,
     displayAllHeaders: true, // 默认值：false
