@@ -25,14 +25,14 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
-      ["./guide/softpower.md", "工作软技能"],
-      ["./guide/programmer-english.md", "程序员的英语"],
+      ["./guide/foreigner.md", "外企面试准备资料"],
+      ["./guide/promto.md", "那些年让人难受的BUG"],
       ["./guide/edge.md", "边缘计算"],
-      ["./guide/graphics.md", "图形学编程"],
       ["./guide/iot.md","IoT"],
       ["./guide/canvas.md","Canvas"],
       ["./guide/webgpu.md","WebGPU"],
       ["./guide/webgl.md", "WebGL"],
+      ["./guide/graphics.md", "图形学编程"],
       ["./guide/npm.md","每天一个实用npm库"],
       ["./guide/wasm.md","WebAssembly"],
       ["./guide/book.md", "读书笔记"],
@@ -45,7 +45,6 @@ module.exports = {
       ["./guide/design.md", "设计模式"],
       ["./guide/tool.md","写过的python小工具"],
       ["./guide/solution.md", "记录重构心路思考"],
-      ["./guide/promto.md", "那些年让人难受的BUG"]
     ],
     sidebarDepth: 3,
     displayAllHeaders: true, // 默认值：false

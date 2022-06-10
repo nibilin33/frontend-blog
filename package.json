@@ -7,7 +7,7 @@
     "dev": "vuepress dev press",
     "build": "vuepress build press && node move.js"
   },
-  "author": "",
+  "author": "nibl",
   "license": "ISC",
   "devDependencies": {
     "shelljs": "^0.8.5",
