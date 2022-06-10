@@ -25,7 +25,7 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
-      ["./guide/foreigner.md", "外企面试准备资料"],
+      ["./guide/foreigner.md", "英语面试资料"],
       ["./guide/promto.md", "那些年让人难受的BUG"],
       ["./guide/edge.md", "边缘计算"],
       ["./guide/iot.md","IoT"],
