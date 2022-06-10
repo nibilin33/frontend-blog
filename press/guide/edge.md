@@ -1,10 +1,12 @@
 # 边缘计算      
 ## 基于边缘计算做个性化SSR渲染
-基于阿里云提供的[边缘计算服务](https://dcdn.console.aliyun.com/?spm=5176.197032.J_3202628160.3.48ae42c4m3qU0z#/edgeRoutine/manage)
+基于阿里云提供的[边缘计算服务](https://dcdn.console.aliyun.com/?spm=5176.197032.J_3202628160.3.48ae42c4m3qU0z#/edgeRoutine/manage)          
 将千人千面变成千人百面，边缘主要优化二次访问的速度             
 ### 边缘侧功能
 1. 提供自定义缓存，根据人群标签缓存页面     
 2. 提供动态回源   
 
 ### FaaS侧功能
-主要是能根据搭建的数据结构输出html          
+主要是能根据搭建的数据结构输出html    
+
+
