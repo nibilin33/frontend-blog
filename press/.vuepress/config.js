@@ -28,7 +28,7 @@ module.exports = {
       ["./guide/foreigner.md", "英语面试资料"],
       ["./guide/promto.md", "那些年让人难受的BUG"],
       ["./guide/edge.md", "边缘计算"],
-      ["./guide/iot.md","IoT"],
+      ["./guide/mini-canvas.md", "小型Canvas框架"],
       ["./guide/canvas.md","Canvas"],
       ["./guide/webgpu.md","WebGPU"],
       ["./guide/webgl.md", "WebGL"],
