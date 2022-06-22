@@ -7,8 +7,18 @@
 3. 根据我简历提到的问了：       
 内存泄漏是什么场景，GC的原理是什么？              
 如果上百个复杂组件要展示如何优化？            
-离线资源包的方案是什么样的？            
-混合H5是如何通信的？    
+离线资源包的方案是什么样的？  
+          
+混合H5是如何通信的？ 
+H5 和 Native 之间通过注入API、URL拦截、全局调用等形式，实现消息通信
+1.注入 API 方式的主要原理：通过 WebView 提供的接口，向 JavaScript 的 Context（window）中注入对象或者方法，让 JavaScript 调用时，直接执行相应的 Native 代码逻辑，达到 JavaScript 调用 Native 的目的。
+
+说白了就是，Native 往 window 对象挂对象或方法，让 H5 可以调 Native 的方法。具体挂的对象或方法是 Native 定义的，比如人家挂了个getName(arg)，H5 调用就是window.getName(arg)，当然调用时可以向 Native 传数据。
+
+2.拦截 url scheme原理：先解释一下 url scheme： url scheme 是一种类似于 url 的链接，是为了方便app直接互相调用设计的，形式和普通的 url 近似，主要区别是 protocol 和 host 一般是自定义的，例如: httpsss://bridge_loaded/url?url=http://ymfe.tech，protocol 是 httpsss，host 则是 bridge_loaded。
+
+拦截 url scheme 的主要流程是：**Web 端通过某种方式（例如 iframe.src）发送 url scheme 请求，之后 Native 拦截到请求并根据 url scheme（包括所带的参数）进行相关操作。 **
+ 
 （前提：我提到H5和native的通信都采用异步方式）就如果想要同步获得native的数据要怎么做？      
 4. 基础知识：
 首屏加载优化？
