@@ -16,3 +16,10 @@ def sq(x):
 
 map(sq,[y for y in range(10)])
 ```
+
+# 爬虫
+一般用requests-html这个库就够了
+## 运用
+### 收集外刊资料
+经常遇到下面烦人的情况
+![电子资料](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/WX20220817-094258@2x.png) 
