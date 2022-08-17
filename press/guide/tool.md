@@ -31,13 +31,17 @@
 ## 爬虫
 一般用requests-html这个库就够了
 ### 收集外刊资料
+
 经常遇到下面烦人的情况
 ![电子资料](https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/WX20220817-094258@2x.png) 
 
 就把公众号里面的内容提取出来转为pdf     
-主要用到上面的库和pdfcrowd这两个库      
-收集到的外刊可以到网盘里看~对考雅思和考研都有帮助~
-链接: https://pan.baidu.com/s/19qnHGcV0Z0EblW4B3y5pCA 提取码: mmie
+主要用到上面的库和pdfcrowd这两个库,代码可以到[python-tool](https://github.com/nibilin33/python-tool/blob/master/html_pdf.py)查看     
+收集到的外刊可以到网盘里看~对考雅思和考研都有帮助~   
+
+<span style="color:#8bb0e8">来源：经济学人# dailychina# insider#</span>          
+[网盘链接](https://pan.baidu.com/s/19qnHGcV0Z0EblW4B3y5pCA) 
+提取码: mmie
 
 ## 项目发布
 
