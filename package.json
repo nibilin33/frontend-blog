@@ -12,5 +12,6 @@
   "devDependencies": {
     "shelljs": "^0.8.5",
     "vuepress": "^1.9.5"
-  }
+  },
+  "engines" : { "node" : "<17.0.0" } 
 }
