@@ -30,3 +30,6 @@ Do you work well under stress or pressure？
 
 08Q：How would your friends or colleagues describe you？
 
+## 备考雅思
+
+
