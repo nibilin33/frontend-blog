@@ -32,4 +32,17 @@ Do you work well under stress or pressure？
 
 ## 备考雅思
 
+<img src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/picture_compress.webp">
+
+用三个月时间学习英语，通过雅思考试      
+具体备考资料[详见](https://github.com/nibilin33/IELTS)      
+
+### 学习安排              
+网络上那些极限备考方法不大适合已经工作的人，我也不相信那些所谓的捷径              
+1. 花半个月时间，找回应试的能力，基础学习，单词，语法，翻译练习    
+2. 口语有题库，但是不要背，找个外教把题目都练一遍，然后写作推荐用Pitaya软件批改       
+3. 听力和阅读刷真题就够了，刷多了自然摸到套路       
+4. 单词每天都要背，推荐用anti软件
+5. 最后一个月每天练习限时写作限时阅读                  
+
 
