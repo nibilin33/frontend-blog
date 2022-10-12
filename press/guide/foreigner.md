@@ -34,7 +34,7 @@ Do you work well under stress or pressure？
 
 <img src="https://github.com/nibilin33/frontend-blog/raw/master/press/guide/img/picture_compress.webp">
 
-用三个月时间学习英语，通过雅思考试      
+用三个月时间学习英语，通过雅思考试，取得7.0的成绩，一次就和雅思分手~~                           
 具体备考资料[详见](https://github.com/nibilin33/IELTS)      
 
 ### 学习安排              
