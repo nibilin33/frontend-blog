@@ -46,7 +46,7 @@ Do you work well under stress or pressure？
 4. 单词每天都要背，推荐用anti软件
 5. 最后一个月每天练习限时写作限时阅读  
 6. 考前两周上淘宝买当月的真题预测，小1百块，命中概率还行，就是看你记不记得住了（ps:本人考场上就想起了一个=-=）     
-7.                                      
+                                     
 ## 推荐看的英文版技术电子书         
 
 ## 外企面试问题准备清单      
@@ -64,3 +64,6 @@ How to create Class methods (object.prototype)?
 How to inherit an object from another object's prototype?               
 Function references and binding the this keyword to make the this keyword work inside the function body, i.e. in an oncl1ck event.          
 Does Javascript pass by value or by reference?              
+
+## 找工作过程归档        
+[知乎小文](https://zhuanlan.zhihu.com/p/586107939)      
