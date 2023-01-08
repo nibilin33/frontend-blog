@@ -26,6 +26,8 @@ module.exports = {
   themeConfig: {
     sidebar: [
       ["./guide/foreigner.md", "英语面试资料"],
+      ["./guide/cross.md", "跨平台"],
+      ["./guide/micro.md", "微前端那点事"],
       ["./guide/promto.md", "那些年让人难受的BUG"],
       ["./guide/vscode.md", "vscode插件开发"],
       ["./guide/edge.md", "边缘计算"],
