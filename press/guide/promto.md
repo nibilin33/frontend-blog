@@ -1,3 +1,56 @@
+## 优化多端组件开发
+管理端项目需要做移动端适配，当前移动端适配除了尺寸的差异，还有交互上的差异
+之前的做法通过变量去切换组件        
+```js
+if mobile return <xx>
+else return <yy>
+```
+基于本能地想改，我是觉得很明显地能看到发展下去的尽头        
+1. 两个组件逻辑没有复用，有改动会出现遗漏，维护性较差               
+2. bundle 体积会较大     
+### 解决方案
+1. 解耦状态和行为管理 
+```js
+function NavBar(props) {
+  const state = useNav(props); // State
+  const clickProps = useClick(props,state); // Behavior
+  const styleProps = useStyleProps(props); // Model
+  return  <div {...styleProps} {...clickProps}> //View
+    </div>
+}
+```     
+2. 目录规范
+```js
+.
+└── navbar   # 组件名
+    ├── hooks
+    │   ├── actions.ts
+    │   └── style.ts
+    ├── index.tsx # 导出，切换逻辑（插件动态生成入口）
+    ├── mobile # mobile 内容对接
+    │   └── index.tsx
+    └── pc # pc 内容对接
+        └── index.tsx
+```   
+3. 打包优化         
+- 3.1 同一个域名可以根据accept 头返回不同端的内容                
+构建出index.mobile.html, index.html            
+vite-plugin-html + 根据buildMode 生成对应的index.tsx             
+- 3.2. 额外脚本根据viewport动态切换组件                       
+vite插件，识别标识符，增加runtime                         
+web-component 方式，内部吃掉切换逻辑，全局使用                    
+有点类似noscript效果，
+```js
+<noscript>Your browser does not support JavaScript!</noscript>
+```        
+但是在不支持g-mobile就直接显示里面的内容了          
+```js
+暴露componentName，内部去根据规则去加载切换
+<g-mobile
+  componentName="">
+   xx not support , xxx
+</g-mobile>
+```
 ## 内嵌web加载慢  
 优化的核心是让服务端的资源能够本地化   
 **方案一：PWA**   
