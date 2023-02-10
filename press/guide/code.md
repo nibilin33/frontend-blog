@@ -572,5 +572,31 @@ Greeting.propTypes = {
 当子元素拥有 key 时，React 使用 key 来匹配原有树上的子元素以及最新树上的子元素    
 
 
+### Hook
+#### 状态hook
+state 挂载fiber 的 memoizedState
+hook.next = 下一个hook
+#### 副作用hook
+对应生命周期的时候会创建Effect挂载到hook.memoizedState上
+```js
+  hook.memoizedState = pushEffect(
+    HookHasEffect | hookFlags, // hookFlags用于创建effect
+    create,
+    undefined,
+    nextDeps,
+  );
+```
 
+### React Context 原理
+Context的实现思路:        
+在消费状态时,ContextConsumer节点调用readContext(MyContext)获取最新状态.     
+在更新状态时, 由ContextProvider节点负责查找所有ContextConsumer节点, 并设置消费节点的父路径上所有节点的fiber.childLanes,         
+保证消费节点可以得到更新.         
+createContext核心逻辑:        
+其初始值保存在context._currentValue(同时保存到context._currentValue2. 保存 2 个 value 是为了支持多个渲染器并发渲染)         
+同时创建了context.Provider, context.Consumer2 个reactElement对象.     
 
+### React 合成事件
+监听原生事件: 对齐DOM元素和fiber元素      
+收集listeners: 遍历fiber树, 收集所有监听本事件的listener函数.       
+派发合成事件: 构造合成事件, 遍历listeners进行派发.        
