@@ -595,7 +595,22 @@ Context的实现思路:
 createContext核心逻辑:        
 其初始值保存在context._currentValue(同时保存到context._currentValue2. 保存 2 个 value 是为了支持多个渲染器并发渲染)         
 同时创建了context.Provider, context.Consumer2 个reactElement对象.     
-
+```js
+//作为支持多个并发渲染器的解决方法，我们将一些渲染器分类为主要渲染器，将其他渲染器分类为辅助渲染器。    
+    // As a workaround to support multiple concurrent renderers, we categorize    
+    // some renderers as primary and others as secondary.   
+    
+    //我们只希望最多有两个并发渲染器：React Native（主要）和Fabric（次要）;    
+    // React DOM（主要）和React ART（次要）。    
+    // 辅助渲染器将自己的context的value存储在单独的字段中。    
+    // We only expect    
+    // there to be two concurrent renderers at most: React Native (primary) and    
+    // Fabric (secondary); React DOM (primary) and React ART (secondary).   
+    // Secondary renderers store their context values on separate fields. 
+    
+    //<Provider value={xxx}>中的value就是赋值给_currentValue的    
+    //也就是说_currentValue和_currentValue2作用是一样的，只是分别给主渲染器和辅助渲染器使用
+```
 ### React 合成事件
 监听原生事件: 对齐DOM元素和fiber元素      
 收集listeners: 遍历fiber树, 收集所有监听本事件的listener函数.       

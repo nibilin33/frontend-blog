@@ -67,6 +67,6 @@
 任何有规律的运动都是数学函数的呈现                      
 让元素抛物线运行，套用抛物线函数即可。公式如下：        
 y = a*x*x + b*x + c   
-          
+角度与弧度的js表达式:radians(弧度)=(deg*Math.PI/180)                
 # Books     
 [html5-canvas-cookbook](https://media.oiipdf.com/pdf/95bf5f2c-934a-49f5-84c6-8f3fa772b04f.pdf)          
