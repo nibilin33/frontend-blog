@@ -1,4 +1,5 @@
-## 引入微前端背景   
+## Web 端
+### 引入微前端背景   
 完成整个项目重构周期太长，需要阶段性成果的输出  
 ### 技术选型过程
 [module federation & qiankun](https://nibl.yuque.com/org-wiki-nibl-tazdnd/oq0d5h/klketfqf7a77i1vy?singleDoc#)
@@ -12,7 +13,7 @@
 2. 文件拆得比较小，就也没用上GZIP      
 
 
-## [技术分享PPT](https://nibilin33.github.io/frontend-blog/micro-frontend/#0)
+### [技术分享PPT](https://nibilin33.github.io/frontend-blog/micro-frontend/#0)
 
 <iframe  
  height=450 
@@ -21,3 +22,7 @@
  frameborder=0  
  allowfullscreen>
  </iframe>
+
+ ## 小程序
+[知乎小文](https://zhuanlan.zhihu.com/p/618589228)  
+### 技术分享PPT
