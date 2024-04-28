@@ -9,8 +9,6 @@ features:
   details: 记录日常所得 
 - title: For Me
   details: O(∩_∩)O nibilin33@gmail.com
-- title: For Interview
-  details: https://nibilin33.github.io/nibl-resume/
-footer: Copyright © 2019-present
-
+- title: 知乎小文
+  details: https://www.zhihu.com/people/nibl/posts
 ---
