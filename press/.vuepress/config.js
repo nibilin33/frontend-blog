@@ -25,11 +25,11 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
+      ["./guide/微信小程序性能优化.md", "微信小程序性能优化"],
       ["./guide/Uniapp微应用方案.md", "Uniapp微应用方案"],
       ["./guide/Uniapp渐进式迁移.md", "Uniapp渐进式迁移"],
       ["./guide/Uniapp构建提速.md", "Uniapp构建提速"],
       ["./guide/前端测试覆盖率.md", "前端测试覆盖率"],
-      ["./guide/微信小程序性能优化.md", "微信小程序性能优化"],
       ["./guide/micro.md", "微前端那点事"],
       ["./guide/promto.md", "那些年让人难受的BUG"],
       // ["./guide/edge.md", "边缘计算"],
