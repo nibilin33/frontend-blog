@@ -25,6 +25,7 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
+      ["./guide/微信小程序性能优化.md", "微信小程序性能优化"],
       ["./guide/Uniapp微应用方案.md", "Uniapp微应用方案"],
       ["./guide/Uniapp渐进式迁移.md", "Uniapp渐进式迁移"],
       ["./guide/Uniapp构建提速.md", "Uniapp构建提速"],
