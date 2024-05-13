@@ -29,6 +29,7 @@ module.exports = {
       ["./guide/Uniapp微应用方案.md", "Uniapp微应用方案"],
       ["./guide/Uniapp渐进式迁移.md", "Uniapp渐进式迁移"],
       ["./guide/Uniapp构建提速.md", "Uniapp构建提速"],
+      ["./guide/素材合成服务.md", "素材合成服务"],
       ["./guide/前端测试覆盖率.md", "前端测试覆盖率"],
       ["./guide/micro.md", "微前端那点事"],
       ["./guide/promto.md", "那些年让人难受的BUG"],
