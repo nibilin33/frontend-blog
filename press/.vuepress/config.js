@@ -30,6 +30,7 @@ module.exports = {
       ["./guide/Uniapp渐进式迁移.md", "Uniapp渐进式迁移"],
       ["./guide/Uniapp构建提速.md", "Uniapp构建提速"],
       ["./guide/分支管理规范CI部署优化.md", "分支管理规范CI部署优化"],
+      ["./guide/基于行为驱动的自动化测试.md", "基于行为驱动的自动化测试"],
       ["./guide/素材合成服务.md", "素材合成服务"],
       ["./guide/前端测试覆盖率.md", "前端测试覆盖率"],
       ["./guide/micro.md", "微前端那点事"],
